@@ -13,7 +13,7 @@ SliderDelegate::SliderDelegate(int min, int max, int step, QObject *parent)
 
 }
 
-auto SliderDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget*
+auto SliderDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QWidget*
 {
     QSlider* editor = new QSlider(Qt::Horizontal, parent);
     editor->setRange(min, max);
@@ -45,7 +45,7 @@ auto SliderDelegate::paint(QPainter *painter, const QStyleOptionViewItem& option
     rect.setWidth(width);
     QColor color;
 
-    switch (value){
+    switch (value) {
     case 0 ... 19:
         color = Qt::red;
         break;

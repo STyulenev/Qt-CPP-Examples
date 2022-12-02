@@ -20,13 +20,13 @@ auto LineEditDelegate::createEditor(QWidget* parent, const QStyleOptionViewItem&
 auto LineEditDelegate::setEditorData(QWidget* editor, const QModelIndex& index) const -> void
 {
     QString text = index.data().toString();
-    QLineEdit* lineEdit = static_cast<QLineEdit*>(editor);
+    QLineEdit* lineEdit = qobject_cast<QLineEdit*>(editor);
     lineEdit->setText(index.data().toString());
 }
 
 auto LineEditDelegate::setModelData(QWidget* editor, QAbstractItemModel* model, const QModelIndex& index) const -> void
 {
-    QLineEdit* lineEdit = static_cast<QLineEdit*>(editor);
+    QLineEdit* lineEdit = qobject_cast<QLineEdit*>(editor);
     QString text = lineEdit->text();
     model->setData(index, text, Qt::EditRole);
 }

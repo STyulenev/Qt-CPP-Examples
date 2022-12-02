@@ -1,19 +1,23 @@
 #pragma once
 
-#include <QItemDelegate>
+#include <QStyledItemDelegate>
 
-namespace SimpleDelegates {
+namespace StyledDelegates {
 
-class TimeBoxDelegate : public QItemDelegate
+class CheckBoxDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
-public:
-    TimeBoxDelegate(QObject* parent = nullptr);
 
+public:
+    CheckBoxDelegate(QObject* parent = nullptr);
+
+public:
     auto createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget* override;
     auto setEditorData(QWidget* editor, const QModelIndex& index) const -> void override;
     auto setModelData(QWidget* editor, QAbstractItemModel* model, const QModelIndex& index) const -> void override;
+    auto paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void override;
     auto updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void override;
 };
 
-} // namespace SimpleDelegates
+} // namespace StyledDelegates
+

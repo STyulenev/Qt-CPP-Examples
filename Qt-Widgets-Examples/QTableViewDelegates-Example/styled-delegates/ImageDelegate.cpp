@@ -3,7 +3,7 @@
 namespace StyledDelegates {
 
 ImageDelegate::ImageDelegate(QObject* parent)
-    : QItemDelegate(parent)
+    : QStyledItemDelegate(parent)
 {
 
 }

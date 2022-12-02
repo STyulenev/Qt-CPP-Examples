@@ -8,7 +8,7 @@ class LineEditDelegate : public QItemDelegate
 {
     Q_OBJECT
 public:
-    LineEditDelegate(QObject* parent = 0);
+    LineEditDelegate(QObject* parent = nullptr);
 
     auto createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget* override;
     auto setEditorData(QWidget* editor, const QModelIndex& index) const -> void override;

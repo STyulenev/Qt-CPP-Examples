@@ -8,7 +8,7 @@ class SpinBoxDelegate : public QItemDelegate
 {
     Q_OBJECT
 public:
-    SpinBoxDelegate(int min = 0, int max = 100, int step = 1, QObject* parent = 0);
+    SpinBoxDelegate(int min = 0, int max = 100, int step = 1, QObject* parent = nullptr);
 
     auto setRange(int min, int max) -> void;
 

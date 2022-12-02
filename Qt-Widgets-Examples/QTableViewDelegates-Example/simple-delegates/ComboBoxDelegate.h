@@ -8,7 +8,7 @@ class ComboBoxDelegate : public QItemDelegate
 {
     Q_OBJECT
 public:
-    ComboBoxDelegate(QStringList items, QObject* parent = 0);
+    ComboBoxDelegate(QStringList items, QObject* parent = nullptr);
 
     auto setItems(QStringList items) -> void;
 
@@ -18,7 +18,7 @@ public:
     auto updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void override;
 
 private:
-    QStringList m_sItemList;
+    QStringList items;
 };
 
 } // namespace SimpleDelegates

@@ -22,13 +22,13 @@ auto DateBoxDelegate::setEditorData(QWidget* editor, const QModelIndex &index) c
 {
     QString str = index.model()->data(index).toString();
 
-    QDateEdit* pDate = static_cast<QDateEdit*>(editor);
+    QDateEdit* pDate = qobject_cast<QDateEdit*>(editor);
     pDate->setDate(QDate::fromString(str,"yyyy-MM-dd"));
 }
 
 auto DateBoxDelegate::setModelData(QWidget* editor, QAbstractItemModel* model, const QModelIndex& index) const -> void
 {
-    QDateEdit* pDate = static_cast<QDateEdit*>(editor);
+    QDateEdit* pDate = qobject_cast<QDateEdit*>(editor);
     QString str = pDate->date().toString("yyyy-MM-dd");
     model->setData(index,str);
 }

@@ -19,6 +19,7 @@
 // Styled delegates
 #include <styled-delegates/ImageDelegate.h>
 #include <styled-delegates/SliderDelegate.h>
+#include <styled-delegates/CheckBoxDelegate.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

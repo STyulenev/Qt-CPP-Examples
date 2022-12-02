@@ -1,7 +1,7 @@
 #pragma once
 
  // https://qtcentre.org/threads/18633-Images-QTableview-Delegates
-//#include <QAbstractItemDelegate>
+#include <QStyledItemDelegate>
 #include <QSize>
 #include <QPixmap>
 #include <QPainter>
@@ -12,10 +12,10 @@
  
 namespace StyledDelegates {
 
-class ImageDelegate : public QItemDelegate//QAbstractItemDelegate
+class ImageDelegate : public QStyledItemDelegate
 {
 public:
-	ImageDelegate(QObject * parent = 0);
+    ImageDelegate(QObject * parent = nullptr);
  
     auto createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget* override;
     auto paint(QPainter * painter, const QStyleOptionViewItem & option, const QModelIndex & index) const -> void override;

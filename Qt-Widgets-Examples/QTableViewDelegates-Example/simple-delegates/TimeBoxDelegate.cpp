@@ -12,7 +12,7 @@ TimeBoxDelegate::TimeBoxDelegate(QObject* parent) :
 
 auto TimeBoxDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QWidget*
 {
-    QTimeEdit *editor = new QTimeEdit(parent);
+    QTimeEdit* editor = new QTimeEdit(parent);
     editor->setDisplayFormat("hh:mm:ss");
     editor->setCalendarPopup(true);
     return editor;
@@ -20,13 +20,13 @@ auto TimeBoxDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QStyl
 
 auto TimeBoxDelegate::setEditorData(QWidget* editor,const QModelIndex &index) const -> void
 {
-    QTimeEdit* pTime = static_cast<QTimeEdit*>(editor);
+    QTimeEdit* pTime = qobject_cast<QTimeEdit*>(editor);
     pTime->setTime(index.model()->data(index).toTime());
 }
 
 auto TimeBoxDelegate::setModelData(QWidget* editor, QAbstractItemModel* model, const QModelIndex &index) const -> void
 {
-    QTimeEdit* pTime = static_cast<QTimeEdit*>(editor);
+    QTimeEdit* pTime = qobject_cast<QTimeEdit*>(editor);
     QString str = pTime->time().toString("hh:mm:ss");
     model->setData(index,str);
 }

@@ -31,18 +31,21 @@ TableViewModelForSimpleDelegates::~TableViewModelForSimpleDelegates()
 
 }
 
-int TableViewModelForSimpleDelegates::columnCount([[maybe_unused]] const QModelIndex& index) const
+auto TableViewModelForSimpleDelegates::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
     return 8;
 }
 
-int TableViewModelForSimpleDelegates::rowCount([[maybe_unused]] const QModelIndex& index) const
+auto TableViewModelForSimpleDelegates::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
     return model.length();
 }
 
-QVariant TableViewModelForSimpleDelegates::data(const QModelIndex& index, int role) const
+auto TableViewModelForSimpleDelegates::data(const QModelIndex& index, int role) const -> QVariant
 {
+    if (role ==Qt::TextAlignmentRole)
+        return Qt::AlignCenter;
+
     if (role == Qt::DisplayRole) {
         switch (index.column()) {
         case 0: return model.at(index.row()).line_0;
@@ -60,12 +63,12 @@ QVariant TableViewModelForSimpleDelegates::data(const QModelIndex& index, int ro
     return QVariant();
 }
 
-Qt::ItemFlags TableViewModelForSimpleDelegates::flags(const QModelIndex& index) const
+auto TableViewModelForSimpleDelegates::flags(const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
 }
 
-QVariant TableViewModelForSimpleDelegates::headerData(int section, Qt::Orientation orientation, int role) const
+auto TableViewModelForSimpleDelegates::headerData(int section, Qt::Orientation orientation, int role) const -> QVariant
 {
     if (role == Qt::DisplayRole ) {
         if (orientation == Qt::Horizontal) {
@@ -88,7 +91,7 @@ QVariant TableViewModelForSimpleDelegates::headerData(int section, Qt::Orientati
     return QVariant();
 }
 
-bool TableViewModelForSimpleDelegates::setData(const QModelIndex& index, const QVariant& value, int role)
+auto TableViewModelForSimpleDelegates::setData(const QModelIndex& index, const QVariant& value, int role) -> bool
 {
     if (role == Qt::EditRole) {
         switch (index.column()) {

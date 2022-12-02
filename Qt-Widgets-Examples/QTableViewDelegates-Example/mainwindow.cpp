@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
 
         ui->tableView_2->setItemDelegateForColumn(0, new StyledDelegates::SliderDelegate());
         ui->tableView_2->setItemDelegateForColumn(1, new StyledDelegates::ImageDelegate());
+        ui->tableView_2->setItemDelegateForColumn(2, new StyledDelegates::CheckBoxDelegate());
 
         ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }

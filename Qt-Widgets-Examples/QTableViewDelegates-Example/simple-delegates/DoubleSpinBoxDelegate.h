@@ -8,7 +8,7 @@ class DoubleSpinBoxDelegate : public QItemDelegate
 {
     Q_OBJECT
 public:
-    DoubleSpinBoxDelegate(double min = 0.0, double max = 100.0, double step = 0.01, QObject* parent = 0);
+    DoubleSpinBoxDelegate(double min = 0.0, double max = 100.0, double step = 0.01, QObject* parent = nullptr);
 
     auto setRange(double min, double max) -> void;
 
