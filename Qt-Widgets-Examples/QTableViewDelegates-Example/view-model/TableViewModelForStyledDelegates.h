@@ -4,13 +4,13 @@
 
 namespace ViewModels {
 
-struct TestModelSimple;
+struct TestModelStyled;
 
-class TableViewModelForSimpleDelegates : public QAbstractTableModel
+class TableViewModelForStyledDelegates : public QAbstractTableModel
 {
 public:
-    explicit TableViewModelForSimpleDelegates(QObject* parent = 0);
-    virtual ~TableViewModelForSimpleDelegates();
+    explicit TableViewModelForStyledDelegates(QObject* parent = 0);
+    virtual ~TableViewModelForStyledDelegates();
 
     int columnCount(const QModelIndex& parent) const override;
     int rowCount(const QModelIndex& parent) const override;
@@ -20,7 +20,7 @@ public:
     bool setData(const QModelIndex& index, const QVariant& value, int role) override;
 
 private:
-    QList<TestModelSimple> model;
+    QList<TestModelStyled> model;
 
 };
 

@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(ExampleQTableViewDelegates VERSION 0.1 LANGUAGES CXX)
+project(ExampleQTableViewDelegates
+    VERSION 0.1
+    DESCRIPTION "Project with sample delegates for QTableView"
+    LANGUAGES CXX
+)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -16,12 +20,16 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 set(PROJECT_SOURCES
     main.cpp
+
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+
+    res.qrc
 )
 
 file(GLOB simple-delegates-src "simple-delegates/*.h" "simple-delegates/*.cpp")
+file(GLOB styled-delegates-src "styled-delegates/*.h" "styled-delegates/*.cpp")
 file(GLOB view-model-src "view-model/*.h" "view-model/*.cpp")
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -29,6 +37,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         ${simple-delegates-src}
+        ${styled-delegates-src}
         ${view-model-src}
         )
 endif()

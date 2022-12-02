@@ -27,7 +27,6 @@ auto ComboBoxDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QSty
 auto ComboBoxDelegate::setEditorData(QWidget* editor,const QModelIndex& index) const -> void
 {
     QString str = index.model()->data(index).toString();
-
     QComboBox* box = static_cast<QComboBox*>(editor);
     int i = box->findText(str);
     box->setCurrentIndex(i);
