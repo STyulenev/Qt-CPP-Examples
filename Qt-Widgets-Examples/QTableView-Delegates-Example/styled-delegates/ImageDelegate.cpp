@@ -1,5 +1,7 @@
 #include "ImageDelegate.h"
 
+#include <QPainter>
+
 namespace StyledDelegates {
 
 ImageDelegate::ImageDelegate(QObject* parent)
@@ -8,9 +10,9 @@ ImageDelegate::ImageDelegate(QObject* parent)
 
 }
 
-auto ImageDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const -> QWidget*
+auto ImageDelegate::createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget*
 {
-    return NULL;
+    return nullptr;
 }
 
 auto ImageDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const -> QSize

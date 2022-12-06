@@ -3,23 +3,23 @@
 #include <QMainWindow>
 
 // View models
-#include <view-model/TableViewModelForSimpleDelegates.h>
-#include <view-model/TableViewModelForStyledDelegates.h>
+#include <TableViewModelForSimpleDelegates.h>
+#include <TableViewModelForStyledDelegates.h>
 
 // Simple delegates
-#include <simple-delegates/ComboBoxDelegate.h>
-#include <simple-delegates/DateBoxDelegate.h>
-#include <simple-delegates/DoubleSpinBoxDelegate.h>
-#include <simple-delegates/LineEditDelegate.h>
-#include <simple-delegates/ReadOnlyDelegate.h>
-#include <simple-delegates/SpinBoxDelegate.h>
-#include <simple-delegates/TimeBoxDelegate.h>
-#include <simple-delegates/SliderDelegate.h>
+#include <ComboBoxDelegate.h>
+#include <DateBoxDelegate.h>
+#include <DoubleSpinBoxDelegate.h>
+#include <LineEditDelegate.h>
+#include <ReadOnlyDelegate.h>
+#include <SpinBoxDelegate.h>
+#include <TimeBoxDelegate.h>
+#include <SliderDelegate.h>
 
 // Styled delegates
-#include <styled-delegates/ImageDelegate.h>
-#include <styled-delegates/SliderDelegate.h>
-#include <styled-delegates/CheckBoxDelegate.h>
+#include <ImageDelegate.h>
+#include <StyledSliderDelegate.h>
+#include <CheckBoxDelegate.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
