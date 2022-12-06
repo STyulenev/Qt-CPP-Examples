@@ -29,14 +29,14 @@ set(PROJECT_SOURCES
 file(GLOB view-model-src "view-model/*.h" "view-model/*.cpp")
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(QTableView-QSqlQueryModel-Example
+    qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         ${view-model-src}
     )
 endif()
 
-target_link_libraries(QTableView-QSqlQueryModel-Example PRIVATE
+target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Sql
 )

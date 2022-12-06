@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
         proxyModel->setStatus(ProxyModels::ProxyModel::Status::FALSE);
     });
 
-    ui->tableView->setSortingEnabled(true); // разрешает сортировку по нажатию на заголовок
+    ui->tableView->setSortingEnabled(true);
     ui->tableView->sortByColumn(0, Qt::SortOrder::AscendingOrder);
 
     connect(ui->checkBox_id, &QCheckBox::toggled, [this](bool checked) -> void { // скрывает id колонку
@@ -51,7 +51,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_tableView_customContextMenuRequested(const QPoint& pos)
+auto MainWindow::on_tableView_customContextMenuRequested(const QPoint& pos) -> void
 {
     auto index = ui->tableView->indexAt(pos);
 

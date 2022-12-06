@@ -109,14 +109,14 @@
          <item>
           <widget class="QRadioButton" name="radioButton_true">
            <property name="text">
-            <string>True</string>
+            <string>Only True</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QRadioButton" name="radioButton_false">
            <property name="text">
-            <string>False</string>
+            <string>Only False</string>
            </property>
           </widget>
          </item>

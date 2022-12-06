@@ -10,8 +10,8 @@ class ProxyModel : public QSortFilterProxyModel
 
 public:
     ProxyModel(QObject* parent = 0);
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const;
+    auto filterAcceptsRow(int source_row, const QModelIndex& source_parent) const -> bool;
+    auto headerData(int section, Qt::Orientation orientation, int role) const -> QVariant;
 
     enum Status {
         ALL = 0,
@@ -20,10 +20,10 @@ public:
     };
 
 public slots:
-    void setMinId(int minId);
-    void setMaxId(int maxId);
-    void setName(const QString& name);
-    void setStatus(const Status status);
+    auto setMinId(int minId) -> void;
+    auto setMaxId(int maxId) -> void;
+    auto setName(const QString& name) -> void;
+    auto setStatus(const Status status) -> void;
 
 private:
     int     m_minId;
