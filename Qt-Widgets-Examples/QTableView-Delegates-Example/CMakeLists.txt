@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(ExampleQTableViewDelegates
+project(QTableView-Delegates-Example
     VERSION 0.1
     DESCRIPTION "Project with sample delegates for QTableView"
     LANGUAGES CXX
