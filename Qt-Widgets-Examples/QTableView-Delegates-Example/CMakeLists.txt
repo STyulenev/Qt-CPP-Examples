@@ -28,19 +28,23 @@ set(PROJECT_SOURCES
     res.qrc
 )
 
-file(GLOB simple-delegates-src "simple-delegates/*.h" "simple-delegates/*.cpp")
-file(GLOB styled-delegates-src "styled-delegates/*.h" "styled-delegates/*.cpp")
-file(GLOB view-model-src "view-model/*.h" "view-model/*.cpp")
+add_subdirectory(custom-widgets) 
+add_subdirectory(custom-delegates) 
+add_subdirectory(simple-delegates) 
+add_subdirectory(styled-delegates)
+add_subdirectory(view-model)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(ExampleQTableViewDelegates
+    qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        ${simple-delegates-src}
-        ${styled-delegates-src}
-        ${view-model-src}
         )
 endif()
 
-target_link_libraries(ExampleQTableViewDelegates PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(${PROJECT_NAME} PUBLIC
+	Custom-delegates
+	Simple-delegates
+	Styled-delegates
+	View-models
+)
 

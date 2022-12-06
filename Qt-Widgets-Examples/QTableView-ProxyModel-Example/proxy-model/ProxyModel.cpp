@@ -2,7 +2,7 @@
 
 namespace ProxyModels {
 
-ProxyModel::ProxyModel(QObject *parent)
+ProxyModel::ProxyModel(QObject* parent)
     : QSortFilterProxyModel(parent),
       m_minId(0),
       m_maxId(99),
@@ -11,7 +11,7 @@ ProxyModel::ProxyModel(QObject *parent)
 
 }
 
-void ProxyModel::setMinId(int minId)
+auto ProxyModel::setMinId(int minId) -> void
 {
     if (m_minId != minId)
         m_minId = minId;
@@ -19,7 +19,7 @@ void ProxyModel::setMinId(int minId)
     invalidateFilter();
 }
 
-void ProxyModel::setMaxId(int maxId)
+auto ProxyModel::setMaxId(int maxId) -> void
 {
     if (m_maxId != maxId)
         m_maxId = maxId;
@@ -27,7 +27,7 @@ void ProxyModel::setMaxId(int maxId)
     invalidateFilter();
 }
 
-void ProxyModel::setName(const QString &name)
+auto ProxyModel::setName(const QString& name) -> void
 {
     if (m_name != name)
         m_name = name;
@@ -35,7 +35,7 @@ void ProxyModel::setName(const QString &name)
     invalidateFilter();
 }
 
-void ProxyModel::setStatus(const Status status)
+auto ProxyModel::setStatus(const Status status) -> void
 {
     if (m_status != status)
         m_status = status;
@@ -43,7 +43,7 @@ void ProxyModel::setStatus(const Status status)
     invalidateFilter();
 }
 
-bool ProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const
+auto ProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const -> bool
 {
     const QModelIndex indMinId  = sourceModel()->index(source_row, 0, source_parent);
     const QModelIndex indMaxId  = sourceModel()->index(source_row, 0, source_parent);
@@ -64,15 +64,14 @@ bool ProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_pare
     }
 
     if (sourceModel()->data(indMinId).toInt() < m_minId || sourceModel()->data(indMaxId).toInt() > m_maxId
-            || !sourceModel()->data(indName).toString().startsWith(m_name, Qt::CaseInsensitive)
-            || status) {
+            || !sourceModel()->data(indName).toString().startsWith(m_name, Qt::CaseInsensitive) || status) {
         return false;
     }
 
     return true;
 }
 
-QVariant ProxyModel::headerData(int section, Qt::Orientation orientation, int role) const
+auto ProxyModel::headerData(int section, Qt::Orientation orientation, int role) const -> QVariant
 {
     return sourceModel()->headerData(section, orientation, role);
 }

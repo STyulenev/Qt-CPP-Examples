@@ -20,21 +20,29 @@ MainWindow::MainWindow(QWidget *parent)
         ui->tableView->setItemDelegateForColumn(5, new SimpleDelegates::DateBoxDelegate());
         ui->tableView->setItemDelegateForColumn(6, new SimpleDelegates::SliderDelegate());
         ui->tableView->setItemDelegateForColumn(7, new SimpleDelegates::ComboBoxDelegate({ "A", "B", "C", "D" }));
+        ui->tableView->setItemDelegateForColumn(8, new SimpleDelegates::MultiLineTextDelegate());
 
         ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
-
 
     { // Styled delegates for tableView
         viewModelStyled = std::make_shared<ViewModels::TableViewModelForStyledDelegates>();
 
         ui->tableView_2->setModel(viewModelStyled.get());
 
-        ui->tableView_2->setItemDelegateForColumn(0, new StyledDelegates::SliderDelegate());
+        ui->tableView_2->setItemDelegateForColumn(0, new StyledDelegates::StyledSliderDelegate());
         ui->tableView_2->setItemDelegateForColumn(1, new StyledDelegates::ImageDelegate());
         ui->tableView_2->setItemDelegateForColumn(2, new StyledDelegates::CheckBoxDelegate());
 
         ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    }
+
+    { // Custom delegates for tableView viewModelCustom;
+        viewModelCustom = std::make_shared<ViewModels::TableViewModelForCustomDelegates>();
+
+        ui->tableView_3->setModel(viewModelCustom.get());
+
+        ui->tableView_3->setItemDelegateForColumn(0, new CustomDelegates::CustomRadioButtonDelegate());
     }
 }
 

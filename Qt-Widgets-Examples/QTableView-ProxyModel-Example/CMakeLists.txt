@@ -30,7 +30,7 @@ file(GLOB view-model-src "view-model/*.h" "view-model/*.cpp")
 file(GLOB proxy-model-src "proxy-model/*.h" "proxy-model/*.cpp")
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(TestSortingTableView
+    qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         ${view-model-src}
@@ -38,4 +38,4 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     )
 endif()
 
-target_link_libraries(TestSortingTableView PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)

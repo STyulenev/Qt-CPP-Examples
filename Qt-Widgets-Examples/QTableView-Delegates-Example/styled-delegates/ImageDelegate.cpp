@@ -1,5 +1,7 @@
 #include "ImageDelegate.h"
 
+#include <QPainter>
+
 namespace StyledDelegates {
 
 ImageDelegate::ImageDelegate(QObject* parent)
@@ -8,9 +10,9 @@ ImageDelegate::ImageDelegate(QObject* parent)
 
 }
 
-auto ImageDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const -> QWidget*
+auto ImageDelegate::createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget*
 {
-    return NULL;
+    return nullptr;
 }
 
 auto ImageDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const -> QSize
@@ -18,7 +20,7 @@ auto ImageDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelInd
     return QSize(32, 32);
 }
 
-void ImageDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const
+auto ImageDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void
 {
     QIcon icon(index.data(Qt::DisplayRole).toString());
     QPixmap outPixmap = icon.pixmap(icon.actualSize(this->sizeHint(option, index)));

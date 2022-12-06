@@ -1,15 +1,7 @@
 #pragma once
 
- // https://qtcentre.org/threads/18633-Images-QTableview-Delegates
 #include <QStyledItemDelegate>
-#include <QSize>
-#include <QPixmap>
-#include <QPainter>
 
-#include <QItemDelegate>
-
-#include <QDebug>
- 
 namespace StyledDelegates {
 
 class ImageDelegate : public QStyledItemDelegate

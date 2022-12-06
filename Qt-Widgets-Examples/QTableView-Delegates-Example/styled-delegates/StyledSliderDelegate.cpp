@@ -1,10 +1,10 @@
-#include "SliderDelegate.h"
+#include "StyledSliderDelegate.h"
 
 #include <QPainter>
 
 namespace StyledDelegates {
 
-SliderDelegate::SliderDelegate(int min, int max, int step, QObject *parent)
+StyledSliderDelegate::StyledSliderDelegate(int min, int max, int step, QObject *parent)
     : QStyledItemDelegate(parent),
       min(min),
       max(max),
@@ -13,7 +13,7 @@ SliderDelegate::SliderDelegate(int min, int max, int step, QObject *parent)
 
 }
 
-auto SliderDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QWidget*
+auto StyledSliderDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QWidget*
 {
     QSlider* editor = new QSlider(Qt::Horizontal, parent);
     editor->setRange(min, max);
@@ -23,20 +23,20 @@ auto SliderDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QStyle
     return editor;
 }
 
-auto SliderDelegate::setEditorData(QWidget* editor, const QModelIndex& index) const -> void
+auto StyledSliderDelegate::setEditorData(QWidget* editor, const QModelIndex& index) const -> void
 {
     QSlider* slider = qobject_cast<QSlider*>(editor);
     const int value = index.model()->data(index).toInt();
     slider->setValue(value);
 }
 
-auto SliderDelegate::setModelData(QWidget* editor, QAbstractItemModel* model, const QModelIndex& index) const -> void
+auto StyledSliderDelegate::setModelData(QWidget* editor, QAbstractItemModel* model, const QModelIndex& index) const -> void
 {
     QSlider* slider = qobject_cast<QSlider*>(editor);
     model->setData(index, slider->value());
 }
 
-auto SliderDelegate::paint(QPainter *painter, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void
+auto StyledSliderDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void
 {
     painter->save();
     QRect rect(option.rect);
@@ -60,7 +60,6 @@ auto SliderDelegate::paint(QPainter *painter, const QStyleOptionViewItem& option
         break;
     default:
         assert(!"bad value");
-        break;
     }
 
     painter->fillRect(rect, color);
@@ -71,7 +70,7 @@ auto SliderDelegate::paint(QPainter *painter, const QStyleOptionViewItem& option
     painter->restore();
 }
 
-auto SliderDelegate::updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> void
+auto StyledSliderDelegate::updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> void
 {
     editor->setGeometry(option.rect);
 }

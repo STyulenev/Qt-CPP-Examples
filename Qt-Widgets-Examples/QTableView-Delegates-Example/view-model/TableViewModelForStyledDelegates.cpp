@@ -41,7 +41,7 @@ auto TableViewModelForStyledDelegates::data(const QModelIndex& index, int role) 
         switch (index.column()) {
         case 0: return model.at(index.row()).line_0;
         case 1: return model.at(index.row()).line_1;
-        case 2 :return model.at(index.row()).line_2 ? Qt::Checked : Qt::Unchecked; //
+        case 2 :return model.at(index.row()).line_2 ? Qt::Checked : Qt::Unchecked;
         [[unlikely]] default: assert(!"Should not get here");
         }
     }
@@ -59,7 +59,7 @@ auto TableViewModelForStyledDelegates::headerData(int section, Qt::Orientation o
     if (role == Qt::DisplayRole ) {
         if (orientation == Qt::Horizontal) {
             switch (section) {
-            case 0: return "Slider";
+            case 0: return "StyledSlider";
             case 1: return "Image";
             case 2: return "CheckBox";
             [[unlikely]] default: assert(!"Should not get here");

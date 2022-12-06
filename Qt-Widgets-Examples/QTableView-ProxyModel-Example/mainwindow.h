@@ -20,7 +20,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_tableView_customContextMenuRequested(const QPoint& pos);
+    auto on_tableView_customContextMenuRequested(const QPoint& pos) -> void;
 
 private:
     Ui::MainWindow* ui;
