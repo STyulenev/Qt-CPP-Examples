@@ -5,6 +5,10 @@
 // View models
 #include <TableViewModelForSimpleDelegates.h>
 #include <TableViewModelForStyledDelegates.h>
+#include <TableViewModelForCustomDelegates.h>
+
+// Custom delegates
+#include <CustomRadioButtonDelegate.h>
 
 // Simple delegates
 #include <ComboBoxDelegate.h>
@@ -38,4 +42,5 @@ private:
     Ui::MainWindow *ui;
     std::shared_ptr<ViewModels::TableViewModelForSimpleDelegates> viewModelSimple;
     std::shared_ptr<ViewModels::TableViewModelForStyledDelegates> viewModelStyled;
+    std::shared_ptr<ViewModels::TableViewModelForCustomDelegates> viewModelCustom;
 };

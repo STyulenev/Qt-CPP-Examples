@@ -28,6 +28,8 @@ set(PROJECT_SOURCES
     res.qrc
 )
 
+add_subdirectory(custom-widgets) 
+add_subdirectory(custom-delegates) 
 add_subdirectory(simple-delegates) 
 add_subdirectory(styled-delegates)
 add_subdirectory(view-model)
@@ -40,6 +42,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
+	Custom-delegates
 	Simple-delegates
 	Styled-delegates
 	View-models

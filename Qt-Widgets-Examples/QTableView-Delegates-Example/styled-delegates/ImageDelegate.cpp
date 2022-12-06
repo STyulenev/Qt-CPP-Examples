@@ -20,7 +20,7 @@ auto ImageDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelInd
     return QSize(32, 32);
 }
 
-void ImageDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const
+auto ImageDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void
 {
     QIcon icon(index.data(Qt::DisplayRole).toString());
     QPixmap outPixmap = icon.pixmap(icon.actualSize(this->sizeHint(option, index)));

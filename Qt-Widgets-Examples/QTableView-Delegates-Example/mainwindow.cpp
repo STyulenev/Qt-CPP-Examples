@@ -36,6 +36,14 @@ MainWindow::MainWindow(QWidget *parent)
 
         ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
+
+    { // Custom delegates for tableView viewModelCustom;
+        viewModelCustom = std::make_shared<ViewModels::TableViewModelForCustomDelegates>();
+
+        ui->tableView_3->setModel(viewModelCustom.get());
+
+        ui->tableView_3->setItemDelegateForColumn(0, new CustomDelegates::CustomRadioButtonDelegate());
+    }
 }
 
 MainWindow::~MainWindow()
