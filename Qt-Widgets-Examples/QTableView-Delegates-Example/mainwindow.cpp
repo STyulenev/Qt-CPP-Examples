@@ -20,10 +20,10 @@ MainWindow::MainWindow(QWidget *parent)
         ui->tableView->setItemDelegateForColumn(5, new SimpleDelegates::DateBoxDelegate());
         ui->tableView->setItemDelegateForColumn(6, new SimpleDelegates::SliderDelegate());
         ui->tableView->setItemDelegateForColumn(7, new SimpleDelegates::ComboBoxDelegate({ "A", "B", "C", "D" }));
+        ui->tableView->setItemDelegateForColumn(8, new SimpleDelegates::MultiLineTextDelegate());
 
         ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
-
 
     { // Styled delegates for tableView
         viewModelStyled = std::make_shared<ViewModels::TableViewModelForStyledDelegates>();

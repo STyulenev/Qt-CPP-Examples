@@ -4,6 +4,9 @@
 #include <QDate>
 
 namespace ViewModels {
+	
+const QString text = "C++ is a high-level general-purpose programming language created by Danish computer "
+        "scientist Bjarne Stroustrup as an extension of the C programming language, or 'C with Classes'.";
 
 struct TestModelSimple {
     int     line_0;
@@ -14,15 +17,16 @@ struct TestModelSimple {
     QDate   line_5;
     int     line_6;
     QString line_7;
+	QString line_8;
 };
 
 TableViewModelForSimpleDelegates::TableViewModelForSimpleDelegates(QObject* parent)
     : QAbstractTableModel(parent)
 {
-    model = { { 1, "string", 12, 12.34, QTime::currentTime(), QDate::currentDate(), 20, "A" },
-              { 2, "string", 15, 34.34, QTime::currentTime(), QDate::currentDate(), 30, "B" },
-              { 3, "string", 35, 45.23, QTime::currentTime(), QDate::currentDate(), 40, "C" },
-              { 4, "string", 23, 123.2, QTime::currentTime(), QDate::currentDate(), 50, "D" }
+    model = { { 1, "string", 12, 12.34, QTime::currentTime(), QDate::currentDate(), 20, "A", text },
+              { 2, "string", 15, 34.34, QTime::currentTime(), QDate::currentDate(), 30, "B", text },
+              { 3, "string", 35, 45.23, QTime::currentTime(), QDate::currentDate(), 40, "C", text },
+              { 4, "string", 23, 123.2, QTime::currentTime(), QDate::currentDate(), 50, "D", text }
             };
 }
 
@@ -33,7 +37,7 @@ TableViewModelForSimpleDelegates::~TableViewModelForSimpleDelegates()
 
 auto TableViewModelForSimpleDelegates::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
-    return 8;
+    return 9;
 }
 
 auto TableViewModelForSimpleDelegates::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
@@ -56,6 +60,7 @@ auto TableViewModelForSimpleDelegates::data(const QModelIndex& index, int role) 
         case 5: return model.at(index.row()).line_5;
         case 6: return model.at(index.row()).line_6;
         case 7: return model.at(index.row()).line_7;
+		case 8: return model.at(index.row()).line_8;
         [[unlikely]] default: assert(!"Should not get here");
         }
     }
@@ -81,6 +86,7 @@ auto TableViewModelForSimpleDelegates::headerData(int section, Qt::Orientation o
             case 5: return "DateEdit";
             case 6: return "Slider";
             case 7: return "ComboBox";
+			case 8: return "MultiLineText";
             [[unlikely]] default: assert(!"Should not get here");
             }
         } else [[likely]] {
@@ -117,6 +123,9 @@ auto TableViewModelForSimpleDelegates::setData(const QModelIndex& index, const Q
             break;
         case 7:
             model[index.row()].line_7 = value.toString();
+            break;
+		case 8:
+            model[index.row()].line_8 = value.toString();
             break;
         }
 

@@ -11,6 +11,7 @@
 #include <DateBoxDelegate.h>
 #include <DoubleSpinBoxDelegate.h>
 #include <LineEditDelegate.h>
+#include <MultiLineTextDelegate.h>
 #include <ReadOnlyDelegate.h>
 #include <SpinBoxDelegate.h>
 #include <TimeBoxDelegate.h>
