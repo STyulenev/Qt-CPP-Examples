@@ -1,9 +1,9 @@
 #include "WidgetWithTwoRadioButtons.h"
 #include "ui_WidgetWithTwoRadioButtons.h"
 
-WidgetWithTwoRadioButtons::WidgetWithTwoRadioButtons(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::WidgetWithTwoRadioButtons)
+WidgetWithTwoRadioButtons::WidgetWithTwoRadioButtons(QWidget *parent)
+    : QWidget(parent),
+      ui(new Ui::WidgetWithTwoRadioButtons)
 {
     ui->setupUi(this);
 }
