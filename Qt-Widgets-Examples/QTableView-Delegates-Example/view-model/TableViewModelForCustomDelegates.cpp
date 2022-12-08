@@ -3,18 +3,19 @@
 namespace ViewModels {
 
 struct TestModelCustom {
-    bool line_0;
+    bool       line_0;
+    QByteArray line_1;
 };
 
 TableViewModelForCustomDelegates::TableViewModelForCustomDelegates(QObject* parent)
     : QAbstractTableModel(parent)
 {
-    model = { { true  },
-              { false },
-              { true  },
-              { true  },
-              { false },
-              { false }
+    model = { { true,  QByteArray() },
+              { false, QByteArray() },
+              { true,  QByteArray() },
+              { true,  QByteArray() },
+              { false, QByteArray() },
+              { false, QByteArray() }
             };
 }
 
@@ -25,7 +26,7 @@ TableViewModelForCustomDelegates::~TableViewModelForCustomDelegates()
 
 auto TableViewModelForCustomDelegates::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
-    return 1;
+    return 2;
 }
 
 auto TableViewModelForCustomDelegates::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
@@ -38,6 +39,7 @@ auto TableViewModelForCustomDelegates::data(const QModelIndex& index, int role) 
     if (role == Qt::DisplayRole) {
         switch (index.column()) {
         case 0: return model.at(index.row()).line_0;
+        case 1: return model.at(index.row()).line_1;
         [[unlikely]] default: assert(!"Should not get here");
         }
     }
@@ -56,6 +58,7 @@ auto TableViewModelForCustomDelegates::headerData(int section, Qt::Orientation o
         if (orientation == Qt::Horizontal) {
             switch (section) {
             case 0: return "RadioButton";
+            case 1: return "FileEdit";
             [[unlikely]] default: assert(!"Should not get here");
             }
         } else [[likely]] {
@@ -72,6 +75,9 @@ auto TableViewModelForCustomDelegates::setData(const QModelIndex& index, const Q
         switch (index.column()) {
         case 0:
             model[index.row()].line_0 = value.toInt();
+            break;
+        case 1:
+            model[index.row()].line_1 = value.toByteArray();
             break;
         }
 

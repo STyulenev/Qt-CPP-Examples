@@ -6,5 +6,6 @@
         <file>res/russia.png</file>
         <file>res/spain.png</file>
         <file>res/united-kingdom.png</file>
+        <file>res/folder.png</file>
     </qresource>
 </RCC>
