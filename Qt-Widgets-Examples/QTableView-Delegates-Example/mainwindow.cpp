@@ -44,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
 
         ui->tableView_3->setItemDelegateForColumn(0, new CustomDelegates::CustomRadioButtonDelegate());
         ui->tableView_3->setItemDelegateForColumn(1, new CustomDelegates::CustomFileEditorDelegate());
+        ui->tableView_3->setItemDelegateForColumn(2, new CustomDelegates::CustomColorEditorDelegate());
 
         ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
@@ -53,4 +54,3 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
