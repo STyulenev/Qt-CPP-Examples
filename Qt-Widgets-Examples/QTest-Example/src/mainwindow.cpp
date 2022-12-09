@@ -12,9 +12,11 @@ MainWindow::MainWindow(QWidget* parent)
     nameValidator = std::make_shared<QRegularExpressionValidator>(QRegularExpression("^[A-Za-z]{10}$"));
     ipAddressValidator = std::make_shared<QRegularExpressionValidator>(
                 QRegularExpression("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"));
+    emailValidator = std::make_shared<QRegularExpressionValidator>(QRegularExpression("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+"));
 
     ui->nameLineEdit->setValidator(nameValidator.get());
     ui->ipAddressLineEdit->setValidator(ipAddressValidator.get());
+    ui->emailLineEdit->setValidator(emailValidator.get());
 }
 
 MainWindow::~MainWindow()

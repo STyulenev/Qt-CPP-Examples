@@ -26,6 +26,7 @@ private:
 
     std::shared_ptr<QRegularExpressionValidator> nameValidator;
     std::shared_ptr<QRegularExpressionValidator> ipAddressValidator;
+    std::shared_ptr<QRegularExpressionValidator> emailValidator;
 
     bool status = false;
 
