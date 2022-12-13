@@ -2,6 +2,9 @@
 
 namespace ProxyModels {
 
+static int count;
+static int sumAge;
+
 ProxyModel::ProxyModel(QObject* parent)
     : QSortFilterProxyModel(parent),
       m_minId(0),
@@ -16,7 +19,12 @@ auto ProxyModel::setMinId(int minId) -> void
     if (m_minId != minId)
         m_minId = minId;
 
+    count = 0;
+    sumAge = 0;
+
     invalidateFilter();
+
+    emit dataReady(count, sumAge);
 }
 
 auto ProxyModel::setMaxId(int maxId) -> void
@@ -24,7 +32,12 @@ auto ProxyModel::setMaxId(int maxId) -> void
     if (m_maxId != maxId)
         m_maxId = maxId;
 
+    count = 0;
+    sumAge = 0;
+
     invalidateFilter();
+
+    emit dataReady(count, sumAge);
 }
 
 auto ProxyModel::setName(const QString& name) -> void
@@ -32,7 +45,12 @@ auto ProxyModel::setName(const QString& name) -> void
     if (m_name != name)
         m_name = name;
 
+    count = 0;
+    sumAge = 0;
+
     invalidateFilter();
+
+    emit dataReady(count, sumAge);
 }
 
 auto ProxyModel::setStatus(const Status status) -> void
@@ -40,7 +58,12 @@ auto ProxyModel::setStatus(const Status status) -> void
     if (m_status != status)
         m_status = status;
 
+    count = 0;
+    sumAge = 0;
+
     invalidateFilter();
+
+    emit dataReady(count, sumAge);
 }
 
 auto ProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const -> bool
@@ -48,6 +71,7 @@ auto ProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_pare
     const QModelIndex indMinId  = sourceModel()->index(source_row, 0, source_parent);
     const QModelIndex indMaxId  = sourceModel()->index(source_row, 0, source_parent);
     const QModelIndex indName   = sourceModel()->index(source_row, 1, source_parent);
+    const QModelIndex indAge    = sourceModel()->index(source_row, 2, source_parent);
     const QModelIndex indStatus = sourceModel()->index(source_row, 3, source_parent);
 
     bool status;
@@ -67,6 +91,9 @@ auto ProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_pare
             || !sourceModel()->data(indName).toString().startsWith(m_name, Qt::CaseInsensitive) || status) {
         return false;
     }
+
+    count++;
+    sumAge += sourceModel()->data(indAge).toInt();
 
     return true;
 }

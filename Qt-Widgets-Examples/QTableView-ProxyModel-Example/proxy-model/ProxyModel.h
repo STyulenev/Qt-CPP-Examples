@@ -25,6 +25,9 @@ public slots:
     auto setName(const QString& name) -> void;
     auto setStatus(const Status status) -> void;
 
+signals:
+    auto dataReady(int count, int sumAge) -> void;
+
 private:
     int     m_minId;
     int     m_maxId;
