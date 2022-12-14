@@ -24,7 +24,7 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE -D_QXORM_EXAMPLE)
 include_directories("C:/Work/CurrentExample/QxOrm-master/include/")
 
 if(COMMAND target_precompile_headers)
-   target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/precompiled.h)
+   target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/Precompiled.h)
 endif() # (COMMAND target_precompile_headers)
 
 

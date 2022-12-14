@@ -1,6 +1,6 @@
 #pragma once
 
-#include "precompiled.h"
+#include "Precompiled.h"
 
 class QXORM_EXAMPLE_DLL_EXPORT Customer
 {
