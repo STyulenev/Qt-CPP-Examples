@@ -7,3 +7,4 @@ project(QxORM-Example-src
 
 add_subdirectory(dao)
 add_subdirectory(entity)
+add_subdirectory(view-model)

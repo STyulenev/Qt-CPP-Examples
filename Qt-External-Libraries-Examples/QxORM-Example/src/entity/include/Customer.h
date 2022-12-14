@@ -1,6 +1,6 @@
 #pragma once
 
-#include "precompiled.h"
+#include "Precompiled.h"
 
 class QXORM_EXAMPLE_DLL_EXPORT Customer
 {
@@ -11,10 +11,8 @@ public:
     QString email;
     int     age;
 
-    // -- contructor, virtual destructor
     Customer() : id(0) { ; }
     virtual ~Customer() { ; }
-
 };
 
 QX_REGISTER_PRIMARY_KEY(Customer, int)
