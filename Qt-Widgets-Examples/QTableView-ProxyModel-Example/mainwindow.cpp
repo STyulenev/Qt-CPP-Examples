@@ -44,6 +44,11 @@ MainWindow::MainWindow(QWidget* parent)
 
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    connect(proxyModel.get(), &ProxyModels::ProxyModel::dataReady, [this](int count, int sumAge) -> void {
+        ui->countValue->setText(QString::number(count));
+        ui->sumAgeValue->setText(QString::number(sumAge));
+    });
 }
 
 MainWindow::~MainWindow()
