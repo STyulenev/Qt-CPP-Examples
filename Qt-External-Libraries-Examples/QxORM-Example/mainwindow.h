@@ -2,7 +2,9 @@
 
 #include <QMainWindow>
 
-#include "dao.h"
+#include <CustomersViewModel.h>
+#include <ProductsViewModel.h>
+#include <OrdersViewModel.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,4 +20,8 @@ public:
 
 private:
     Ui::MainWindow* ui;
+
+    std::shared_ptr<ViewModels::CustomersViewModel> customersViewModel;
+    std::shared_ptr<ViewModels::OrdersViewModel>    ordersViewModel;
+    std::shared_ptr<ViewModels::ProductsViewModel>  productsViewModel;
 };

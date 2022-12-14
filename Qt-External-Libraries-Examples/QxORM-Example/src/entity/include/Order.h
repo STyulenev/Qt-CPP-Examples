@@ -15,13 +15,11 @@ public:
     Customer_ptr customer_id;
     Product_ptr  product_id;
     int quantity;
-    QDate order_data;
+    QDate order_date;
     QTime order_time;
 
-    // -- contructor, virtual destructor
     Order() : id(0) { ; }
     virtual ~Order() { ; }
-
 };
 
 QX_REGISTER_PRIMARY_KEY(Order, int)

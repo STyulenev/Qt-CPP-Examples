@@ -16,6 +16,8 @@ private:
 public:
     static DAO* getConnection();
 
-    auto print() -> void;
+    auto getListOfCustomers() -> ListCustomer;
+    auto getListOfOrders() -> ListOrder;
+    auto getListOfProducts() -> ListProduct;
 };
 

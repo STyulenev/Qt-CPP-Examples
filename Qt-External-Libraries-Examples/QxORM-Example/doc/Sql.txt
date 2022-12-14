@@ -25,8 +25,8 @@ CREATE TABLE Orders
     customer_id INTEGER,
     product_id  INTEGER,
     quantity INTEGER NOT NULL CHECK(quantity > 0),
-    order_data DATE,
-    order_time TIME WITH TIME ZONE,
+    order_date DATE,
+    order_time TIME,
     FOREIGN KEY (customer_id) REFERENCES Customers (id) ON DELETE RESTRICT,
     FOREIGN KEY (product_id) REFERENCES Products (id) ON DELETE RESTRICT
 );

@@ -12,13 +12,12 @@ template <> void register_class(QxClass<Order>& order)
 
     order.id(&Order::id, "id");
 
-    order.data(&Order::quantity, "quantity");
-    order.data(&Order::order_data, "order_data");
+    order.data(&Order::quantity,   "quantity");
+    order.data(&Order::order_date, "order_date");
     order.data(&Order::order_time, "order_time");
 
     order.relationManyToOne(&Order::customer_id, "customer_id");
-    order.relationManyToOne(&Order::product_id, "product_id");
+    order.relationManyToOne(&Order::product_id,  "product_id");
 }
 
 }
-

@@ -10,12 +10,10 @@ public:
     QString product_name;
     QString manufacturer;
     int     product_count;
-    long    price;
+    int     price;
 
-    // -- contructor, virtual destructor
     Product() : id(0) { ; }
     virtual ~Product() { ; }
-
 };
 
 QX_REGISTER_PRIMARY_KEY(Product, int)

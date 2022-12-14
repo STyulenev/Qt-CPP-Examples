@@ -10,12 +10,11 @@ template <> void register_class(QxClass<Product>& product)
 
     product.id(&Product::id, "id");
 
-    product.data(&Product::product_type, "product_type");
-    product.data(&Product::product_name, "product_name");
-    product.data(&Product::manufacturer, "manufacturer");
+    product.data(&Product::product_type,  "product_type");
+    product.data(&Product::product_name,  "product_name");
+    product.data(&Product::manufacturer,  "manufacturer");
     product.data(&Product::product_count, "product_count");
-    product.data(&Product::price, "price");
+    product.data(&Product::price,         "price");
 }
 
 }
-

@@ -17,27 +17,42 @@ DAO* DAO::getConnection()
     return self;
 }
 
-void DAO::print()
+auto DAO::getListOfCustomers() -> ListCustomer
 {
-    /*qx_query query;
-    query.orderAsc("id");
-    QSqlError daoError = qx::dao::fetch_by_query_with_all_relation(query, roles);*/
-
-    /*ListCustomer roles;
+    ListCustomer roles;
     QSqlError daoError = qx::dao::fetch_all_with_relation("*", roles);
 
-    qDebug() << "length = " << roles.length();
+    if (daoError.isValid())
+        qDebug() << daoError.text();
 
-    for (auto&& el : roles) {
+    /*for (auto&& el : roles) {
         qDebug() << el->id << el->firstName << el->lastName << el->email << el->age;
     }*/
 
+    return roles;
+}
 
+auto DAO::getListOfOrders() -> ListOrder
+{
     ListOrder orders;
     QSqlError daoError = qx::dao::fetch_all_with_relation("*", orders);
 
-    for (auto&& el : orders) {
+    /*for (auto&& el : orders) {
         qDebug() << el->id << el->customer_id->firstName << el->product_id->product_name;
-    }
+    }*/
+
+    return orders;
+}
+
+auto DAO::getListOfProducts() -> ListProduct
+{
+    ListProduct products;
+    QSqlError daoError = qx::dao::fetch_all_with_relation("*", products);
+
+    /*for (auto&& el : products) {
+        qDebug() << el->id << el->manufacturer << el->product_type << el->product_name << el->product_count << el->price;
+    }*/
+
+    return products;
 }
 
