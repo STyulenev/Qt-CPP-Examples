@@ -10,7 +10,10 @@ CustomWidget::CustomWidget(QWidget *parent) :
     ui->title->setStyleSheet("font-size: 14px;"
                              "font-family: Verdana, Arial, Helvetica, sans-serif;"
                              "font-weight: bold;"
-                             "color: black;");
+                             "color: black;"
+                             //"background-color: #99FFFF;"
+                             "border: 2px solid black;"
+                             );
 
     ui->description->setStyleSheet("text-align: justify");
 }
