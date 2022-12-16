@@ -56,10 +56,12 @@ auto BoostSequenceContainer::exampleBoostList() -> void
 auto BoostSequenceContainer::exampleBoostDeque() -> void
 {
     boost::container::deque<int> deque;
+    qDebug() << "size = " << deque.size();//<< deque.
     deque.push_back(3);
     deque.push_back(6);
     deque.push_back(4);
     deque.push_front(0);
+    qDebug() << "size = " << deque.size();
 
     for (auto iterator = deque.begin(); iterator != deque.end(); iterator++) {
         qDebug() <<  *iterator;

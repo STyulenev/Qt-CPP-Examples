@@ -1,7 +1,5 @@
 ﻿#include "OrdersViewModel.h"
 
-//#include <QTime>
-
 namespace ViewModels {
 
 OrdersViewModel::OrdersViewModel(QObject* parent)
