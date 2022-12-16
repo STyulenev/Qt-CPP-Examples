@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(QxORM-Example-entity
     VERSION 0.1
-    DESCRIPTION "DAO"
+    DESCRIPTION "Data Access Object"
     LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -23,7 +23,7 @@ include_directories("C:/Work/CurrentExample/QxOrm-master/include/") ## Path to Q
 
 if(COMMAND target_precompile_headers) ## QxORM
    target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/Precompiled.h)
-endif() # (COMMAND target_precompile_headers)
+endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Core

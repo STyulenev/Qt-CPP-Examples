@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QAbstractTableModel>
-#include "dao.h"
+#include <DAO.h>
 
 namespace ViewModels {
 
