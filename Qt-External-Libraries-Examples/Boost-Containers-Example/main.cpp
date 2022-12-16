@@ -10,10 +10,15 @@ auto main(int argc, char* argv[]) -> int
     //BoostSequenceContainer::exampleBoostDeque();
 
     /// Ассоциативные контейнеры
-    BoostAssociativeContainer::exampleBoostSet();
-    BoostAssociativeContainer::exampleBoostMultiSet();
+    //BoostAssociativeContainer::exampleBoostSet();
+    //BoostAssociativeContainer::exampleBoostMultiSet();
     BoostAssociativeContainer::exampleBoostMap();
-    BoostAssociativeContainer::exampleBoostMultiMap();
+    //BoostAssociativeContainer::exampleBoostMultiMap();
+
+    //BoostAssociativeContainer::exampleBoostUnorderedSet();
+    //BoostAssociativeContainer::exampleBoostUnorderedMultiSet();
+    //BoostAssociativeContainer::exampleBoostUnorderedMap();
+    //BoostAssociativeContainer::exampleBoostUnorderedMultiMap();
 
     return 0;
 }
