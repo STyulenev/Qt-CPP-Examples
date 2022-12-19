@@ -24,24 +24,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
-file(GLOB containers-examples-src "containers-examples/include/*.h" "containers-examples/*.cpp")
+add_subdirectory(containers-examples)
 
 add_executable(${PROJECT_NAME}
     main.cpp
-
-    ${containers-examples-src}
 )
 
-set(BOOST_ROOT "C:/boost_1_70_0") # Path to Boost
-
-find_package(Boost 1.70 REQUIRED COMPONENTS ${BOOST_COMPONENTS} REQUIRED)
-
-if(Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIR})
-    target_link_libraries(${PROJECT_NAME} PRIVATE
-        Qt${QT_VERSION_MAJOR}::Core
-        ${Boost_LIBRARIES}
-        )
-else()
-    message(FATAL_ERROR "BOOST NOT FOUND")
-endif ()
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt${QT_VERSION_MAJOR}::Core
+    Containers-examples-lib
+)
