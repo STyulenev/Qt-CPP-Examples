@@ -6,6 +6,11 @@
 #include <boost/container/vector.hpp>
 #include <boost/container/list.hpp>
 #include <boost/container/deque.hpp>
+#include <boost/container/static_vector.hpp>
+#include <boost/container/small_vector.hpp>
+#include <boost/thread/csbl/devector.hpp>
+#include <boost/container/stable_vector.hpp>
+#include <boost/circular_buffer.hpp>
 
 /*!
  * \brief Класс с примерами использования последовательных boost-контейнеров.
@@ -52,5 +57,39 @@ public:
      * 5 - В отличием от vector, deque поддерживает вставку и удаление элементов с постоянным временем в начале последовательности
      */
     static auto exampleBoostDeque() -> void;
+
+    /*!
+     * \brief StaticVector - гибрид Vector + Array
+     * \details Этот контейнер ведет себя как обычный vector, но память у него аллоцирована на стеке под N объектов.
+     */
+    static auto exampleBoostStaticVector() -> void;
+
+    /*!
+     * \brief SmallVector - гибрид static_vector и vector
+     * \details В нем статически отводится память под N объектов, но при переполнении аллоцируется память в куче.
+     *  Этот контейнер хорош, если количество объектов с большой вероятностью не превосходит заранее известное число.
+     */
+    static auto exampleBoostSmallVector() -> void;
+
+    /*!
+     * \brief DeVector - это гибрид vector и deque.
+     * \details В этом контейнере есть быстрая вставка в начало и в конец, как в deque, но при этом сохраняются свойства vector,
+     *  в частности непрерывный участок памяти и условия инвалидации указателей/итераторов.
+     */
+    static auto exampleBoostDeVector() -> void;
+
+    /*!
+     * \brief StableVector - это гибрид vector и list.
+     * \details Там, где у std::vector лежат объекты, у boost::stable_vector вместо них лежит массив со ссылками на node.
+     * node содержит в себе value - сам объект, и up - обратную ссылку на место в массиве, чье значение указывает на node.
+     */
+    static auto exampleBoostStableVector() -> void;
+
+    /*!
+     * \brief CircularBuffer кольцевой массив
+     * \details В C++ его можно реализовать в виде контейнера фиксированной длины N (на стеке или в куче),
+     * где при выходе за границу массива объект создается в начале массива.
+     */
+    static auto exampleBoostCircularBuffer() -> void;
 };
 

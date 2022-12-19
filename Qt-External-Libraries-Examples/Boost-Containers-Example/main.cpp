@@ -9,6 +9,10 @@ auto main(int argc, char* argv[]) -> int
     //BoostSequenceContainer::exampleBoostVector();
     //BoostSequenceContainer::exampleBoostList();
     //BoostSequenceContainer::exampleBoostDeque();
+    //BoostSequenceContainer::exampleBoostSmallVector();
+    BoostSequenceContainer::exampleBoostDeVector();
+    //BoostSequenceContainer::exampleBoostStableVector();
+    //BoostSequenceContainer::exampleBoostCircularBuffer();
 
     /// Ассоциативные контейнеры
     //BoostAssociativeContainer::exampleBoostSet();
@@ -22,10 +26,10 @@ auto main(int argc, char* argv[]) -> int
     //BoostAssociativeContainer::exampleBoostUnorderedMultiMap();
 
     /// Адапторы
-    BoostAdaptorContainer::exampleBoostFlatSet();
-    BoostAdaptorContainer::exampleBoostFlatMultiSet();
-    BoostAdaptorContainer::exampleBoostFlatMap();
-    BoostAdaptorContainer::exampleBoostFlatMultiMap();
+    //BoostAdaptorContainer::exampleBoostFlatSet();
+    //BoostAdaptorContainer::exampleBoostFlatMultiSet();
+    //BoostAdaptorContainer::exampleBoostFlatMap();
+    //BoostAdaptorContainer::exampleBoostFlatMultiMap();
 
     return 0;
 }

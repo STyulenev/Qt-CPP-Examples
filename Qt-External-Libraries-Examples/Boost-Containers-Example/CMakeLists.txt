@@ -27,9 +27,9 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 file(GLOB containers-examples-src "containers-examples/include/*.h" "containers-examples/*.cpp")
 
 add_executable(${PROJECT_NAME}
-  main.cpp
+    main.cpp
 
-  ${containers-examples-src}
+    ${containers-examples-src}
 )
 
 set(BOOST_ROOT "C:/boost_1_70_0") # Path to Boost
