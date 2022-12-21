@@ -1,5 +1,5 @@
-#include "editform.h"
-#include "ui_editform.h"
+#include "EditForm.h"
+#include "ui_EditForm.h"
 
 EditForm::EditForm(QWidget *parent) :
     QWidget(parent),
@@ -15,12 +15,11 @@ EditForm::~EditForm()
 
 auto EditForm::setModel(QAbstractTableModel* model) -> void
 {
-    //std::call_once(flag, setMMMM, model);
     mapper = std::make_shared<QDataWidgetMapper>();
 
     mapper->setOrientation(Qt::Horizontal);
     mapper->setModel(model);
-    mapper->setSubmitPolicy(QDataWidgetMapper::AutoSubmit); //QDataWidgetMapper::ManualSubmit);
+    mapper->setSubmitPolicy(QDataWidgetMapper::AutoSubmit);
 
     mapper->addMapping(ui->idSpinBox,         0);
     mapper->addMapping(ui->firstNameLineEdit, 1);
@@ -38,11 +37,6 @@ auto EditForm::editCurrentRow(int row) -> void
 {
     mapper->setCurrentIndex(row);
 }
-
-/*void EditForm::setMMMM(QAbstractTableModel *model)
-{
-
-}*/
 
 auto EditForm::updateButtons(int row) -> void
 {

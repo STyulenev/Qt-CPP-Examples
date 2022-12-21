@@ -1,5 +1,7 @@
 ﻿#include <TableViewModel.h>
 
+namespace ViewModels {
+
 struct TestModel {
     int id;
     QString firstName;
@@ -37,17 +39,17 @@ TableViewModel::~TableViewModel()
 
 }
 
-int TableViewModel::columnCount([[maybe_unused]] const QModelIndex& index) const
+auto TableViewModel::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
     return 6;
 }
 
-int TableViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const
+auto  TableViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
     return model.length();
 }
 
-QVariant TableViewModel::data(const QModelIndex& index, int role) const
+auto TableViewModel::data(const QModelIndex& index, int role) const -> QVariant
 {
     if (role == Qt::DisplayRole || role == Qt::EditRole) {
         switch (index.column()) {
@@ -71,12 +73,12 @@ QVariant TableViewModel::data(const QModelIndex& index, int role) const
     return QVariant();
 }
 
-Qt::ItemFlags TableViewModel::flags(const QModelIndex& index) const
+auto TableViewModel::flags(const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled;
 }
 
-QVariant TableViewModel::headerData(int section, Qt::Orientation orientation, int role) const
+auto TableViewModel::headerData(int section, Qt::Orientation orientation, int role) const -> QVariant
 {
     if (role == Qt::DisplayRole ) {
         if (orientation == Qt::Horizontal) {
@@ -97,7 +99,7 @@ QVariant TableViewModel::headerData(int section, Qt::Orientation orientation, in
     return QVariant();
 }
 
-bool TableViewModel::setData(const QModelIndex& index, const QVariant& value, int role)
+auto TableViewModel::setData(const QModelIndex& index, const QVariant& value, int role) -> bool
 {
     if (role == Qt::EditRole) {
         switch (index.column()) {
@@ -126,3 +128,5 @@ bool TableViewModel::setData(const QModelIndex& index, const QVariant& value, in
 
     return true;
 }
+
+} // namespace ViewModels

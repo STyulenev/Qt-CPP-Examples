@@ -1,5 +1,5 @@
-#include "mainwindow.h"
-#include "./ui_mainwindow.h"
+#include "MainWindow.h"
+#include "./ui_MainWindow.h"
 
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
@@ -7,13 +7,11 @@ MainWindow::MainWindow(QWidget* parent) :
 {
     ui->setupUi(this);
 
-    viewModel = std::make_shared<TableViewModel>();
+    viewModel = std::make_shared<ViewModels::TableViewModel>();
 
     ui->tableView->setModel(viewModel.get());
-    //ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableView->horizontalHeader()->setSectionResizeMode(4, QHeaderView::Stretch);
     ui->tableView->verticalHeader()->setDefaultSectionSize(100);
-            //setSectionResizeMode(QHeaderView::);
 
     editForm = std::make_shared<EditForm>();
     editForm->setModel(viewModel.get());
@@ -26,7 +24,7 @@ MainWindow::~MainWindow()
 
 auto MainWindow::on_tableView_clicked(const QModelIndex& index) -> void
 {
-    //qDebug() << index.row();
     editForm->editCurrentRow(index.row());
+    editForm->setWindowModality(Qt::WindowModality::ApplicationModal);
     editForm->show();
 }

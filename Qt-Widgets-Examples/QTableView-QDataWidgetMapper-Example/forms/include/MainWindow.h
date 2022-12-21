@@ -3,7 +3,7 @@
 #include <QMainWindow>
 #include <TableViewModel.h>
 
-#include "editform.h"
+#include "EditForm.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,7 +20,7 @@ public:
 private:
     Ui::MainWindow* ui;
 
-    std::shared_ptr<TableViewModel> viewModel;
+    std::shared_ptr<ViewModels::TableViewModel> viewModel;
     std::shared_ptr<EditForm> editForm;
 
 private slots:
