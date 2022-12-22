@@ -1,9 +1,10 @@
 #pragma once
 
 #include <QMainWindow>
-#include <TableViewModel.h>
+#include <QMenu>
 
-#include "EditForm.h"
+#include <TableViewModel.h>
+#include <EditForm.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,7 +25,7 @@ private:
     std::shared_ptr<EditForm> editForm;
 
 private slots:
-    auto on_tableView_clicked(const QModelIndex& index) -> void;
+    auto on_tableView_customContextMenuRequested(const QPoint& pos) -> void;
 
 };
 

@@ -6,6 +6,11 @@ EditForm::EditForm(QWidget *parent) :
     ui(new Ui::EditForm)
 {
     ui->setupUi(this);
+
+    ui->firstNameLineEdit->setPlaceholderText("first name...");
+    ui->lastNameLineEdit->setPlaceholderText("last name...");
+    ui->titleLineEdit->setPlaceholderText("title...");
+    ui->textPlainTextEdit->setPlaceholderText("text...");
 }
 
 EditForm::~EditForm()

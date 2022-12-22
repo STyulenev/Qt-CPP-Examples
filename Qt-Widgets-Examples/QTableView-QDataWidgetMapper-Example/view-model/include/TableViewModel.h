@@ -18,6 +18,8 @@ public:
     virtual auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
     virtual auto headerData(int section, Qt::Orientation orientation, int role) const -> QVariant override;
     virtual auto setData(const QModelIndex& index, const QVariant& value, int role) -> bool override;
+    virtual auto insertRows (int position, int rows, const QModelIndex& parent = QModelIndex()) -> bool override;
+    virtual auto removeRows (int position, int rows, const QModelIndex& parent = QModelIndex()) -> bool override;
 
 private:
     QList<TestModel> model;

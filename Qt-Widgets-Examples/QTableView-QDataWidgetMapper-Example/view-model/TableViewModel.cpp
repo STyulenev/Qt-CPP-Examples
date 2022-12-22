@@ -89,7 +89,7 @@ auto TableViewModel::headerData(int section, Qt::Orientation orientation, int ro
             case 3: return "Title";
             case 4: return "Text";
             case 5: return "Status";
-            [[unlikely]] default: assert(!"Should not get here");
+                [[unlikely]] default: assert(!"Should not get here");
             }
         } else [[likely]] {
             return section + 1;
@@ -125,6 +125,36 @@ auto TableViewModel::setData(const QModelIndex& index, const QVariant& value, in
 
         emit dataChanged(index,index);
     }
+
+    return true;
+}
+
+auto TableViewModel::insertRows(int position, int rows, const QModelIndex& parent) -> bool
+{
+    beginInsertRows(QModelIndex(), position, position + rows - 1);
+
+    for (int row = 0; row < rows; ++row) {
+        TestModel data;
+        data.id = position;
+        data.status = false;
+
+        model.insert(position, data);
+    }
+
+    endInsertRows();
+
+    return true;
+}
+
+auto TableViewModel::removeRows(int position, int rows, const QModelIndex& parent) -> bool
+{
+    beginRemoveRows(QModelIndex(), position, position + rows - 1);
+
+    for (int row = 0; row < rows; ++row) {
+        model.removeAt(position);
+    }
+
+    endRemoveRows();
 
     return true;
 }
