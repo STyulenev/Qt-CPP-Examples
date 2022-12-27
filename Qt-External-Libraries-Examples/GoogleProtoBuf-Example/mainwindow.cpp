@@ -10,22 +10,53 @@ MainWindow::MainWindow(QWidget* parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    google_protobuf_example::Person person;
-
-    person.set_name("Alex");
-    person.set_last_name("Smith");
-    person.set_age(19);
-    person.set_sex(google_protobuf_example::Person::MALE);
-
-    std::string message;
-    person.SerializeToString(&message);
-
-    qDebug() << message.c_str();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+auto MainWindow::on_pushButton_clicked() -> void
+{
+    google_protobuf_example::Person person;
+
+    person.set_name(ui->firstNameLineEdit->text().toStdString());
+    person.set_last_name(ui->lastNameLineEdit->text().toStdString());
+    person.set_age(ui->ageSpinBox->value());
+
+    switch (ui->sexComboBox->currentIndex()) {
+    case 0:
+        person.set_sex(google_protobuf_example::Person::MALE);
+        break;
+    case 1:
+        person.set_sex(google_protobuf_example::Person::FEMALE);
+        break;
+    default:
+        person.set_sex(google_protobuf_example::Person::UNKNOWN);
+    }
+
+    std::string message;
+    person.SerializeToString(&message);
+
+    /*int size = person.ByteSizeLong();
+    char* array = new char[size];
+    person.SerializeToArray(array, size);*/
+
+    unpacker(message);
+}
+
+auto MainWindow::unpacker(std::string data) -> void
+{
+    ui->textEdit->clear();
+
+    google_protobuf_example::Person person;
+    person.ParseFromString(data);
+
+    ui->textEdit->append(QString(person.name().c_str()));
+    ui->textEdit->append(QString(person.last_name().c_str()));
+    ui->textEdit->append(QString::number(person.age()));
+    ui->textEdit->append(QString("%1").arg(person.sex() == google_protobuf_example::Person::MALE ? "Male" :
+                                               person.sex() == google_protobuf_example::Person::FEMALE ? "Female" : "Unknown"));
 }
 

@@ -14,6 +14,11 @@ public:
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
+private slots:
+    auto on_pushButton_clicked() -> void;
+
 private:
     Ui::MainWindow* ui;
+
+    auto unpacker(std::string data) -> void;
 };
