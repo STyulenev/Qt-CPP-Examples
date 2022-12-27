@@ -1,17 +1,27 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-#include "generate/addressbook.pb.h"
+#include "person.pb.h"
 
-MainWindow::MainWindow(QWidget *parent)
+#include <QDebug>
+
+MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    tutorial::Person person;
+    google_protobuf_example::Person person;
 
-    person.set_id(12);
+    person.set_name("Alex");
+    person.set_last_name("Smith");
+    person.set_age(19);
+    person.set_sex(google_protobuf_example::Person::MALE);
+
+    std::string message;
+    person.SerializeToString(&message);
+
+    qDebug() << message.c_str();
 }
 
 MainWindow::~MainWindow()
