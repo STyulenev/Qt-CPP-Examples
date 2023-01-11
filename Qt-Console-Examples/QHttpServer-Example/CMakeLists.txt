@@ -19,11 +19,13 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Network HttpServer REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Network HttpServer REQUIRED)
 
 add_executable(${PROJECT_NAME}
-  main.cpp
+    main.cpp
+    userlist.h
+    userlist.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Network
     Qt${QT_VERSION_MAJOR}::HttpServer
-    )
+)
