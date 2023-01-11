@@ -2,6 +2,12 @@
 
 Here are examples of programs executed in Qt.
 
+## Qt-Console-Examples
+
+### QHttpServer-Example
+
+Пример использования HTTP сервера с добавлением, удалением и получением списка пользователей.
+
 ## Qt-External-Libraries-Examples
 
 * Boost-Algorithms-Example - Примеры использования алгоритмов из библиотеки Boost
