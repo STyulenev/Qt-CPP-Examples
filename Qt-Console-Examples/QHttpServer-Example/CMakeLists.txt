@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 
 project(QHttpServer-Example
     VERSION 0.1
-    DESCRIPTION "Project with sample qtest"
+    DESCRIPTION "Project with sample QHttpServer"
     LANGUAGES CXX
 )
 
@@ -20,6 +20,7 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Network HttpServer REQUIRED)
 
 add_executable(${PROJECT_NAME}
     main.cpp
+
     userlist.h
     userlist.cpp
 )

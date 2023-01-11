@@ -1,6 +1,4 @@
-# QTableView
-
-Here are examples of programs executed in Qt.
+# Примеры програм с использованием фреймворка Qt
 
 ## Qt-Console-Examples
 
@@ -15,6 +13,7 @@ Here are examples of programs executed in Qt.
 * GoogleProtoBuf-Example - Пример использования протокола сериализации структурированных данных Google Protocol Buffer
 * GoogleTest-Example - Пример использования библиотеки тестирования GoogleTest
 * OpenMP-Example - Пример использования библиотеки распараллеливания программ OpenMP
+* POCO-Example - Пример использования библиотеки сетевых мультиплатформенных приложений POCO
 * QxORM-Example - Пример использования ORM библиотеки для Qt
 
 ## Qt-Widgets-Examples
