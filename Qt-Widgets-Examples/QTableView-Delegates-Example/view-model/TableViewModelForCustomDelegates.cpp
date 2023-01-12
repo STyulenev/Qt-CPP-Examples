@@ -1,21 +1,24 @@
 ﻿#include "TableViewModelForCustomDelegates.h"
 
+#include <QColor>
+
 namespace ViewModels {
 
 struct TestModelCustom {
     bool       line_0;
     QByteArray line_1;
+    QColor     line_2;
 };
 
 TableViewModelForCustomDelegates::TableViewModelForCustomDelegates(QObject* parent)
     : QAbstractTableModel(parent)
 {
-    model = { { true,  QByteArray() },
-              { false, QByteArray() },
-              { true,  QByteArray() },
-              { true,  QByteArray() },
-              { false, QByteArray() },
-              { false, QByteArray() }
+    model = { { true,  QByteArray(), Qt::GlobalColor::red     },
+              { false, QByteArray(), Qt::GlobalColor::green   },
+              { true,  QByteArray(), Qt::GlobalColor::blue    },
+              { true,  QByteArray(), Qt::GlobalColor::yellow  },
+              { false, QByteArray(), Qt::GlobalColor::gray    },
+              { false, QByteArray(), Qt::GlobalColor::magenta }
             };
 }
 
@@ -26,7 +29,7 @@ TableViewModelForCustomDelegates::~TableViewModelForCustomDelegates()
 
 auto TableViewModelForCustomDelegates::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
-    return 2;
+    return 3;
 }
 
 auto TableViewModelForCustomDelegates::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
@@ -40,6 +43,7 @@ auto TableViewModelForCustomDelegates::data(const QModelIndex& index, int role) 
         switch (index.column()) {
         case 0: return model.at(index.row()).line_0;
         case 1: return model.at(index.row()).line_1;
+        case 2: return model.at(index.row()).line_2.name();
         [[unlikely]] default: assert(!"Should not get here");
         }
     }
@@ -59,6 +63,7 @@ auto TableViewModelForCustomDelegates::headerData(int section, Qt::Orientation o
             switch (section) {
             case 0: return "RadioButton";
             case 1: return "FileEdit";
+            case 2: return "ColorEdit";
             [[unlikely]] default: assert(!"Should not get here");
             }
         } else [[likely]] {
@@ -78,6 +83,9 @@ auto TableViewModelForCustomDelegates::setData(const QModelIndex& index, const Q
             break;
         case 1:
             model[index.row()].line_1 = value.toByteArray();
+            break;
+        case 2:
+            model[index.row()].line_2 = QColor(value.toString());
             break;
         }
 

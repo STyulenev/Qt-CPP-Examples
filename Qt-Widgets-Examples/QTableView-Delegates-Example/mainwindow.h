@@ -10,6 +10,7 @@
 // Custom delegates
 #include <CustomRadioButtonDelegate.h>
 #include <CustomFileEditorDelegate.h>
+#include <CustomColorEditorDelegate.h>
 
 // Simple delegates
 #include <ComboBoxDelegate.h>

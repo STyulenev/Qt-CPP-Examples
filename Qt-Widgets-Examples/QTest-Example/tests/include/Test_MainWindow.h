@@ -16,6 +16,7 @@ public:
 private slots:
     auto test_nameLineEdit() -> void;
     auto test_ipAddressLineEdit() -> void;
+    auto test_emailLineEdit() -> void;
     auto test_pushButton() -> void;
 
     auto test_bench() -> void;

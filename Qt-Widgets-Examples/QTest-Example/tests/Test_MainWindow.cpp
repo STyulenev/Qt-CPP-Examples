@@ -52,6 +52,26 @@ auto Test_MainWindow::test_ipAddressLineEdit() -> void
     QVERIFY2(lineEdit->text().isEmpty(), "ipAddressLineEdit not empty");
 }
 
+auto Test_MainWindow::test_emailLineEdit() -> void
+{
+    auto lineEdit = window.findChild<QLineEdit*>("emailLineEdit");
+
+    lineEdit->clear();
+    QTest::keyClicks(lineEdit, "@@@");
+    QCOMPARE(lineEdit->text(), "");
+
+    lineEdit->clear();
+    QTest::keyClicks(lineEdit, "email@gmail.com");
+    QCOMPARE(lineEdit->text(), "email@gmail.com");
+
+    lineEdit->clear();
+    QTest::keyClicks(lineEdit, "....email@gmail.com");
+    QCOMPARE(lineEdit->text(), "email@gmail.com");
+
+    lineEdit->clear();
+    QVERIFY2(lineEdit->text().isEmpty(), "ipAddressLineEdit not empty");
+}
+
 auto Test_MainWindow::test_pushButton() -> void
 {
     auto nameLineEdit = window.findChild<QLineEdit*>("nameLineEdit");
