@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+
+        <!-- Widgets -->
+        <file>qml/Widgets/TableViewData.qml</file>
+        <file>qml/Widgets/TableViewData_Form.ui.qml</file>
+        <file>qml/Widgets/qmldir</file>
+    </qresource>
+</RCC>
