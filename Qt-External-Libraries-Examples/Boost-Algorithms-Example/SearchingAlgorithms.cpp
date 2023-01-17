@@ -134,4 +134,68 @@ auto ExampleCPP11Algorithms() -> void
     }
 }
 
+auto ExampleCPP14Algorithms() -> void
+{
+    {
+        boost::container::vector<int> vectorOne = { 1, 2, 3, 4, 5 };
+        boost::container::vector<int> vectorTwo = { 1, 2, 3, 4, 5 };
+        boost::container::vector<int> vectorThree = { 1, 2, 3, 4, 6 };
+
+        qDebug() << boost::algorithm::equal(vectorOne.begin(), vectorOne.end(), vectorTwo.begin(), vectorTwo.end());   // true
+        qDebug() << boost::algorithm::equal(vectorOne.begin(), vectorOne.end(), vectorThree.begin(), vectorThree.end()); // false
+    }
+
+    {
+        boost::container::vector<int> vectorOne = { 1, 2, 3, 4, 5 };
+        boost::container::vector<int> vectorTwo = { 1, 2, 6, 4, 5 };
+
+        auto pair = boost::algorithm::mismatch(vectorOne.begin(), vectorOne.end(), vectorTwo.begin(), vectorTwo.end());
+        qDebug() << *pair.first << *pair.second; // 3 != 6
+    }
+}
+
+auto ExampleCPP17Algorithms() -> void
+{
+    {
+        boost::container::vector<int> vector = { 1, 2, 3, 4, 5 };
+
+        boost::algorithm::for_each_n(vector.begin(), vector.size(), [](int& element) -> void { // { 3, 4, 5, 6, 7 }
+            element += 2;
+        });
+
+        for(auto iterator = vector.begin(); iterator != vector.end(); ++iterator) {
+            qDebug() << *iterator;
+        }
+    }
+
+    {
+        boost::container::vector<int> vectorIn = { -1, -2, -3, -4, -5 };
+
+        boost::container::vector<int> vectorOut;
+        boost::algorithm::transform_inclusive_scan(vectorIn.begin(), vectorIn.end(),
+                                                   std::back_inserter(vectorOut),
+                                                   std::plus<>{}, [](int element) -> int {
+            return std::abs(element);
+        });
+
+        for(auto iterator = vectorOut.begin(); iterator != vectorOut.end(); ++iterator) {
+            qDebug() << *iterator;
+        }
+    }
+
+    {
+        boost::container::vector<int> vectorIn = { 1, 2, 3, 4, 5 };
+        boost::container::vector<int> vectorOut;
+
+        boost::algorithm::transform_exclusive_scan(vectorIn.begin(), vectorIn.end(), std::back_inserter(vectorOut), 10, std::plus<>{},
+                                                   [](int element) -> int {
+            return element;
+        });
+
+        for(auto iterator = vectorOut.begin(); iterator != vectorOut.end(); ++iterator) {
+            qDebug() << *iterator;
+        }
+    }
+}
+
 } // namespace BoostAlgorithmsExamples
