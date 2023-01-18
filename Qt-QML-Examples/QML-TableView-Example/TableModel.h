@@ -22,21 +22,12 @@ public:
     auto rowCount(const QModelIndex& parent) const -> int override;
     auto data(const QModelIndex& index, int role) const -> QVariant override;
     auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
-    /*Q_INVOKABLE*/ auto headerData(int section, Qt::Orientation orientation, int role) const -> QVariant override;
-    auto setData(const QModelIndex& index, const QVariant& value, int role) -> bool override;
+    auto headerData(int section, Qt::Orientation orientation, int role) const -> QVariant override;
     auto roleNames() const -> QHash<int, QByteArray> override;
 
-    const QStringList& horizontalHeaders() const {
-        return horizontalHeaderList;
-    }
-
-    const QList<double>& columnWidths() const {
-        return columnWidthList;
-    }
-
-    const QList<int>& textAlignments() const {
-        return textAlignmentList;
-    }
+    auto horizontalHeaders() const -> const QStringList&;
+    auto columnWidths() const -> const QList<double>&;
+    auto textAlignments() const -> const QList<int>&;
 
 signals:
     void horizontalHeadersChanged();

@@ -10,16 +10,14 @@ TableView {
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.fill: parent
     anchors.margins: 24
-
-    //columnSpacing: 8
     rowSpacing: 8
     clip: true
 
-    model: currentModel
+    property var tableViewColumnsWidths: tableView.model.columnWidths
+    property bool hasHorizontalHeader: true
+    property bool hasHorizontalSeparator: true
 
-    property var columnssss: currentModel.columnWidths
-
-    topMargin: true ? 35 : 0
+    topMargin: hasHorizontalHeader ? 35 : 0
 
     ScrollBar.vertical: ScrollBar {
         policy: ScrollBar.AsNeeded
@@ -37,15 +35,15 @@ TableView {
         Repeater {
             model: tableView.columns > 0 ? tableView.columns : 1
             Label {
-                width: tableView.width * columnssss[modelData]
-                visible: appWindow.hasHeader
+                width: tableView.width * tableView.tableViewColumnsWidths[modelData]
+                visible: tableView.hasHorizontalHeader
                 height: 35
-                text: currentModel.horizontalHeaders[modelData] ? currentModel.horizontalHeaders[modelData] : ""
+                text: tableView.model.horizontalHeaders[modelData] ? tableView.model.horizontalHeaders[modelData] : ""
                 color: '#aaaaaa'
                 font.pixelSize: 15
                 padding: 10
                 verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: currentModel.textAlignments[modelData]
+                horizontalAlignment: tableView.model.textAlignments[modelData]
 
                 background: Rectangle {
                     color: "#333333"
@@ -55,33 +53,17 @@ TableView {
     }
 
     delegate: Rectangle {
-        implicitWidth: tableView.width * columnssss[column]
+        implicitWidth: tableView.width * tableView.tableViewColumnsWidths[column]
         implicitHeight: 30
 
         Label {
             id: labelDelegate
             text: model.DisplayRole
-            visible: model.column !== 3
             anchors.centerIn: parent
         }
 
-        CheckBox {
-            id: checkDelegate
-            visible: model.column === 3
-            checkState: model.CheckStateRole ? Qt.Checked : Qt.Unchecked
-            anchors.centerIn: parent
-
-            Connections {
-                target: checkDelegate
-
-                function onCheckedChanged() {
-                    model.CheckStateRole = checkState
-                }
-            }
-        }
-
-        // separator
         Rectangle {
+            id: separator
             z: 2
             anchors {
                 bottom: parent.bottom
@@ -90,7 +72,7 @@ TableView {
             }
 
             height: 1
-            visible: true
+            visible: hasHorizontalSeparator
             color: "black"
         }
     }
