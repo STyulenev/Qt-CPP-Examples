@@ -18,6 +18,7 @@ Window {
 
     Widgets.ListViewData {
         id: listView
+
         anchors {
             fill: parent
             topMargin: 20

@@ -20,7 +20,7 @@ TableModel::TableModel(QObject* parent)
               { "Kent",  "qrc:/res/user4.png", "12345", true  }
             };
 
-    columnWidthList = { 0.1, 0.35, 0.35, 0.2 };
+    columnWidthList = { 0.25, 0.25, 0.25, 0.25 };
 }
 
 TableModel::~TableModel()
@@ -56,7 +56,7 @@ auto TableModel::data(const QModelIndex& index, int role) const -> QVariant
         case 3: return model.at(index.row()).status ? Qt::Checked : Qt::Unchecked;
         }
     case Qt::TextAlignmentRole:
-        return Qt::AlignLeft;
+        return Qt::AlignHCenter;
     case Qt::DecorationRole:
         switch (index.column()) {
         case 0: return QUrl();
@@ -109,14 +109,13 @@ auto TableModel::headerData(int section, Qt::Orientation orientation, int role) 
 
 auto TableModel::setData(const QModelIndex& index, const QVariant& value, int role) -> bool
 {
-    if (role == Qt::CheckStateRole) {
+    switch (role) {
+    case Qt::CheckStateRole:
         if (index.column() == 3) {
             model[index.row()].status = (value.toInt() == Qt::Checked);
         }
         emit dataChanged(index, index);
-    }
-
-    if (role == Qt::EditRole) {
+    case Qt::EditRole:
         if (index.column() == 2) {
             model[index.row()].number = value.toString();
         }
@@ -130,12 +129,14 @@ auto TableModel::setData(const QModelIndex& index, const QVariant& value, int ro
 auto TableModel::roleNames() const -> QHash<int, QByteArray>
 {
     QHash<int, QByteArray> roles;
-    roles[Qt::DisplayRole] = "DisplayRole";
-    roles[Qt::CheckStateRole] = "CheckStateRole";
-    roles[Qt::EditRole] = "EditRole";
+
+    roles[Qt::DisplayRole]       = "DisplayRole";
+    roles[Qt::CheckStateRole]    = "CheckStateRole";
+    roles[Qt::EditRole]          = "EditRole";
     roles[Qt::TextAlignmentRole] = "TextAlignmentRole";
-    roles[Qt::DecorationRole] = "DecorationRole";
-    roles[Qt::ToolTipRole] = "ToolTipRole";
+    roles[Qt::DecorationRole]    = "DecorationRole";
+    roles[Qt::ToolTipRole]       = "ToolTipRole";
+
     return roles;
 }
 

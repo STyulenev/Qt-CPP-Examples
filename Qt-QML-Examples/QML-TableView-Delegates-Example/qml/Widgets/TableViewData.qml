@@ -9,19 +9,16 @@ TableView {
 
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.fill: parent
-    anchors.margins: 24
 
-    rowSpacing: 8
     clip: true
 
     property bool hasHorizontalHeader: true
-    //property bool hasVerticalHeader: true
+    property bool hasVerticalHeader: true
     property bool hasHorizontalSeparator: true
     property var widthsColumn: model.columnWidths
 
     topMargin: hasHorizontalHeader ? 35 : 0
-    //leftMargin: hasVerticalHeader ? 30 : 0
-
+    leftMargin: hasVerticalHeader ? 35 : 0
 
     Row {
         id: columnsHeader
@@ -48,31 +45,33 @@ TableView {
         }
     }
 
-    /*Column {
+    Column {
         id: rowsHeader
         x: tableView.contentX
         z: 2
         Repeater {
             model: tableView.rows > 0 ? tableView.rows : 1
             Label {
-                width: 30
-                height: 35//tableView.rowHeightProvider(modelData)
-                text: tableView.headerData(modelData, Qt.Vertical)
+                width: 35
+                height: 35
+                text: tableView.model.headerData(modelData, Qt.Vertical, Qt.DisplayRole)
                 color: '#aaaaaa'
                 font.pixelSize: 15
-                padding: 10
                 verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
 
                 background: Rectangle {
                     color: "#333333"
                 }
             }
         }
-    }*/
+    }
 
     delegate: Rectangle {
-        implicitWidth: tableView.width * widthsColumn[column]
-        implicitHeight: 30
+        id: delegate
+
+        implicitWidth: (tableView.width - 35) * widthsColumn[column]
+        implicitHeight: 35
 
         clip: true
 

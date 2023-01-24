@@ -1,10 +1,7 @@
 import QtQuick
-import QtQuick.Controls 2.15
-import QtQml 2.15
-import QtQuick.Layouts 1.15
 
 // Import C ++ class
-import TableTable 0.1 as Models
+import TableModels 0.1 as Models
 
 import "qml/Widgets/" 1.0 as Widgets
 
