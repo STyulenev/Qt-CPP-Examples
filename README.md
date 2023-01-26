@@ -1,8 +1,21 @@
-# QTableView
+# Примеры програм с использованием фреймворка Qt
 
-Here are examples of programs executed in Qt.
+## Qt-Console-Examples
+
+### QHttpServer-Example
+
+Пример использования HTTP сервера с добавлением, удалением и получением списка пользователей.
 
 ## Qt-External-Libraries-Examples
+
+* Boost-Algorithms-Example - Примеры использования алгоритмов из библиотеки Boost
+* Boost-Containers-Example - Примеры использования контейнеров из библиотеки Boost
+* GoogleProtoBuf-Example - Пример использования протокола сериализации структурированных данных Google Protocol Buffer
+* GoogleTest-Example - Пример использования библиотеки тестирования GoogleTest
+* OpenMP-Example - Пример использования библиотеки распараллеливания программ OpenMP
+* POCO-Example - Пример использования библиотеки сетевых мультиплатформенных приложений POCO
+* QxORM-Example - Пример использования ORM библиотеки для Qt
+* Docker-Example - Пример использования Docker для GUI приложения Qt (Vcxsrv + WSL2 для перенаправления окна)
 
 ## Qt-Widgets-Examples
 
@@ -24,6 +37,12 @@ Here are examples of programs executed in Qt.
 
 ![alt text](doc/QTableView-ProxyModel-Example.gif)
 
+### QTableView-QDataWidgetMapper-Example
+
+Пример использования mapper для изменения данных в моделе таблицы QTableView.
+
+![alt text](doc/QTableView-QDataWidgetMapper-Example.gif)
+
 ### QTableView-QSqlQueryModel-Example
 
 Пример использования QSqlQueryModel для отображении данных из БД в QTableView.
@@ -31,3 +50,4 @@ Here are examples of programs executed in Qt.
 ### QTest-Example
 
 Пример тестирования ui формы и других функций в Qt.
+
