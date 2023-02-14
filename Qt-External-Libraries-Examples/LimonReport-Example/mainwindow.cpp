@@ -15,22 +15,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     LimeReport::ICallbackDatasource* ds = m_report.dataManager()->createCallbackDatasource("ds");
 
-    /*connect(ds, &LimeReport::ICallbackDatasource::getCallbackData, this, &MainWindow::slotOneSlotDS);*/
-
-
-   /* connect(ds, SIGNAL(getCallbackData(const LimeReport::CallbackInfo& info, QVariant &data)),
-                       this, SLOT(slotOneSlotDS(const LimeReport::CallbackInfo& info, QVariant &data)));*/
-
-
-    m_report.loadFromFile("C:/Work/5 Cool examples/TestUseLimonReport/12.lrxml");
-    //m_report.loadFromString(...)
-
-            //setCurrentReportsDir("C:/Work/5 Cool examples/TestUseLimonReport/12.lrxml");
-    //m_report.dataManager()->
+    m_report.loadFromFile("path.../resources/report.lrxml");
 
     m_report.dataManager()->addModel("tableModel", tableModel, false);
     m_report.dataManager()->setReportVariable("name1", ui->lineEdit->text());
-
     m_report.dataManager()->setReportVariable("name2", QImage(":/businessman.png"));
 }
 
@@ -70,8 +58,6 @@ void MainWindow::slotOneSlotDS(const LimeReport::CallbackInfo& info, QVariant &d
 
 void MainWindow::on_pushButton_clicked()
 {
-    qDebug() << m_report.setReportLanguage(QLocale::Russian);
-
     m_report.previewReport();
 }
 
@@ -79,7 +65,5 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_2_clicked()
 {
     m_report.designReport();
-
-    //report->printReport(); to print report
 }
 
