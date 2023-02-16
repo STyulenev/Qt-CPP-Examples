@@ -4,8 +4,8 @@
 
 namespace StyledDelegates {
 
-ImageDelegate::ImageDelegate(QObject* parent)
-    : QStyledItemDelegate(parent)
+ImageDelegate::ImageDelegate(QObject* parent) :
+    QStyledItemDelegate(parent)
 {
 
 }
@@ -28,7 +28,7 @@ auto ImageDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option,
     QStyleOptionViewItem myOption = option;
     myOption.displayAlignment = Qt::AlignCenter | Qt::AlignVCenter;
     painter->drawPixmap(myOption.rect.x() + option.rect.width() / 2 - this->sizeHint(option, index).width() / 2,
-                        myOption.rect.y()+ option.rect.height() / 2 - this->sizeHint(option, index).height() / 2,
+                        myOption.rect.y() + option.rect.height() / 2 - this->sizeHint(option, index).height() / 2,
                         this->sizeHint(option, index).width(),
                         this->sizeHint(option, index).height(),
                         outPixmap);
