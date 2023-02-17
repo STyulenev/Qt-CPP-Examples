@@ -27,6 +27,7 @@
 #include <ImageDelegate.h>
 #include <StyledSliderDelegate.h>
 #include <CheckBoxDelegate.h>
+#include <StyledPieChartDelegate.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

@@ -4,11 +4,11 @@
 
 namespace StyledDelegates {
 
-StyledSliderDelegate::StyledSliderDelegate(int min, int max, int step, QObject *parent)
-    : QStyledItemDelegate(parent),
-      min(min),
-      max(max),
-      step(step)
+StyledSliderDelegate::StyledSliderDelegate(int min, int max, int step, QObject* parent) :
+    QStyledItemDelegate(parent),
+    min(min),
+    max(max),
+    step(step)
 {
 
 }
