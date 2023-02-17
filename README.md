@@ -1,4 +1,38 @@
-# Примеры програм с использованием фреймворка Qt
+# Примеры программ с использованием фреймворка Qt
+
+## Структура проекта
+
+```
+Qt-CPP-Examples
+│   README.md
+│
+└───doc
+│   │
+│   └───*.gif / *.png / ...
+│
+└───Qt-Console-Examples
+│   │
+│   └───...
+│
+└───Qt-External-Libraries-Examples
+│   │
+│   └───...
+│
+└───Qt-QML-Examples
+│   │
+│   └───...
+│
+└───Qt-Widgets-Examples
+    │
+    └───...
+
+```
+
+* doc - Директория для документации (gif / png / ...)
+* Qt-Console-Examples - Директория с примерами консольных программ на Qt
+* Qt-External-Libraries-Examples - Директория с примерами Qt + внешние библиотеки
+* Qt-QML-Examples - Директория с QML примерами
+* Qt-Widgets-Examples - Директория Qt примерами c использованием виджетов
 
 ## Qt-Console-Examples
 
