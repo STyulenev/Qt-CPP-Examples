@@ -10,12 +10,12 @@ ImageDelegate::ImageDelegate(QObject* parent) :
 
 }
 
-auto ImageDelegate::createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget*
+auto ImageDelegate::createEditor([[maybe_unused]] QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QWidget*
 {
     return nullptr;
 }
 
-auto ImageDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const -> QSize
+auto ImageDelegate::sizeHint([[maybe_unused]] const QStyleOptionViewItem& option,[[maybe_unused]] const QModelIndex& index) const -> QSize
 {
     return QSize(32, 32);
 }

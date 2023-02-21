@@ -26,7 +26,6 @@ MainWindow::~MainWindow()
 
 auto MainWindow::on_tableView_customContextMenuRequested(const QPoint& pos) -> void
 {
-    int column = ui->tableView->horizontalHeader()->logicalIndexAt(pos);
     int row    = ui->tableView->verticalHeader()->logicalIndexAt(pos);
 
     std::shared_ptr<QMenu> menu = std::make_shared<QMenu>(this);
@@ -39,7 +38,7 @@ auto MainWindow::on_tableView_customContextMenuRequested(const QPoint& pos) -> v
 
     QVector<QMetaObject::Connection> connections;
 
-    if (row > 0 && row < ui->tableView->model()->rowCount()) {
+    if (row > -1 && row < ui->tableView->model()->rowCount()) {
         connections << connect(editRow.get(), &QAction::triggered, [this, &row]() -> void {
             editForm->editCurrentRow(row);
             editForm->show();

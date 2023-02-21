@@ -10,17 +10,17 @@ StyledPieChartDelegate::StyledPieChartDelegate(QObject* parent) :
 
 }
 
-auto StyledPieChartDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const -> QSize
+auto StyledPieChartDelegate::sizeHint([[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QSize
 {
     return QSize(64, 64);
 }
 
-auto StyledPieChartDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QWidget*
+auto StyledPieChartDelegate::createEditor([[maybe_unused]] QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QWidget*
 {
     return nullptr;
 }
 
-auto StyledPieChartDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void
+auto StyledPieChartDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> void
 {
     //painter->save();
     QRect rect(option.rect);

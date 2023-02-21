@@ -4,13 +4,13 @@
 
 namespace SimpleDelegates {
 
-LineEditDelegate::LineEditDelegate(QObject* parent)
-    : QItemDelegate(parent)
+LineEditDelegate::LineEditDelegate(QObject* parent) :
+    QItemDelegate(parent)
 {
 
 }
 
-auto LineEditDelegate::createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget*
+auto LineEditDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QWidget*
 {
     QLineEdit* editor = new QLineEdit(parent);
     //editor->setValidator(...);
@@ -31,7 +31,7 @@ auto LineEditDelegate::setModelData(QWidget* editor, QAbstractItemModel* model, 
     model->setData(index, text, Qt::EditRole);
 }
 
-auto LineEditDelegate::updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void
+auto LineEditDelegate::updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> void
 {
     editor->setGeometry(option.rect);
 }

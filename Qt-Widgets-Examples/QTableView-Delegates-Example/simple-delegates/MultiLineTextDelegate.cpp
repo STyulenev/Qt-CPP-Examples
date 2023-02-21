@@ -4,8 +4,8 @@
 
 namespace SimpleDelegates {
 
-MultiLineTextDelegate::MultiLineTextDelegate(QWidget* parent)
-    : QItemDelegate(parent)
+MultiLineTextDelegate::MultiLineTextDelegate(QWidget* parent) :
+    QItemDelegate(parent)
 {
 
 }
