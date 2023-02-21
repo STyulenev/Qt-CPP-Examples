@@ -1,7 +1,7 @@
 #include "CustomWidget.h"
 #include "ui_CustomWidget.h"
 
-CustomWidget::CustomWidget(QWidget *parent) :
+CustomWidget::CustomWidget(QWidget* parent) :
     QWidget(parent),
     ui(new Ui::CustomWidget)
 {

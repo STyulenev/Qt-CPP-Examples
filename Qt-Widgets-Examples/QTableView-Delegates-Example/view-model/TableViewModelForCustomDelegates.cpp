@@ -51,7 +51,7 @@ auto TableViewModelForCustomDelegates::data(const QModelIndex& index, int role) 
     return QVariant();
 }
 
-auto TableViewModelForCustomDelegates::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto TableViewModelForCustomDelegates::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsUserCheckable;
 }

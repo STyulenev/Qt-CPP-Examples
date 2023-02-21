@@ -59,7 +59,7 @@ auto TableViewModel::data(const QModelIndex& index, int role) const -> QVariant
     return QVariant();
 }
 
-auto TableViewModel::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto TableViewModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
@@ -87,9 +87,11 @@ auto TableViewModel::setData(const QModelIndex& index, const QVariant& value, in
         switch (index.column()) {
         case 0:
             model[index.row()].id = value.toInt();
+            break;
         case 1:
             auto data = qvariant_cast<TestModel>(value);
             model[index.row()].model = data;
+            break;
         }
 
         emit dataChanged(index,index);

@@ -32,7 +32,7 @@ auto CustomColorEditorDelegate::setModelData(QWidget* editor, QAbstractItemModel
     model->setData(index, widget->getColor(), Qt::EditRole);
 }
 
-auto CustomColorEditorDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const -> QSize
+auto CustomColorEditorDelegate::sizeHint([[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QSize
 {
     return QSize(32, 32);
 }

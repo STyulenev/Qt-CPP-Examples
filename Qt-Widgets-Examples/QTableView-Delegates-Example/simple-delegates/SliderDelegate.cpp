@@ -4,16 +4,16 @@
 
 namespace SimpleDelegates {
 
-SliderDelegate::SliderDelegate(int min, int max, int step, QObject *parent)
-    : QItemDelegate(parent),
-      min(min),
-      max(max),
-      step(step)
+SliderDelegate::SliderDelegate(int min, int max, int step, QObject* parent) :
+    QItemDelegate(parent),
+    min(min),
+    max(max),
+    step(step)
 {
 
 }
 
-auto SliderDelegate::createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget*
+auto SliderDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QWidget*
 {
     QSlider* editor = new QSlider(Qt::Horizontal, parent);
     editor->setRange(min, max);
@@ -36,7 +36,7 @@ auto SliderDelegate::setModelData(QWidget* editor, QAbstractItemModel* model, co
     model->setData(index, slider->value(), Qt::EditRole);
 }
 
-auto SliderDelegate::updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void
+auto SliderDelegate::updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> void
 {
     editor->setGeometry(option.rect);
 }
