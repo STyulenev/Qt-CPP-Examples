@@ -1,5 +1,13 @@
 # Qt-Widgets-Examples
 
+## QComboBox-Delegate-Example
+
+Пример использование модели и делегата для QComboBox.
+
+## QSettings-Example
+
+Пример использование QSettings для сохранения настроек приложения на локальном компьютере.
+
 ## QListWidget-Example
 
 Пример использования QListWidget с ui формой.
