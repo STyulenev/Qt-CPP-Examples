@@ -4,11 +4,11 @@
 
 namespace SimpleDelegates {
 
-SpinBoxDelegate::SpinBoxDelegate(int min, int max, int step, QObject* parent)
-    : QItemDelegate(parent),
-      minValue(min),
-      maxValue(max),
-      stepValue(step)
+SpinBoxDelegate::SpinBoxDelegate(int min, int max, int step, QObject* parent) :
+    QItemDelegate(parent),
+    minValue(min),
+    maxValue(max),
+    stepValue(step)
 {
 
 }
@@ -45,7 +45,7 @@ auto SpinBoxDelegate::setModelData(QWidget* editor, QAbstractItemModel* model, c
     model->setData(index, value, Qt::EditRole);
 }
 
-auto SpinBoxDelegate::updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void
+auto SpinBoxDelegate::updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> void
 {
     editor->setGeometry(option.rect);
 }

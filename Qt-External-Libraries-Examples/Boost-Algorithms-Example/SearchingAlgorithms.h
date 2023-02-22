@@ -3,6 +3,7 @@
 #include <QDebug>
 
 #include <boost/container/vector.hpp>
+#include <boost/iostreams/device/back_inserter.hpp>
 
 // SearchingAlgorithms
 #include <boost/algorithm/searching/boyer_moore.hpp>
@@ -23,7 +24,14 @@
 #include <boost/algorithm/cxx11/copy_n.hpp>
 #include <boost/algorithm/cxx11/iota.hpp>
 
-//#include <boost/algorithm/string.hpp>
+// C++14 Algorithms
+#include <boost/algorithm/cxx14/equal.hpp>
+#include <boost/algorithm/cxx14/mismatch.hpp>
+
+// C++17 Algorithms
+#include <boost/algorithm/cxx17/for_each_n.hpp>
+#include <boost/algorithm/cxx17/transform_inclusive_scan.hpp>
+#include <boost/algorithm/cxx17/transform_exclusive_scan.hpp>
 
 namespace BoostAlgorithmsExamples {
 
@@ -52,6 +60,21 @@ auto ExampleSearchingAlgorithms() -> void;
  * 12. iota - Алгоритм генерирует возрастающую последовательность.
  */
 auto ExampleCPP11Algorithms() -> void;
+
+/*!
+ * \brief ExampleCPP14Algorithms
+ * 1. equal - Алгоритм проверяет, содержат ли две последовательности одинаковые значения.
+ * 2. mismatch - Алгоритм находит первую точку в двух последовательностях, где они не совпадают.
+ */
+auto ExampleCPP14Algorithms() -> void;
+
+/*!
+ * \brief ExampleCPP17Algorithms
+ * 1. for_each_n - Алгоритм применяет функтор к элементам последовательности.
+ * 2. transform_inclusive_scan - Алгоритм применяет функтор к элементам последовательности и одновременно к диапазону от нулевого элемента до текущего.
+ * 3. transform_exclusive_scan - Тоже самое, что и transform_inclusive_scan, но i-ый элемент не участвует в операции.
+ */
+auto ExampleCPP17Algorithms() -> void;
 
 } // namespace BoostAlgorithmsExamples
 
