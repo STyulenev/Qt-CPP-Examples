@@ -2,12 +2,12 @@
 
 ClassInSharedDLL::ClassInSharedDLL()
 {
-
+    // ...
 }
 
 ClassInSharedDLL::~ClassInSharedDLL()
 {
-
+    // ...
 }
 
 auto ClassInSharedDLL::getInfo() -> QString
@@ -15,7 +15,7 @@ auto ClassInSharedDLL::getInfo() -> QString
     return QString("This is SHARED_LIBRARY class");
 }
 
-QString getInfo()
+auto getInfo() -> QString
 {
     return QString("This is SHARED_LIBRARY function");
 }

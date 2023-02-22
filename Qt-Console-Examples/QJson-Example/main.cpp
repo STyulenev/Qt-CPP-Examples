@@ -1,8 +1,11 @@
 #include <QCoreApplication>
 #include <User.h>
 
-int main(int argc, char* argv[])
+auto main(int argc, char* argv[]) -> int
 {
+    Q_UNUSED(argc);
+    Q_UNUSED(argv);
+
     JsonModel::UserListJson users;
 
     users.addUser("Mary", "Smith", 18);

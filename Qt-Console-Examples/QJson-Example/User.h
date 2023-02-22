@@ -10,9 +10,9 @@ namespace JsonModel {
  * \brief The UserListJson class
  * \details
  * Struct:
- * 1 - [first_name]
- * 2 - [last_name]
- * 3 - [age]
+ * 1 - [first_name] type QString
+ * 2 - [last_name] type QString
+ * 3 - [age] type int
  * \todo
  * auto operator+=(const UserListJson& twoList) -> UserListJson&;
  * auto operator-=(const UserListJson& twoList) -> UserListJson&;
