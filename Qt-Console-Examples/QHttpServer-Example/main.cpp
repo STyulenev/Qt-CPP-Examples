@@ -3,7 +3,7 @@
 #include <QtHttpServer/QtHttpServer>
 #include <QtHttpServer/QHttpServerResponder>
 
-#include "userlist.h"
+#include "UserList.h"
 
 auto main(int argc, char* argv[]) -> int
 {
@@ -64,7 +64,7 @@ auto main(int argc, char* argv[]) -> int
         }
     });
 
-    httpServer.route("/time", QHttpServerRequest::Method::Get, [](const QHttpServerRequest &request) {
+    httpServer.route("/time", QHttpServerRequest::Method::Get, []([[maybe_unused]] const QHttpServerRequest& request) {
         QJsonObject status;
         status["time"] = QTime::currentTime().toString("hh:mm:ss");
         return QHttpServerResponse(status);
