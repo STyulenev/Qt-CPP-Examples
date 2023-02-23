@@ -45,7 +45,7 @@ auto DoubleSpinBoxDelegate::setModelData(QWidget* editor, QAbstractItemModel* mo
     model->setData(index, value, Qt::EditRole);
 }
 
-auto DoubleSpinBoxDelegate::updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void
+auto DoubleSpinBoxDelegate::updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> void
 {
     editor->setGeometry(option.rect);
 }

@@ -68,7 +68,7 @@ auto TableViewModelForSimpleDelegates::data(const QModelIndex& index, int role) 
     return QVariant();
 }
 
-auto TableViewModelForSimpleDelegates::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto TableViewModelForSimpleDelegates::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
 }

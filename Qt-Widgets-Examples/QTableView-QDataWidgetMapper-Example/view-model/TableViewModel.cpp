@@ -73,7 +73,7 @@ auto TableViewModel::data(const QModelIndex& index, int role) const -> QVariant
     return QVariant();
 }
 
-auto TableViewModel::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto TableViewModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled;
 }
@@ -129,7 +129,7 @@ auto TableViewModel::setData(const QModelIndex& index, const QVariant& value, in
     return true;
 }
 
-auto TableViewModel::insertRows(int position, int rows, const QModelIndex& parent) -> bool
+auto TableViewModel::insertRows(int position, int rows, [[maybe_unused]] const QModelIndex& parent) -> bool
 {
     beginInsertRows(QModelIndex(), position, position + rows - 1);
 
@@ -146,7 +146,7 @@ auto TableViewModel::insertRows(int position, int rows, const QModelIndex& paren
     return true;
 }
 
-auto TableViewModel::removeRows(int position, int rows, const QModelIndex& parent) -> bool
+auto TableViewModel::removeRows(int position, int rows, [[maybe_unused]] const QModelIndex& parent) -> bool
 {
     beginRemoveRows(QModelIndex(), position, position + rows - 1);
 

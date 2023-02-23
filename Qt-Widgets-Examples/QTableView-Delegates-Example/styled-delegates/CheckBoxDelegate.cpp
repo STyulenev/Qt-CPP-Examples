@@ -5,8 +5,8 @@
 
 namespace StyledDelegates {
 
-CheckBoxDelegate::CheckBoxDelegate(QObject* parent)
-    : QStyledItemDelegate(parent)
+CheckBoxDelegate::CheckBoxDelegate(QObject* parent) :
+    QStyledItemDelegate(parent)
 {
 
 }
