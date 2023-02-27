@@ -16,18 +16,17 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    auto on_pushButton_clicked() -> void;
+    auto on_pushButton_2_clicked() -> void;
 
-    void on_pushButton_2_clicked();
-
-    void slotOneSlotDS(const LimeReport::CallbackInfo& info, QVariant &data);
+    auto slotOneSlotDS(const LimeReport::CallbackInfo& info, QVariant& data) -> void;
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow* ui;
     TableViewModel* tableModel;
 
     LimeReport::ReportEngine m_report;
