@@ -18,15 +18,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
-include(C:/Work/CurrentExample/QxOrm-master/QxOrm.cmake) ## Path to QxORM cmake file
+include(C:/.../QxOrm.cmake) ## Path to QxORM cmake file
 
 add_subdirectory(src)
 
 set(PROJECT_SOURCES
         main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+        MainWindow.cpp
+        MainWindow.h
+        MainWindow.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

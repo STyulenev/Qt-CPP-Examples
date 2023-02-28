@@ -2,13 +2,14 @@
 
 namespace ViewModels {
 
-TableViewModel::TableViewModel(QObject* parent)
-    : QAbstractTableModel(parent)
+TableViewModel::TableViewModel(QObject* parent) :
+    QAbstractTableModel(parent)
 {
 
 }
 
 TableViewModel::TableViewModel(const QVector<TestModel>& model, QObject* parent) :
+    QAbstractTableModel(parent),
     model(model)
 {
 
@@ -58,7 +59,7 @@ auto TableViewModel::data(const QModelIndex& index, int role) const -> QVariant
     return QVariant();
 }
 
-auto TableViewModel::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto TableViewModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }

@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(LimonReport-Example
+project(LimeReport-Example
     VERSION 0.1
-    DESCRIPTION "Project with sample LimonReport"
+    DESCRIPTION "Project with sample LimeReport"
     LANGUAGES CXX
 )
 
