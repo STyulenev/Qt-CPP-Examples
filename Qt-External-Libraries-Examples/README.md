@@ -9,14 +9,6 @@
 
 Пример использования Docker для GUI приложения Qt (Vcxsrv + WSL2 для перенаправления окна)
 
-```
-# Здесь docker-cpp-sample название нашего образа
-# . - подразумевает путь к директории, содержащей Dockerfile
-docker build -t docker-cpp-sample .
-
-docker run docker-cpp-sample
-```
-
 ## Google Protocol Buffer
 
 Пример использования протокола сериализации структурированных данных Google Protocol Buffer
@@ -24,6 +16,10 @@ docker run docker-cpp-sample
 ## Google Test
 
 Пример использования библиотеки тестирования GoogleTest
+
+## LimeReport-Example
+
+Пример использования библиотеки генерации отчётов LimeReport
 
 ## OpenMP
 

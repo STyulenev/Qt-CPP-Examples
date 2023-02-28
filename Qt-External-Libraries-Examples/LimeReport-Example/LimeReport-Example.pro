@@ -5,7 +5,7 @@ QT += widgets
 CONFIG += c++20 console
 CONFIG -= app_bundle
 
-TARGET = LimonReport-Example
+TARGET = LimeReport-Example
 
 OBJECTS_DIR = $$OUT_PWD/obj # промежуточные объекты
 MOC_DIR     = $$OUT_PWD/moc # промежуточные moc-файлы
