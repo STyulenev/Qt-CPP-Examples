@@ -4,9 +4,9 @@
 
 namespace SimpleDelegates {
 
-ComboBoxDelegate::ComboBoxDelegate(QStringList items, QObject* parent)
-    : QItemDelegate(parent),
-      items(items)
+ComboBoxDelegate::ComboBoxDelegate(QStringList items, QObject* parent) :
+    QItemDelegate(parent),
+    items(items)
 {
 
 }

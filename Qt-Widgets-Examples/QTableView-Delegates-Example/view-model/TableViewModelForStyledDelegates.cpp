@@ -6,17 +6,18 @@ struct TestModelStyled {
     int     line_0;
     QString line_1;
     bool    line_2;
+    QString line_3;
 };
 
 TableViewModelForStyledDelegates::TableViewModelForStyledDelegates(QObject* parent)
     : QAbstractTableModel(parent)
 {
-    model = { { 10, ":/res/china.png",          true  },
-              { 20, ":/res/germany.png",        false },
-              { 30, ":/res/india.png",          true  },
-              { 50, ":/res/russia.png",         true  },
-              { 60, ":/res/spain.png",          false },
-              { 80, ":/res/united-kingdom.png", false }
+    model = { { 10, ":/res/china.png",          true,  "" },
+              { 20, ":/res/germany.png",        false, "" },
+              { 30, ":/res/india.png",          true,  "" },
+              { 50, ":/res/russia.png",         true,  "" },
+              { 60, ":/res/spain.png",          false, "" },
+              { 80, ":/res/united-kingdom.png", false, "" }
             };
 }
 
@@ -27,7 +28,7 @@ TableViewModelForStyledDelegates::~TableViewModelForStyledDelegates()
 
 auto TableViewModelForStyledDelegates::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
-    return 3;
+    return 4;
 }
 
 auto TableViewModelForStyledDelegates::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
@@ -42,6 +43,7 @@ auto TableViewModelForStyledDelegates::data(const QModelIndex& index, int role) 
         case 0: return model.at(index.row()).line_0;
         case 1: return model.at(index.row()).line_1;
         case 2 :return model.at(index.row()).line_2 ? Qt::Checked : Qt::Unchecked;
+        case 3 :return model.at(index.row()).line_3;
         [[unlikely]] default: assert(!"Should not get here");
         }
     }
@@ -49,7 +51,7 @@ auto TableViewModelForStyledDelegates::data(const QModelIndex& index, int role) 
     return QVariant();
 }
 
-auto TableViewModelForStyledDelegates::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto TableViewModelForStyledDelegates::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsUserCheckable;
 }
@@ -62,6 +64,7 @@ auto TableViewModelForStyledDelegates::headerData(int section, Qt::Orientation o
             case 0: return "StyledSlider";
             case 1: return "Image";
             case 2: return "CheckBox";
+            case 3: return "Pie Chart";
             [[unlikely]] default: assert(!"Should not get here");
             }
         } else [[likely]] {
@@ -83,6 +86,8 @@ auto TableViewModelForStyledDelegates::setData(const QModelIndex& index, const Q
             break;
         case 2:
             model[index.row()].line_2 = value.toBool();
+            break;
+        case 3:
             break;
         }
 

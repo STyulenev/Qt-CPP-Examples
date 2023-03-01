@@ -2,14 +2,15 @@
 
 namespace SimpleDelegates {
 
-ReadOnlyDelegate::ReadOnlyDelegate(QObject *parent)
-    : QItemDelegate(parent)
+ReadOnlyDelegate::ReadOnlyDelegate(QObject* parent) :
+    QItemDelegate(parent)
 {
+
 }
 
-auto ReadOnlyDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const -> QWidget*
+auto ReadOnlyDelegate::createEditor([[maybe_unused]] QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex &index) const -> QWidget*
 {
-    return NULL;
+    return nullptr;
 }
 
 } // namespace SimpleDelegates

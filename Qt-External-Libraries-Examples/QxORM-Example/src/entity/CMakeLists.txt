@@ -19,7 +19,7 @@ add_library(${PROJECT_NAME} STATIC ${entity-src})
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE -D_QXORM_EXAMPLE) ## define for QxORM
 
-include_directories("C:/Work/CurrentExample/QxOrm-master/include/") ## Path to QxORM include folder
+include_directories("C:/.../include/") ## Path to QxORM include folder
 
 if(COMMAND target_precompile_headers) ## QxORM
    target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/Precompiled.h)
@@ -29,7 +29,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Sql
 
-    "C:/Work/CurrentExample/QxOrm-master/lib/libQxOrmd.dll" ## Path to QxORM dll (windows) / so (linux)
+    "C:/Work/.../lib/libQxOrmd.dll" ## Path to QxORM dll (windows) / so (linux)
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)

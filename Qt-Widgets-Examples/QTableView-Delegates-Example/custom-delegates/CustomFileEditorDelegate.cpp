@@ -33,7 +33,7 @@ auto CustomFileEditorDelegate::setModelData(QWidget* editor, QAbstractItemModel*
     model->setData(index, widget->getImage(), Qt::EditRole);
 }
 
-auto CustomFileEditorDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const -> QSize
+auto CustomFileEditorDelegate::sizeHint([[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QSize
 {
     return QSize(32, 32);
 }

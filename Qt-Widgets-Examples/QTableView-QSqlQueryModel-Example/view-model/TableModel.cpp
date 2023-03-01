@@ -2,8 +2,8 @@
 
 namespace ViewModels {
 
-TableModel::TableModel(QString tableName)
-    : tableName(tableName)
+TableModel::TableModel(QString tableName) :
+    tableName(tableName)
 {
     db = QSqlDatabase::addDatabase("QPSQL");
 
@@ -21,7 +21,7 @@ TableModel::~TableModel()
     db.close();
 }
 
-auto TableModel::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto TableModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsUserCheckable;
 }
