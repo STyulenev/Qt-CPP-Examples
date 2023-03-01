@@ -3,7 +3,7 @@
 
 #include "ListModel.h"
 
-int main(int argc, char *argv[])
+auto main(int argc, char* argv[]) -> int
 {
     QGuiApplication app(argc, argv);
 
@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     engine.addImportPath("qml/Widgets/");
 
     const QUrl url("qrc:/main.qml");
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, &app, [url](QObject *obj, const QUrl &objUrl) {
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, &app, [url](QObject* obj, const QUrl& objUrl) {
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);

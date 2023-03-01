@@ -11,8 +11,8 @@ struct TestModel {
     bool status;
 };
 
-ListModel::ListModel(QObject* parent)
-    : QAbstractListModel(parent)
+ListModel::ListModel(QObject* parent) :
+    QAbstractListModel(parent)
 {
     model = { { "Hamburger", "qrc:/res/hamburger.png", "A hamburger, or simply burger, is a food consisting of fillings—usually a patty of ground meat,"
                 " typically beef—placed inside a sliced bun or bread roll. Hamburgers are often served with cheese, lettuce, tomato, onion, pickles, bacon,"
@@ -59,7 +59,7 @@ auto ListModel::data(const QModelIndex& index, int role) const -> QVariant
     return QVariant();
 }
 
-auto ListModel::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto ListModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled;
 }

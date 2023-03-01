@@ -13,6 +13,7 @@ Window {
     width: 640
     height: 480
     visible: true
+    title: "QML-ListView-Example"
 
     property QtObject currentModel: Models.ListModel{}
 
