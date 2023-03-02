@@ -10,6 +10,7 @@ Window {
     width: 640
     height: 480
     visible: true
+    title: "QML-TableView-Delegates-Example"
 
     property QtObject currentModel: Models.TableModel{}
 

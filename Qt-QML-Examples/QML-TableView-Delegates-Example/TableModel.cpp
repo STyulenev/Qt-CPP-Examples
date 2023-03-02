@@ -11,8 +11,8 @@ struct TestModel {
     bool    status;
 };
 
-TableModel::TableModel(QObject* parent)
-    : QAbstractTableModel(parent)
+TableModel::TableModel(QObject* parent) :
+    QAbstractTableModel(parent)
 {
     model = { { "John",  "qrc:/res/user1.png",  "12345", true },
               { "Masha", "qrc:/res/user2.png", "12345", false },
@@ -115,12 +115,14 @@ auto TableModel::setData(const QModelIndex& index, const QVariant& value, int ro
             model[index.row()].status = (value.toInt() == Qt::Checked);
         }
         emit dataChanged(index, index);
+        break;
     case Qt::EditRole:
         if (index.column() == 2) {
             model[index.row()].number = value.toString();
         }
 
         emit dataChanged(index,index);
+        break;
     }
 
     return true;
