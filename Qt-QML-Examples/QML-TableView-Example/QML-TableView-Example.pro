@@ -10,12 +10,16 @@ DESTDIR     = $$OUT_PWD/bin # результирующий файл
 RCC_DIR     = $$OUT_PWD/rcc # промежуточные файлы ресурсов
 UI_DIR      = $$OUT_PWD/ui  # промежуточные ui-файлы
 
+QML_IMPORT_PATH += $$PWD/qml
+
+INCLUDEPATH += src/
+
 HEADERS += \
-        TableModel.h
+        src/TableModel.h
 
 SOURCES += \
-        TableModel.cpp \
+        src/TableModel.cpp \
         main.cpp
 
 RESOURCES += \
-        qrc.qrc
+        res.qrc

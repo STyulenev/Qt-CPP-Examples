@@ -11,8 +11,7 @@ auto main(int argc, char* argv[]) -> int
     qmlRegisterType<ViewModels::TableModel>("TableModels", 0, 1, "TableModel");
 
     QQmlApplicationEngine engine;
-    engine.addImportPath("qrc:/");
-    engine.addImportPath("qml/Widgets/");
+    engine.addImportPath("qrc:/qml");
 
     const QUrl url("qrc:/main.qml");
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, &app, [url](QObject* obj, const QUrl& objUrl) {

@@ -6,9 +6,9 @@
         <file>qml/Widgets/qmldir</file>
 
         <!-- icons -->
-        <file>res/user1.png</file>
-        <file>res/user2.png</file>
-        <file>res/user3.png</file>
-        <file>res/user4.png</file>
+        <file>images/user1.png</file>
+        <file>images/user2.png</file>
+        <file>images/user3.png</file>
+        <file>images/user4.png</file>
     </qresource>
 </RCC>

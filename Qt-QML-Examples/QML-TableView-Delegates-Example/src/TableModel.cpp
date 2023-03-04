@@ -14,10 +14,10 @@ struct TestModel {
 TableModel::TableModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
-    model = { { "John",  "qrc:/res/user1.png",  "12345", true },
-              { "Masha", "qrc:/res/user2.png", "12345", false },
-              { "Ben",   "qrc:/res/user3.png", "12345", false },
-              { "Kent",  "qrc:/res/user4.png", "12345", true  }
+    model = { { "John",  "qrc:/images/user1.png",  "12345", true  },
+              { "Masha", "qrc:/images/user2.png", "12345",  false },
+              { "Ben",   "qrc:/images/user3.png", "12345",  false },
+              { "Kent",  "qrc:/images/user4.png", "12345",  true  }
             };
 
     columnWidthList = { 0.25, 0.25, 0.25, 0.25 };
@@ -47,6 +47,7 @@ auto TableModel::data(const QModelIndex& index, int role) const -> QVariant
         case 1: return QVariant("");
         case 2: return model.at(index.row()).number;
         case 3: return QVariant("");
+        [[unlikely]] default: assert(!"Should not get here");
         }
     case Qt::CheckStateRole:
         switch (index.column()) {
@@ -54,6 +55,7 @@ auto TableModel::data(const QModelIndex& index, int role) const -> QVariant
         case 1: return QVariant();
         case 2: return QVariant();
         case 3: return model.at(index.row()).status ? Qt::Checked : Qt::Unchecked;
+        [[unlikely]] default: assert(!"Should not get here");
         }
     case Qt::TextAlignmentRole:
         return Qt::AlignHCenter;
@@ -63,6 +65,7 @@ auto TableModel::data(const QModelIndex& index, int role) const -> QVariant
         case 1: return QUrl(model.at(index.row()).iconUrl);
         case 2: return QUrl();
         case 3: return QUrl();
+        [[unlikely]] default: assert(!"Should not get here");
         }
     case Qt::ToolTipRole:
         switch (index.column()) {
@@ -70,6 +73,7 @@ auto TableModel::data(const QModelIndex& index, int role) const -> QVariant
         case 1: return "User icon here";
         case 2: return "User number here\nYou can change it";
         case 3: return "User status here\nYou can change it";
+        [[unlikely]] default: assert(!"Should not get here");
         }
     }
 
@@ -121,7 +125,7 @@ auto TableModel::setData(const QModelIndex& index, const QVariant& value, int ro
             model[index.row()].number = value.toString();
         }
 
-        emit dataChanged(index,index);
+        emit dataChanged(index, index);
         break;
     }
 
