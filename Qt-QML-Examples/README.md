@@ -4,6 +4,10 @@
 
 Пример использования ListView в QML на основе модели.
 
+## QML-StackView-Example
+
+Пример использования StackView в QML.
+
 ## QML-TableView-Delegates-Example
 
 Пример использования делегатов TableView в QML на основе модели.
