@@ -4,7 +4,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
-import Screens 1.0 as Screens
+import Screens 1.0
 
 FourScreen_Form {
     id: formFourScreen
@@ -12,9 +12,9 @@ FourScreen_Form {
 
     Component {
         id: componentFiveScreen
-        Screens.ScreenLoader {
+        ScreenLoader {
             screenName: "FiveScreen"
-            screen: Screens.FiveScreen {}
+            screen: FiveScreen {}
         }
     }
 

@@ -10,8 +10,6 @@ Item {
     signal clickedBackToThreeScreen
     signal clickedBack
 
-    //color: "yellow"
-
     anchors.fill: parent
 
     Row {

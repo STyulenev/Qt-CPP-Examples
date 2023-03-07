@@ -67,10 +67,10 @@ ApplicationWindow {
                 contentFrame.replace(contentFrame.currentItem, screen)
             }
 
-            function onBackTo() {
-                contentFrame.pop(contentFrame.find(function (item, _) {
+            function onBackTo(name) {
+                contentFrame.pop(contentFrame.find(function (item, id) {
                     if (item.objectName === name) {
-                        return item
+                        return item;
                     }
                 }))
             }

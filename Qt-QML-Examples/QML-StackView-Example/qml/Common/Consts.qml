@@ -2,8 +2,9 @@ pragma Singleton
 
 import QtQuick
 import QtQml 2.15
+import QtQuick.Controls 2.15
 
 QtObject {
-    readonly property int screenWidth: 1200
-    readonly property int screenHeight: 800
+    readonly property int screenWidth: 800
+    readonly property int screenHeight: 600
 }

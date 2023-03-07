@@ -6,7 +6,7 @@ TwoScreen_Form {
     objectName: "TwoScreen"
 
     onClickedPrintLog: {
-        console.log("Print Log was clicked")
+        console.log("Print Log clicked")
     }
 
     onClickedBack: {
