@@ -9,8 +9,8 @@ struct TestModel {
     QString status;
 };
 
-TableModel::TableModel(QObject* parent)
-    : QAbstractTableModel(parent)
+TableModel::TableModel(QObject* parent) :
+    QAbstractTableModel(parent)
 {
     model = { { 1, "John",  "12345", "yes" },
               { 2, "Masha", "12346", "no"  },
@@ -53,7 +53,7 @@ auto TableModel::data(const QModelIndex& index, int role) const -> QVariant
     return QVariant();
 }
 
-auto TableModel::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto TableModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled;
 }

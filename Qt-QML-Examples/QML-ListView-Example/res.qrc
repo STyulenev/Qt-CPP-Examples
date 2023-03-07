@@ -6,9 +6,9 @@
         <file>qml/Widgets/qmldir</file>
 
         <!-- icons -->
-        <file>res/hamburger.png</file>
-        <file>res/donut.png</file>
-        <file>res/pizza.png</file>
-        <file>res/ice-cream.png</file>
+        <file>images/hamburger.png</file>
+        <file>images/donut.png</file>
+        <file>images/pizza.png</file>
+        <file>images/ice-cream.png</file>
     </qresource>
 </RCC>
