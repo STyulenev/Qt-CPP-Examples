@@ -1,7 +1,5 @@
-import QtQuick 2.12
-import QtQml 2.12
-
-import Screens 1.0
+import QtQuick
+import QtQml 2.15
 
 FiveScreen_Form {
     id: formFiveScreen

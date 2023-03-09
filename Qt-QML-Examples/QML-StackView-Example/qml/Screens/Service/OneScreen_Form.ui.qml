@@ -4,7 +4,9 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
-Item {
+import Forms 1.0 as Forms
+
+Forms.BaseForm {
     id: formOneScreen
 
     signal clickedTwoScreen
@@ -30,8 +32,8 @@ Item {
         id: backButton
 
         anchors {
-            top: parent
-            left: parent
+            top: parent.top
+            left: parent.left
             leftMargin: 10
             topMargin: 10
         }

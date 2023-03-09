@@ -1,5 +1,5 @@
-import QtQuick 2.12
-import QtQml 2.12
+import QtQuick
+import QtQml 2.15
 
 TwoScreen_Form {
     id: formTwoScreen

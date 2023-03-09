@@ -4,20 +4,20 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
-Item {
+import Forms 1.0 as Forms
+
+Forms.BaseForm {
     id: formFiveScreen
 
     signal clickedBackToThreeScreen
     signal clickedBack
 
-    anchors.fill: parent
-
     Row {
         id: buttonRow
 
         anchors {
-            top: parent
-            left: parent
+            top: parent.top
+            left: parent.left
             leftMargin: 10
             topMargin: 10
         }

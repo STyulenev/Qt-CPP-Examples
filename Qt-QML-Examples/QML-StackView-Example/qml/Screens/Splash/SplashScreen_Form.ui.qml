@@ -4,13 +4,15 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
-Item {
+import Forms 1.0 as Forms
+
+Forms.BaseForm {
     id: formSplashScreen
 
     signal clickedService
     signal clickedOther
 
-    property string screenName: "Splash Screen"
+    screenName: "Splash Screen"
 
     Row {
         id: buttonRow
