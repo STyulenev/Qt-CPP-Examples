@@ -5,6 +5,7 @@
         <file>qml/Common/qmldir</file>
         <file>qml/Common/Consts.qml</file>
         <file>qml/Common/RegExp.qml</file>
+        <file>qml/Common/helpers.js</file>
 
         <file>qml/Pages/qmldir</file>
         <file>qml/Pages/QuestionnairePages/OneScreen.qml</file>
@@ -17,6 +18,9 @@
         <file>qml/Pages/QuestionnairePages/FourScreen_Form.ui.qml</file>
         <file>qml/Pages/QuestionnairePages/MainScreen.qml</file>
         <file>qml/Pages/QuestionnairePages/MainScreen_Form.ui.qml</file>
+
+        <file>qml/Forms/qmldir</file>
+        <file>qml/Forms/BaseForm.qml</file>
 
     </qresource>
 </RCC>

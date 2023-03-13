@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(QML-SipeView-Example
+project(QML-SwipeView-Example
     VERSION 0.1
-    DESCRIPTION "Project with sample QML-SipeView"
+    DESCRIPTION "Project with sample QML-SwipeView"
     LANGUAGES CXX
 )
 

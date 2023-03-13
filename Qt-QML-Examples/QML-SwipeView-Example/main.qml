@@ -16,5 +16,6 @@ ApplicationWindow {
     Pages.MainScreen {
         id: swipeView
         anchors.fill: parent
+        flickableSwipeView: false
     }
 }

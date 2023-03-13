@@ -16,7 +16,7 @@ public:
     virtual ~QuestionnaireModel();
 
     enum Sex {
-        Male,
+        Male = 0,
         Female,
         Unknown
         // ...

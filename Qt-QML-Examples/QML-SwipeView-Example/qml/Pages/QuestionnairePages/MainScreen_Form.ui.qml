@@ -11,6 +11,8 @@ import Pages 1.0 as QuestionnairePages
 Item {
     id: main
 
+    property alias flickableSwipeView: swipeView.interactive
+
     QtObject {
         id: swipeViewData
 

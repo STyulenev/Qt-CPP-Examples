@@ -2,3 +2,5 @@ module Common
 
 singleton Consts 1.0 Consts.qml
 singleton RegExp 1.0 RegExp.qml
+
+Helpers 1.0 helpers.js
