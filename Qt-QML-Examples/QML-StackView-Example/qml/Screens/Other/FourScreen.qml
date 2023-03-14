@@ -1,5 +1,5 @@
-import QtQuick
 import QtQml 2.15
+import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 import Screens 1.0 as Screens
@@ -17,12 +17,12 @@ FourScreen_Form {
     }
 
     onClickedFourScreen: {
-        console.log("Open FiveScreen")
-        push(componentFiveScreen)
+        console.log("Open FiveScreen");
+        push(componentFiveScreen);
     }
 
-    onClickedBack: {
-        console.log("Back")
-        exit()
+    onBackButtonClicked: {
+        console.log("Back");
+        exit();
     }
 }

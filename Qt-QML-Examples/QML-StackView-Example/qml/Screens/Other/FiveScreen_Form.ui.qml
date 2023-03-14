@@ -1,5 +1,5 @@
-import QtQuick
 import QtQml 2.15
+import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
@@ -10,47 +10,21 @@ Forms.BaseForm {
     id: formFiveScreen
 
     signal clickedBackToThreeScreen
-    signal clickedBack
 
-    Row {
-        id: buttonRow
+    backButtonText: qsTr("Back")
 
-        anchors {
-            top: parent.top
-            left: parent.left
-            leftMargin: 10
-            topMargin: 10
-        }
+    content: Button {
+        id: printButton
+        anchors.centerIn: parent
+        width: 200
+        height: 50
+        text: qsTr("Back To Three Screen")
 
-        spacing: 50
+        Connections {
+            target: printButton
 
-        Button {
-            id: buttonBack
-            width: 200
-            height: 50
-            text: "Back"
-
-            Connections {
-                target: buttonBack
-
-                function onClicked() {
-                    formFiveScreen.clickedBack()
-                }
-            }
-        }
-
-        Button {
-            id: buttonBackToThreeScreen
-            width: 200
-            height: 50
-            text: "Back to ThreeScreen"
-
-            Connections {
-                target: buttonBackToThreeScreen
-
-                function onClicked() {
-                    formFiveScreen.clickedBackToThreeScreen()
-                }
+            function onClicked() {
+                formFiveScreen.clickedBackToThreeScreen()
             }
         }
     }
