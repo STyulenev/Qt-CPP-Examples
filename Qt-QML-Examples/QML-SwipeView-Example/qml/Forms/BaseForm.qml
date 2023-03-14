@@ -5,10 +5,8 @@ import QtQuick.Layouts 1.3
 
 Item {
     id: base
-    //property string screenName: "Screen"
-    //property alias buttonBackEnabled: btnBack.visible
 
-    property alias content: itmArea.children
+    property alias content: bodyArea.children
 
     signal leftButtonClicked
     signal rightButtonClicked
@@ -19,7 +17,7 @@ Item {
     property alias leftButtonVisible: leftButton.visible
 
     Item {
-        id: itmArea
+        id: bodyArea
 
         anchors {
             top: parent.top
@@ -52,7 +50,7 @@ Item {
 
                 Button {
                     id: leftButton
-                    text: "Left Button"
+                    text: qsTr("Left Button")
                     anchors.fill: parent
 
                     onClicked: base.leftButtonClicked()
@@ -68,7 +66,7 @@ Item {
 
                 Button {
                     id: rightButton
-                    text: "Right Button"
+                    text: qsTr("Right Button")
                     anchors.fill: parent
 
                     onClicked: base.rightButtonClicked()

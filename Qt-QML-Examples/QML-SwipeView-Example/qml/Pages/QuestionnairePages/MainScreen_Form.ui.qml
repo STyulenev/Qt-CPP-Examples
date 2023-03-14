@@ -16,11 +16,6 @@ Item {
     QtObject {
         id: swipeViewData
 
-        property int speed: 5
-        property int gain: 10
-        property int xValue: 976
-        property int degreeValue: 143
-
         property QtObject currentModel: Models.QuestionnaireModel {}
     }
 

@@ -5,7 +5,6 @@ function getSexList() {
 }
 
 function getSex(id) {
-    console.log("00000000000  id " + id)
     if (id >= 0 && id < arr.length)
         return arr[id];
     else

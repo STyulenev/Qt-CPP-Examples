@@ -22,16 +22,14 @@ Forms.BaseForm {
                 top: parent.top
                 left: parent.left
                 right: parent.right
-
+                topMargin: 20
                 leftMargin: 20
                 rightMargin: 20
-                topMargin: 20
             }
 
             Label {
                 id: title
                 Layout.fillWidth: true
-                //Layout.minimumHeight: 30
                 text: qsTr("Input your sex:")
 
                 font {
@@ -44,6 +42,7 @@ Forms.BaseForm {
             ComboBox {
                 id: inputSex
                 Layout.fillWidth: true
+                Layout.minimumHeight: 40
             }
         }
     }
