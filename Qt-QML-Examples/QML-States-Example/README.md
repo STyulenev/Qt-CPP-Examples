@@ -1,9 +1,10 @@
-#QML-States-Example
+# QML-States-Example
 
 ## Описание
 
 Пример использования States в QML.
 
+![alt text](../../doc/QML-States-Example.gif)
 
 ## Сборка проекта
 

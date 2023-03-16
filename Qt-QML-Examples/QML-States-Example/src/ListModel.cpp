@@ -45,14 +45,8 @@ auto ListModel::data(const QModelIndex& index, int role) const -> QVariant
     switch (role) {
     case Qt::DisplayRole:
         return model.at(index.row()).name;
-        /*case Role::DescriptionRole:
-        return model.at(index.row()).image;
-    case Role::StatusRole:
-        return model.at(index.row()).status;*/
     case Qt::DecorationRole:
         return QUrl(model.at(index.row()).image);
-        /*case Qt::ToolTipRole:
-        return "User status here\nYou can change it";*/
     case Role::WeightRole:
         return model.at(index.row()).weight;
     case Role::PriceRole:
@@ -73,8 +67,6 @@ auto ListModel::roleNames() const -> QHash<int, QByteArray>
 
     roles[Qt::DisplayRole]    = "DisplayRole";
     roles[Qt::DecorationRole] = "DecorationRole";
-    //roles[Qt::ToolTipRole]  = "ToolTipRole";
-
     roles[Role::WeightRole]   = "WeightRole";
     roles[Role::PriceRole]    = "PriceRole";
 

@@ -8,6 +8,10 @@
 
 Пример использования StackView в QML.
 
+## QML-States-Example
+
+Пример использования States в QML.
+
 ## QML-SwipeView-Example
 
 Пример использования SwipeView в QML.

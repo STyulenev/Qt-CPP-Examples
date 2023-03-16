@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.3
 
 // Import C ++ class
 import Models 0.1 as Models
+import Common 1.0 as CommonData
 
 Rectangle {
     id: main
@@ -12,10 +13,10 @@ Rectangle {
     signal changeViewState
     signal changeThemeState
 
-    property bool sunTheme: true
+    property bool mainTheme: true
     property bool viewDescription: false
 
-    color: sunTheme ? "#c2f1eb" : "#6c13d0"
+    color: mainTheme ? CommonData.Consts.brightMainBackgroundColor : CommonData.Consts.darkMainBackgroundColor
 
     QtObject {
         id: data
@@ -58,14 +59,13 @@ Rectangle {
 
     Rectangle {
         id: header
-        color: sunTheme ? "#a4e0fc" : "#4416BB"
+        color: mainTheme ? CommonData.Consts.brightTitleBackgroundColor : CommonData.Consts.darkTitleBackgroundColor
         height: 50
 
         anchors {
             top: parent.top
             left: parent.left
             right: parent.right
-
         }
 
         Row {
@@ -104,7 +104,7 @@ Rectangle {
                 Image {
                     id: iconTheme
                     anchors.centerIn: parent
-                    source: sunTheme ? "qrc:/res/icons/moon.png" : "qrc:/res/icons/sun.png"
+                    source: mainTheme ? "qrc:/res/icons/moon.png" : "qrc:/res/icons/sun.png"
                 }
 
                 MouseArea {
@@ -143,7 +143,7 @@ Rectangle {
             width: grid.cellWidth - 5
             height: grid.cellHeight - 5
 
-            color: sunTheme ? "#a4e8ec" :  "#6c07f5"
+            color: mainTheme ? CommonData.Consts.brightCellBackgroundColor : CommonData.Consts.darkCellBackgroundColor
             border.color: "black"
             border.width: 2
             radius: 10

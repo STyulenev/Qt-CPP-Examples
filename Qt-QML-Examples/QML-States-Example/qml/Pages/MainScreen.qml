@@ -19,6 +19,6 @@ MainScreen_Form {
     }
 
     onChangeThemeState: {
-        sunTheme = !sunTheme;
+        mainTheme = !mainTheme;
     }
 }
