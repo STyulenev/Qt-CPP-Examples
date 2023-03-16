@@ -8,6 +8,14 @@
 
 Пример использования StackView в QML.
 
+## QML-States-Example
+
+Пример использования States в QML.
+
+## QML-SwipeView-Example
+
+Пример использования SwipeView в QML.
+
 ## QML-TableView-Delegates-Example
 
 Пример использования делегатов TableView в QML на основе модели.

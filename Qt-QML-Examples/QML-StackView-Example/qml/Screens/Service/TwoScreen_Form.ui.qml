@@ -1,52 +1,30 @@
-import QtQuick
 import QtQml 2.15
+import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
-Item {
+import Forms 1.0 as Forms
+
+Forms.BaseForm {
     id: formTwoScreen
 
     signal clickedPrintLog
-    signal clickedBack
 
-    anchors.fill: parent
+    backButtonText: qsTr("Back")
 
-    Button {
+    content: Button {
         id: printButton
         anchors.centerIn: parent
         width: 100
         height: 50
-        text: "Print Log"
+        text: qsTr("Print Log")
 
         Connections {
             target: printButton
 
             function onClicked() {
                 formTwoScreen.clickedPrintLog()
-            }
-        }
-    }
-
-    Button {
-        id: backButton
-
-        anchors {
-            top: parent
-            left: parent
-            leftMargin: 10
-            topMargin: 10
-        }
-
-        width: 100
-        height: 50
-        text: "Back"
-
-        Connections {
-            target: backButton
-
-            function onClicked() {
-                formTwoScreen.clickedBack()
             }
         }
     }
