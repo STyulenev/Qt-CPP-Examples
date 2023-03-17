@@ -6,8 +6,8 @@
 
 namespace Delegates {
 
-QComboBoxDelegate::QComboBoxDelegate(QObject* parent)
-    : QStyledItemDelegate(parent)
+QComboBoxDelegate::QComboBoxDelegate(QObject* parent) :
+    QStyledItemDelegate(parent)
 {
 
 }

@@ -4,28 +4,16 @@ CONFIG += c++20
 
 TARGET = QComboBox-Delegate-Example
 
-OBJECTS_DIR = $$PWD/build/obj # промежуточные объекты
-MOC_DIR     = $$PWD/build/moc # промежуточные moc-файлы
-DESTDIR     = $$PWD/build/lib # результирующий файл
-RCC_DIR     = $$PWD/build/rcc # промежуточные файлы ресурсов
-UI_DIR      = $$PWD/build/ui  # промежуточные ui-файлы
+OBJECTS_DIR = $$OUT_PWD/obj # промежуточные объекты
+MOC_DIR     = $$OUT_PWD/moc # промежуточные moc-файлы
+DESTDIR     = $$OUT_PWD/lib # результирующий файл
+RCC_DIR     = $$OUT_PWD/rcc # промежуточные файлы ресурсов
+UI_DIR      = $$OUT_PWD/ui  # промежуточные ui-файлы
+
+include(src/Source.pri)
 
 SOURCES += \
-    QComboBoxDelegate.cpp \
-    QComboBoxModel.cpp \
-    TableViewModel.cpp \
-    main.cpp \
-    MainWindow.cpp
-
-HEADERS += \
-    MainWindow.h \
-    QComboBoxDelegate.h \
-    QComboBoxModel.h \
-    TableViewModel.h \
-    TestModel.h
-
-FORMS += \
-    MainWindow.ui
+    main.cpp
 
 RESOURCES += \
     resource.qrc

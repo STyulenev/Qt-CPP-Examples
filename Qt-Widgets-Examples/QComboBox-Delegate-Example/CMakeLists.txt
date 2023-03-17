@@ -18,23 +18,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
+add_subdirectory(src)
+
 set(PROJECT_SOURCES
         main.cpp
-
-        MainWindow.cpp
-        MainWindow.h
-        MainWindow.ui
-
-        QComboBoxModel.h
-        QComboBoxModel.cpp
-
-        QComboBoxDelegate.h
-        QComboBoxDelegate.cpp
-
-        TestModel.h
-
-        TableViewModel.h
-        TableViewModel.cpp
 
         resource.qrc
 )
@@ -46,4 +33,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     )
 endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    QComboBox-Delegate-Example-view
+)
