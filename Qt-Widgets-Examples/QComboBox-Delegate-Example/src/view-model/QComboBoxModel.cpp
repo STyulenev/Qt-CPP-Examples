@@ -2,8 +2,8 @@
 
 namespace Models {
 
-QComboBoxModel::QComboBoxModel(QObject* parent)
-    : QAbstractListModel(parent)
+QComboBoxModel::QComboBoxModel(QObject* parent) :
+    QAbstractListModel(parent)
 {
     model = { { 1, "John",  QPixmap(":/res/businessman.png") },
               { 2, "Masha", QPixmap(":/res/man.png") },

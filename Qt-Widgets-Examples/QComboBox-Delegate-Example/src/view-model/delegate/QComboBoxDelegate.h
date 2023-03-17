@@ -13,9 +13,9 @@ public:
     QComboBoxDelegate(QObject* parent = nullptr);
     ~QComboBoxDelegate();
 
-    auto sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const -> QSize override;
+    virtual auto sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const -> QSize override;
 
-    auto paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void override;
+    virtual auto paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void override;
 };
 
 } // namespace Delegates
