@@ -2,7 +2,6 @@
 
 #include <QSize>
 #include <QByteArray>
-#include <QLineEdit>
 
 class Setting
 {
