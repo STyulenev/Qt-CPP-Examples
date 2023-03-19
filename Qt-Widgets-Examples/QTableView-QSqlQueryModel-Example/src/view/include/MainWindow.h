@@ -3,7 +3,7 @@
 #include <QMainWindow>
 #include <QWidget>
 
-#include <view-model/TableModel.h>
+#include <TableModel.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

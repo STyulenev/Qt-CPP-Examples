@@ -72,6 +72,7 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint& pos)
         dialog->setLayout(grid.get());
 
         int result = dialog->exec();
+
         if (result == QDialog::Accepted) {
             try {
                 QString columnName = columnEdit->text();
