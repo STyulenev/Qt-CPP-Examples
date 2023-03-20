@@ -1,6 +1,8 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
+namespace View {
+
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -26,7 +28,7 @@ MainWindow::~MainWindow()
 
 auto MainWindow::on_tableView_customContextMenuRequested(const QPoint& pos) -> void
 {
-    int row    = ui->tableView->verticalHeader()->logicalIndexAt(pos);
+    int row = ui->tableView->verticalHeader()->logicalIndexAt(pos);
 
     std::shared_ptr<QMenu> menu = std::make_shared<QMenu>(this);
     std::shared_ptr<QAction> editRow      = std::make_shared<QAction>(QString("Edit row"), this);
@@ -36,15 +38,13 @@ auto MainWindow::on_tableView_customContextMenuRequested(const QPoint& pos) -> v
     std::shared_ptr<QAction> addRowEnd    = std::make_shared<QAction>(QString("Add row to the end"), this);
     std::shared_ptr<QAction> deleteRow    = std::make_shared<QAction>(QString("Delete row"), this);
 
-    QVector<QMetaObject::Connection> connections;
-
     if (row > -1 && row < ui->tableView->model()->rowCount()) {
-        connections << connect(editRow.get(), &QAction::triggered, [this, &row]() -> void {
+        connect(editRow.get(), &QAction::triggered, [this, &row]() -> void {
             editForm->editCurrentRow(row);
             editForm->show();
         });
 
-        connections << connect(deleteRow.get(), &QAction::triggered, [this, &row]() -> void {
+        connect(deleteRow.get(), &QAction::triggered, [this, &row]() -> void {
             ui->tableView->model()->removeRow(row);
         });
     } else {
@@ -53,7 +53,7 @@ auto MainWindow::on_tableView_customContextMenuRequested(const QPoint& pos) -> v
     }
 
     if (row >= 0) {
-        connections << connect(addRowBefore.get(), &QAction::triggered, [this, &row]() -> void {
+        connect(addRowBefore.get(), &QAction::triggered, [this, &row]() -> void {
             ui->tableView->model()->insertRow(row);
             editForm->editCurrentRow(row);
             editForm->show();
@@ -63,7 +63,7 @@ auto MainWindow::on_tableView_customContextMenuRequested(const QPoint& pos) -> v
     }
 
     if (row >= 0 && row < ui->tableView->model()->rowCount()) {
-        connections << connect(addRowAfter.get(), &QAction::triggered, [this, &row]() -> void {
+        connect(addRowAfter.get(), &QAction::triggered, [this, &row]() -> void {
             ui->tableView->model()->insertRow(row + 1);
             editForm->editCurrentRow(row + 1);
             editForm->show();
@@ -72,13 +72,13 @@ auto MainWindow::on_tableView_customContextMenuRequested(const QPoint& pos) -> v
         addRowAfter->setDisabled(true);
     }
 
-    connections << connect(addRowStart.get(), &QAction::triggered, [this]() -> void {
+    connect(addRowStart.get(), &QAction::triggered, [this]() -> void {
         ui->tableView->model()->insertRow(0);
         editForm->editCurrentRow(0);
         editForm->show();
     });
 
-    connections << connect(addRowEnd.get(), &QAction::triggered, [this]() -> void {
+    connect(addRowEnd.get(), &QAction::triggered, [this]() -> void {
         int row = ui->tableView->model()->rowCount();
         ui->tableView->model()->insertRow(row);
         editForm->editCurrentRow(row);
@@ -95,7 +95,6 @@ auto MainWindow::on_tableView_customContextMenuRequested(const QPoint& pos) -> v
     menu->addAction(deleteRow.get());
 
     menu->exec(QCursor::pos());
-
-    std::for_each(connections.begin(), connections.end(), [](auto& action) -> void { disconnect(action); });
 }
 
+} // namespace View

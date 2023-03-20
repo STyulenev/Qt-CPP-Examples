@@ -1,4 +1,4 @@
-﻿#include <TableViewModel.h>
+﻿#include "TableViewModel.h"
 
 namespace ViewModels {
 
@@ -11,8 +11,8 @@ struct TestModel {
     bool status;
 };
 
-TableViewModel::TableViewModel(QObject* parent)
-    : QAbstractTableModel(parent)
+TableViewModel::TableViewModel(QObject* parent) :
+    QAbstractTableModel(parent)
 {
     model = { { 1, "John",   "Adam",  "C++", "C++ (pronounced \"C plus plus\") is a"
                 " high-level general-purpose programming language created by Danish computer"

@@ -1,7 +1,9 @@
 #include "EditForm.h"
 #include "ui_EditForm.h"
 
-EditForm::EditForm(QWidget *parent) :
+namespace View {
+
+EditForm::EditForm(QWidget* parent) :
     QWidget(parent),
     ui(new Ui::EditForm)
 {
@@ -48,3 +50,5 @@ auto EditForm::updateButtons(int row) -> void
     ui->previousButton->setEnabled(row > 0);
     ui->nextButton->setEnabled(row < mapper->model()->rowCount() - 1);
 }
+
+} // namespace View

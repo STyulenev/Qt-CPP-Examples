@@ -8,13 +8,15 @@ namespace Ui {
 class EditForm;
 }
 
+namespace View {
+
 class EditForm : public QWidget
 {
     Q_OBJECT
 
 public:
     explicit EditForm(QWidget* parent = nullptr);
-    ~EditForm();
+    virtual ~EditForm();
 
     auto setModel(QAbstractTableModel* model) -> void;
     auto editCurrentRow(int row) -> void;
@@ -28,3 +30,4 @@ private slots:
 
 };
 
+} // namespace View

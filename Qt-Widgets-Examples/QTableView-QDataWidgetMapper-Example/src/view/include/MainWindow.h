@@ -3,20 +3,22 @@
 #include <QMainWindow>
 #include <QMenu>
 
-#include <TableViewModel.h>
-#include <EditForm.h>
+#include "TableViewModel.h"
+#include "EditForm.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+namespace View {
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget* parent = nullptr);
-    ~MainWindow();
+    explicit MainWindow(QWidget* parent = nullptr);
+    virtual ~MainWindow();
 
 private:
     Ui::MainWindow* ui;
@@ -29,3 +31,4 @@ private slots:
 
 };
 
+} // namespace View
