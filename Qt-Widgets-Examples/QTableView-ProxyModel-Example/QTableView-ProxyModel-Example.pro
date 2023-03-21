@@ -4,22 +4,13 @@ CONFIG += c++20
 
 TARGET = QTableView-ProxyModel-Example
 
-OBJECTS_DIR = $$PWD/build/obj # промежуточные объекты
-MOC_DIR     = $$PWD/build/moc # промежуточные moc-файлы
-DESTDIR     = $$PWD/build/lib # результирующий файл
-RCC_DIR     = $$PWD/build/rcc # промежуточные файлы ресурсов
-UI_DIR      = $$PWD/build/ui  # промежуточные ui-файлы
+OBJECTS_DIR = $$OUT_PWD/obj # промежуточные объекты
+MOC_DIR     = $$OUT_PWD/moc # промежуточные moc-файлы
+DESTDIR     = $$OUT_PWD/bin # результирующий файл
+RCC_DIR     = $$OUT_PWD/rcc # промежуточные файлы ресурсов
+UI_DIR      = $$OUT_PWD/ui  # промежуточные ui-файлы
+
+include(src/Source.pri)
 
 SOURCES += \
-    main.cpp \
-    MainWindow.cpp \
-    proxy-model/ProxyModel.cpp \
-    view-model/TableViewModel.cpp
-
-HEADERS += \
-    MainWindow.h \
-    proxy-model/ProxyModel.h \
-    view-model/TableViewModel.h
-
-FORMS += \
-    MainWindow.ui
+    main.cpp

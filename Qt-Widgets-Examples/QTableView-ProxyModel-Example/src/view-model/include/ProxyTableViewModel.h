@@ -4,12 +4,12 @@
 
 namespace ProxyModels {
 
-class ProxyModel : public QSortFilterProxyModel
+class ProxyTableViewModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
 public:
-    ProxyModel(QObject* parent = 0);
+    ProxyTableViewModel(QObject* parent = 0);
     auto filterAcceptsRow(int source_row, const QModelIndex& source_parent) const -> bool;
     auto headerData(int section, Qt::Orientation orientation, int role) const -> QVariant;
 

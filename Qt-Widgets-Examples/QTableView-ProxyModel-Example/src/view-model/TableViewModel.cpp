@@ -9,8 +9,8 @@ struct TestModel {
     bool    status;
 };
 
-TableViewModel::TableViewModel(QObject* parent)
-    : QAbstractTableModel(parent)
+TableViewModel::TableViewModel(QObject* parent) :
+    QAbstractTableModel(parent)
 {
     model = { { 1,  "John",    17, true  },
               { 2,  "Masha",   24, false },
@@ -56,7 +56,7 @@ auto TableViewModel::data(const QModelIndex& index, int role) const -> QVariant
     return QVariant();
 }
 
-auto TableViewModel::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto TableViewModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
 }

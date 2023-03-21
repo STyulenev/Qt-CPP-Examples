@@ -1,20 +1,20 @@
-#include "ProxyModel.h"
+#include "ProxyTableViewModel.h"
 
 namespace ProxyModels {
 
 static int count;
 static int sumAge;
 
-ProxyModel::ProxyModel(QObject* parent)
-    : QSortFilterProxyModel(parent),
-      m_minId(0),
-      m_maxId(99),
-      m_status(Status::ALL)
+ProxyTableViewModel::ProxyTableViewModel(QObject* parent) :
+    QSortFilterProxyModel(parent),
+    m_minId(0),
+    m_maxId(99),
+    m_status(Status::ALL)
 {
 
 }
 
-auto ProxyModel::setMinId(int minId) -> void
+auto ProxyTableViewModel::setMinId(int minId) -> void
 {
     if (m_minId != minId)
         m_minId = minId;
@@ -27,7 +27,7 @@ auto ProxyModel::setMinId(int minId) -> void
     emit dataReady(count, sumAge);
 }
 
-auto ProxyModel::setMaxId(int maxId) -> void
+auto ProxyTableViewModel::setMaxId(int maxId) -> void
 {
     if (m_maxId != maxId)
         m_maxId = maxId;
@@ -40,7 +40,7 @@ auto ProxyModel::setMaxId(int maxId) -> void
     emit dataReady(count, sumAge);
 }
 
-auto ProxyModel::setName(const QString& name) -> void
+auto ProxyTableViewModel::setName(const QString& name) -> void
 {
     if (m_name != name)
         m_name = name;
@@ -53,7 +53,7 @@ auto ProxyModel::setName(const QString& name) -> void
     emit dataReady(count, sumAge);
 }
 
-auto ProxyModel::setStatus(const Status status) -> void
+auto ProxyTableViewModel::setStatus(const Status status) -> void
 {
     if (m_status != status)
         m_status = status;
@@ -66,7 +66,7 @@ auto ProxyModel::setStatus(const Status status) -> void
     emit dataReady(count, sumAge);
 }
 
-auto ProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const -> bool
+auto ProxyTableViewModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const -> bool
 {
     const QModelIndex indMinId  = sourceModel()->index(source_row, 0, source_parent);
     const QModelIndex indMaxId  = sourceModel()->index(source_row, 0, source_parent);
@@ -98,9 +98,9 @@ auto ProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_pare
     return true;
 }
 
-auto ProxyModel::headerData(int section, Qt::Orientation orientation, int role) const -> QVariant
+auto ProxyTableViewModel::headerData(int section, Qt::Orientation orientation, int role) const -> QVariant
 {
     return sourceModel()->headerData(section, orientation, role);
 }
 
-} // namespace ProxyModels
+} // namespace ProxyTableViewModels

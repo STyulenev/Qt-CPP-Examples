@@ -1,29 +1,29 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
-MainWindow::MainWindow(QWidget* parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget* parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
     viewModel = std::make_shared<ViewModels::TableViewModel>();
-    proxyModel = std::make_shared<ProxyModels::ProxyModel>();
+    proxyModel = std::make_shared<ProxyModels::ProxyTableViewModel>();
     proxyModel->setSourceModel(viewModel.get());
     ui->tableView->setModel(proxyModel.get());
 
-    connect(ui->spinBoxMin, &QSpinBox::valueChanged, proxyModel.get(), &ProxyModels::ProxyModel::setMinId);
-    connect(ui->spinBoxMax, &QSpinBox::valueChanged, proxyModel.get(), &ProxyModels::ProxyModel::setMaxId);
-    connect(ui->lineEdit,   &QLineEdit::textChanged, proxyModel.get(), &ProxyModels::ProxyModel::setName);
+    connect(ui->spinBoxMin, &QSpinBox::valueChanged, proxyModel.get(), &ProxyModels::ProxyTableViewModel::setMinId);
+    connect(ui->spinBoxMax, &QSpinBox::valueChanged, proxyModel.get(), &ProxyModels::ProxyTableViewModel::setMaxId);
+    connect(ui->lineEdit,   &QLineEdit::textChanged, proxyModel.get(), &ProxyModels::ProxyTableViewModel::setName);
 
     connect(ui->radioButton_all, &QRadioButton::clicked, [this]() -> void {
-        proxyModel->setStatus(ProxyModels::ProxyModel::Status::ALL);
+        proxyModel->setStatus(ProxyModels::ProxyTableViewModel::Status::ALL);
     });
     connect(ui->radioButton_true, &QRadioButton::clicked, [this]() -> void {
-        proxyModel->setStatus(ProxyModels::ProxyModel::Status::TRUE);
+        proxyModel->setStatus(ProxyModels::ProxyTableViewModel::Status::TRUE);
     });
     connect(ui->radioButton_false, &QRadioButton::clicked, [this]() -> void {
-        proxyModel->setStatus(ProxyModels::ProxyModel::Status::FALSE);
+        proxyModel->setStatus(ProxyModels::ProxyTableViewModel::Status::FALSE);
     });
 
     ui->tableView->setSortingEnabled(true);
@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    connect(proxyModel.get(), &ProxyModels::ProxyModel::dataReady, [this](int count, int sumAge) -> void {
+    connect(proxyModel.get(), &ProxyModels::ProxyTableViewModel::dataReady, [this](int count, int sumAge) -> void {
         ui->countValue->setText(QString::number(count));
         ui->sumAgeValue->setText(QString::number(sumAge));
     });
