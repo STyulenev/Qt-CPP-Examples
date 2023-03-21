@@ -5,5 +5,6 @@ project(Source
     DESCRIPTION "Source"
     LANGUAGES CXX)
 
+add_subdirectory(delegate)
 add_subdirectory(view)
 add_subdirectory(view-model)

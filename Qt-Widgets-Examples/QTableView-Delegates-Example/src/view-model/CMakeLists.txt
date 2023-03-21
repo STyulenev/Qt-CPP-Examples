@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(View-models
+project(View-model-lib
     VERSION 0.1
     DESCRIPTION "Library with view models"
     LANGUAGES CXX)
@@ -20,3 +20,9 @@ add_library(${PROJECT_NAME} STATIC ${view-models-src})
 target_link_libraries(${PROJECT_NAME} PUBLIC Qt${QT_VERSION_MAJOR}::Widgets)
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)
+
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)

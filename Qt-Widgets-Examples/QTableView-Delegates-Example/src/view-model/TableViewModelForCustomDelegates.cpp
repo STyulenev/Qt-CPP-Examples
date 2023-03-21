@@ -10,8 +10,8 @@ struct TestModelCustom {
     QColor     line_2;
 };
 
-TableViewModelForCustomDelegates::TableViewModelForCustomDelegates(QObject* parent)
-    : QAbstractTableModel(parent)
+TableViewModelForCustomDelegates::TableViewModelForCustomDelegates(QObject* parent) :
+    QAbstractTableModel(parent)
 {
     model = { { true,  QByteArray(), Qt::GlobalColor::red     },
               { false, QByteArray(), Qt::GlobalColor::green   },

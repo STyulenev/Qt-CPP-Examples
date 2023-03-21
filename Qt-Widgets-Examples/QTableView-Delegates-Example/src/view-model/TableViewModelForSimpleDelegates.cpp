@@ -20,8 +20,8 @@ struct TestModelSimple {
 	QString line_8;
 };
 
-TableViewModelForSimpleDelegates::TableViewModelForSimpleDelegates(QObject* parent)
-    : QAbstractTableModel(parent)
+TableViewModelForSimpleDelegates::TableViewModelForSimpleDelegates(QObject* parent) :
+    QAbstractTableModel(parent)
 {
     model = { { 1, "string", 12, 12.34, QTime::currentTime(), QDate::currentDate(), 20, "A", text },
               { 2, "string", 15, 34.34, QTime::currentTime(), QDate::currentDate(), 30, "B", text },

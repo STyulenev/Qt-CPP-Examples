@@ -21,6 +21,15 @@ add_library(${PROJECT_NAME} STATIC ${view-src})
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Widgets
     View-model-lib
+    Custom-delegate-lib
+    Simple-delegate-lib
+    Styled-delegate-lib
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)
+
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)

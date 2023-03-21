@@ -38,11 +38,11 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow* ui;
     std::shared_ptr<ViewModels::TableViewModelForSimpleDelegates> viewModelSimple;
     std::shared_ptr<ViewModels::TableViewModelForStyledDelegates> viewModelStyled;
     std::shared_ptr<ViewModels::TableViewModelForCustomDelegates> viewModelCustom;

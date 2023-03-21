@@ -9,8 +9,8 @@ struct TestModelStyled {
     QString line_3;
 };
 
-TableViewModelForStyledDelegates::TableViewModelForStyledDelegates(QObject* parent)
-    : QAbstractTableModel(parent)
+TableViewModelForStyledDelegates::TableViewModelForStyledDelegates(QObject* parent) :
+    QAbstractTableModel(parent)
 {
     model = { { 10, ":/res/china.png",          true,  "" },
               { 20, ":/res/germany.png",        false, "" },
