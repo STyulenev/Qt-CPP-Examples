@@ -1,0 +1,4 @@
+module CustomStyle
+
+ApplicationWindow 1.0 ApplicationWindow.qml
+RoundButton 1.0 RoundButton.qml

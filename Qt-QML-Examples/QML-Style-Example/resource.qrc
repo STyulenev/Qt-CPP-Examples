@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qtquickcontrols2.conf</file>
+        <file>main.qml</file>
+        <file>fonts/Helvetica.ttf</file>
+        <file>qml/Common/qmldir</file>
+        <file>qml/Common/Consts.qml</file>
+        <file>qml/Common/Colors.qml</file>
+        <file>qml/Common/Fonts.qml</file>
+        <file>qml/Styles/CustomStyle/ApplicationWindow.qml</file>
+        <file>qml/Styles/CustomStyle/qmldir</file>
+        <file>qml/Styles/CustomStyle/RoundButton.qml</file>
+    </qresource>
+</RCC>
