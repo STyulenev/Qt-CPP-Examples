@@ -1,3 +1,5 @@
+QT += testlib
+
 INCLUDEPATH += \
         $$PWD \
         $$PWD/include/
