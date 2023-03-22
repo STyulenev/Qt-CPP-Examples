@@ -18,7 +18,6 @@ MainWindow::MainWindow(QWidget* parent) :
     tableModel = std::make_shared<Models::TableViewModel>();
 
     ui->tableView->setModel(tableModel.get());
-    ui->tableView->setItemDelegateForColumn(1, new Delegates::QComboBoxDelegate());
 
     mapper = std::make_shared<QDataWidgetMapper>();
     mapper->setOrientation(Qt::Horizontal);
@@ -31,7 +30,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_tableView_doubleClicked(const QModelIndex& index)
+auto MainWindow::on_tableView_doubleClicked(const QModelIndex& index) -> void
 {
     std::shared_ptr<QDialog>     dialog        = std::make_shared<QDialog>();
     std::shared_ptr<QGridLayout> grid          = std::make_shared<QGridLayout>(dialog.get());

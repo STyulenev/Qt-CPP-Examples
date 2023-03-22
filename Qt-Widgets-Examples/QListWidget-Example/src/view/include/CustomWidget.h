@@ -6,6 +6,8 @@ namespace Ui {
 class CustomWidget;
 }
 
+namespace View {
+
 class CustomWidget : public QWidget
 {
     Q_OBJECT
@@ -22,3 +24,4 @@ private:
     Ui::CustomWidget* ui;
 };
 
+} // namespace View

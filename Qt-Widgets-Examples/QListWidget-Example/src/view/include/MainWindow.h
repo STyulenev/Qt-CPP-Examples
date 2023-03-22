@@ -8,6 +8,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+namespace View {
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -21,3 +23,5 @@ private:
 
     auto addItemInListWidget(QString&& image, QString&& title, QString&& description) -> void;
 };
+
+} // namespace View

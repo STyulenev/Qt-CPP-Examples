@@ -3,9 +3,9 @@
 
 #include <QDebug>
 
-MainWindow::MainWindow(QWidget* parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget* parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
@@ -24,7 +24,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+auto MainWindow::on_pushButton_clicked() -> void
 {
     status = (ui->nameLineEdit->text() == "Name" && ui->ipAddressLineEdit->text() == "0.0.0.0");
 }

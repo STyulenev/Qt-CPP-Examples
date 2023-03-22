@@ -29,9 +29,9 @@ public:
     TableModel(QString tableName);
     virtual ~TableModel();
 
-    auto flags(const QModelIndex& index) const -> Qt::ItemFlags;
-    auto setData(const QModelIndex& index, const QVariant& value,int role) -> bool;
-    auto data(const QModelIndex& index, int role = Qt::DisplayRole) const -> QVariant;
+    virtual auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
+    virtual auto setData(const QModelIndex& index, const QVariant& value,int role) -> bool override;
+    virtual auto data(const QModelIndex& index, int role = Qt::DisplayRole) const -> QVariant override;
 
     auto addColumn(const QString columnName, const QString columnType) -> void;
     auto deleteColumn(const QString columnName) -> void;

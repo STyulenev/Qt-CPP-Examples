@@ -9,4 +9,4 @@ SOURCES += \
         $$files($$PWD/*.cpp)
 
 FORMS += \
-    $$files($$PWD/ui/*.ui)
+        $$files($$PWD/ui/*.ui)

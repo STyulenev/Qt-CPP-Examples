@@ -13,7 +13,7 @@ UI_DIR      = $$OUT_PWD/ui  # промежуточные ui-файлы
 include(src/Source.pri)
 
 SOURCES += \
-    main.cpp
+        main.cpp
 
 RESOURCES += \
-    resource.qrc
+        resource.qrc

@@ -1,5 +1,7 @@
 # QComboBox-Delegate-Example
 
+## Описание
+
 Пример использование модели и делегата для QComboBox.
 
 ![alt text](../../doc/QComboBox-Delegate-Example.png)

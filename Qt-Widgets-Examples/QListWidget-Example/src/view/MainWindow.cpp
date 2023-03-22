@@ -1,6 +1,9 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
+namespace View {
+
+
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -47,3 +50,4 @@ auto MainWindow::addItemInListWidget(QString&& image, QString&& title, QString&&
     ui->listWidget->setItemWidget(item, widget);
 }
 
+} // namespace View

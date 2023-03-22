@@ -7,8 +7,8 @@ struct TestTableModel {
     TestModel model;
 };
 
-TableViewModel::TableViewModel(QObject* parent)
-    : QAbstractTableModel(parent)
+TableViewModel::TableViewModel(QObject* parent) :
+    QAbstractTableModel(parent)
 {
     model = { { 1, { 1, "John",  QPixmap(":/res/businessman.png") } },
               { 2, { 2, "Masha", QPixmap(":/res/man.png") } },
@@ -71,7 +71,7 @@ auto TableViewModel::headerData(int section, Qt::Orientation orientation, int ro
             switch (section) {
             case 0: return "id";
             case 1: return "model";
-                [[unlikely]] default: assert(!"Should not get here");
+            [[unlikely]] default: assert(!"Should not get here");
             }
         } else [[likely]] {
             return section;

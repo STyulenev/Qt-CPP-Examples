@@ -1,6 +1,8 @@
 #include "CustomWidget.h"
 #include "ui_CustomWidget.h"
 
+namespace View {
+
 CustomWidget::CustomWidget(QWidget* parent) :
     QWidget(parent),
     ui(new Ui::CustomWidget)
@@ -38,3 +40,5 @@ auto CustomWidget::setDescription(const QString&& description) -> void
 {
     ui->description->setText(description);
 }
+
+} // namespace View

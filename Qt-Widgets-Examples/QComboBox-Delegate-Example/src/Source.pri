@@ -17,4 +17,3 @@ SOURCES += \
 
 FORMS += \
         $$files($$PWD/view/ui/*.ui)
-

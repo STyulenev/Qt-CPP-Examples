@@ -8,7 +8,6 @@
 
 ![alt text](../../doc/QTableView-QSqlQueryModel-Example.png)
 
-
 ## Сборка проекта
 
 Перед сборкой необдимо создать тестовую таблицу:

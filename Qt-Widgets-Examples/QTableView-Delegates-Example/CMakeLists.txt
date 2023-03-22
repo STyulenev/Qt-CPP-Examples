@@ -22,7 +22,6 @@ add_subdirectory(src)
 
 set(PROJECT_SOURCES
     main.cpp
-
     resource.qrc
 )
 
@@ -41,4 +40,3 @@ set_target_properties(${PROJECT_NAME}
     PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
-

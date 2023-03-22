@@ -7,4 +7,3 @@ HEADERS += \
 
 SOURCES += \
         $$files($$PWD/*.cpp)
-
