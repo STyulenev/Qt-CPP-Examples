@@ -22,12 +22,12 @@ add_subdirectory(src)
 add_subdirectory(tests)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(QTest-Example
+    qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
         main.cpp
     )
 endif()
 
-target_link_libraries(QTest-Example PRIVATE
-    QTest-Example-Test-Lib
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Test-Lib
 )
