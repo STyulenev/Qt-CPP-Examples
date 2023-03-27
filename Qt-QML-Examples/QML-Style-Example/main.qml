@@ -15,10 +15,10 @@ ApplicationWindow {
     minimumHeight: height
     minimumWidth: width*/
 
-    visibility: "FullScreen" //"Windowed"
+    visibility: "Windowed" // "FullScreen" //
     title: "QML-ListView-Example"
 
-    RoundButton {
+    /*RoundButton {
         id: button
         anchors.centerIn: parent
         text: "text"
@@ -28,5 +28,21 @@ ApplicationWindow {
         onClicked: {
             Qt.callLater(Qt.quit);
         }
+    }*/
+
+    /*ComboBox {
+        anchors.centerIn: parent
+        height: 20 * Common.Consts.xCoord
+        width: 100 * Common.Consts.yCoord
+
+        model: [ "1", "2", "3" ]
+    }*/
+
+    TextField {
+        anchors.centerIn: parent
+        height: 20 * Common.Consts.xCoord
+        width: 100 * Common.Consts.yCoord
+
+        text: "qwrqw"
     }
 }

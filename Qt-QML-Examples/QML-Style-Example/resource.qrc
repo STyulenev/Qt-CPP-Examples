@@ -10,5 +10,7 @@
         <file>qml/Styles/CustomStyle/ApplicationWindow.qml</file>
         <file>qml/Styles/CustomStyle/qmldir</file>
         <file>qml/Styles/CustomStyle/RoundButton.qml</file>
+        <file>qml/Styles/CustomStyle/ComboBox.qml</file>
+        <file>qml/Styles/CustomStyle/TextField.qml</file>
     </qresource>
 </RCC>

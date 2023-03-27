@@ -1,11 +1,14 @@
-import QtQuick 2.4
-import QtQuick.Controls 2.4
-import QtQuick.Templates 2.4 as T
+import QtQuick 2.6
+import QtQuick.Controls 2.6
+import QtQuick.Templates 2.6 as T
 
 import Common 1.0 as Common
 
 T.RoundButton {
     id: roundButton
+
+    width: roundButton.hovered ? roundButton.width * 1.1 : roundButton.width
+    height:  roundButton.hovered ? roundButton.height * 1.05 : roundButton.height
 
     font.family: Common.Fonts.family
     font.bold: true
@@ -41,6 +44,6 @@ T.RoundButton {
         radius: parent.radius
         color: roundButton.pressed ? roundButton.palette.highlight : roundButton.palette.button
         border.width: Common.Consts.radialSize * (roundButton.hovered ? 1 : 0)
-        border.color: roundButton.hovered ? Common.Colors.textColor : Common.Colors.mainBackgroundColor
+        border.color: roundButton.hovered ? "#4280d6" : Common.Colors.mainBackgroundColor
     }
 }
