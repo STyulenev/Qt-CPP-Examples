@@ -2,5 +2,6 @@ module CustomStyle
 
 ApplicationWindow 1.0 ApplicationWindow.qml
 ComboBox 1.0 ComboBox.qml
+Label 1.0 Label.qml
 RoundButton 1.0 RoundButton.qml
 TextField 1.0 TextField.qml

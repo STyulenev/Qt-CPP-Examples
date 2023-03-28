@@ -38,7 +38,15 @@ ApplicationWindow {
         model: [ "1", "2", "3" ]
     }*/
 
-    TextField {
+    /*TextField {
+        anchors.centerIn: parent
+        height: 20 * Common.Consts.xCoord
+        width: 100 * Common.Consts.yCoord
+
+        text: "qwrqw"
+    }*/
+
+    Label {
         anchors.centerIn: parent
         height: 20 * Common.Consts.xCoord
         width: 100 * Common.Consts.yCoord

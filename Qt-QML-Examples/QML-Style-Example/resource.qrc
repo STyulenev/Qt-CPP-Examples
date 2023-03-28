@@ -12,5 +12,6 @@
         <file>qml/Styles/CustomStyle/RoundButton.qml</file>
         <file>qml/Styles/CustomStyle/ComboBox.qml</file>
         <file>qml/Styles/CustomStyle/TextField.qml</file>
+        <file>qml/Styles/CustomStyle/Label.qml</file>
     </qresource>
 </RCC>
