@@ -46,10 +46,18 @@ ApplicationWindow {
         text: "qwrqw"
     }*/
 
-    Label {
+    /*Label {
         anchors.centerIn: parent
         height: 20 * Common.Consts.xCoord
         width: 100 * Common.Consts.yCoord
+
+        text: "qwrqw"
+    }*/
+
+    TextArea {
+        anchors.centerIn: parent
+        height: 200 * Common.Consts.xCoord
+        width: 500 * Common.Consts.yCoord
 
         text: "qwrqw"
     }

@@ -13,5 +13,6 @@
         <file>qml/Styles/CustomStyle/ComboBox.qml</file>
         <file>qml/Styles/CustomStyle/TextField.qml</file>
         <file>qml/Styles/CustomStyle/Label.qml</file>
+        <file>qml/Styles/CustomStyle/TextArea.qml</file>
     </qresource>
 </RCC>

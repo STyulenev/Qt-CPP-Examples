@@ -15,6 +15,8 @@ QtObject {
     readonly property color textColor: "#FFFFFF"
     readonly property color hintTextColor: "#CECECE"
 
+    readonly property color greyColor: "#808080"
+
 
     readonly property color textFieldTextColor: "#000000"
     readonly property color textFieldBackgroundColor: "#ffffff"

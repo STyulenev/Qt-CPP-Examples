@@ -4,4 +4,5 @@ ApplicationWindow 1.0 ApplicationWindow.qml
 ComboBox 1.0 ComboBox.qml
 Label 1.0 Label.qml
 RoundButton 1.0 RoundButton.qml
+TextArea 1.0 TextArea.qml
 TextField 1.0 TextField.qml
