@@ -18,5 +18,6 @@
         <file>qml/Styles/CustomStyle/RadioButton.qml</file>
         <file>res/check.png</file>
         <file>res/uncheck.png</file>
+        <file>qml/Styles/CustomStyle/GroupBox.qml</file>
     </qresource>
 </RCC>

@@ -3,6 +3,7 @@ module CustomStyle
 ApplicationWindow 1.0 ApplicationWindow.qml
 CheckBox 1.0 CheckBox.qml
 ComboBox 1.0 ComboBox.qml
+GroupBox 1.0 GroupBox.qml
 Label 1.0 Label.qml
 RadioButton 1.0 RadioButton.qml
 RoundButton 1.0 RoundButton.qml

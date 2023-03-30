@@ -101,15 +101,25 @@ ApplicationWindow {
             Layout.alignment: Qt.AlignHCenter
         }
 
-        TextArea {
-            text: "TextArea"
-
+        GroupBox {
+            title: "GroupBox"
             Layout.row: 2
             Layout.column: 0
             Layout.columnSpan: 5
             Layout.rowSpan: 2
             Layout.fillWidth: true
-            height: 400 * Common.Consts.xCoord
+            Layout.fillHeight: true
+
+            TextArea {
+                text: "TextArea"
+                anchors.fill: parent
+                anchors.margins: 50
+
+
+                //height: 400 * Common.Consts.xCoord
+            }
         }
+
+
     }
 }
