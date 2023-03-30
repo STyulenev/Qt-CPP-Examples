@@ -14,5 +14,9 @@
         <file>qml/Styles/CustomStyle/TextField.qml</file>
         <file>qml/Styles/CustomStyle/Label.qml</file>
         <file>qml/Styles/CustomStyle/TextArea.qml</file>
+        <file>qml/Styles/CustomStyle/CheckBox.qml</file>
+        <file>qml/Styles/CustomStyle/RadioButton.qml</file>
+        <file>res/check.png</file>
+        <file>res/uncheck.png</file>
     </qresource>
 </RCC>

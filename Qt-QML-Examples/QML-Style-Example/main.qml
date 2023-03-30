@@ -1,7 +1,7 @@
-import QtQuick
-import QtQml 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
+import QtQml 2.6
+import QtQuick 2.6
+import QtQuick.Controls 2.6
+import QtQuick.Layouts 1.6
 
 import Common 1.0 as Common
 
@@ -18,47 +18,98 @@ ApplicationWindow {
     visibility: "Windowed" // "FullScreen" //
     title: "QML-ListView-Example"
 
-    /*RoundButton {
-        id: button
-        anchors.centerIn: parent
-        text: "text"
-        height: 20 * Common.Consts.xCoord
-        width: 100 * Common.Consts.yCoord
+    GridLayout {
+        id: grid
 
-        onClicked: {
-            Qt.callLater(Qt.quit);
+        anchors {
+            fill: parent
+            leftMargin: 20 * Common.Consts.xCoord
+            rightMargin: 20 * Common.Consts.xCoord
+            topMargin: 20 * Common.Consts.yCoord
+            bottomMargin: 20 * Common.Consts.yCoord
         }
-    }*/
 
-    /*ComboBox {
-        anchors.centerIn: parent
-        height: 20 * Common.Consts.xCoord
-        width: 100 * Common.Consts.yCoord
+        columns: 5
+        rows: 5
 
-        model: [ "1", "2", "3" ]
-    }*/
+        RoundButton {
+            text: "RoundButton"
+            height: 20 * Common.Consts.xCoord
+            width: 120 * Common.Consts.yCoord
 
-    /*TextField {
-        anchors.centerIn: parent
-        height: 20 * Common.Consts.xCoord
-        width: 100 * Common.Consts.yCoord
+            Layout.row: 0
+            Layout.column: 0
+            Layout.alignment: Qt.AlignHCenter
 
-        text: "qwrqw"
-    }*/
+            onClicked: {
+                Qt.callLater(Qt.quit);
+            }
+        }
 
-    /*Label {
-        anchors.centerIn: parent
-        height: 20 * Common.Consts.xCoord
-        width: 100 * Common.Consts.yCoord
+        TextField {
+            height: 20 * Common.Consts.xCoord
+            width: 100 * Common.Consts.yCoord
 
-        text: "qwrqw"
-    }*/
+            text: "TextField"
+            Layout.row: 0
+            Layout.column: 1
+            Layout.alignment: Qt.AlignHCenter
+        }
 
-    TextArea {
-        anchors.centerIn: parent
-        height: 200 * Common.Consts.xCoord
-        width: 500 * Common.Consts.yCoord
+        Label {
+            height: 20 * Common.Consts.xCoord
+            width: 100 * Common.Consts.yCoord
 
-        text: "qwrqw"
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+
+            text: "Label"
+            Layout.row: 0
+            Layout.column: 2
+            Layout.alignment: Qt.AlignHCenter
+        }
+
+        ComboBox {
+            height: 20 * Common.Consts.xCoord
+            width: 100 * Common.Consts.yCoord
+
+            model: [ "1", "2", "3" ]
+
+            Layout.row: 0
+            Layout.column: 3
+            Layout.alignment: Qt.AlignHCenter
+        }
+
+        CheckBox {
+            height: 20 * Common.Consts.xCoord
+            width: 120 * Common.Consts.yCoord
+            text: "CheckBox"
+
+            Layout.row: 0
+            Layout.column: 4
+            Layout.alignment: Qt.AlignHCenter
+
+            //enabled: false
+        }
+
+        RadioButton {
+            height: 20 * Common.Consts.xCoord
+            width: 300 * Common.Consts.yCoord
+            text: "RadioButton"
+            Layout.row: 1
+            Layout.column: 0
+            Layout.alignment: Qt.AlignHCenter
+        }
+
+        TextArea {
+            text: "TextArea"
+
+            Layout.row: 2
+            Layout.column: 0
+            Layout.columnSpan: 5
+            Layout.rowSpan: 2
+            Layout.fillWidth: true
+            height: 400 * Common.Consts.xCoord
+        }
     }
 }

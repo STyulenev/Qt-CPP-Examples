@@ -1,25 +1,29 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.6
 import QtQuick.Controls.impl 2.6
-import QtQuick.Templates 2.6 as T
+import QtQuick.Templates 2.6 as Template
 
 import Common 1.0 as Common
 
-T.TextArea {
-    id: control
+Template.TextArea {
+    id: textArea
 
     implicitWidth: Math.max(contentWidth + leftPadding + rightPadding,
                             implicitBackgroundWidth + leftInset + rightInset,
-                            placeholder.implicitWidth + leftPadding + rightPadding)
+                            placeholderText.implicitWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(contentHeight + topPadding + bottomPadding,
                              implicitBackgroundHeight + topInset + bottomInset,
-                             placeholder.implicitHeight + topPadding + bottomPadding)
+                             placeholderText.implicitHeight + topPadding + bottomPadding)
 
     background: Rectangle {
         color: Common.Colors.textFieldBackgroundColor
+
         border {
-            color: Common.Colors.greyColor
-            width: 1 * Common.Consts.radialSize
+            //color: Common.Colors.greyColor
+            //width: 1 * Common.Consts.radialSize
+
+            width: 2 * Common.Consts.radialSize
+            color: textArea.enabled ? (textArea.activeFocus ? Common.Colors.textFieldFocusedColor : Common.Colors.textFieldBackgroundColor) : Common.Colors.textFieldDisabledBackgroundColor
         }
         implicitWidth: 120 * Common.Consts.xCoord
         implicitHeight: 80 * Common.Consts.yCoord
@@ -41,18 +45,18 @@ T.TextArea {
     bottomPadding: 16 * Common.Consts.yCoord
 
     PlaceholderText {
-        id: placeholder
-        x: control.leftPadding
-        y: control.topPadding
-        width: control.width - (control.leftPadding + control.rightPadding)
-        height: control.height - (control.topPadding + control.bottomPadding)
+        id: placeholderText
+        x: textArea.leftPadding
+        y: textArea.topPadding
+        width: textArea.width - (textArea.leftPadding + textArea.rightPadding)
+        height: textArea.height - (textArea.topPadding + textArea.bottomPadding)
 
-        text: control.placeholderText
-        font: control.font
-        color: control.placeholderTextColor
-        verticalAlignment: control.verticalAlignment
-        visible: !control.length && !control.preeditText && (!control.activeFocus || control.horizontalAlignment !== Qt.AlignHCenter)
+        text: textArea.placeholderText
+        font: textArea.font
+        color: textArea.placeholderTextColor
+        verticalAlignment: textArea.verticalAlignment
+        visible: !textArea.length && !textArea.preeditText && (!textArea.activeFocus || textArea.horizontalAlignment !== Qt.AlignHCenter)
         elide: Text.ElideRight
-        renderType: control.renderType
+        renderType: textArea.renderType
     }
 }

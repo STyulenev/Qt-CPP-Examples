@@ -1,20 +1,20 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.6
 import QtQuick.Controls.impl 2.6
-import QtQuick.Templates 2.6 as T
+import QtQuick.Templates 2.6 as Template
 
 import Common 1.0 as Common
 
-T.TextField {
+Template.TextField {
     id: textField
 
     implicitWidth: implicitBackgroundWidth + leftInset + rightInset || Math.max(
                        contentWidth,
-                       phtHint.implicitWidth) + leftPadding + rightPadding
+                       placeholderText.implicitWidth) + leftPadding + rightPadding
     implicitHeight: Math.max(
                         implicitBackgroundHeight + topInset + bottomInset,
                         contentHeight + topPadding + bottomPadding,
-                        phtHint.implicitHeight + topPadding + bottomPadding)
+                        placeholderText.implicitHeight + topPadding + bottomPadding)
 
     color: Common.Colors.textFieldTextColor
     placeholderTextColor: Common.Colors.hintTextColor
@@ -73,7 +73,7 @@ T.TextField {
     }
 
     PlaceholderText {
-        id: phtHint
+        id: placeholderText
         x: textField.leftPadding
         y: textField.topPadding
         width: textField.width - (textField.leftPadding + textField.rightPadding)

@@ -1,10 +1,10 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.6
-import QtQuick.Templates 2.6 as T
+import QtQuick.Templates 2.6 as Template
 
 import Common 1.0 as Common
 
-T.ComboBox {
+Template.ComboBox {
     id: comboBox
 
     implicitWidth: implicitBackgroundWidth
@@ -67,7 +67,7 @@ T.ComboBox {
         }
     }
 
-    contentItem: T.TextField {
+    contentItem: Template.TextField {
         id: inputField
         leftPadding: 6 * Common.Consts.xCoord
         rightPadding: 6 * Common.Consts.xCoord - comboBox.padding
@@ -105,7 +105,7 @@ T.ComboBox {
         visible: !comboBox.flat || comboBox.down
     }
 
-    popup: T.Popup {
+    popup: Template.Popup {
         id: popup
         y: comboBox.height - 1
         implicitHeight: contentItem.implicitHeight
@@ -125,7 +125,7 @@ T.ComboBox {
             model: comboBox.delegateModel
             currentIndex: comboBox.highlightedIndex
             highlightRangeMode: ListView.ApplyRange
-            T.ScrollBar.vertical: ScrollBar {}
+            Template.ScrollBar.vertical: ScrollBar {}
         }
 
         background: Rectangle {
