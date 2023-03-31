@@ -19,5 +19,6 @@
         <file>res/check.png</file>
         <file>res/uncheck.png</file>
         <file>qml/Styles/CustomStyle/GroupBox.qml</file>
+        <file>qml/Styles/CustomStyle/Switch.qml</file>
     </qresource>
 </RCC>

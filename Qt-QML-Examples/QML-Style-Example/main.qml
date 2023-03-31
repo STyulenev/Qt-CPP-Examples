@@ -101,6 +101,16 @@ ApplicationWindow {
             Layout.alignment: Qt.AlignHCenter
         }
 
+        Switch {
+            height: 40 * Common.Consts.xCoord
+            width: 200 * Common.Consts.yCoord
+            text: "Switch"
+            Layout.row: 1
+            Layout.column: 1
+            Layout.alignment: Qt.AlignHCenter
+            //enabled: false
+        }
+
         GroupBox {
             title: "GroupBox"
             Layout.row: 2
@@ -114,12 +124,8 @@ ApplicationWindow {
                 text: "TextArea"
                 anchors.fill: parent
                 anchors.margins: 50
-
-
                 //height: 400 * Common.Consts.xCoord
             }
         }
-
-
     }
 }

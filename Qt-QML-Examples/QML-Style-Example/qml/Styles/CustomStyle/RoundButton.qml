@@ -10,9 +10,11 @@ Template.RoundButton {
     width: roundButton.hovered ? roundButton.width * 1.1 : roundButton.width
     height:  roundButton.hovered ? roundButton.height * 1.05 : roundButton.height
 
-    font.family: Common.Fonts.family
-    font.bold: true
-    font.pixelSize: roundButton.hovered ? Common.Fonts.pixelSize + 2 : Common.Fonts.pixelSize
+    font {
+        family: Common.Fonts.family
+        bold: true
+        pixelSize: roundButton.hovered ? Common.Fonts.pixelSize + 2 : Common.Fonts.pixelSize
+    }
     radius: 7 * Common.Consts.radialSize
     checkable: false
 
