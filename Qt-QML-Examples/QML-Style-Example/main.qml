@@ -30,7 +30,7 @@ ApplicationWindow {
         }
 
         columns: 5
-        rows: 5
+        rows: 6
 
         RoundButton {
             text: "RoundButton"
@@ -80,51 +80,152 @@ ApplicationWindow {
             Layout.alignment: Qt.AlignHCenter
         }
 
-        CheckBox {
-            height: 20 * Common.Consts.xCoord
-            width: 120 * Common.Consts.yCoord
-            text: "CheckBox"
-
-            Layout.row: 0
-            Layout.column: 4
-            Layout.alignment: Qt.AlignHCenter
-
-            //enabled: false
-        }
-
-        RadioButton {
-            height: 20 * Common.Consts.xCoord
-            width: 300 * Common.Consts.yCoord
-            text: "RadioButton"
-            Layout.row: 1
-            Layout.column: 0
-            Layout.alignment: Qt.AlignHCenter
-        }
 
         Switch {
             height: 40 * Common.Consts.xCoord
-            width: 200 * Common.Consts.yCoord
+            width: 100 * Common.Consts.yCoord
             text: "Switch"
-            Layout.row: 1
-            Layout.column: 1
+            Layout.row: 0
+            Layout.column: 4
             Layout.alignment: Qt.AlignHCenter
             //enabled: false
         }
 
         GroupBox {
             title: "GroupBox"
-            Layout.row: 2
+            Layout.row: 1
             Layout.column: 0
+            //Layout.columnSpan: 2
+            Layout.rowSpan: 2
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+
+            ColumnLayout {
+                anchors.fill: parent
+
+                RadioButton {
+                    height: 20 * Common.Consts.xCoord
+                    width: 300 * Common.Consts.yCoord
+                    text: "RadioButton"
+                    /*Layout.row: 1
+                    Layout.column: 0*/
+                    Layout.alignment: Qt.AlignHCenter
+                }
+
+                RadioButton {
+                    height: 20 * Common.Consts.xCoord
+                    width: 300 * Common.Consts.yCoord
+                    text: "RadioButton"
+                    /*Layout.row: 1
+                    Layout.column: 0*/
+                    Layout.alignment: Qt.AlignHCenter
+                }
+
+                RadioButton {
+                    height: 20 * Common.Consts.xCoord
+                    width: 300 * Common.Consts.yCoord
+                    text: "RadioButton"
+                    /*Layout.row: 1
+                    Layout.column: 0*/
+                    Layout.alignment: Qt.AlignHCenter
+                    enabled: false
+                }
+            }
+
+
+        }
+
+        GroupBox {
+            title: "GroupBox"
+            Layout.row: 1
+            Layout.column: 1
+            //Layout.columnSpan: 2
+            Layout.rowSpan: 2
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+
+            ColumnLayout {
+                anchors.fill: parent
+
+                CheckBox {
+                    height: 20 * Common.Consts.xCoord
+                    width: 120 * Common.Consts.yCoord
+                    text: "CheckBox"
+
+                    /*Layout.row: 1
+                    Layout.column: 1*/
+                    Layout.alignment: Qt.AlignHCenter
+
+                    //enabled: false
+                }
+
+                CheckBox {
+                    height: 20 * Common.Consts.xCoord
+                    width: 120 * Common.Consts.yCoord
+                    text: "CheckBox"
+
+                    /*Layout.row: 1
+                    Layout.column: 1*/
+                    Layout.alignment: Qt.AlignHCenter
+
+                    //enabled: false
+                }
+                CheckBox {
+                    height: 20 * Common.Consts.xCoord
+                    width: 120 * Common.Consts.yCoord
+                    text: "CheckBox"
+
+                    /*Layout.row: 1
+                    Layout.column: 1*/
+                    Layout.alignment: Qt.AlignHCenter
+
+                    enabled: false
+                }
+            }
+
+
+        }
+
+        GroupBox {
+            title: "GroupBox"
+            Layout.row: 1
+            Layout.column: 2
             Layout.columnSpan: 5
             Layout.rowSpan: 2
             Layout.fillWidth: true
             Layout.fillHeight: true
 
-            TextArea {
-                text: "TextArea"
+
+
+            ScrollView {
+                id: scroll
+
                 anchors.fill: parent
                 anchors.margins: 50
-                //height: 400 * Common.Consts.xCoord
+
+                TextArea  {
+                    text: "TextArea"
+
+
+                }
+
+                ScrollBar.vertical: ScrollBar {
+                    id: ver
+                    policy: ScrollBar.AsNeeded
+
+                    height: parent.height
+                    anchors.right: parent.right
+                }
+
+                ScrollBar.horizontal: ScrollBar {
+                    policy: ScrollBar.AsNeeded
+
+                    width: ver.visible ? parent.width - ver.width : parent.width
+                    anchors.bottom: parent.bottom
+                }
+
             }
         }
     }

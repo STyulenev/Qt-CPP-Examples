@@ -20,5 +20,8 @@
         <file>res/uncheck.png</file>
         <file>qml/Styles/CustomStyle/GroupBox.qml</file>
         <file>qml/Styles/CustomStyle/Switch.qml</file>
+        <file>qml/Styles/CustomStyle/ScrollBar.qml</file>
+        <file>qml/Styles/CustomStyle/ScrollIndicator.qml</file>
+        <file>res/white_arrow.svg</file>
     </qresource>
 </RCC>
