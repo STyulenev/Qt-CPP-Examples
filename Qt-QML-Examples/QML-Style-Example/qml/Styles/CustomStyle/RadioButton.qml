@@ -55,7 +55,7 @@ Template.RadioButton {
         rightPadding: radioButton.indicator && radioButton.mirrored ? radioButton.indicator.width + radioButton.spacing : 0
 
         font {
-
+            bold: true
             family: Common.Fonts.family
             underline: radioButton.hovered
         }

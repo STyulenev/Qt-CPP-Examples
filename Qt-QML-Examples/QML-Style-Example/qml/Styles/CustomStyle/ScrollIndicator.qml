@@ -12,7 +12,7 @@ Template.ScrollIndicator {
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              implicitContentHeight + topPadding + bottomPadding)
 
-    padding: 2 * Common.Consts.xCoord
+    //padding: 2 * Common.Consts.xCoord
     active: true
 
     contentItem: Rectangle {

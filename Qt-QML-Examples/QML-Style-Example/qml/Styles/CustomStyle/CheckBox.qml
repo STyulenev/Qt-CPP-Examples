@@ -49,11 +49,13 @@ Template.CheckBox {
         color: Common.Colors.textColor
         leftPadding: checkBox.indicator && !checkBox.mirrored ? checkBox.indicator.width + checkBox.spacing : 0
         rightPadding: checkBox.indicator && checkBox.mirrored ? checkBox.indicator.width + checkBox.spacing : 0
+
         font {
             family: Common.Fonts.family
             pixelSize:Common.Fonts.pixelSize
-
+            bold: true
         }
+
         elide: Text.ElideRight
         verticalAlignment: Text.AlignVCenter
         wrapMode: Text.Wrap

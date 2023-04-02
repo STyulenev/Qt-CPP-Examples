@@ -23,5 +23,7 @@
         <file>qml/Styles/CustomStyle/ScrollBar.qml</file>
         <file>qml/Styles/CustomStyle/ScrollIndicator.qml</file>
         <file>res/white_arrow.svg</file>
+        <file>qml/Styles/CustomStyle/TabBar.qml</file>
+        <file>qml/Styles/CustomStyle/TabButton.qml</file>
     </qresource>
 </RCC>
