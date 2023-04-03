@@ -17,7 +17,7 @@ Template.ProgressBar {
         radius: 3 * Common.Consts.radialSize
 
         border {
-            width:  2 * Common.Consts.radialSize
+            width: 2 * Common.Consts.radialSize
             color: "#4280d6"
         }
     }

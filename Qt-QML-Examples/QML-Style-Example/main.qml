@@ -162,7 +162,7 @@ ApplicationWindow {
                 }
 
                 columns: 4
-                rows: 3
+                rows: 4
 
                 RoundButton {
                     text: "RoundButton"
@@ -225,11 +225,24 @@ ApplicationWindow {
                 ProgressBar {
                     //text: "ProgressBar"
                     value: 78
-                    Layout.row: 4
+                    Layout.row: 2
                     Layout.column: 0
                     Layout.columnSpan: 4
                     width: 700 * Common.Consts.xCoord
                     height: 30 * Common.Consts.yCoord
+                }
+
+                Slider {
+                    value: 38
+                    to: 100.0
+                    from: -100.0
+                    stepSize: 1
+
+                    Layout.row: 3
+                    Layout.column: 0
+                    Layout.columnSpan: 4
+                    width: 700 * Common.Consts.xCoord
+                    height: 20 * Common.Consts.yCoord
                 }
             }
         }
