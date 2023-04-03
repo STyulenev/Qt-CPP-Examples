@@ -162,7 +162,7 @@ ApplicationWindow {
                 }
 
                 columns: 4
-                rows: 2
+                rows: 3
 
                 RoundButton {
                     text: "RoundButton"
@@ -220,6 +220,16 @@ ApplicationWindow {
                     Layout.column: 0
                     Layout.alignment: Qt.AlignHCenter
                     //enabled: false
+                }
+
+                ProgressBar {
+                    //text: "ProgressBar"
+                    value: 78
+                    Layout.row: 4
+                    Layout.column: 0
+                    Layout.columnSpan: 4
+                    width: 700 * Common.Consts.xCoord
+                    height: 30 * Common.Consts.yCoord
                 }
             }
         }

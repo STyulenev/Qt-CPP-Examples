@@ -5,6 +5,7 @@ CheckBox 1.0 CheckBox.qml
 ComboBox 1.0 ComboBox.qml
 GroupBox 1.0 GroupBox.qml
 Label 1.0 Label.qml
+ProgressBar 1.0 ProgressBar.qml
 RadioButton 1.0 RadioButton.qml
 RoundButton 1.0 RoundButton.qml
 ScrollBar 1.0 ScrollBar.qml

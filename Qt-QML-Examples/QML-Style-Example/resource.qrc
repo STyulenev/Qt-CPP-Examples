@@ -25,5 +25,6 @@
         <file>res/white_arrow.svg</file>
         <file>qml/Styles/CustomStyle/TabBar.qml</file>
         <file>qml/Styles/CustomStyle/TabButton.qml</file>
+        <file>qml/Styles/CustomStyle/ProgressBar.qml</file>
     </qresource>
 </RCC>
