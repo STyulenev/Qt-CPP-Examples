@@ -43,6 +43,7 @@ Template.CheckBox {
             //visible: checkBox.checkState === Qt.Checked
         }
     }
+
     contentItem: Text {
         id: text
         text: checkBox.text
@@ -54,6 +55,7 @@ Template.CheckBox {
             family: Common.Fonts.family
             pixelSize:Common.Fonts.pixelSize
             bold: true
+            strikeout: !checkBox.enabled
         }
 
         elide: Text.ElideRight

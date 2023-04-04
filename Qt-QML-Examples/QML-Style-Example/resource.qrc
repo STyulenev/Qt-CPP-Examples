@@ -27,5 +27,6 @@
         <file>qml/Styles/CustomStyle/TabButton.qml</file>
         <file>qml/Styles/CustomStyle/ProgressBar.qml</file>
         <file>qml/Styles/CustomStyle/Slider.qml</file>
+        <file>qml/Styles/CustomStyle/SpinBox.qml</file>
     </qresource>
 </RCC>

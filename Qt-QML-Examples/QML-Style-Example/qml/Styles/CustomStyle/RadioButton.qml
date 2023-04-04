@@ -58,6 +58,7 @@ Template.RadioButton {
             bold: true
             family: Common.Fonts.family
             underline: radioButton.hovered
+            strikeout: !radioButton.enabled
         }
         color: Common.Colors.textColor
         font.pixelSize: Common.Fonts.pixelSize

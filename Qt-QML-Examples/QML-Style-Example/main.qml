@@ -213,11 +213,24 @@ ApplicationWindow {
                 }
 
                 Switch {
-                    height: 40 * Common.Consts.xCoord
+                    height: 20 * Common.Consts.xCoord
                     width: 100 * Common.Consts.yCoord
                     text: "Switch"
                     Layout.row: 1
                     Layout.column: 0
+                    Layout.alignment: Qt.AlignHCenter
+                    //enabled: false
+                }
+
+                SpinBox {
+                    from: 0
+                    to: 100
+                    value: 35
+                    stepSize: 1
+                    height: 20 * Common.Consts.xCoord
+                    width: 100 * Common.Consts.yCoord
+                    Layout.row: 1
+                    Layout.column: 1
                     Layout.alignment: Qt.AlignHCenter
                     //enabled: false
                 }

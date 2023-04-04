@@ -23,7 +23,7 @@ Template.TextArea {
             //width: 1 * Common.Consts.radialSize
 
             width: 2 * Common.Consts.radialSize
-            color: textArea.enabled ? (textArea.activeFocus ? Common.Colors.textFieldFocusedColor : Common.Colors.textFieldBackgroundColor) : Common.Colors.textFieldDisabledBackgroundColor
+            color: textArea.enabled ? (textArea.activeFocus ? "#4280d6" /*Common.Colors.textFieldFocusedColor*/ : Common.Colors.textFieldBackgroundColor) : Common.Colors.textFieldDisabledBackgroundColor
         }
         implicitWidth: 120 * Common.Consts.xCoord
         implicitHeight: 80 * Common.Consts.yCoord
