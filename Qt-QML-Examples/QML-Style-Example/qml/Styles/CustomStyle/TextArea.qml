@@ -1,6 +1,5 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.6
-import QtQuick.Controls.impl 2.6
 import QtQuick.Templates 2.6 as Template
 
 import Common 1.0 as Common
@@ -17,16 +16,15 @@ Template.TextArea {
 
     background: Rectangle {
         color: Common.Colors.textFieldBackgroundColor
-
-        border {
-            //color: Common.Colors.greyColor
-            //width: 1 * Common.Consts.radialSize
-
-            width: 2 * Common.Consts.radialSize
-            color: textArea.enabled ? (textArea.activeFocus ? "#4280d6" /*Common.Colors.textFieldFocusedColor*/ : Common.Colors.textFieldBackgroundColor) : Common.Colors.textFieldDisabledBackgroundColor
-        }
         implicitWidth: 120 * Common.Consts.xCoord
         implicitHeight: 80 * Common.Consts.yCoord
+
+        border {
+            width: 2 * Common.Consts.radialSize
+            color: textArea.enabled ? (textArea.activeFocus ?
+                                           Common.Colors.mainThemeColor : Common.Colors.textFieldBackgroundColor)
+                                    : Common.Colors.textFieldDisabledBackgroundColor
+        }
     }
 
     color: Common.Colors.textFieldTextColor

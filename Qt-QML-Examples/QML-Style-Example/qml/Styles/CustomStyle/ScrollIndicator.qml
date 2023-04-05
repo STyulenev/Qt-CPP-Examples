@@ -6,19 +6,16 @@ import Common 1.0 as Common
 
 Template.ScrollIndicator {
     id: scrollIndicator
+    active: true
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
                             implicitContentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              implicitContentHeight + topPadding + bottomPadding)
 
-    //padding: 2 * Common.Consts.xCoord
-    active: true
-
     contentItem: Rectangle {
         id: slider
         radius: 4 * Common.Consts.radialSize
-
         color: Common.Colors.activeControlColor
         visible: scrollIndicator.size < 1.0
 

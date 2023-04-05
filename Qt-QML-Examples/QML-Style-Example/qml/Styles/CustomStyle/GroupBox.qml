@@ -12,11 +12,12 @@ Template.GroupBox {
         width: parent.width
         height: parent.height - groupBox.topPadding + groupBox.bottomPadding
         color: "transparent"
+        radius: 7 * Common.Consts.radialSize
+
         border {
             width: 2 * Common.Consts.radialSize
-            color: "#4280d6"
+            color: Common.Colors.mainThemeColor
         }
-        radius: 7 * Common.Consts.radialSize
     }
 
     label: Rectangle {
@@ -24,7 +25,7 @@ Template.GroupBox {
             left: parent.left
             bottom: parent.top
             bottomMargin: - height / 2
-            leftMargin: groupBox.width * 0.05 //20 * Common.Consts.xCoord
+            leftMargin: groupBox.width * 0.05
         }
 
         color: Common.Colors.mainBackgroundColor

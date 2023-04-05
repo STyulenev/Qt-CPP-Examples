@@ -9,17 +9,16 @@ Template.RoundButton {
 
     width: roundButton.hovered ? roundButton.width * 1.1 : roundButton.width
     height:  roundButton.hovered ? roundButton.height * 1.05 : roundButton.height
+    radius: 7 * Common.Consts.radialSize
+    checkable: false
+    focusPolicy: Qt.NoFocus
+    icon.color: roundButton.enabled ? "transparent" : Common.Colors.disabledTextColor
 
     font {
         family: Common.Fonts.family
         bold: true
         pixelSize: roundButton.hovered ? Common.Fonts.pixelSize + 2 : Common.Fonts.pixelSize
     }
-    radius: 7 * Common.Consts.radialSize
-    checkable: false
-
-    focusPolicy: Qt.NoFocus
-    icon.color: roundButton.enabled ? "transparent" : Common.Colors.disabledTextColor
 
     // QTBUG-85685
     Component.onCompleted: {
@@ -46,8 +45,8 @@ Template.RoundButton {
         radius: parent.radius
         color: roundButton.pressed ? roundButton.palette.highlight : roundButton.palette.button
         border {
-            width: Common.Consts.radialSize * (roundButton.hovered ? 1 : 0)
-            color: roundButton.hovered ? "#4280d6" : Common.Colors.mainBackgroundColor
+            width: (roundButton.hovered ? 1 : 0) * Common.Consts.radialSize
+            color: roundButton.hovered ? Common.Colors.mainThemeColor : Common.Colors.mainBackgroundColor
         }
     }
 }

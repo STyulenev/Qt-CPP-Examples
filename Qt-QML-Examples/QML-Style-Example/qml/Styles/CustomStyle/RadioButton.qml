@@ -1,6 +1,5 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.6
-import QtQuick.Controls.impl 2.6
 import QtQuick.Templates 2.6 as Template
 
 import Common 1.0 as Common
@@ -25,8 +24,10 @@ Template.RadioButton {
                   + (radioButton.availableWidth - width) / 2
         y: radioButton.topPadding + (radioButton.availableHeight - height) / 2
         color: radioButton.enabled ? Common.Colors.mainBackgroundColor : Common.Colors.greyColor
-        border.width: radioButton.hovered ? 4 : 2
-        border.color: "#4280d6" //radioButton.checked ? Common.Colors.activeControlColor : radioButton.palette.light
+        border {
+            width: (radioButton.hovered ? 2 : 1) * Common.Consts.radialSize
+            color: Common.Colors.mainThemeColor
+        }
 
         Canvas {
             id: dot
@@ -42,7 +43,7 @@ Template.RadioButton {
                 var context = getContext("2d");
                 context.reset();
                 context.arc(height / 2, height / 2, height / 3, 0 * Math.PI, 2 * Math.PI);
-                context.fillStyle = "#4280d6";
+                context.fillStyle = Common.Colors.mainThemeColor;
                 context.fill();
             }
         }

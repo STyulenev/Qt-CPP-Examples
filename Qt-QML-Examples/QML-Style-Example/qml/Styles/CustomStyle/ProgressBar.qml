@@ -1,6 +1,5 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.6
-import QtQuick.Controls.impl 2.6
 import QtQuick.Templates 2.6 as Template
 
 import Common 1.0 as Common
@@ -18,7 +17,7 @@ Template.ProgressBar {
 
         border {
             width: 2 * Common.Consts.radialSize
-            color: "#4280d6"
+            color: Common.Colors.mainThemeColor
         }
     }
 
@@ -35,7 +34,7 @@ Template.ProgressBar {
             width: progressBar.visualPosition * parent.width
             height: parent.height
             radius: 2 * Common.Consts.radialSize
-            color: "#4280d6"
+            color: Common.Colors.mainThemeColor
         }
 
         Text {

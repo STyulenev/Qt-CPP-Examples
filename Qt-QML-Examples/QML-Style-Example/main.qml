@@ -20,15 +20,14 @@ ApplicationWindow {
 
     color:"lightgray"
 
-    TabBar {// Нажмите кнопку соответствующего переключения
+    TabBar {
         id: bar
-        //color:"lightgray"
         anchors {
             left: parent.left
             right: parent.right
             top: parent.top
         }
-        //height: 30
+
         TabButton {
             text: qsTr("First")
         }
@@ -43,15 +42,16 @@ ApplicationWindow {
         }
     }
 
-
-    StackLayout {// Mayout Mayout
+    StackLayout {
         anchors {
             top: bar.bottom
             left: parent.left
             right: parent.right
             bottom: parent.bottom
         }
-        currentIndex: bar.currentIndex // Индекс текущего представления
+
+        currentIndex: bar.currentIndex
+
         Rectangle {
             color: Common.Colors.mainBackgroundColor
 
@@ -61,7 +61,7 @@ ApplicationWindow {
                 RadioButton {
                     height: 20 * Common.Consts.xCoord
                     width: 300 * Common.Consts.yCoord
-                    text: "RadioButton"
+                    text: qsTr("RadioButton")
 
                     Layout.alignment: Qt.AlignHCenter
                 }
@@ -69,56 +69,53 @@ ApplicationWindow {
                 RadioButton {
                     height: 20 * Common.Consts.xCoord
                     width: 300 * Common.Consts.yCoord
-                    text: "RadioButton"
+                    text: qsTr("RadioButton")
                     Layout.alignment: Qt.AlignHCenter
                 }
 
                 RadioButton {
                     height: 20 * Common.Consts.xCoord
                     width: 300 * Common.Consts.yCoord
-                    text: "RadioButton"
+                    text: qsTr("RadioButton")
                     Layout.alignment: Qt.AlignHCenter
                     enabled: false
                 }
             }
         }
+
         Rectangle {
             color: Common.Colors.mainBackgroundColor
+
             ColumnLayout {
                 anchors.centerIn: parent
 
                 CheckBox {
                     height: 20 * Common.Consts.xCoord
                     width: 120 * Common.Consts.yCoord
-                    text: "CheckBox"
-
+                    text: qsTr("CheckBox")
                     Layout.alignment: Qt.AlignHCenter
-
-                    //enabled: false
                 }
 
                 CheckBox {
                     height: 20 * Common.Consts.xCoord
                     width: 120 * Common.Consts.yCoord
-                    text: "CheckBox"
-
+                    text: qsTr("CheckBox")
                     Layout.alignment: Qt.AlignHCenter
-
-                    //enabled: false
                 }
+
                 CheckBox {
                     height: 20 * Common.Consts.xCoord
                     width: 120 * Common.Consts.yCoord
-                    text: "CheckBox"
-
+                    text: qsTr("CheckBox")
                     Layout.alignment: Qt.AlignHCenter
-
                     enabled: false
                 }
             }
         }
+
         Rectangle {
             color: Common.Colors.mainBackgroundColor
+
             ScrollView {
                 id: scroll
 
@@ -163,10 +160,11 @@ ApplicationWindow {
 
                 columns: 4
                 rows: 4
+                rowSpacing: 20 * Common.Consts.yCoord
 
                 RoundButton {
-                    text: "RoundButton"
-                    height: 20 * Common.Consts.xCoord
+                    text: qsTr("RoundButton")
+                    height: 30 * Common.Consts.xCoord
                     width: 120 * Common.Consts.yCoord
 
                     Layout.row: 0
@@ -182,7 +180,7 @@ ApplicationWindow {
                     height: 20 * Common.Consts.xCoord
                     width: 100 * Common.Consts.yCoord
 
-                    text: "TextField"
+                    text: qsTr("TextField")
                     Layout.row: 0
                     Layout.column: 1
                     Layout.alignment: Qt.AlignHCenter
@@ -195,7 +193,7 @@ ApplicationWindow {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
 
-                    text: "Label"
+                    text: qsTr("Label")
                     Layout.row: 0
                     Layout.column: 2
                     Layout.alignment: Qt.AlignHCenter
@@ -203,7 +201,7 @@ ApplicationWindow {
 
                 ComboBox {
                     height: 20 * Common.Consts.xCoord
-                    width: 100 * Common.Consts.yCoord
+                    width: 150 * Common.Consts.yCoord
 
                     model: [ "1", "2", "3" ]
 
@@ -213,9 +211,9 @@ ApplicationWindow {
                 }
 
                 Switch {
-                    height: 20 * Common.Consts.xCoord
+                    height: 30 * Common.Consts.xCoord
                     width: 100 * Common.Consts.yCoord
-                    text: "Switch"
+                    text: qsTr("Switch")
                     Layout.row: 1
                     Layout.column: 0
                     Layout.alignment: Qt.AlignHCenter
@@ -227,7 +225,7 @@ ApplicationWindow {
                     to: 100
                     value: 35
                     stepSize: 1
-                    height: 20 * Common.Consts.xCoord
+                    height: 30 * Common.Consts.xCoord
                     width: 100 * Common.Consts.yCoord
                     Layout.row: 1
                     Layout.column: 1
@@ -236,7 +234,6 @@ ApplicationWindow {
                 }
 
                 ProgressBar {
-                    //text: "ProgressBar"
                     value: 78
                     Layout.row: 2
                     Layout.column: 0

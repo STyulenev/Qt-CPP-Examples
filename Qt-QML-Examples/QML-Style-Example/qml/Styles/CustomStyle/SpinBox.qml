@@ -12,8 +12,7 @@ Template.SpinBox {
         text: spinBox.textFromValue(spinBox.value, spinBox.locale)
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
-
-        readOnly: true //!spinBox.editable
+        readOnly: true
         validator: spinBox.validator
         inputMethodHints: Qt.ImhFormattedNumbersOnly
     }
@@ -24,12 +23,9 @@ Template.SpinBox {
         z: 2
         height: parent.height
         width: parent.width / 4
-
         radius: 0
 
-        onClicked: {
-            spinBox.increase();
-        }
+        onClicked: spinBox.increase();
     }
 
     down.indicator: RoundButton {
@@ -38,11 +34,8 @@ Template.SpinBox {
         z: 2
         height: parent.height
         width: parent.width / 4
-
         radius: 0
 
-        onClicked: {
-            spinBox.decrease();
-        }
+        onClicked: spinBox.decrease();
     }
 }

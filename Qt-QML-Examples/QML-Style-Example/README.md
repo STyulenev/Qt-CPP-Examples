@@ -4,8 +4,25 @@
 
 Пример создания пользовательского стиля для компонентов QML:
 
-- ApplicationWindow
-- RoundButton
+- ApplicationWindow;
+- CheckBox;
+- ComboBox;
+- GroupBox;
+- Label;
+- ProgressBar;
+- RadioButton;
+- RoundButton;
+- ScrollBar;
+- ScrollIndicator;
+- Slider;
+- SpinBox;
+- Switch;
+- TabBar;
+- TabButton;
+- TextArea;
+- TextField;
+
+![alt text](../../doc/QML-Style-Example.gif)
 
 ## Сборка проекта
 

@@ -25,7 +25,6 @@ Template.ScrollBar {
             anchors.fill: parent
             anchors.margins: parent.width * 0.3
             source: "qrc:/res/white_arrow.svg"
-            //fillMode: Image.PreserveCommonectFit
         }
 
         background: Rectangle {
@@ -71,8 +70,7 @@ Template.ScrollBar {
     contentItem: Rectangle {
         id: slider
         radius: 4 * Common.Consts.radialSize
-
-        color: "#4280d6" //Common.Colors.activeControlColor
+        color: Common.Colors.mainThemeColor
 
         states: [
             State {
@@ -81,7 +79,7 @@ Template.ScrollBar {
                 PropertyChanges {
                     target: slider
                     implicitWidth: 10 * Common.Consts.xCoord
-                    implicitHeight: 4 * Common.Consts.xCoord
+                    implicitHeight: 4 * Common.Consts.yCoord
                 }
             },
             State {
@@ -106,7 +104,6 @@ Template.ScrollBar {
             anchors.fill: parent
             anchors.margins: parent.width * 0.3
             source: "qrc:/res/white_arrow.svg"
-            //fillMode: Image.PreserveCommonectFit
         }
 
         background: Rectangle {
@@ -144,7 +141,6 @@ Template.ScrollBar {
             }
         ]
     }
-
 
     background: Rectangle {
         color:  Common.Colors.inactiveControlColor

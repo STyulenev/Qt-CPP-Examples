@@ -9,8 +9,7 @@ Template.ComboBox {
 
     implicitWidth: implicitBackgroundWidth
     implicitHeight: implicitBackgroundHeight
-
-    font.pixelSize : Common.Fonts.pixelSize
+    font.pixelSize: Common.Fonts.pixelSize
 
     delegate: MenuItem {
         id: menuItem
@@ -25,14 +24,13 @@ Template.ComboBox {
             y: menuItem.topPadding + (menuItem.availableHeight - height) / 2
             width: menuItem.height
             height: menuItem.height
-
             visible: menuItem.hovered
 
             onPaint: {
                 var context = getContext("2d");
                 context.reset();
                 context.arc(height / 2, height / 2, 7, 0 * Math.PI, 2 * Math.PI);
-                context.fillStyle = "#4280d6";
+                context.fillStyle = Common.Colors.mainThemeColor;
                 context.fill();
             }
         }
@@ -44,7 +42,7 @@ Template.ComboBox {
         y: comboBox.topPadding + (comboBox.availableHeight - height) / 2
         width: comboBox.height * (comboBox.hovered ? 0.65 : 0.6)
         height: comboBox.height * (comboBox.hovered ? 0.55 : 0.5)
-        contextType: "2d"
+        rotation: popup.opened ? 90 : 0
 
         Connections {
             target: comboBox
@@ -54,15 +52,14 @@ Template.ComboBox {
             }
         }
 
-        rotation: popup.opened ? 90 : 0
-
         onPaint: {
+            var context = getContext("2d");
             context.reset();
             context.moveTo(0, 0);
             context.lineTo(width, 0);
             context.lineTo(width / 2, height);
             context.closePath();
-            context.fillStyle = "#4280d6";
+            context.fillStyle = Common.Colors.mainThemeColor;
             context.fill();
         }
     }
@@ -86,23 +83,22 @@ Template.ComboBox {
         readOnly: comboBox.down
         inputMethodHints: comboBox.inputMethodHints
         validator: comboBox.validator
-
-        color: "black"
+        color: Common.Colors.mainBackgroundColor
         selectionColor: comboBox.palette.highlight
         selectedTextColor: comboBox.palette.highlightedText
         verticalAlignment: Text.AlignVCenter
-
     }
 
     background: Rectangle {
         implicitWidth: 85 * Common.Consts.xCoord
         implicitHeight: 29 * Common.Consts.yCoord
-
-        border.color: "#4280d6" //comboBox.pressed ? "#17a81a" : "#21be2b"
-        border.width: comboBox.hovered ? 4 : 2
-        radius: 5
-
+        radius: 3 * Common.Consts.radialSize
         visible: !comboBox.flat || comboBox.down
+
+        border {
+            color: Common.Colors.mainThemeColor
+            width: (comboBox.hovered ? 2 : 1) * Common.Consts.radialSize
+        }
     }
 
     popup: Template.Popup {
@@ -114,10 +110,10 @@ Template.ComboBox {
 
         palette: comboBox.palette
         font: comboBox.font
-        topPadding: 4
-        leftPadding: 4 //* Common.Consts.xCoord
-        rightPadding: 4
-        bottomPadding: 4
+        topPadding: 4 * Common.Consts.yCoord
+        leftPadding: 2 * Common.Consts.xCoord
+        rightPadding: 2 * Common.Consts.xCoord
+        bottomPadding: 4 * Common.Consts.yCoord
 
         contentItem: ListView {
             clip: true
@@ -130,10 +126,9 @@ Template.ComboBox {
 
         background: Rectangle {
             color: comboBox.popup.palette.window
-
-            border.color: "#4280d6"
-            border.width: 2
-            radius: 5
+            border.color: Common.Colors.mainThemeColor
+            border.width: 1 * Common.Consts.radialSize
+            radius: 3 * Common.Consts.radialSize
         }
     }
 }

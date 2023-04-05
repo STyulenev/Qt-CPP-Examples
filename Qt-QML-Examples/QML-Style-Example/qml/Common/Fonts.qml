@@ -14,5 +14,4 @@ QtObject {
 
     readonly property alias family: fontLoader.name
     readonly property int pixelSize: 14 * Common.Consts.fontSize
-
 }

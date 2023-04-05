@@ -6,6 +6,7 @@ import QtQuick.Controls 2.15
 
 QtObject {
     readonly property color mainBackgroundColor: "#000000"
+    readonly property color mainThemeColor: "#4280d6"
 
     readonly property color inactiveControlColor: "#313031"
     readonly property color inactivePressedControlColor: Qt.lighter(inactiveControlColor, 1.3)
@@ -16,7 +17,6 @@ QtObject {
     readonly property color hintTextColor: "#CECECE"
 
     readonly property color greyColor: "#808080"
-
 
     readonly property color textFieldTextColor: "#000000"
     readonly property color textFieldBackgroundColor: "#ffffff"

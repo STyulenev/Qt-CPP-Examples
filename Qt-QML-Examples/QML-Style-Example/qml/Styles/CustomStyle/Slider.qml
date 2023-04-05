@@ -16,8 +16,6 @@ Template.Slider {
         id: back
         x: slider.leftPadding
         y: slider.topPadding + slider.availableHeight / 2 - height / 2
-        //implicitWidth: parent.width
-        //implicitHeight: 20 * Common.Consts.yCoord
         width: parent.width
         height: parent.height
         radius: 2 * Common.Consts.radialSize
@@ -25,7 +23,7 @@ Template.Slider {
 
         border {
             width: 2 * Common.Consts.radialSize
-            color: "#4280d6"
+            color: Common.Colors.mainThemeColor
         }
 
         Rectangle {
@@ -38,7 +36,7 @@ Template.Slider {
                 rightMargin: handle.width * 0.5
             }
 
-            color: "#4280d6"
+            color: Common.Colors.mainThemeColor
             radius: 2 * Common.Consts.radialSize
         }
 
@@ -89,9 +87,12 @@ Template.Slider {
         implicitWidth: 24 * Common.Consts.xCoord
         implicitHeight: slider.height
         radius: 2 * Common.Consts.radialSize
-        color: "transparent"//slider.enabled ? Common.Colors.textColor : Common.Colors.greyColor
-        border.color: "#4280d6"
-        border.width: 2 * Common.Consts.radialSize
+        color: "transparent"
+
+        border {
+            color: Common.Colors.mainThemeColor
+            width: 2 * Common.Consts.radialSize
+        }
 
         Text {
             id: text

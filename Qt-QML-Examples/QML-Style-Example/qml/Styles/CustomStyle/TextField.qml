@@ -1,6 +1,5 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.6
-import QtQuick.Controls.impl 2.6
 import QtQuick.Templates 2.6 as Template
 
 import Common 1.0 as Common
@@ -40,7 +39,9 @@ Template.TextField {
     background: Rectangle {
         color: textField.enabled ? Common.Colors.textFieldBackgroundColor : Common.Colors.textFieldDisabledBackgroundColor
         border.width: 2 * Common.Consts.radialSize
-        border.color: textField.enabled ? (textField.activeFocus ? "#4280d6" /*Common.Colors.textFieldFocusedColor*/ : Common.Colors.textFieldBackgroundColor) : Common.Colors.textFieldDisabledBackgroundColor
+        border.color: textField.enabled ? (textField.activeFocus ?
+                                               Common.Colors.mainThemeColor : Common.Colors.textFieldBackgroundColor)
+                                        : Common.Colors.textFieldDisabledBackgroundColor
         implicitWidth: 120 * Common.Consts.xCoord
         implicitHeight: 29 * Common.Consts.yCoord
     }

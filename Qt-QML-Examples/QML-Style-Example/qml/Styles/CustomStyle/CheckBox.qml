@@ -1,6 +1,5 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.6
-import QtQuick.Controls.impl 2.6
 import QtQuick.Templates 2.6 as Template
 
 import Common 1.0 as Common
@@ -28,9 +27,8 @@ Template.CheckBox {
 
         color: checkBox.enabled ? Common.Colors.mainBackgroundColor : Common.Colors.greyColor
         border {
-
-            width: /*checkBox.enabled ? 2 : 0 ||*/ checkBox.hovered ? 4 : 2
-            color: checkBox.enabled ? "#4280d6" : Common.Colors.greyColor //checkBox.checked ? Common.Colors.activeControlColor : checkBox.palette.light
+            width: (checkBox.hovered ? 2 : 1) * Common.Consts.radialSize
+            color: checkBox.enabled ? Common.Colors.mainThemeColor : Common.Colors.greyColor
         }
 
         Image {
@@ -40,7 +38,6 @@ Template.CheckBox {
             source: (checkBox.checkState === Qt.Checked) ? "qrc:/res/check.png" : "qrc:/res/uncheck.png"
             sourceSize.height: 24 * Common.Consts.radialSize
             sourceSize.width: 24 * Common.Consts.radialSize
-            //visible: checkBox.checkState === Qt.Checked
         }
     }
 

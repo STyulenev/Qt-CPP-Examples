@@ -6,7 +6,6 @@ import Common 1.0 as Common
 
 Template.Switch {
     id: control
-
     spacing: 6 * Common.Consts.xCoord
 
     indicator: Rectangle {
@@ -17,10 +16,11 @@ Template.Switch {
         y: parent.height / 2 - height / 2
         enabled: control.enabled
         radius: 20 * Common.Consts.radialSize
-        color: Common.Colors.mainBackgroundColor //control.checked ? "#17a81a" : "#ffffff"
+        color: Common.Colors.mainBackgroundColor
+
         border {
             width: control.enabled ? (control.hovered ? 2 * Common.Consts.radialSize : 1 * Common.Consts.radialSize) : 1 * Common.Consts.radialSize
-            color: "#4280d6" //Common.Colors.greyColor //control.checked ? "#17a81a" : "#cccccc"
+            color: Common.Colors.mainThemeColor
         }
 
         Rectangle {
@@ -30,35 +30,39 @@ Template.Switch {
             width: parent.height - indicatorRectangle.border.width
             height: parent.height - indicatorRectangle.border.width
             radius: 20 * Common.Consts.radialSize
-            color: control.checked ?  "#4280d6" : Common.Colors.mainBackgroundColor //control.down ? "#cccccc" : "#ffffff"
+            color: control.checked ?  Common.Colors.mainThemeColor : Common.Colors.mainBackgroundColor
+
             border {
                 width: indicatorRectangle.border.width
-                color: "#4280d6" //control.checked ? (control.down ? "#17a81a" : "#21be2b") : "#999999"
+                color: Common.Colors.mainThemeColor
             }
         }
 
         Text {
-            text:  control.checked ? "On" : "Off"
+            text:  control.checked ? qsTr("On") : qsTr("Off")
+            x: (checked ? 0: pill.width) + (parent.width - pill.width - width) / 2
+            anchors.verticalCenter: parent.verticalCenter
             enabled: control.enabled
             opacity: enabled ? 1.0 : 0.3
             color: enabled ? Common.Colors.textColor : Common.Colors.hintTextColor
-            x: (checked ? 0: pill.width) + (parent.width - pill.width - width) / 2
+
             font {
                 family: Common.Fonts.family
                 bold: true
                 pixelSize: Common.Fonts.pixelSize
             }
-            anchors.verticalCenter: parent.verticalCenter
         }
     }
 
     contentItem: Text {
         text: control.text
+
         font {
             family: Common.Fonts.family
             bold: true
             pixelSize: Common.Fonts.pixelSize
         }
+
         opacity: enabled ? 1.0 : 0.3
         color: control.enabled ? Common.Colors.textColor : Common.Colors.hintTextColor
         verticalAlignment: Text.AlignVCenter

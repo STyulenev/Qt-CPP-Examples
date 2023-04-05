@@ -2,11 +2,22 @@
     <qresource prefix="/">
         <file>qtquickcontrols2.conf</file>
         <file>main.qml</file>
+
+        <!-- Fonts -->
         <file>fonts/Helvetica.ttf</file>
+
+        <!-- Common -->
         <file>qml/Common/qmldir</file>
         <file>qml/Common/Consts.qml</file>
         <file>qml/Common/Colors.qml</file>
         <file>qml/Common/Fonts.qml</file>
+
+        <!-- Resources -->
+        <file>res/check.png</file>
+        <file>res/uncheck.png</file>
+        <file>res/white_arrow.svg</file>
+
+        <!-- Custom Style lib -->
         <file>qml/Styles/CustomStyle/ApplicationWindow.qml</file>
         <file>qml/Styles/CustomStyle/qmldir</file>
         <file>qml/Styles/CustomStyle/RoundButton.qml</file>
@@ -16,13 +27,10 @@
         <file>qml/Styles/CustomStyle/TextArea.qml</file>
         <file>qml/Styles/CustomStyle/CheckBox.qml</file>
         <file>qml/Styles/CustomStyle/RadioButton.qml</file>
-        <file>res/check.png</file>
-        <file>res/uncheck.png</file>
         <file>qml/Styles/CustomStyle/GroupBox.qml</file>
         <file>qml/Styles/CustomStyle/Switch.qml</file>
         <file>qml/Styles/CustomStyle/ScrollBar.qml</file>
         <file>qml/Styles/CustomStyle/ScrollIndicator.qml</file>
-        <file>res/white_arrow.svg</file>
         <file>qml/Styles/CustomStyle/TabBar.qml</file>
         <file>qml/Styles/CustomStyle/TabButton.qml</file>
         <file>qml/Styles/CustomStyle/ProgressBar.qml</file>
