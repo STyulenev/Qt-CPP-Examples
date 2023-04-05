@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget* parent) :
 
     // LimeReport::ICallbackDatasource* ds = m_report.dataManager()->createCallbackDatasource("ds");
 
-    m_report.loadFromFile("path.../resources/report.lrxml");
+    m_report.loadFromFile("path.../res/report.lrxml");
 
     m_report.dataManager()->addModel("tableModel", tableModel, false);
     m_report.dataManager()->setReportVariable("name1", ui->lineEdit->text());
@@ -52,7 +52,8 @@ auto MainWindow::slotOneSlotDS(const LimeReport::CallbackInfo& info, QVariant& d
             data = info.columnName + " " + QString::number(info.index);
         }
         break;
-    default:break;
+    default:
+        break;
     }
 }
 
@@ -61,9 +62,7 @@ auto MainWindow::on_pushButton_clicked() -> void
     m_report.previewReport();
 }
 
-
 auto MainWindow::on_pushButton_2_clicked() -> void
 {
     m_report.designReport();
 }
-

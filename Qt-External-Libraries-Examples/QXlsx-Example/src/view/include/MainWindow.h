@@ -24,4 +24,3 @@ private:
     std::shared_ptr<ViewModels::TableViewModel> modelSaveExample;
     std::shared_ptr<ViewModels::TableViewModel> modelLoadExample;
 };
-

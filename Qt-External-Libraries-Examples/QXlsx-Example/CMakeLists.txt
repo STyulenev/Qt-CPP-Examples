@@ -18,27 +18,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
-include_directories("C:/3rdparty/QXlsx-master/QXlsx/header") # Path to QXlsx headers folder
+add_subdirectory(src)
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
-
-        TableViewModel.h
-        TableViewModel.cpp
+    main.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(QXlsx-Example
+    qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
 endif()
 
-target_link_libraries(QXlsx-Example PRIVATE
-    Qt${QT_VERSION_MAJOR}::Widgets
-
-    "C:/3rdparty/QXlsx-master/build/libQXlsxQt6.dll" # Path to QXlsx .dll or .so
-    )
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    View-lib
+)

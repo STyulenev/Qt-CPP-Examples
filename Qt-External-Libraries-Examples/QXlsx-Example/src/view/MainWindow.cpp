@@ -72,7 +72,6 @@ auto MainWindow::on_saveButton_clicked() -> void
     }
 }
 
-
 auto MainWindow::on_loadButton_clicked() -> void
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "C:/", tr("Excel (*.xlsx)"));
@@ -103,4 +102,3 @@ auto MainWindow::on_loadButton_clicked() -> void
         QMessageBox::critical(nullptr, "Error saving", "Failed to write xlsx file!\nin" + fileName);
     }
 }
-

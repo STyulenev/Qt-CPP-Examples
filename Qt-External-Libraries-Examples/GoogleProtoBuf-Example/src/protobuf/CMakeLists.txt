@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Protobuf-library
+project(Protobuf-lib
     VERSION 0.1
     DESCRIPTION "Library with auto-generated protobuf classes"
     LANGUAGES CXX)

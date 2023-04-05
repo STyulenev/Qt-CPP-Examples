@@ -11,10 +11,10 @@
 #############################################################################
 
 win32 {
-    SHARED_DLL_PATH = "C:/.../libs/" # Путь до .dll's
+    SHARED_DLL_PATH = "C:/Work/3rdparty/libs/" # Путь до .dll's
 
     LIME_REPORT_DLL     = "$$SHARED_DLL_PATH/liblimereport-qt6.dll"
-    LIME_REPORT_INCLUDE = "C:/.../include/"
+    LIME_REPORT_INCLUDE = "C:/Work/3rdparty/include/LimeReport/include/"
 
     exists ($$LIME_REPORT_DLL) {
         LIBS    += -L$$SHARED_DLL_PATH -llimereport-qt6
@@ -38,6 +38,6 @@ win32 {
     }
 }
 
-#unix {
-# TODO ...
-#}
+unix {
+    message("Error. Unknown system.")
+}
