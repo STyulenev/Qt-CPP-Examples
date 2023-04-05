@@ -1,8 +1,6 @@
 import QtQuick
 import QtQml 2.15
 import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
-import QtQuick.Window 2.15
 
 TableView {
     id: tableView
@@ -126,6 +124,11 @@ TableView {
                 id: maLineEditDelegate
                 anchors.fill: parent
                 hoverEnabled: true
+                acceptedButtons: Qt.RightButton
+
+                onClicked: {
+                    mouse.accepted = true
+                }
             }
         }
 
@@ -134,6 +137,7 @@ TableView {
             visible: model.column === 3
             checked: model.CheckStateRole ? Qt.Checked : Qt.Unchecked
             anchors.centerIn: parent
+            default property alias children: maCheckDelegate.data
 
             onClicked: {
                 model.CheckStateRole = checked ? Qt.Checked : Qt.Unchecked
@@ -146,6 +150,11 @@ TableView {
                 id: maCheckDelegate
                 anchors.fill: parent
                 hoverEnabled: true
+                acceptedButtons: Qt.RightButton
+
+                onClicked: {
+                    mouse.accepted = true
+                }
             }
         }
 

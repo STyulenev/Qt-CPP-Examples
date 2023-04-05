@@ -1,12 +1,11 @@
 INCLUDEPATH += \
-        $$PWD \
-        $$PWD/include/
+        $$PWD/view/include
 
 HEADERS += \
-        $$files($$PWD/include/*.h)
+        $$files($$PWD/view/include/*.h)
 
 SOURCES += \
-        $$files($$PWD/*.cpp)
+        $$files($$PWD/view/*.cpp)
 
 FORMS += \
-    $$files($$PWD/ui/*.ui)
+        $$files($$PWD/view/ui/*.ui)

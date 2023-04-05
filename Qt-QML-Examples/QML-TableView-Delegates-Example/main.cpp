@@ -3,7 +3,7 @@
 
 #include "TableModel.h"
 
-int main(int argc, char *argv[])
+auto main(int argc, char* argv[]) -> int
 {
     QGuiApplication app(argc, argv);
 
@@ -11,11 +11,10 @@ int main(int argc, char *argv[])
     qmlRegisterType<ViewModels::TableModel>("TableModels", 0, 1, "TableModel");
 
     QQmlApplicationEngine engine;
-    engine.addImportPath("qrc:/");
-    engine.addImportPath("qml/Widgets/");
+    engine.addImportPath("qrc:/qml");
 
     const QUrl url("qrc:/main.qml");
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, &app, [url](QObject *obj, const QUrl &objUrl) {
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, &app, [url](QObject* obj, const QUrl& objUrl) {
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
