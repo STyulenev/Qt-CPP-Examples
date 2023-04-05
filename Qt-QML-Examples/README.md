@@ -12,6 +12,10 @@
 
 Пример использования States в QML.
 
+## QML-Style-Example
+
+Пример создания нового стиля для компонентов приложения.
+
 ## QML-SwipeView-Example
 
 Пример использования SwipeView в QML.
