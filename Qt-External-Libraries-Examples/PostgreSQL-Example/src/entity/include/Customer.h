@@ -15,7 +15,7 @@ private:
 
 public:
     Customer();
-    virtual ~Customer();
+    ~Customer();
 
     int getId() const;
     void setId(int newId);

@@ -43,3 +43,42 @@ auto DAO::getCustomersList() -> QList<Entities::Customer>
 
     return customers;
 }
+
+auto DAO::getProductsList() -> QList<Entities::Product>
+{
+    QList<Entities::Product> products;
+
+    std::shared_ptr<Connection> connection = std::make_shared<Connection>();
+
+    if (connection->isOpen()) {
+        qDebug() << "isOpen()";
+
+        auto result = connection->runRequest("SELECT * FROM Products");
+
+        int res_id = PQfnumber(result, "id");
+        int res_product_type = PQfnumber(result, "product_type");
+        int res_product_name = PQfnumber(result, "product_name");
+        int res_manufacturer  = PQfnumber(result, "manufacturer");
+        int res_product_count  = PQfnumber(result, "product_count");
+        int res_price  = PQfnumber(result, "price");
+
+        for (int i = 0; i < PQntuples(result); i++) {
+            Entities::Product product;
+
+            product.setId(atoi(PQgetvalue(result, i, res_id)));
+            product.setProduct_type(PQgetvalue(result, i, res_product_type));
+            product.setProduct_name(PQgetvalue(result, i, res_product_name));
+            product.setManufacturer(PQgetvalue(result, i, res_manufacturer));
+            product.setProduct_count(atoi(PQgetvalue(result, i, res_product_count)));
+            product.setPrice(atoi(PQgetvalue(result, i, res_price)));
+
+            products << std::move(product);
+        }
+
+        PQclear(result);
+    } else {
+        qDebug() << "close()";
+    }
+
+    return products;;
+}
