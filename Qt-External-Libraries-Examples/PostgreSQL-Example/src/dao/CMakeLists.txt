@@ -28,6 +28,7 @@ add_library(${PROJECT_NAME} STATIC ${view-src})
 
 target_link_libraries(${PROJECT_NAME} PUBLIC 
     Qt${QT_VERSION_MAJOR}::Core
+    Entity-lib
     ${PostgreSQL_LIBRARIES}
 )
 

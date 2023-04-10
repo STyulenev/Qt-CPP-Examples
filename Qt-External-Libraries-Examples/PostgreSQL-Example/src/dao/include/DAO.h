@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Connection.h"
+#include "Customer.h"
 
 class DAO
 {
 public:
     DAO();
 
-    static void getData();
+    static auto getCustomersList() -> QList<Entities::Customer>;
 };
 

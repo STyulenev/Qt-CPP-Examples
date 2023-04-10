@@ -35,3 +35,16 @@ auto Connection::isOpen() -> bool
 {
     return PQstatus(pgConnection.get()) == CONNECTION_OK;
 }
+
+const std::shared_ptr<PGconn>& Connection::getConnection() const
+{
+    return pgConnection;
+}
+
+auto Connection::runRequest(const QString&& request) -> PGresult*
+{
+   // pgResult =
+    return PQexec(pgConnection.get(), request.toStdString().c_str());
+            //std::make_shared<PGresult>(PQexec(pgConnection.get(), request.toStdString().c_str()));
+            //PQexec(pgConnection.get(), request.toStdString().c_str());
+}
