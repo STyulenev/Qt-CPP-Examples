@@ -4,6 +4,7 @@
 
 #include <CustomersViewModel.h>
 #include <ProductsViewModel.h>
+#include <OrdersViewModel.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,4 +23,5 @@ private:
 
     std::shared_ptr<ViewModels::CustomersViewModel> customersViewModel;
     std::shared_ptr<ViewModels::ProductsViewModel>  productsViewModel;
+    std::shared_ptr<ViewModels::OrdersViewModel>    ordersViewModel;
 };
