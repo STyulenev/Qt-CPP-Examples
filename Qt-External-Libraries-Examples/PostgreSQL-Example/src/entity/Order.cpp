@@ -2,7 +2,8 @@
 
 namespace Entities {
 
-Order::Order()
+Order::Order() :
+    id(0)
 {
 
 }

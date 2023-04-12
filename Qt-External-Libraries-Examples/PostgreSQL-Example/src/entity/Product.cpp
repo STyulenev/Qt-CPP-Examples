@@ -2,7 +2,8 @@
 
 namespace Entities {
 
-Product::Product()
+Product::Product() :
+    id(0)
 {
 
 }

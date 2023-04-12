@@ -1,6 +1,6 @@
 #pragma once
 
-#include <libpq-fe.h>
+#include "libpq-fe.h"
 #include <QDebug>
 
 class Connection

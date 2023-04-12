@@ -2,7 +2,8 @@
 
 namespace Entities {
 
-Customer::Customer()
+Customer::Customer() :
+    id(0)
 {
 
 }

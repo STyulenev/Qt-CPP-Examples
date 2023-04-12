@@ -5,7 +5,7 @@ namespace ViewModels {
 CustomersViewModel::CustomersViewModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
-    DAO::getCustomersList(customers);
+    DAO::selectCustomers(customers);
 }
 
 CustomersViewModel::~CustomersViewModel()
@@ -42,7 +42,7 @@ auto CustomersViewModel::data(const QModelIndex& index, int role) const -> QVari
     return QVariant();
 }
 
-auto CustomersViewModel::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto CustomersViewModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
 }
