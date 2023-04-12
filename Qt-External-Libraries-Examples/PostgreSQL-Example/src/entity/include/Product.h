@@ -8,28 +8,29 @@ class Product
 {
 private:
     int     id;
-    QString product_type;
-    QString product_name;
+    QString type;
+    QString name;
     QString manufacturer;
-    int     product_count;
+    int     count;
     int     price;
 
 public:
     Product();
     ~Product();
 
-    int getId() const;
-    void setId(int newId);
-    const QString &getProduct_type() const;
-    void setProduct_type(const QString &newProduct_type);
-    const QString &getProduct_name() const;
-    void setProduct_name(const QString &newProduct_name);
-    const QString &getManufacturer() const;
-    void setManufacturer(const QString &newManufacturer);
-    int getProduct_count() const;
-    void setProduct_count(int newProduct_count);
-    int getPrice() const;
-    void setPrice(int newPrice);
+    auto getId() const -> int;
+    auto getType() const -> const QString&;
+    auto getName() const -> const QString&;
+    auto getManufacturer() const -> const QString&;
+    auto getCount() const -> int;
+    auto getPrice() const -> int;
+
+    auto setId(int newId) -> void;
+    auto setType(const QString& type) -> void;
+    auto setName(const QString& name) -> void;
+    auto setManufacturer(const QString& manufacturer) -> void;
+    auto setCount(int count) -> void;
+    auto setPrice(int price) -> void;
 };
 
 } // namespace Entities

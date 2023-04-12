@@ -12,67 +12,64 @@ Order::~Order()
 
 }
 
-int Order::getId() const
+auto Order::getId() const -> int
 {
     return id;
 }
 
-void Order::setId(int newId)
-{
-    id = newId;
-}
-
-const Customer &Order::getCustomer() const
+auto Order::getCustomer() const -> const Customer&
 {
     return customer;
 }
 
-void Order::setCustomer(const Customer &newCustomer)
-{
-    customer = newCustomer;
-}
-
-const Product &Order::getProduct() const
+auto Order::getProduct() const -> const Product&
 {
     return product;
 }
 
-void Order::setProduct(const Product &newProduct)
-{
-    product = newProduct;
-}
-
-int Order::getQuantity() const
+auto Order::getQuantity() const -> int
 {
     return quantity;
 }
 
-void Order::setQuantity(int newQuantity)
+auto Order::getDate() const -> const QString&
 {
-    quantity = newQuantity;
+    return date;
 }
 
-const QString &Order::getOrder_date() const
+auto Order::getTime() const -> const QString&
 {
-    return order_date;
+    return time;
 }
 
-void Order::setOrder_date(const QString &newOrder_date)
+auto Order::setId(int id) -> void
 {
-    order_date = newOrder_date;
+    this->id = id;
 }
 
-const QString &Order::getOrder_time() const
+auto Order::setCustomer(const Customer& customer) -> void
 {
-    return order_time;
+    this->customer = customer;
 }
 
-void Order::setOrder_time(const QString &newOrder_time)
+auto Order::setProduct(const Product& product) -> void
 {
-    order_time = newOrder_time;
+    this->product = product;
 }
 
+auto Order::setQuantity(int quantity) -> void
+{
+    this->quantity = quantity;
+}
 
+auto Order::setDate(const QString& date) -> void
+{
+    this->date = date;
+}
 
+auto Order::setTime(const QString& time) -> void
+{
+    this->time = time;
+}
 
 } // namespace Entities

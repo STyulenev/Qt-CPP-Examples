@@ -12,64 +12,64 @@ Product::~Product()
 
 }
 
-int Product::getId() const
+auto Product::getId() const -> int
 {
     return id;
 }
 
-void Product::setId(int newId)
+auto Product::getType() const -> const QString&
 {
-    id = newId;
+    return type;
 }
 
-const QString &Product::getProduct_type() const
+auto Product::getName() const -> const QString&
 {
-    return product_type;
+    return name;
 }
 
-void Product::setProduct_type(const QString &newProduct_type)
-{
-    product_type = newProduct_type;
-}
-
-const QString &Product::getProduct_name() const
-{
-    return product_name;
-}
-
-void Product::setProduct_name(const QString &newProduct_name)
-{
-    product_name = newProduct_name;
-}
-
-const QString &Product::getManufacturer() const
+auto Product::getManufacturer() const -> const QString&
 {
     return manufacturer;
 }
 
-void Product::setManufacturer(const QString &newManufacturer)
+auto Product::getCount() const -> int
 {
-    manufacturer = newManufacturer;
+    return count;
 }
 
-int Product::getProduct_count() const
-{
-    return product_count;
-}
-
-void Product::setProduct_count(int newProduct_count)
-{
-    product_count = newProduct_count;
-}
-
-int Product::getPrice() const
+auto Product::getPrice() const -> int
 {
     return price;
 }
 
-void Product::setPrice(int newPrice)
+auto Product::setId(int id) -> void
 {
-    price = newPrice;
+    this->id = id;
+}
+
+auto Product::setType(const QString& type) -> void
+{
+    this->type = type;
+}
+
+auto Product::setName(const QString &name) -> void
+{
+    this->name = name;
+}
+
+auto Product::setManufacturer(const QString& manufacturer) -> void
+{
+    this->manufacturer = manufacturer;
+}
+
+auto Product::setCount(int count) -> void
+{
+    this->count = count;
+}
+
+auto Product::setPrice(int price) -> void
+{
+    this->price = price;
 }
 
 } // namespace Entities

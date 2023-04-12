@@ -9,10 +9,10 @@ class DAO
 public:
     DAO();
 
-    static auto getCustomersList() -> QList<Entities::Customer>;
+    static auto getCustomersList(QList<Entities::Customer>& customers) -> void;
 
-    static auto getProductsList() -> QList<Entities::Product>;
+    static auto getProductsList(QList<Entities::Product>& products) -> void;
 
-    static auto getOrdersList() -> QList<Entities::Order>;
+    static auto getOrdersList(QList<Entities::Order>& orders) -> void;
 };
 

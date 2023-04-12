@@ -17,16 +17,17 @@ public:
     Customer();
     ~Customer();
 
-    int getId() const;
-    void setId(int newId);
-    const QString &getFirstName() const;
-    void setFirstName(const QString &newFirstName);
-    const QString &getLastName() const;
-    void setLastName(const QString &newLastName);
-    const QString &getEmail() const;
-    void setEmail(const QString &newEmail);
-    int getAge() const;
-    void setAge(int newAge);
+    auto getId() const -> int;
+    auto getFirstName() const -> const QString&;
+    auto getLastName() const -> const QString&;
+    auto getEmail() const -> const QString&;
+    auto getAge() const -> int;
+
+    auto setId(int id) -> void;
+    auto setFirstName(const QString& firstName) -> void;
+    auto setLastName(const QString& lastName) -> void;
+    auto setEmail(const QString& email) -> void;
+    auto setAge(int age) -> void;
 };
 
 } // namespace Entities

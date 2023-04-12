@@ -12,54 +12,54 @@ Customer::~Customer()
 
 }
 
-int Customer::getId() const
+auto Customer::getId() const -> int
 {
     return id;
 }
 
-void Customer::setId(int newId)
-{
-    id = newId;
-}
-
-const QString& Customer::getFirstName() const
+auto Customer::getFirstName() const -> const QString&
 {
     return firstName;
 }
 
-void Customer::setFirstName(const QString& newFirstName)
-{
-    firstName = newFirstName;
-}
-
-const QString& Customer::getLastName() const
+auto Customer::getLastName() const -> const QString&
 {
     return lastName;
 }
 
-void Customer::setLastName(const QString& newLastName)
-{
-    lastName = newLastName;
-}
-
-const QString &Customer::getEmail() const
+auto Customer::getEmail() const -> const QString&
 {
     return email;
 }
 
-void Customer::setEmail(const QString& newEmail)
-{
-    email = newEmail;
-}
-
-int Customer::getAge() const
+auto Customer::getAge() const -> int
 {
     return age;
 }
 
-void Customer::setAge(int newAge)
+auto Customer::setId(int id) -> void
 {
-    age = newAge;
+    this->id = id;
+}
+
+auto Customer::setFirstName(const QString& firstName) -> void
+{
+    this->firstName = firstName;
+}
+
+auto Customer::setLastName(const QString& lastName) -> void
+{
+    this->lastName = lastName;
+}
+
+auto Customer::setEmail(const QString& email) -> void
+{
+    this->email = email;
+}
+
+auto Customer::setAge(int age) -> void
+{
+    this->age = age;
 }
 
 } // namespace Entities

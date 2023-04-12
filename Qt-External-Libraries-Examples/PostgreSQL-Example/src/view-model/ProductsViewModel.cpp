@@ -5,7 +5,7 @@ namespace ViewModels {
 ProductsViewModel::ProductsViewModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
-    products = DAO::getProductsList();
+    DAO::getProductsList(products);
 }
 
 ProductsViewModel::~ProductsViewModel()
@@ -31,12 +31,12 @@ auto ProductsViewModel::data(const QModelIndex& index, int role) const -> QVaria
     if (role == Qt::DisplayRole) {
         switch (index.column()) {
         case 0: return products.at(index.row()).getId();
-        case 1: return products.at(index.row()).getProduct_type();
-        case 2: return products.at(index.row()).getProduct_name();
+        case 1: return products.at(index.row()).getType();
+        case 2: return products.at(index.row()).getName();
         case 3: return products.at(index.row()).getManufacturer();
-        case 4: return products.at(index.row()).getProduct_name();
+        case 4: return products.at(index.row()).getName();
         case 5: return products.at(index.row()).getPrice();
-        default: assert(!"Should not get here");
+        [[unlikely]] default: assert(!"Should not get here");
         }
     }
 

@@ -5,7 +5,7 @@ namespace ViewModels {
 OrdersViewModel::OrdersViewModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
-    orders = DAO::getOrdersList();
+    DAO::getOrdersList(orders);
 }
 
 OrdersViewModel::~OrdersViewModel()
@@ -34,13 +34,13 @@ auto OrdersViewModel::data(const QModelIndex& index, int role) const -> QVariant
         case 1: return orders.at(index.row()).getCustomer().getFirstName();
         case 2: return orders.at(index.row()).getCustomer().getLastName();
         case 3: return orders.at(index.row()).getCustomer().getEmail();
-        case 4: return orders.at(index.row()).getProduct().getProduct_type();
-        case 5: return orders.at(index.row()).getProduct().getProduct_name();
+        case 4: return orders.at(index.row()).getProduct().getType();
+        case 5: return orders.at(index.row()).getProduct().getName();
         case 6: return orders.at(index.row()).getProduct().getPrice();
         case 7: return orders.at(index.row()).getQuantity();
         case 8: return (orders.at(index.row()).getQuantity() * orders.at(index.row()).getProduct().getPrice());
-        case 9: return orders.at(index.row()).getOrder_date();
-        case 10: return orders.at(index.row()).getOrder_time();
+        case 9: return orders.at(index.row()).getDate();
+        case 10: return orders.at(index.row()).getTime();
         default: assert(!"Should not get here");
         }
     }

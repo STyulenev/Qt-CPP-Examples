@@ -8,29 +8,30 @@ namespace Entities {
 class Order
 {
 private:
-    int id;
+    int      id;
     Customer customer;
-    Product product;
-    int quantity;
-    QString order_date;
-    QString order_time;
+    Product  product;
+    int      quantity;
+    QString  date;
+    QString  time;
 
 public:
     Order();
     ~Order();
 
-    int getId() const;
-    void setId(int newId);
-    const Customer &getCustomer() const;
-    void setCustomer(const Customer &newCustomer);
-    const Product &getProduct() const;
-    void setProduct(const Product &newProduct);
-    int getQuantity() const;
-    void setQuantity(int newQuantity);
-    const QString &getOrder_date() const;
-    void setOrder_date(const QString &newOrder_date);
-    const QString &getOrder_time() const;
-    void setOrder_time(const QString &newOrder_time);
+    auto getId() const -> int;
+    auto getCustomer() const -> const Customer&;
+    auto getProduct() const -> const Product&;
+    auto getQuantity() const -> int;
+    auto getDate() const -> const QString&;
+    auto getTime() const -> const QString&;
+
+    auto setId(int id) -> void;
+    auto setCustomer(const Customer& customer) -> void;
+    auto setProduct(const Product& product) -> void;
+    auto setQuantity(int quantity) -> void;
+    auto setDate(const QString& date) -> void;
+    auto setTime(const QString& time) -> void;
 };
 
 } // namespace Entities

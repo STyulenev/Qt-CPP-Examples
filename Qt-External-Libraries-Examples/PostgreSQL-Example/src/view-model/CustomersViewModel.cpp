@@ -5,7 +5,7 @@ namespace ViewModels {
 CustomersViewModel::CustomersViewModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
-    customers = DAO::getCustomersList();
+    DAO::getCustomersList(customers);
 }
 
 CustomersViewModel::~CustomersViewModel()
