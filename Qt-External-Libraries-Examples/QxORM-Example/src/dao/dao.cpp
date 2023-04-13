@@ -2,7 +2,7 @@
 
 DAO* DAO::self = 0;
 
-DAO* DAO::getConnection()
+auto DAO::getConnection() -> DAO*
 {
     if (!self) {
         qx::QxSqlDatabase::getSingleton()->setDriverName("QPSQL");
