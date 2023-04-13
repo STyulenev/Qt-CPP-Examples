@@ -1,24 +1,56 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
-MainWindow::MainWindow(QWidget* parent) : 
+#include <thread>
+
+MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    this->insertNewCustomer();
-    this->insertNewProduct();
+    std::thread threadOne ([]() -> void {
+        Entities::Customer customer; // id ~ 4
 
-    this->updateCustomer();
-    this->updateProduct();
+        customer.setFirstName("Ron");
+        customer.setLastName("Trump");
+        customer.setEmail("ron_t_22@gmail.com");
+        customer.setAge(22);
 
-    DAO::deleteCustomer(4);
-    DAO::deleteProduct(6);
+        DAO::insertCustomer(customer);
+    });
 
-    customersViewModel = std::make_shared<ViewModels::CustomersViewModel>();
-    productsViewModel = std::make_shared<ViewModels::ProductsViewModel>();
-    ordersViewModel = std::make_shared<ViewModels::OrdersViewModel>();
+    threadOne.detach();
+
+    std::thread threadTwo ([]() -> void {
+        Entities::Product product; // id ~ 6
+
+        product.setType("Phone");
+        product.setName("iPhone 19");
+        product.setManufacturer("Gorizont Company");
+        product.setCount(5);
+        product.setPrice(79000);
+
+        DAO::updateProduct(product);
+    });
+
+    threadTwo.detach();
+
+    std::thread threadThree ([this]() -> void {
+        customersViewModel = std::make_shared<ViewModels::CustomersViewModel>();
+    });
+
+    std::thread threadFour ([this]() -> void {
+        productsViewModel = std::make_shared<ViewModels::ProductsViewModel>();
+    });
+
+    std::thread threadFive ([this]() -> void {
+        ordersViewModel = std::make_shared<ViewModels::OrdersViewModel>();
+    });
+
+    threadThree.join();
+    threadFour.join();
+    threadFive.join();
 
     ui->customersTableView->setModel(customersViewModel.get());
     ui->productsTableView->setModel(productsViewModel.get());
@@ -32,31 +64,6 @@ MainWindow::MainWindow(QWidget* parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-auto MainWindow::insertNewCustomer() -> void
-{
-    Entities::Customer customer; // id ~ 4
-
-    customer.setFirstName("Ron");
-    customer.setLastName("Trump");
-    customer.setEmail("ron_t_22@gmail.com");
-    customer.setAge(22);
-
-    DAO::insertCustomer(customer);
-}
-
-auto MainWindow::insertNewProduct() -> void
-{
-    Entities::Product product; // id ~ 6
-
-    product.setType("Phone");
-    product.setName("iPhone 19");
-    product.setManufacturer("Gorizont Company");
-    product.setCount(5);
-    product.setPrice(79000);
-
-    DAO::updateProduct(product);
 }
 
 auto MainWindow::updateCustomer() -> void

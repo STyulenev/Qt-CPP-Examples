@@ -1,9 +1,9 @@
 #include "DAO.h"
-#include "Connection.h"
+#include "ConnectionPool.h"
 
 auto DAO::selectCustomers(QList<Entities::Customer>& customers) -> void
 {
-    std::shared_ptr<Connection> connection = std::make_shared<Connection>();
+    std::shared_ptr<Connection> connection = ConnectionPool::getPool()->getConnection();
 
     if (connection->isOpen()) {
         auto result = connection->runRequest("SELECT * FROM Customers ORDER BY id ASC;");
@@ -34,11 +34,13 @@ auto DAO::selectCustomers(QList<Entities::Customer>& customers) -> void
     } else {
         qDebug() << "Select customers: " << connection->getLastError(); // or throw ...
     }
+
+    ConnectionPool::getPool()->freeConnection(connection);
 }
 
 auto DAO::selectProducts(QList<Entities::Product>& products) -> void
 {
-    std::shared_ptr<Connection> connection = std::make_shared<Connection>();
+    std::shared_ptr<Connection> connection = ConnectionPool::getPool()->getConnection();
 
     if (connection->isOpen()) {
         auto result = connection->runRequest("SELECT * FROM Products ORDER BY id ASC;");
@@ -71,11 +73,13 @@ auto DAO::selectProducts(QList<Entities::Product>& products) -> void
     } else {
         qDebug() << "Select products: " << connection->getLastError(); // or throw ...
     }
+
+    ConnectionPool::getPool()->freeConnection(connection);
 }
 
 auto DAO::selectOrders(QList<Entities::Order>& orders) -> void
 {
-    std::shared_ptr<Connection> connection = std::make_shared<Connection>();
+    std::shared_ptr<Connection> connection = ConnectionPool::getPool()->getConnection();
 
     if (connection->isOpen()) {
 
@@ -142,11 +146,13 @@ auto DAO::selectOrders(QList<Entities::Order>& orders) -> void
     } else {
         qDebug() << "Select orders: " << connection->getLastError(); // or throw ...
     }
+
+    ConnectionPool::getPool()->freeConnection(connection);
 }
 
 auto DAO::insertCustomer(const Entities::Customer& customer) -> void
 {
-    std::shared_ptr<Connection> connection = std::make_shared<Connection>();
+    std::shared_ptr<Connection> connection = ConnectionPool::getPool()->getConnection();
 
     if (connection->isOpen()) {
         auto result = connection->runRequest(QString("INSERT INTO Customers VALUES (default, '%1', '%2', '%3', %4);")
@@ -167,7 +173,7 @@ auto DAO::insertCustomer(const Entities::Customer& customer) -> void
 
 auto DAO::insertProduct(const Entities::Product& product) -> void
 {
-    std::shared_ptr<Connection> connection = std::make_shared<Connection>();
+    std::shared_ptr<Connection> connection = ConnectionPool::getPool()->getConnection();
 
     if (connection->isOpen()) {
         auto result = connection->runRequest(QString("INSERT INTO Products VALUES (default, '%1', '%2', '%3', %4, %5);")
@@ -185,11 +191,13 @@ auto DAO::insertProduct(const Entities::Product& product) -> void
     } else {
         qDebug() << "Insert product: " << connection->getLastError(); // or throw ...
     }
+
+    ConnectionPool::getPool()->freeConnection(connection);
 }
 
 auto DAO::deleteCustomer(const int id) -> void
 {
-    std::shared_ptr<Connection> connection = std::make_shared<Connection>();
+    std::shared_ptr<Connection> connection = ConnectionPool::getPool()->getConnection();
 
     if (connection->isOpen()) {
         auto result = connection->runRequest(QString("DELETE FROM Customers WHERE id = %1;").arg(id));
@@ -201,11 +209,13 @@ auto DAO::deleteCustomer(const int id) -> void
     } else {
         qDebug() << "Delete customer: " << connection->getLastError(); // or throw ...
     }
+
+    ConnectionPool::getPool()->freeConnection(connection);
 }
 
 auto DAO::deleteProduct(const int id) -> void
 {
-    std::shared_ptr<Connection> connection = std::make_shared<Connection>();
+    std::shared_ptr<Connection> connection = ConnectionPool::getPool()->getConnection();
 
     if (connection->isOpen()) {
         auto result = connection->runRequest(QString("DELETE FROM Products WHERE id = %1;").arg(id));
@@ -218,11 +228,13 @@ auto DAO::deleteProduct(const int id) -> void
     } else {
         qDebug() << "Delete product: " << connection->getLastError(); // or throw ...
     }
+
+    ConnectionPool::getPool()->freeConnection(connection);
 }
 
 auto DAO::updateCustomer(const Entities::Customer& customer) -> void
 {
-    std::shared_ptr<Connection> connection = std::make_shared<Connection>();
+    std::shared_ptr<Connection> connection = ConnectionPool::getPool()->getConnection();
 
     if (connection->isOpen()) {
         auto result = connection->runRequest(QString("UPDATE Customers SET first_name = '%1', last_name = '%2', e_mail = '%3', age = %4 WHERE id = %5;")
@@ -240,11 +252,13 @@ auto DAO::updateCustomer(const Entities::Customer& customer) -> void
     } else {
         qDebug() << "Update customer: " << connection->getLastError(); // or throw ...
     }
+
+    ConnectionPool::getPool()->freeConnection(connection);
 }
 
 auto DAO::updateProduct(const Entities::Product& product) -> void
 {
-    std::shared_ptr<Connection> connection = std::make_shared<Connection>();
+    std::shared_ptr<Connection> connection = ConnectionPool::getPool()->getConnection();
 
     if (connection->isOpen()) {
         auto result = connection->runRequest(QString("UPDATE Products SET product_type = '%1', product_name = '%2', "
@@ -264,4 +278,6 @@ auto DAO::updateProduct(const Entities::Product& product) -> void
     } else {
         qDebug() << "Update product: " << connection->getLastError(); // or throw ...
     }
+
+    ConnectionPool::getPool()->freeConnection(connection);
 }

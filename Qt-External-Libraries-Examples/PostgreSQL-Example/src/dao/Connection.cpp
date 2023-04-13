@@ -13,7 +13,11 @@ Connection::Connection(const QString hostName, const QString port, const QString
                                     nullptr,
                                     dataBaseName.toStdString().c_str(),
                                     userName.toStdString().c_str(),
-                                    password.toStdString().c_str()), &PQfinish );
+                                    password.toStdString().c_str()), &PQfinish);
+
+    if (this->isOpen() && PQsetnonblocking(pgConnection.get(), 1) != 0) {
+        qDebug() << getLastError();
+    }
 }
 
 Connection::~Connection()

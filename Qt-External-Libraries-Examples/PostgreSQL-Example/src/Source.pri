@@ -21,7 +21,15 @@ FORMS += \
         $$files($$PWD/view/ui/*.ui)
 
 win32 {
-    ## Windows common build here
-    INCLUDEPATH += "C:\Program Files\PostgreSQL\9.4\include" # PostgreSQL include folder
-    LIBS += "C:\Program Files\PostgreSQL\9.4\lib\libpq.dll"  # PostgreSQL lib folder
+    msvc {
+        ## Windows common build here
+        INCLUDEPATH += "C:\Program Files\PostgreSQL\9.4\include" # PostgreSQL include folder
+        LIBS += "C:\Program Files\PostgreSQL\9.4\lib\libpq.lib"  # PostgreSQL lib folder
+    }
+
+    gcc {
+        ## Windows common build here
+        INCLUDEPATH += "C:\Program Files\PostgreSQL\9.4\include" # PostgreSQL include folder
+        LIBS += "C:\Program Files\PostgreSQL\9.4\lib\libpq.dll"  # PostgreSQL lib folder
+    }
 }
