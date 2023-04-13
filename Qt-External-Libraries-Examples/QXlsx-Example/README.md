@@ -1,12 +1,16 @@
 # QXlsx-Example
 
-Пример использования библиотеки QXlsx для взаимодействия с таблицами Microsoft Excel (https://github.com/QtExcel/QXlsx).
+## Описание
+
+Пример использования библиотеки QXlsx для взаимодействия с таблицами Microsoft Excel.
+
+[Ссылка на исходники QXlsx](https://github.com/QtExcel/QXlsx "QXlsx")
 
 ## Сборка проекта
 
-1 - Необходимо скачать и собрать библиотеку QXlsx.
-2 - Прописать пути к заголовочным файлам и файлам .ddl/.so в СMakeLists.txt (для CMake) или QXlsx-Example.pro (для QMake).
-3 - Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+1. Необходимо скачать и собрать библиотеку QXlsx.
+2. Прописать пути к заголовочным файлам и файлам .ddl/.so в СMakeLists.txt (для CMake) или QXlsx-Example.pro (для QMake).
+3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
 ```
 cmake ..
@@ -33,4 +37,8 @@ make
 | MinGW      | 9.0.0 64 bit  |
 | QXlsx      | 1.4.5         |
 
-Тестировалось на ОС Windows 10 (сборка 19044.2604)
+## Тестирование
+
+- [x] Windows (10, сборка 19044.2604)
+- [ ] Linux
+- [ ] Mac

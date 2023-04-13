@@ -20,4 +20,3 @@ QX_REGISTER_HPP_QXORM_EXAMPLE(Customer, qx::trait::no_base_class_defined, 0)
 
 typedef std::shared_ptr<Customer> Customer_ptr;
 typedef QVector<Customer_ptr>     ListCustomer;
-

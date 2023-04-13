@@ -2,8 +2,8 @@
 
 namespace ViewModels {
 
-OrdersViewModel::OrdersViewModel(QObject* parent)
-    : QAbstractTableModel(parent)
+OrdersViewModel::OrdersViewModel(QObject* parent) :
+    QAbstractTableModel(parent)
 {
     orders = DAO::getConnection()->getListOfOrders();
 }
@@ -48,7 +48,7 @@ auto OrdersViewModel::data(const QModelIndex& index, int role) const -> QVariant
     return QVariant();
 }
 
-auto OrdersViewModel::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto OrdersViewModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
 }

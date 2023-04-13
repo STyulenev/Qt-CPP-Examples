@@ -18,15 +18,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
-include(C:/.../QxOrm.cmake) ## Path to QxORM cmake file
+if(WIN32)
+  include("C:/3rdparty/QxOrm-master/QxOrm.cmake") ## Path to QxORM cmake file
+else()
+  message(FATAL_ERROR "Unknown system." )
+endif()
 
 add_subdirectory(src)
 
 set(PROJECT_SOURCES
-        main.cpp
-        MainWindow.cpp
-        MainWindow.h
-        MainWindow.ui
+    main.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -38,6 +39,6 @@ endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
-    QxORM-Example-view-model
+    View-lib
 )
 

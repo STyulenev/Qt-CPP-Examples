@@ -24,7 +24,7 @@ set(LIME_REPORT_INCLUDE "C:/Work/3rdparty/include/LimeReport/include")
 if(EXISTS ${LIME_REPORT_DLL} AND IS_DIRECTORY ${LIME_REPORT_INCLUDE}) # as dynamyc lib
     message("LimeReport dll was find")
 
-    include_directories(${LIME_REPORT_INCLUDE})
+    target_include_directories(${PROJECT_NAME} PUBLIC ${LIME_REPORT_INCLUDE})
     target_link_libraries(${PROJECT_NAME} PUBLIC ${LIME_REPORT_DLL})
 elseif(IS_DIRECTORY "${CMAKE_SOURCE_DIR}/LimeReport") # as static lib
     message("LimeReport subdirectory was find")
@@ -48,4 +48,4 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Xml
     Qt${QT_VERSION_MAJOR}::PrintSupport
     Qt${QT_VERSION_MAJOR}::Svg
-    )
+)

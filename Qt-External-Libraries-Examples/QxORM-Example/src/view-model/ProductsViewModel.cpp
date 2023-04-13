@@ -2,8 +2,8 @@
 
 namespace ViewModels {
 
-ProductsViewModel::ProductsViewModel(QObject* parent)
-    : QAbstractTableModel(parent)
+ProductsViewModel::ProductsViewModel(QObject* parent) :
+    QAbstractTableModel(parent)
 {
     products = DAO::getConnection()->getListOfProducts();
 }
@@ -43,7 +43,7 @@ auto ProductsViewModel::data(const QModelIndex& index, int role) const -> QVaria
     return QVariant();
 }
 
-auto ProductsViewModel::flags(const QModelIndex& index) const -> Qt::ItemFlags
+auto ProductsViewModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
 }
