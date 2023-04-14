@@ -1,12 +1,16 @@
 # Boost-Containers-Example
 
-Примеры использования контейнеров из библиотеки Boost (https://github.com/boostorg/boost).
+## Описание
+
+Примеры использования контейнеров из библиотеки Boost.
+
+[Ссылка на исходники Boost](https://github.com/boostorg/boost "Boost")
 
 ## Сборка проекта
 
-1 - Необходимо cкачать и собрать библиотеку Boost.
-2 - Прописать пути к заголовочным файлам и файлам .ddl/.so в containers-examples/СMakeLists.txt (для CMake) или containers-examples/Source.pri (для QMake).
-3 - Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+1. Необходимо cкачать и собрать библиотеку Boost.
+2. Прописать пути к заголовочным файлам и файлам .ddl/.so в containers-examples/СMakeLists.txt (для CMake) или containers-examples/Source.pri (для QMake).
+3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
 ```
 cmake ..
@@ -33,4 +37,8 @@ make
 | MinGW      | 9.0.0 64 bit  |
 | Boost      | 1.81.0        |
 
-Тестировалось на ОС Windows 10 (сборка 19044.2604)
+## Тестирование
+
+- [x] Windows (10, сборка 19044.2604)
+- [ ] Linux
+- [ ] Mac

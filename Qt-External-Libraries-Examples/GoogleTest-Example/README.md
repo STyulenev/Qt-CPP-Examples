@@ -1,12 +1,16 @@
 # GoogleTest-Example
 
-Пример использования библиотеки тестирования GoogleTest (https://github.com/google/googletest).
+## Описание
+
+Пример использования библиотеки тестирования GoogleTest.
+
+[Ссылка на исходники GoogleTest](https://github.com/google/googletest "GoogleTest")
 
 ## Сборка проекта
 
-1 - Необходимо скачать googletest-release необходимой версии и добавить в текущую папку.
-2 - Указать правильное название папки в файлах сборки CMakeLists.txt (для CMake) или gtest_dependency.pri (для QMake).
-3 - Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+1. Необходимо скачать googletest-release необходимой версии и добавить в текущую папку.
+2. Указать правильное название папки в файлах сборки CMakeLists.txt (для CMake) или gtest_dependency.pri (для QMake).
+3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
 ```
 cmake ..
@@ -33,4 +37,8 @@ make
 | MinGW      | 9.0.0 64 bit         |
 | GoogleTest | 1.12.1               |
 
-Тестировалось на ОС Windows 10 (сборка 19044.2604)
+## Тестирование
+
+- [x] Windows (10, сборка 19044.2604)
+- [ ] Linux
+- [ ] Mac

@@ -11,7 +11,7 @@ private:
 
     DAO() {}
     DAO(const DAO&);
-    DAO& operator=(DAO&);
+    auto operator=(DAO&) -> DAO&;
 
 public:
     static DAO* getConnection();
@@ -53,17 +53,17 @@ public:
     auto getListOfProductsWithWhere(/* ... */) -> ListProduct;
 
     /*!
-     * \brief Вставка новой записи
+     * \brief Вставка новой записи Customer с использованием qx::dao::insert (Customer object)
      */
     auto insertNewCustomer(/* ... */) -> void;
 
     /*!
-     * \brief Вставка новой записи
+     * \brief Вставка новой записи в таблицу Product с использованием полного запроса qx::QxSqlQuery
      */
     auto insertNewProduct(/* ... */) -> void;
 
     /*!
-     * \brief Удаление записи
+     * \brief Удаление записи Customer с использованием qx::dao::delete_by_query по id
      */
     auto deleteCustomer(/* ... */) -> void;
 };
