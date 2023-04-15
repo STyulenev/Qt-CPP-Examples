@@ -1,0 +1,3 @@
+module Widgets
+
+LabelAndTextField 1.0 LabelAndTextField.qml
