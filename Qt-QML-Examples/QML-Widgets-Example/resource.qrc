@@ -8,5 +8,7 @@
         <file>qml/Widgets/LabelAndTextField_Form.ui.qml</file>
         <file>qml/Widgets/LabelTemplate.qml</file>
         <file>qml/Widgets/LabelTemplate_Form.ui.qml</file>
+        <file>qml/Widgets/LabelAndComboBox.qml</file>
+        <file>qml/Widgets/LabelAndComboBox_Form.ui.qml</file>
     </qresource>
 </RCC>

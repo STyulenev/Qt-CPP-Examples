@@ -13,7 +13,7 @@ ApplicationWindow {
     height: CommonData.Consts.screenHeight
     title: qsTr("QML-Widgets-Example")
 
-    WidgetsLibrary.LabelAndTextField {
+    /*WidgetsLibrary.LabelAndTextField {
         anchors.centerIn: parent
         labelText: "some text"
 
@@ -22,5 +22,13 @@ ApplicationWindow {
 
         width: 150
         height: 40
+    }*/
+
+    WidgetsLibrary.LabelAndComboBox {
+        anchors.centerIn: parent
+        labelPosition: Qt.AlignLeft
+        labelText: "some text"
+
+        comboBoxModel: [ "1", "2", "3" ]
     }
 }
