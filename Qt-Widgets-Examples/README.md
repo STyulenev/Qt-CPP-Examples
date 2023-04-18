@@ -4,6 +4,10 @@
 
 Пример использование модели и делегата для QComboBox.
 
+## QListView-Example
+
+Пример использования виджета QListView-Example со сложной моделью, а также с делегатом и без него.
+
 ## QListWidget-Example
 
 Пример использования QListWidget с ui формой.
