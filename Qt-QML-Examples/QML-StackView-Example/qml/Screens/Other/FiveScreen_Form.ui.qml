@@ -1,56 +1,30 @@
-import QtQuick
 import QtQml 2.15
+import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
-Item {
+import Forms 1.0 as Forms
+
+Forms.BaseForm {
     id: formFiveScreen
 
     signal clickedBackToThreeScreen
-    signal clickedBack
 
-    anchors.fill: parent
+    backButtonText: qsTr("Back")
 
-    Row {
-        id: buttonRow
+    content: Button {
+        id: printButton
+        anchors.centerIn: parent
+        width: 200
+        height: 50
+        text: qsTr("Back To Three Screen")
 
-        anchors {
-            top: parent
-            left: parent
-            leftMargin: 10
-            topMargin: 10
-        }
+        Connections {
+            target: printButton
 
-        spacing: 50
-
-        Button {
-            id: buttonBack
-            width: 200
-            height: 50
-            text: "Back"
-
-            Connections {
-                target: buttonBack
-
-                function onClicked() {
-                    formFiveScreen.clickedBack()
-                }
-            }
-        }
-
-        Button {
-            id: buttonBackToThreeScreen
-            width: 200
-            height: 50
-            text: "Back to ThreeScreen"
-
-            Connections {
-                target: buttonBackToThreeScreen
-
-                function onClicked() {
-                    formFiveScreen.clickedBackToThreeScreen()
-                }
+            function onClicked() {
+                formFiveScreen.clickedBackToThreeScreen()
             }
         }
     }

@@ -14,17 +14,10 @@ RCC_DIR     = $$OUT_PWD/rcc # промежуточные файлы ресурс
 UI_DIR      = $$OUT_PWD/ui  # промежуточные ui-файлы
 
 include(tools/lime-report.pri)
-include(view-model/ViewModel.pri)
+include(src/Source.pri)
 
 SOURCES += \
-    main.cpp \
-    MainWindow.cpp
-
-HEADERS += \
-    MainWindow.h
-
-FORMS += \
-    MainWindow.ui
+        main.cpp
 
 RESOURCES += \
-    resources/res.qrc
+        resource.qrc

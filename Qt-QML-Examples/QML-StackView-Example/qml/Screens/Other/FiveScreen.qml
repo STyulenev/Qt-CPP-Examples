@@ -1,19 +1,17 @@
-import QtQuick 2.12
-import QtQml 2.12
-
-import Screens 1.0
+import QtQml 2.15
+import QtQuick 2.15
 
 FiveScreen_Form {
     id: formFiveScreen
     objectName: "FiveScreen"
 
     onClickedBackToThreeScreen: {
-        console.log("Back To ThreeScreen")
-        backTo("ThreeScreen")
+        console.log("Back To Three Screen");
+        backTo("ThreeScreen");
     }
 
-    onClickedBack: {
-        console.log("Back")
-        exit()
+    onBackButtonClicked: {
+        console.log("Back");
+        exit();
     }
 }

@@ -1,18 +1,22 @@
-import QtQuick
 import QtQml 2.15
+import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
-Item {
+import Forms 1.0 as Forms
+
+Forms.BaseForm {
     id: formSplashScreen
 
     signal clickedService
     signal clickedOther
 
-    property string screenName: "Splash Screen"
+    screenName: "SplashScreen"
 
-    Row {
+    backButtonVisible: false
+
+    content: Row {
         id: buttonRow
         anchors.centerIn: parent
         spacing: 50
@@ -21,7 +25,7 @@ Item {
             id: buttonService
             width: 150
             height: 50
-            text: "Service"
+            text: qsTr("Service")
 
             Connections {
                 target: buttonService
@@ -36,7 +40,7 @@ Item {
             id: buttonOther
             width: 150
             height: 50
-            text: "Other"
+            text: qsTr("Other")
 
             Connections {
                 target: buttonOther
