@@ -13,7 +13,8 @@ struct TestModel {
 ListViewModel::ListViewModel(QObject* parent) :
     QAbstractListModel(parent)
 {
-    model = { { 1, "China", QImage(":/res/china.png"), "China officially the People's Republic of China (PRC), is a country in East Asia."
+    model = {
+              { 1, "China", QImage(":/res/china.png"), "China officially the People's Republic of China (PRC), is a country in East Asia."
                 " It is the world's most populous country, with a population exceeding 1.4 billion." },
               { 2, "Germany", QImage(":/res/germany.png"), "Germany (Deutschland), officially the Federal Republic of Germany, is a federal "
                 "parliamentary republic in central-western Europe." },

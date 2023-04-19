@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(Delegate-lib
     VERSION 0.1
-    DESCRIPTION "Library with styled delegates"
+    DESCRIPTION "Static library with delegates"
     LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)

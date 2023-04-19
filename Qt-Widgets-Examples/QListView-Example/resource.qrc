@@ -1,15 +1,10 @@
 <RCC>
     <qresource prefix="/">
-        <!-- flags icons -->
         <file>res/china.png</file>
         <file>res/germany.png</file>
         <file>res/india.png</file>
         <file>res/russia.png</file>
         <file>res/spain.png</file>
         <file>res/united-kingdom.png</file>
-        <file>res/folder.png</file>
-
-        <!-- other icons -->
-        <file>res/palette.png</file>
     </qresource>
 </RCC>

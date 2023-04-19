@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(View-model-lib
     VERSION 0.1
-    DESCRIPTION "Library with view models"
+    DESCRIPTION "Static library with view models"
     LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)

@@ -7,12 +7,10 @@ namespace ViewModels {
 
 struct TestModel;
 
-/*!
- * \brief The ListViewModel class
- */
 class ListViewModel : public QAbstractListModel
 {
     Q_OBJECT
+
 public:
     explicit ListViewModel(QObject* parent = 0);
     virtual ~ListViewModel();

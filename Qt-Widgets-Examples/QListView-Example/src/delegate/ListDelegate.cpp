@@ -7,6 +7,19 @@ namespace Delegates {
 ListDelegate::ListDelegate(QObject* parent) :
     QStyledItemDelegate(parent)
 {
+    titleFlags = Qt::TextWordWrap | Qt::AlignCenter;
+    descriptionFlags = Qt::TextWordWrap | Qt::AlignLeft;
+
+    titleFont.setFamily("Arial");
+    titleFont.setPixelSize(16);
+    titleFont.setBold(true);
+
+    descriptionFont.setFamily("Arial");
+    descriptionFont.setPixelSize(12);
+}
+
+ListDelegate::~ListDelegate()
+{
 
 }
 
@@ -26,32 +39,21 @@ auto ListDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, 
 
     QStyleOptionViewItem myOption = option;
     myOption.displayAlignment = Qt::AlignCenter | Qt::AlignVCenter;
-    painter->drawPixmap(myOption.rect.x() + 5,
-                        myOption.rect.y() + 5,
-                        32,
-                        32,
-                        outPixmap);
+    painter->drawPixmap(myOption.rect.x() + 5, myOption.rect.y() + 5, 32, 32, outPixmap);
 
+    painter->setPen(Qt::black);
 
     QString title = index.data(Qt::DisplayRole).toString();
-
-    painter->setPen(Qt::black);
-    painter->setFont(QFont("Arial", 12)); // font.setBold
-
-    QRect rect(option.rect.x() + 37, myOption.rect.y() + 5, option.rect.width() - 32, 32);
-    int flags = Qt::TextWordWrap | Qt::AlignCenter;
-
-    //painter->drawRect(rect);
-    painter->drawText(rect, flags, QString("%1").arg(title));
+    painter->setFont(titleFont);
+    QRect rectTitle(option.rect.x() + 42, myOption.rect.y() + 5, option.rect.width() - 47, 32);
+    //painter->drawRect(rectTitle);
+    painter->drawText(rectTitle, titleFlags, title);
 
     QString description = index.data(Qt::ToolTipRole).toString();
-    painter->setPen(Qt::black);
-    painter->setFont(QFont("Arial", 10));
-    QRect rectD(option.rect.x(), myOption.rect.y() + 37, option.rect.width(), option.rect.height() - 37);
-    int flags2 = Qt::TextWordWrap | Qt::AlignLeft;
-
-    //painter->drawRect(rectD);
-    painter->drawText(rectD, flags2, QString("    %1").arg(description));
+    painter->setFont(descriptionFont);
+    QRect rectDescription(option.rect.x() + 5, myOption.rect.y() + 37, option.rect.width() - 10, option.rect.height() - 37);
+    //painter->drawRect(rectDescription);
+    painter->drawText(rectDescription, descriptionFlags, QString("    %1").arg(description));
 }
 
 } // namespace Delegates
