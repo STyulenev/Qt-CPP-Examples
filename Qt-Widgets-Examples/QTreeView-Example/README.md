@@ -1,10 +1,10 @@
-# QListView-Example
+# QTreeView-Example
 
 ## Описание
 
-Пример использования виджета QListView-Example со сложной моделью, а также с делегатом и без него.
+Пример использования QTreeView на примере данных из вектора.
 
-![alt text](../../doc/QListView-Example.png)
+![alt text](../../doc/QTreeView-Example.png)
 
 ## Сборка проекта
 
