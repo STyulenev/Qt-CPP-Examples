@@ -7,6 +7,9 @@ MainWindow::MainWindow(QWidget* parent) :
 {
     ui->setupUi(this);
 
+    //updateCustomer();
+    //updateProduct();
+
     customersViewModel = std::make_shared<ViewModels::CustomersViewModel>();
     productsViewModel = std::make_shared<ViewModels::ProductsViewModel>();
     ordersViewModel = std::make_shared<ViewModels::OrdersViewModel>();
@@ -25,7 +28,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-/*auto MainWindow::updateCustomer() -> void
+auto MainWindow::updateCustomer() -> void
 {
     Entities::Customer customer;
 
@@ -35,7 +38,7 @@ MainWindow::~MainWindow()
     customer.setEmail("ron_t_25@gmail.com");
     customer.setAge(25);
 
-    DAO::insertCustomer(customer);
+    DAO::getConnection()->insertCustomer(customer);
 }
 
 auto MainWindow::updateProduct() -> void
@@ -49,5 +52,5 @@ auto MainWindow::updateProduct() -> void
     product.setCount(5);
     product.setPrice(99000);
 
-    DAO::updateProduct(product);
-}*/
+    DAO::getConnection()->updateProduct(product);
+}

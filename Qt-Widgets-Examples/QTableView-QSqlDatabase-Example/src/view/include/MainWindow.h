@@ -25,6 +25,6 @@ private:
     std::shared_ptr<ViewModels::ProductsViewModel>  productsViewModel;
     std::shared_ptr<ViewModels::OrdersViewModel>    ordersViewModel;
 
-    /*auto updateCustomer() -> void;
-    auto updateProduct() -> void;*/
+    auto updateCustomer() -> void;
+    auto updateProduct() -> void;
 };

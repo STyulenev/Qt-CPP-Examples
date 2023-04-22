@@ -32,6 +32,10 @@
 
 Пример использования mapper для изменения данных в моделе таблицы QTableView.
 
+## QTableView-QSqlDatabase-Example
+
+Пример использования QSqlDatabase с выводом данных в QTableView
+
 ## QTableView-QSqlQueryModel-Example
 
 Пример использования QSqlQueryModel для отображении данных из БД в QTableView.

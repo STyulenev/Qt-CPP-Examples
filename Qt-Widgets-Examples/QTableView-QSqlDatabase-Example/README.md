@@ -59,11 +59,14 @@ INSERT INTO Orders VALUES (default, 3, 5, 1, '2022-01-12', '16:09:12');
 ```
 3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
+Для CMake:
+
 ```
 cmake ..
 make
 ```
-или
+
+Для QMake:
 
 ```
 qmake ../-project

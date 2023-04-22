@@ -2,13 +2,13 @@ QT += core gui widgets
 
 CONFIG += c++20
 
-TARGET = PostgreSQL-Example
+TARGET = QTableView-QSqlDatabase-Example
 
-OBJECTS_DIR = $$PWD/build/obj # промежуточные объекты
-MOC_DIR     = $$PWD/build/moc # промежуточные moc-файлы
-DESTDIR     = $$PWD/build/bin # результирующий файл
-RCC_DIR     = $$PWD/build/rcc # промежуточные файлы ресурсов
-UI_DIR      = $$PWD/build/ui  # промежуточные ui-файлы
+OBJECTS_DIR = $$OUT_PWD/build/obj # промежуточные объекты
+MOC_DIR     = $$OUT_PWD/build/moc # промежуточные moc-файлы
+DESTDIR     = $$OUT_PWD/build/bin # результирующий файл
+RCC_DIR     = $$OUT_PWD/build/rcc # промежуточные файлы ресурсов
+UI_DIR      = $$OUT_PWD/build/ui  # промежуточные ui-файлы
 
 include(src/Source.pri)
 

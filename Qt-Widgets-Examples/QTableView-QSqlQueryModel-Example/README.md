@@ -10,9 +10,10 @@
 
 ## Сборка проекта
 
-Перед сборкой необдимо создать тестовую таблицу:
+1. Скачать и установить PostgreSQL.
+2. Сгенерировать базу данных:
 
-```
+``` sql
 CREATE DATABASE localtest;
 
 CREATE TABLE test
@@ -26,15 +27,16 @@ CREATE TABLE test
 );
 ```
 
-Проект может быть собран из QtCreator или из папки build коммандами:
-CMake:
+3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+
+Для CMake:
 
 ```
 cmake ..
 make
 ```
 
-QMake:
+Для QMake:
 
 ```
 qmake ../-project
