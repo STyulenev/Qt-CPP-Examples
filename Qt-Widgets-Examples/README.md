@@ -4,6 +4,10 @@
 
 Пример использование модели и делегата для QComboBox.
 
+## QListView-Example
+
+Пример использования виджета QListView-Example со сложной моделью, а также с делегатом и без него.
+
 ## QListWidget-Example
 
 Пример использования QListWidget с ui формой.
@@ -28,6 +32,10 @@
 
 Пример использования mapper для изменения данных в моделе таблицы QTableView.
 
+## QTableView-QSqlDatabase-Example
+
+Пример использования QSqlDatabase с выводом данных в QTableView
+
 ## QTableView-QSqlQueryModel-Example
 
 Пример использования QSqlQueryModel для отображении данных из БД в QTableView.
@@ -36,3 +44,6 @@
 
 Пример тестирования ui формы и других функций в Qt.
 
+## QTreeView-Example
+
+Пример использования QTreeView на примере данных из вектора.
