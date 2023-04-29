@@ -1,12 +1,18 @@
 #pragma once
 
 #include <QAbstractTableModel>
-#include <DAO.h>
+#include "ProductDAO.h"
 
 namespace ViewModels {
 
 class ProductsViewModel : public QAbstractTableModel
 {
+public:
+    DAO::ProductDAO dao;
+
+private:
+    QList<Entities::Product> products;
+
 public:
     explicit ProductsViewModel(QObject* parent = 0);
     virtual ~ProductsViewModel();
@@ -16,9 +22,6 @@ public:
     virtual auto data(const QModelIndex& index, int role) const -> QVariant override;
     virtual auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
     virtual auto headerData(int section, Qt::Orientation orientation, int role) const -> QVariant override;
-
-private:
-    QList<Entities::Product> products;
 
 };
 

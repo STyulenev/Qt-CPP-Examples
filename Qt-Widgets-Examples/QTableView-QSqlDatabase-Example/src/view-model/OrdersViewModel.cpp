@@ -5,7 +5,7 @@ namespace ViewModels {
 OrdersViewModel::OrdersViewModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
-    DAO::getConnection()->selectOrders(orders);
+    dao.selectOrders(orders);
 }
 
 OrdersViewModel::~OrdersViewModel()
