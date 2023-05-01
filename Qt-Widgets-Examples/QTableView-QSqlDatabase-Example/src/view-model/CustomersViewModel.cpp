@@ -15,7 +15,7 @@ CustomersViewModel::~CustomersViewModel()
 
 auto CustomersViewModel::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
-    return 5;
+    return COLUMN_COUNT;
 }
 
 auto CustomersViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const -> int

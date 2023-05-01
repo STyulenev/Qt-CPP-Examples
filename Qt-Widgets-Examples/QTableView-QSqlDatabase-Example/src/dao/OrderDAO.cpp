@@ -1,6 +1,7 @@
 #include "OrderDAO.h"
 
 #include <QMutexLocker>
+#include <QDebug>
 
 namespace DAO {
 
@@ -78,14 +79,15 @@ auto OrderDAO::selectOrders(QList<Entities::Order>& orders) -> void
                 orders << std::move(order);
             }
 
-            query->clear();
             connection->close();
         } else {
             connection->close();
-            //query->lastError() query->lastQuery()
+            qDebug() << "Error:" << query->lastError().text();
         }
+
+        query->clear();
     } else {
-        // db error
+        qDebug() << "Error. Database not open.";
     }
 }
 

@@ -13,7 +13,7 @@ private:
 
     ConnectionPool();
     ConnectionPool(const ConnectionPool&);
-    ConnectionPool& operator=(ConnectionPool&);
+    auto operator=(ConnectionPool&) -> ConnectionPool&;
 
 public:
     static auto getPool() -> ConnectionPool*;

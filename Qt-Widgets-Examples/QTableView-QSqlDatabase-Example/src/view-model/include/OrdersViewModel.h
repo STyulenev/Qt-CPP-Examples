@@ -7,10 +7,9 @@ namespace ViewModels {
 
 class OrdersViewModel : public QAbstractTableModel
 {
-public:
-    DAO::OrderDAO dao;
-
 private:
+    const int COLUMN_COUNT = 11;
+    DAO::OrderDAO dao;
     QList<Entities::Order> orders;
 
 public:

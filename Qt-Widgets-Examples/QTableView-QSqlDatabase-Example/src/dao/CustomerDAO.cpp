@@ -1,6 +1,7 @@
 #include "CustomerDAO.h"
 
 #include <QMutexLocker>
+#include <QDebug>
 
 namespace DAO {
 
@@ -42,14 +43,15 @@ auto CustomerDAO::selectCustomers(QList<Entities::Customer>& customers) -> void
                 customers << std::move(customer);
             }
 
-            query->clear();
             connection->close();
         } else {
             connection->close();
-            //query->lastError() query->lastQuery()
+            qDebug() << "Error:" << query->lastError().text();
         }
+
+        query->clear();
     } else {
-        // db error
+        qDebug() << "Error. Database not open.";
     }
 }
 
@@ -68,13 +70,13 @@ auto CustomerDAO::insertCustomer(const Entities::Customer& customer) -> void
         bool result = query->exec();
 
         if (result) {
-            //query->lastError() query->lastQuery()
+            qDebug() << "Error:" << query->lastError().text();
         }
 
         query->clear();
         connection->close();
     } else {
-        // db error
+        qDebug() << "Error. Database not open.";
     }
 }
 
@@ -89,13 +91,13 @@ auto CustomerDAO::deleteCustomer(const int id) -> void
         bool result = query->exec();
 
         if (result) {
-            // qDebug() << query->lastError() query->lastQuery()
+            qDebug() << "Error:" << query->lastError().text();
         }
 
         query->clear();
         connection->close();
     } else {
-        // db error
+        qDebug() << "Error. Database not open.";
     }
 }
 
@@ -105,7 +107,7 @@ auto CustomerDAO::updateCustomer(const Entities::Customer& customer) -> void
 
     if (connection->open()) {
         query->prepare("UPDATE Customers SET first_name = :first_name, last_name = :last_name, "
-                      "e_mail = :e_mail, age = :age WHERE id = :id;");
+                       "e_mail = :e_mail, age = :age WHERE id = :id;");
 
         query->bindValue(":first_name", customer.getFirstName());
         query->bindValue(":last_name",  customer.getLastName());
@@ -116,13 +118,13 @@ auto CustomerDAO::updateCustomer(const Entities::Customer& customer) -> void
         bool result = query->exec();
 
         if (result) {
-            // qDebug() << query->lastError() query->lastQuery()
+            qDebug() << "Error:" << query->lastError().text();
         }
 
         query->clear();
         connection->close();
     } else {
-        // db error
+        qDebug() << "Error. Database not open.";
     }
 }
 

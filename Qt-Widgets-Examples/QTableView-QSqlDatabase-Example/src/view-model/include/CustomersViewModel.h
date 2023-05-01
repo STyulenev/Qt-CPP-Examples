@@ -7,10 +7,9 @@ namespace ViewModels {
 
 class CustomersViewModel : public QAbstractTableModel
 {
-public:
-    DAO::CustomerDAO dao;
-
 private:
+    const int COLUMN_COUNT = 5;
+    DAO::CustomerDAO dao;
     QList<Entities::Customer> customers;
 
 public:

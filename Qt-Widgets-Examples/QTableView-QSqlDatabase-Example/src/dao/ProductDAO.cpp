@@ -1,6 +1,7 @@
 #include "ProductDAO.h"
 
 #include <QMutexLocker>
+#include <QDebug>
 
 namespace DAO {
 
@@ -44,14 +45,15 @@ auto ProductDAO::selectProducts(QList<Entities::Product>& products) -> void
                 products << std::move(product);
             }
 
-            query->clear();
             connection->close();
         } else {
             connection->close();
-            //query->lastError() query->lastQuery()
+            qDebug() << "Error:" << query->lastError().text();
         }
+
+        query->clear();
     } else {
-        // db error
+        qDebug() << "Error. Database not open.";
     }
 }
 
@@ -71,13 +73,13 @@ auto ProductDAO::insertProduct(const Entities::Product& product) -> void
         bool result = query->exec();
 
         if (result) {
-            // qDebug() << query->lastError() query->lastQuery()
+            qDebug() << "Error:" << query->lastError().text();
         }
 
         query->clear();
         connection->close();
     } else {
-        // db error
+        qDebug() << "Error. Database not open.";
     }
 }
 
@@ -92,13 +94,13 @@ auto ProductDAO::deleteProduct(const int id) -> void
         bool result = query->exec();
 
         if (result) {
-            // qDebug() << query->lastError() query->lastQuery()
+            qDebug() << "Error:" << query->lastError().text();
         }
 
         query->clear();
         connection->close();
     } else {
-        // db error
+        qDebug() << "Error. Database not open.";
     }
 }
 
@@ -106,7 +108,7 @@ auto ProductDAO::updateProduct(const Entities::Product& product) -> void
 {
     if (connection->open()) {
         query->prepare("UPDATE Products SET product_type = :product_type, product_name = :product_name, "
-                      "manufacturer = :manufacturer, product_count = :product_count, price = :price WHERE id = :id;");
+                       "manufacturer = :manufacturer, product_count = :product_count, price = :price WHERE id = :id;");
 
         query->bindValue(":product_type",  product.getType());
         query->bindValue(":product_name",  product.getName());
@@ -118,13 +120,13 @@ auto ProductDAO::updateProduct(const Entities::Product& product) -> void
         bool result = query->exec();
 
         if (result) {
-            // qDebug() << query->lastError() query->lastQuery()
+            qDebug() << "Error:" << query->lastError().text();
         }
 
         query->clear();
         connection->close();
     } else {
-        // db error
+        qDebug() << "Error. Database not open.";
     }
 }
 
