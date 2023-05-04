@@ -22,6 +22,10 @@ public:
 
     auto insertCustomer(const Entities::Customer& customer) -> void;
 
+    auto deleteCustomer(const int id) -> void;
+
+    auto updateCustomer(const Entities::Customer& customer) -> void;
+
 };
 
 } // namespace DAO

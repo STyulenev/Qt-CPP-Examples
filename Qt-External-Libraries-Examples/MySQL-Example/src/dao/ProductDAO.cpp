@@ -61,4 +61,33 @@ auto ProductDAO::insertProduct(const Entities::Product& product) -> void
     }
 }
 
+auto ProductDAO::deleteProduct(const int id) -> void
+{
+    QMutexLocker locker(&mutex);
+
+    QString query = QString("DELETE FROM Products WHERE id = %1;").arg(id);
+
+    if (!connection->query(query)) {
+        //qDebug() << connection->getLastError();
+    }
+}
+
+auto ProductDAO::updateProduct(const Entities::Product& product) -> void
+{
+    QMutexLocker locker(&mutex);
+
+    QString query = QString("UPDATE Products SET product_type = '%1', product_name = '%2', "
+                            "manufacturer = '%3', product_count = %4, price = %5 WHERE id = %6;")
+            .arg(product.getType())
+            .arg(product.getName())
+            .arg(product.getManufacturer())
+            .arg(product.getCount())
+            .arg(product.getPrice())
+            .arg(product.getId());
+
+    if (!connection->query(query)) {
+        //qDebug() << connection->getLastError();
+    }
+}
+
 } // namespace DAO

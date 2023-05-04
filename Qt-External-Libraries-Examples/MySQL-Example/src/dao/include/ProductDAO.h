@@ -22,6 +22,10 @@ public:
 
     auto insertProduct(const Entities::Product& product) -> void;
 
+    auto deleteProduct(const int id) -> void;
+
+    auto updateProduct(const Entities::Product& product) -> void;
+
 };
 
 } // namespace DAO
