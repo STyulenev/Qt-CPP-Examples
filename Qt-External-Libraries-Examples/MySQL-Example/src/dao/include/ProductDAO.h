@@ -20,6 +20,8 @@ public:
 
     auto selectProducts(QList<Entities::Product>& products) -> void;
 
+    auto insertProduct(const Entities::Product& product) -> void;
+
 };
 
 } // namespace DAO

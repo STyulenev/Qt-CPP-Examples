@@ -20,6 +20,8 @@ public:
 
     auto selectCustomers(QList<Entities::Customer>& customers) -> void;
 
+    auto insertCustomer(const Entities::Customer& customer) -> void;
+
 };
 
 } // namespace DAO

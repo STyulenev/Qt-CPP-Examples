@@ -5,7 +5,6 @@ namespace ViewModels {
 CustomersViewModel::CustomersViewModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
-    //DAO::selectCustomers(customers);
     dao.selectCustomers(customers);
 }
 

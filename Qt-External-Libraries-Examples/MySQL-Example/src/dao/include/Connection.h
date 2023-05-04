@@ -22,13 +22,11 @@ public:
                const QString userName = "postgres", const QString password = "tyulenev");
     ~Connection();
 
-    auto open() -> bool;
-
-    auto close() -> void;
-
     auto getConnection() const -> std::shared_ptr<MYSQL>;
 
     auto query(const QString&& query) -> bool;
+
+    auto query(const QString& query) -> bool;
 
     auto getLastError() const -> const QString;
 
