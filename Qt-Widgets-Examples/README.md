@@ -4,6 +4,10 @@
 
 Пример использование модели и делегата для QComboBox.
 
+## QHeaderView-Example
+
+Пример использования пользовательского заголовка QHeaderView в QTableView.
+
 ## QListView-Example
 
 Пример использования виджета QListView-Example со сложной моделью, а также с делегатом и без него.
