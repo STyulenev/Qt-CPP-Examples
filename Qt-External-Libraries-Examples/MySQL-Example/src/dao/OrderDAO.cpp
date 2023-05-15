@@ -26,7 +26,7 @@ auto OrderDAO::selectOrders(QList<Entities::Order>& orders) -> void
                            "JOIN Products as Products ON Products.id = Orders.product_id "
                            "JOIN Customers as Customers ON Customers.id = Orders.customer_id "
                            "ORDER BY Orders.id ASC;")) {
-        //qDebug() << connection->getLastError();
+        qDebug() << connection->getLastError();
     }
 
     MYSQL_RES* res;

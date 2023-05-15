@@ -22,8 +22,6 @@ public:
     virtual auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
     virtual auto headerData(int section, Qt::Orientation orientation, int role) const -> QVariant override;
 
-
-
 };
 
 } // namespace ViewModels

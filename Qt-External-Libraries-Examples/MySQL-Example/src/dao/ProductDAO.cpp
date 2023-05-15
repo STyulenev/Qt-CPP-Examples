@@ -21,7 +21,7 @@ auto ProductDAO::selectProducts(QList<Entities::Product>& products) -> void
 
     if (!connection->query("SELECT Products.id, Products.product_type, Products.product_name, Products.manufacturer, Products.product_count, Products.price "
                            "FROM Products ORDER BY id ASC;")) {
-        //qDebug() << connection->getLastError();
+        qDebug() << connection->getLastError();
     }
 
     MYSQL_RES* res;
@@ -57,7 +57,7 @@ auto ProductDAO::insertProduct(const Entities::Product& product) -> void
             .arg(product.getPrice());
 
     if (!connection->query(query)) {
-        //qDebug() << connection->getLastError();
+        qDebug() << connection->getLastError();
     }
 }
 
@@ -68,7 +68,7 @@ auto ProductDAO::deleteProduct(const int id) -> void
     QString query = QString("DELETE FROM Products WHERE id = %1;").arg(id);
 
     if (!connection->query(query)) {
-        //qDebug() << connection->getLastError();
+        qDebug() << connection->getLastError();
     }
 }
 
@@ -86,7 +86,7 @@ auto ProductDAO::updateProduct(const Entities::Product& product) -> void
             .arg(product.getId());
 
     if (!connection->query(query)) {
-        //qDebug() << connection->getLastError();
+        qDebug() << connection->getLastError();
     }
 }
 

@@ -19,7 +19,7 @@ private:
 public:
     //Connection() = delete;
     Connection(const QString hostName = "localhost", const int port = 3306, const QString dataBaseName = "test_db",
-               const QString userName = "postgres", const QString password = "tyulenev");
+               const QString userName = "root", const QString password = "tyulenev");
     ~Connection();
 
     auto getConnection() const -> std::shared_ptr<MYSQL>;
@@ -31,11 +31,3 @@ public:
     auto getLastError() const -> const QString;
 
 };
-
-
-/*
-
-auto getPostgreSQLVersion() -> int;
-
-auto runRequest(const QString&& request) -> PGresult*;
-*/

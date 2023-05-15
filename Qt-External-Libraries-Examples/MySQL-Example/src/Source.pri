@@ -23,8 +23,8 @@ FORMS += \
 win32 {
     gcc {
         ## Windows common build here
-        INCLUDEPATH += "C:\Program Files\MySQL\MySQL Server 8.0\include" # MySQL include folder
-        LIBS += "C:\Program Files\MySQL\MySQL Server 8.0\lib\libmysql.dll" # MySQL lib folder
+        INCLUDEPATH += "C:\Program Files\MySQL\MySQL Server 8.0\include"          # MySQL include folder
+        LIBS += "C:\Program Files\MySQL\MySQL Server 8.0\lib\libmysql.dll"        # MySQL lib folder
         LIBS += "C:\Program Files\MySQL\MySQL Server 8.0\lib\connection_pool.dll" # MySQL lib folder
     }
 }

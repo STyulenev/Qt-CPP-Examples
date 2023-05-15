@@ -20,7 +20,7 @@ auto CustomerDAO::selectCustomers(QList<Entities::Customer>& customers) -> void
     QMutexLocker locker(&mutex);
 
     if (!connection->query("SELECT id, first_name, last_name, e_mail, age FROM Customers ORDER BY id ASC;")) {
-        //qDebug() << connection->getLastError();
+        qDebug() << connection->getLastError();
     }
 
     MYSQL_RES* res;
@@ -54,7 +54,7 @@ auto CustomerDAO::insertCustomer(const Entities::Customer& customer) -> void
             .arg(customer.getAge());
 
     if (!connection->query(query)) {
-        //qDebug() << connection->getLastError();
+        qDebug() << connection->getLastError();
     }
 }
 
@@ -65,7 +65,7 @@ auto CustomerDAO::deleteCustomer(const int id) -> void
     QString query = QString("DELETE FROM Customers WHERE id = %1;").arg(id);
 
     if (!connection->query(query)) {
-        //qDebug() << connection->getLastError();
+        qDebug() << connection->getLastError();
     }
 }
 
@@ -82,7 +82,7 @@ auto CustomerDAO::updateCustomer(const Entities::Customer& customer) -> void
             .arg(customer.getId());
 
     if (!connection->query(query)) {
-        //qDebug() << connection->getLastError();
+        qDebug() << connection->getLastError();
     }
 }
 

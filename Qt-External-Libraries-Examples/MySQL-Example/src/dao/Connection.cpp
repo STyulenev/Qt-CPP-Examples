@@ -7,17 +7,20 @@ Connection::Connection(const QString hostName, const int port, const QString dat
     userName(userName),
     password(password)
 {
-    msConnection = std::make_shared<MYSQL>(*mysql_init(nullptr)); // ?
+    msConnection = std::make_shared<MYSQL>(*mysql_init(nullptr));
 
     if (msConnection.get() == nullptr) {
-        // Если дескриптор не получен – выводим сообщение об ошибке
         qDebug() << "Error: can't create MySQL-descriptor";
     }
 
-    if (!mysql_real_connect(msConnection.get(), "localhost", "root", "tyulenev", "test_db", 3306, nullptr, 0)) {
+    if (!mysql_real_connect(msConnection.get(),
+                            hostName.toStdString().c_str(),
+                            userName.toStdString().c_str(),
+                            password.toStdString().c_str(),
+                            dataBaseName.toStdString().c_str(),
+                            port, nullptr, 0)) {
         qDebug() << "Error: can't connect to database " << QString(mysql_error(msConnection.get()));
     } else {
-        // Если соединение успешно установлено выводим фразу - "Success!"
         qDebug() << "Success!";
     }
 }
@@ -44,5 +47,5 @@ auto Connection::query(const QString& query) -> bool
 
 auto Connection::getLastError() const -> const QString
 {
-    return lastError; //mysql_error(msConnection.get());
+    return mysql_error(msConnection.get());
 }
