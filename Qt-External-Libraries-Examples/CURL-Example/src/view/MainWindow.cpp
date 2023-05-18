@@ -6,10 +6,8 @@ MainWindow::MainWindow(QWidget* parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    /*auto state = Setting::getSetting()->getMainWindowsSetting();
-
-*/
+    viewModel = std::make_shared<ViewModels::TableViewModel>();
+    ui->tableView->setModel(viewModel.get());
 }
 
 MainWindow::~MainWindow()
@@ -20,5 +18,15 @@ MainWindow::~MainWindow()
 auto MainWindow::on_pushButton_clicked() -> void
 {
     qDebug() << HTTPClient::getClient()->getServerCurrentTime();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    HTTPClient::getClient()->getServerUserList();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    HTTPClient::getClient()->postServerSendNewUser();
 }
 
