@@ -6,8 +6,6 @@ MainWindow::MainWindow(QWidget* parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    viewModel = std::make_shared<ViewModels::TableViewModel>();
-    ui->tableView->setModel(viewModel.get());
 }
 
 MainWindow::~MainWindow()
@@ -17,16 +15,26 @@ MainWindow::~MainWindow()
 
 auto MainWindow::on_pushButton_clicked() -> void
 {
-    qDebug() << HTTPClient::getClient()->getServerCurrentTime();
+    ui->textEdit->clear();
+    ui->textEdit->append(HTTPClient::getClient()->getServerCurrentTime());
 }
 
-void MainWindow::on_pushButton_2_clicked()
+auto MainWindow::on_pushButton_2_clicked() -> void
 {
-    HTTPClient::getClient()->getServerUserList();
+    ui->textEdit->clear();
+    ui->textEdit->append(HTTPClient::getClient()->getServerUserList());
 }
 
-void MainWindow::on_pushButton_3_clicked()
+auto MainWindow::on_pushButton_3_clicked() -> void
 {
-    HTTPClient::getClient()->postServerSendNewUser();
+    ui->textEdit->clear();
+    ui->textEdit->append(HTTPClient::getClient()->postServerSendNewUser());
+}
+
+
+auto MainWindow::on_pushButton_4_clicked() -> void
+{
+    ui->textEdit->clear();
+    ui->textEdit->append(HTTPClient::getClient()->deleteServerFirstUser());
 }
 
