@@ -5,7 +5,7 @@ namespace ViewModels {
 ProductsViewModel::ProductsViewModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
-    DAO::getConnection()->selectProducts(products);
+    dao.selectProducts(products);
 }
 
 ProductsViewModel::~ProductsViewModel()
@@ -15,7 +15,7 @@ ProductsViewModel::~ProductsViewModel()
 
 auto ProductsViewModel::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
-    return 6;
+    return COLUMN_COUNT;
 }
 
 auto ProductsViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const -> int

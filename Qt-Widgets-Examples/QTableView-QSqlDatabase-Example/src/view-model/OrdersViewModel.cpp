@@ -5,7 +5,7 @@ namespace ViewModels {
 OrdersViewModel::OrdersViewModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
-    DAO::getConnection()->selectOrders(orders);
+    dao.selectOrders(orders);
 }
 
 OrdersViewModel::~OrdersViewModel()
@@ -15,7 +15,7 @@ OrdersViewModel::~OrdersViewModel()
 
 auto OrdersViewModel::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
-    return 11;
+    return COLUMN_COUNT;
 }
 
 auto OrdersViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
