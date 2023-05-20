@@ -2,7 +2,7 @@ QT += core gui widgets
 
 CONFIG += c++20
 
-TARGET = PostgreSQL-Example
+TARGET = MySQL-Example
 
 OBJECTS_DIR = $$OUT_PWD/build/obj # промежуточные объекты
 MOC_DIR     = $$OUT_PWD/build/moc # промежуточные moc-файлы

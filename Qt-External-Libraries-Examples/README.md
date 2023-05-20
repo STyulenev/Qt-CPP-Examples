@@ -5,6 +5,10 @@
 * Boost-Algorithms-Example - Примеры использования алгоритмов из библиотеки Boost
 * Boost-Containers-Example - Примеры использования контейнеров из библиотеки Boost
 
+## CURL-Example
+
+Пример использования библиотеки libcurl для создание http клиента.
+
 ## Docker
 
 Пример использования Docker для GUI приложения Qt (VcXsrv + WSL2 для перенаправления окна)
@@ -20,6 +24,10 @@
 ## Lime Report
 
 Пример использования библиотеки генерации отчётов Lime Report
+
+## MySql (libmysql)
+
+Пример использования библиотеки libmysql для взаимодействия с базами данных MySQL
 
 ## OpenMP
 
