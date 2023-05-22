@@ -4,6 +4,7 @@ CONFIG += c++20
 CONFIG += debug # release
 
 TARGET = CURL-Example
+TEMPLATE = app
 
 CONFIG(debug, release) { # debug|release
     message("debug mode")

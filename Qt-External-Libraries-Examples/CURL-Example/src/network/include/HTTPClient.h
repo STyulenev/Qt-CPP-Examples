@@ -2,6 +2,8 @@
 
 #include <QString>
 
+namespace Network {
+
 class HTTPClient
 {
 private:
@@ -57,3 +59,5 @@ public:
     auto deleteServerFirstUser() -> QString;
 
 };
+
+} // namespace Network
