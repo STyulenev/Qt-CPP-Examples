@@ -29,6 +29,15 @@ set(BOOST_EXISTS ON)
 if(BOOST_EXISTS) # If the boost library is on the local computer
     if(WIN32)
         set(BOOST_ROOT "C:/3rdparty/boost_1_81_0") # Path to Boost
+
+        # compiler check
+        if (MSVC)
+            message(FATAL_ERROR "Error. There is no boost library for this compiler on the current OS")
+        elseif(MINGW) # I only have a compiled boost for windows
+            message("OK. There is boost library for MinGW compiler on the current OS")
+        else()
+            message(FATAL_ERROR "Error. There is no boost library for this compiler on the current OS")
+        endif (MSVC)
     endif(WIN32)
 
     find_package(Boost 1.81 REQUIRED COMPONENTS ${BOOST_COMPONENTS} REQUIRED) #
