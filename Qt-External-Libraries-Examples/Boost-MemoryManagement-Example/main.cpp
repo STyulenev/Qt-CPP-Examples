@@ -1,6 +1,7 @@
 #include <SmartPointers.h>
 #include <PointerContainer.h>
 #include <ScopeExit.h>
+#include <Pool.h>
 
 auto main(int argc, char* argv[]) -> int
 {
@@ -14,7 +15,11 @@ auto main(int argc, char* argv[]) -> int
     //PointerContainer::PointerListExample();
 
     // Scope Exit example
-    ScopeExit::ScopeExitExample();
+    //ScopeExit::ScopeExitExample();
+
+    // Pool example
+    //Pool::ObjectPoolExample();
+    Pool::SingletonPoolExample();
 
     return 0;
 }

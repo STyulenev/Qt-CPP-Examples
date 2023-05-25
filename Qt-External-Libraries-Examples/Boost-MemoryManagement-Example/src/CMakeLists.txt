@@ -40,7 +40,7 @@ if(BOOST_EXISTS) # If the boost library is on the local computer
         endif (MSVC)
     endif(WIN32)
 
-    find_package(Boost 1.81 REQUIRED COMPONENTS ${BOOST_COMPONENTS} REQUIRED) #
+    find_package(Boost 1.81 REQUIRED COMPONENTS ${BOOST_COMPONENTS} REQUIRED)
 
     if(Boost_FOUND)
         target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIR})
@@ -55,7 +55,7 @@ if(BOOST_EXISTS) # If the boost library is on the local computer
         message(FATAL_ERROR "Error. There are no boost library")
     endif()
 elseif()
-    set(BOOST_INCLUDE_LIBRARIES smart_ptr)
+    set(BOOST_INCLUDE_LIBRARIES smart_ptr) # ...
     set(BOOST_ENABLE_CMAKE ON)
 
     include(FetchContent)
@@ -69,5 +69,6 @@ elseif()
     target_link_libraries(${PROJECT_NAME} PUBLIC
         Qt${QT_VERSION_MAJOR}::Core
         Boost::smart_ptr
+        # ...
         )
 endif()
