@@ -1,10 +1,11 @@
-QT += core gui widgets
+QT -= gui
 
 CONFIG += c++20
+CONFIG += console
+CONFIG -= app_bundle
 CONFIG += debug # release
 
-TARGET = CURL-Example
-TEMPLATE = app
+TARGET = Boost-DataStructures-Example
 
 CONFIG(debug, release) { # debug|release
     message("debug mode")
@@ -12,14 +13,12 @@ CONFIG(debug, release) { # debug|release
     OBJECTS_DIR = $$OUT_PWD/debug/obj # промежуточные объекты
     MOC_DIR     = $$OUT_PWD/debug/moc # промежуточные moc-файлы
     DESTDIR     = $$OUT_PWD/debug/bin # результирующий файл
-    UI_DIR      = $$OUT_PWD/debug/ui  # промежуточные ui-файлы
 } else {
     message("release mode")
 
     OBJECTS_DIR = $$OUT_PWD/release/obj # промежуточные объекты
     MOC_DIR     = $$OUT_PWD/release/moc # промежуточные moc-файлы
     DESTDIR     = $$OUT_PWD/release/bin # результирующий файл
-    UI_DIR      = $$OUT_PWD/release/ui  # промежуточные ui-файлы
 }
 
 include(src/Source.pri)

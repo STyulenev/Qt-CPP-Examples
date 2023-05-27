@@ -7,6 +7,8 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
+namespace Network {
+
 HTTPClient* HTTPClient::self = 0;
 
 auto getUrlResponse(char* buffer, size_t size, size_t count, std::string* response) -> size_t;
@@ -148,3 +150,5 @@ auto HTTPClient::deleteServerFirstUser() -> QString
 
     return QString("Curl doesn't work");
 }
+
+} // namespace Network

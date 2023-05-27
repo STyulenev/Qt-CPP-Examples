@@ -2,9 +2,11 @@
 
 ## Описание
 
-Пример использования библиотеки libcurl для создание http клиента. В качестве сервера использовался пример Qt-Console-Examples/QHttpServer-Example.
+Пример использования библиотеки libcurl для создание http клиента (get/post/delete запросы). В качестве сервера использовался пример Qt-Console-Examples/QHttpServer-Example.
 
 [Ссылка на исходники Curl](https://github.com/curl/curl "Curl")
+
+![alt text](../../doc/CURL-Example.png)
 
 ## Сборка проекта
 
@@ -35,7 +37,7 @@ make
 | CMake      | 3.5                  |
 | QMake      | 6.0.1 (6.0.0)        |
 | MinGW      | 9.0.0 64 bit         |
-| MySQL      | 8.0                  |
+| curl       | 8.1.5                |
 
 ## Тестирование
 

@@ -16,25 +16,24 @@ MainWindow::~MainWindow()
 auto MainWindow::on_pushButton_clicked() -> void
 {
     ui->textEdit->clear();
-    ui->textEdit->append(HTTPClient::getClient()->getServerCurrentTime());
+    ui->textEdit->append(Network::HTTPClient::getClient()->getServerCurrentTime());
 }
 
 auto MainWindow::on_pushButton_2_clicked() -> void
 {
     ui->textEdit->clear();
-    ui->textEdit->append(HTTPClient::getClient()->getServerUserList());
+    ui->textEdit->append(Network::HTTPClient::getClient()->getServerUserList());
 }
 
 auto MainWindow::on_pushButton_3_clicked() -> void
 {
     ui->textEdit->clear();
-    ui->textEdit->append(HTTPClient::getClient()->postServerSendNewUser());
+    ui->textEdit->append(Network::HTTPClient::getClient()->postServerSendNewUser());
 }
 
 
 auto MainWindow::on_pushButton_4_clicked() -> void
 {
     ui->textEdit->clear();
-    ui->textEdit->append(HTTPClient::getClient()->deleteServerFirstUser());
+    ui->textEdit->append(Network::HTTPClient::getClient()->deleteServerFirstUser());
 }
-
