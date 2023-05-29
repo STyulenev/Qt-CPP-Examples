@@ -21,6 +21,8 @@ auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
     //BoostAssociativeContainer::exampleBoostMultiSet();
     //BoostAssociativeContainer::exampleBoostMap();
     //BoostAssociativeContainer::exampleBoostMultiMap();
+    //BoostAssociativeContainer::exampleBoostBimap();
+    //BoostAssociativeContainer::exampleBoostMultiBimap();
 
     //BoostAssociativeContainer::exampleBoostUnorderedSet();
     //BoostAssociativeContainer::exampleBoostUnorderedMultiSet();
