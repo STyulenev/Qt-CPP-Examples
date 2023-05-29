@@ -43,6 +43,10 @@
  */
 class BoostAssociativeContainer
 {
+private:
+    BoostAssociativeContainer() = default;
+    ~BoostAssociativeContainer() = default;
+
 public:
     /*!
      * \brief Пример использования boost::set

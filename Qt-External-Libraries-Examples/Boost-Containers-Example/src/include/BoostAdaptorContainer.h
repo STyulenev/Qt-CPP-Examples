@@ -13,6 +13,10 @@
  */
 class BoostAdaptorContainer
 {
+private:
+    BoostAdaptorContainer() = default;
+    ~BoostAdaptorContainer() = default;
+
 public:
     /*!
      * \brief Пример использования boost::flat_set (set + vector)

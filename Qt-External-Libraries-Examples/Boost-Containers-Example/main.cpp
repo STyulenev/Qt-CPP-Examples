@@ -2,6 +2,7 @@
 #include "BoostAssociativeContainer.h"
 #include "BoostAdaptorContainer.h"
 #include "BoostMultiIndex.h"
+#include "BoostHeap.h"
 
 auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 {
@@ -38,6 +39,11 @@ auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
     /// Пользовательские контейнеры с множественным поиском
     //BoostMultiIndex::exampleBoostMultiIndex();
     //BoostMultiIndex::exampleBoostMultiIndex2();
+
+    // Очередь с приоритетом
+    //BoostHeap::exampleBoostPriorityQueue();
+    //BoostHeap::exampleBoostBinomialHeap();
+    BoostHeap::exampleBoostFibonacciHeap();
 
     return 0;
 }

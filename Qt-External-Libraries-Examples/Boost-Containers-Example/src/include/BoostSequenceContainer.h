@@ -23,6 +23,10 @@
  */
 class BoostSequenceContainer
 {
+private:
+    BoostSequenceContainer() = default;
+    ~BoostSequenceContainer() = default;
+
 public:
     /*!
      * \brief Пример использования boost::array
