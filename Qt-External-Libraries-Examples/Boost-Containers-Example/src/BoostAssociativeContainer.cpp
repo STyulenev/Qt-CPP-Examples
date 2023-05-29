@@ -1,4 +1,9 @@
-#include "./include/BoostAssociativeContainer.h"
+#include "BoostAssociativeContainer.h"
+
+#include <boost/container/set.hpp> // set и multiset
+#include <boost/container/map.hpp> // map и multimap
+#include <boost/unordered_set.hpp> // unordered_set и unordered_multiset
+#include <boost/unordered_map.hpp> // unordered_map и unordered_multimap
 
 auto BoostAssociativeContainer::exampleBoostSet() -> void
 {
@@ -34,7 +39,9 @@ auto BoostAssociativeContainer::exampleBoostMap() -> void
 {
     boost::container::map<int, std::string> map;
     auto result = map.insert(std::make_pair(8, std::string("str"))); // insert - возвращает итератор с парой клю-значение и bool результат операции
+
     qDebug() << QString("pair<%1, %2> status: %3").arg((*result.first).first).arg((*result.first).second.c_str()).arg(result.second ? "true" : "false");
+
     map.insert(std::make_pair(9, std::string("str")));
     map.insert(std::make_pair(7, std::string("str")));
     map.insert(std::make_pair(7, std::string("str2")));

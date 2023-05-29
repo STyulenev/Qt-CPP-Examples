@@ -1,4 +1,15 @@
-#include "./include/BoostSequenceContainer.h"
+#include "BoostSequenceContainer.h"
+
+#include <boost/array.hpp>
+#include <boost/container/vector.hpp>
+#include <boost/container/slist.hpp>
+#include <boost/container/list.hpp>
+#include <boost/container/deque.hpp>
+#include <boost/container/static_vector.hpp>
+#include <boost/container/small_vector.hpp>
+#include <boost/container/devector.hpp>
+#include <boost/container/stable_vector.hpp>
+#include <boost/circular_buffer.hpp>
 
 auto BoostSequenceContainer::exampleBoostArray() -> void
 {
@@ -10,7 +21,7 @@ auto BoostSequenceContainer::exampleBoostArray() -> void
 
     try {
         array.at(5) = 5; // index out of range
-    } catch (boost::wrapexcept<std::out_of_range> error) {
+    } catch (boost::wrapexcept<std::out_of_range>& error) {
         qDebug() << error.what();
     }
 
@@ -39,9 +50,27 @@ auto BoostSequenceContainer::exampleBoostVector() -> void
     }
 }
 
+auto BoostSequenceContainer::exampleBoostSList() -> void
+{
+    boost::container::slist<int> slist;
+
+    if (slist.empty()) {
+        qDebug() << "slist is empty";
+    }
+
+    slist.push_front(0);
+    slist.push_front(1);
+    slist.emplace_front(4);
+
+    for (auto iterator = slist.begin(); iterator != slist.end(); iterator++) {
+        qDebug() << *iterator;
+    }
+}
+
 auto BoostSequenceContainer::exampleBoostList() -> void
 {
     boost::container::list<int> list;
+
     list.push_back(1);
     list.push_back(2);
     list.push_back(3);
@@ -106,7 +135,7 @@ auto BoostSequenceContainer::exampleBoostSmallVector() -> void
 
 auto BoostSequenceContainer::exampleBoostDeVector() -> void
 {
-    boost::csbl::devector<int> devector;
+    boost::container::devector<int> devector;
     devector.push_back(1);
     devector.push_back(2);
     devector.push_back(3);
@@ -114,6 +143,7 @@ auto BoostSequenceContainer::exampleBoostDeVector() -> void
     devector.push_back(5);
 
     qDebug() << "size = " << devector.size();
+
     while (devector.size() != 0) {
         qDebug() << devector.front();
         devector.pop_front();

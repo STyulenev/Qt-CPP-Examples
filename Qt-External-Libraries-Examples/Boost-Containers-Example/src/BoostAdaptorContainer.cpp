@@ -1,5 +1,7 @@
-#include "./include/BoostAdaptorContainer.h"
+#include "BoostAdaptorContainer.h"
 
+#include <boost/container/flat_set.hpp> // flat_set и flat_multiset
+#include <boost/container/flat_map.hpp> // flat_map и flat_multimap
 
 auto BoostAdaptorContainer::exampleBoostFlatSet() -> void
 {

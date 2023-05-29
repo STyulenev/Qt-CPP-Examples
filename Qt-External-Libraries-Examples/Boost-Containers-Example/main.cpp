@@ -1,16 +1,17 @@
-#include "containers-examples/include/BoostSequenceContainer.h"
-#include "containers-examples/include/BoostAssociativeContainer.h"
-#include "containers-examples/include/BoostAdaptorContainer.h"
+#include "BoostSequenceContainer.h"
+#include "BoostAssociativeContainer.h"
+#include "BoostAdaptorContainer.h"
 
-auto main(int argc, char* argv[]) -> int
+auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 {
     /// Последовательные контейнеры
     //BoostSequenceContainer::exampleBoostArray();
     //BoostSequenceContainer::exampleBoostVector();
+    //BoostSequenceContainer::exampleBoostSList();
     //BoostSequenceContainer::exampleBoostList();
     //BoostSequenceContainer::exampleBoostDeque();
     //BoostSequenceContainer::exampleBoostSmallVector();
-    BoostSequenceContainer::exampleBoostDeVector();
+    //BoostSequenceContainer::exampleBoostDeVector();
     //BoostSequenceContainer::exampleBoostStableVector();
     //BoostSequenceContainer::exampleBoostCircularBuffer();
 
