@@ -1,6 +1,7 @@
 #include "BoostSequenceContainer.h"
 #include "BoostAssociativeContainer.h"
 #include "BoostAdaptorContainer.h"
+#include "BoostMultiIndex.h"
 
 auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 {
@@ -31,6 +32,10 @@ auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
     //BoostAdaptorContainer::exampleBoostFlatMultiSet();
     //BoostAdaptorContainer::exampleBoostFlatMap();
     //BoostAdaptorContainer::exampleBoostFlatMultiMap();
+
+    /// Пользовательские контейнеры с множественным поиском
+    //BoostMultiIndex::exampleBoostMultiIndex();
+    //BoostMultiIndex::exampleBoostMultiIndex2();
 
     return 0;
 }
