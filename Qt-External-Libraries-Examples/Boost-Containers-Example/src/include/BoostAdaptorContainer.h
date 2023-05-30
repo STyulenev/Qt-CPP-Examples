@@ -3,7 +3,7 @@
 #include <QDebug>
 
 /*!
- * \brief Класс с примерами использования boost-adaptor.
+ * \brief Пример использования библиотеки Boost.Container (контейнеры-адапторы)
  * \details
  * Контейнеры-адапторы:
  * - boost::flat_set (set + vector)

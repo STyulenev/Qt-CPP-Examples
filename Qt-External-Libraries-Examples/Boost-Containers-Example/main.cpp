@@ -3,6 +3,7 @@
 #include "BoostAdaptorContainer.h"
 #include "BoostMultiIndex.h"
 #include "BoostHeap.h"
+#include "BoostIntrusive.h"
 
 auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 {
@@ -43,7 +44,11 @@ auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
     // Очередь с приоритетом
     //BoostHeap::exampleBoostPriorityQueue();
     //BoostHeap::exampleBoostBinomialHeap();
-    BoostHeap::exampleBoostFibonacciHeap();
+    //BoostHeap::exampleBoostFibonacciHeap();
+
+    // Высокопроизводительные навязчивые контейнеры
+    //BoostIntrusive::exampleBoostIntrusiveList();
+    BoostIntrusive::exampleBoostIntrusiveSet();
 
     return 0;
 }
