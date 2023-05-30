@@ -4,6 +4,7 @@
 #include "BoostMultiIndex.h"
 #include "BoostHeap.h"
 #include "BoostIntrusive.h"
+#include "BoostMultiArray.h"
 
 auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 {
@@ -48,7 +49,10 @@ auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 
     // Высокопроизводительные навязчивые контейнеры
     //BoostIntrusive::exampleBoostIntrusiveList();
-    BoostIntrusive::exampleBoostIntrusiveSet();
+    //BoostIntrusive::exampleBoostIntrusiveSet();
+
+    // Многомерные массивы
+    BoostMultiArray::exampleBoostIMultiArray();
 
     return 0;
 }
