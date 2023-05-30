@@ -3,23 +3,25 @@ QT -= gui
 CONFIG += c++20
 CONFIG += console
 CONFIG -= app_bundle
+CONFIG += debug # release
 
 TARGET = Boost-Algorithms-Example
 
-OBJECTS_DIR = $$OUT_PWD/obj # промежуточные объекты
-MOC_DIR     = $$OUT_PWD/moc # промежуточные moc-файлы
-DESTDIR     = $$OUT_PWD/bin # результирующий файл
+CONFIG(debug, release) { # debug|release
+    message("debug mode")
 
-HEADERS += \
-		SearchingAlgorithms.h
+    OBJECTS_DIR = $$OUT_PWD/debug/obj # промежуточные объекты
+    MOC_DIR     = $$OUT_PWD/debug/moc # промежуточные moc-файлы
+    DESTDIR     = $$OUT_PWD/debug/bin # результирующий файл
+} else {
+    message("release mode")
+
+    OBJECTS_DIR = $$OUT_PWD/release/obj # промежуточные объекты
+    MOC_DIR     = $$OUT_PWD/release/moc # промежуточные moc-файлы
+    DESTDIR     = $$OUT_PWD/release/bin # результирующий файл
+}
+
+include(src/Source.pri)
 
 SOURCES += \
-        SearchingAlgorithms.cpp \
         main.cpp
-
-win32 {
-    ## Windows common build here
-    INCLUDEPATH += C:/.../include/ # Boost include path
-    LIBS += -Wl,-rpath,C:/.../lib -LC:/.../lib # Boost lib path
-    LIBS += $$files($$PWD/*.dll)
-}

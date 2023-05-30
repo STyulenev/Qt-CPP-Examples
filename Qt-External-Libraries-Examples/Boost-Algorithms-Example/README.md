@@ -2,14 +2,17 @@
 
 ## Описание
 
-Примеры использования алгоритмов из библиотеки Boost.
+Изучение темы "Algorithms" и примеры использования классов из библиотеки Boost:
+- Boost.Algorithm
+- Boost.Range
+- Boost.Graph
 
 [Ссылка на исходники Boost](https://github.com/boostorg/boost "Boost")
 
 ## Сборка проекта
 
 1. Необходимо cкачать и собрать библиотеку Boost.
-2. Прописать пути к заголовочным файлам и файлам .ddl/.so в СMakeLists.txt (для CMake) или Boost-Containers-Example.pro (для QMake).
+2. Прописать пути к заголовочным файлам и файлам .ddl/.so в СMakeLists.txt (для CMake) или Boost-Algorithms-Example.pro (для QMake).
 3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
 ```

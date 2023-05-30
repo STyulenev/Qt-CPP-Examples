@@ -1,11 +1,14 @@
-#include "SearchingAlgorithms.h"
+#include "BoostAlgorithm.h"
 
-auto main(int argc, char* argv[]) -> int
+auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 {
-    //BoostAlgorithmsExamples::ExampleSearchingAlgorithms();
-    //BoostAlgorithmsExamples::ExampleCPP11Algorithms();
-    //BoostAlgorithmsExamples::ExampleCPP14Algorithms();
-    BoostAlgorithmsExamples::ExampleCPP17Algorithms();
+    // Алгоритмы
+    //BoostAlgorithm::exampleSearchingAlgorithms();
+    //BoostAlgorithm::exampleCPP11Algorithms();
+    //BoostAlgorithm::exampleCPP14Algorithms();
+    //BoostAlgorithm::exampleCPP17Algorithms();
+    //BoostAlgorithm::exampleCopyAlgorithms();
+    BoostAlgorithm::exampleOtherAlgorithms();
 
     return 0;
 }
