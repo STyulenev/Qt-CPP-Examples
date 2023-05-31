@@ -13,6 +13,7 @@ auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 
     // Диапазоны
     //BoostRange::exampleBoostRangeAlgorithms();
+    BoostRange::exampleBoostRangeAdaptors();
 
     return 0;
 }

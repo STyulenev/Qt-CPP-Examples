@@ -3,6 +3,7 @@
 
 #include <boost/container/vector.hpp>
 
+// algorithm
 //#include <boost/range/algorithm.hpp> // <- including all
 #include <boost/range/algorithm/adjacent_find.hpp>
 #include <boost/range/algorithm/binary_search.hpp>
@@ -55,6 +56,23 @@
 #include <boost/range/algorithm/unique.hpp>
 #include <boost/range/algorithm/unique_copy.hpp>
 #include <boost/range/algorithm/upper_bound.hpp>
+
+// adaptor
+//#include <boost/range/adaptors.hpp> // <- including all
+#include <boost/range/adaptor/adjacent_filtered.hpp>
+#include <boost/range/adaptor/copied.hpp>
+#include <boost/range/adaptor/filtered.hpp>
+#include <boost/range/adaptor/indexed.hpp>
+#include <boost/range/adaptor/indirected.hpp>
+#include <boost/range/adaptor/map.hpp>
+#include <boost/range/adaptor/replaced.hpp>
+#include <boost/range/adaptor/replaced_if.hpp>
+#include <boost/range/adaptor/reversed.hpp>
+#include <boost/range/adaptor/sliced.hpp>
+#include <boost/range/adaptor/strided.hpp>
+#include <boost/range/adaptor/tokenized.hpp>
+#include <boost/range/adaptor/transformed.hpp>
+#include <boost/range/adaptor/uniqued.hpp>
 
 auto BoostRange::exampleBoostRangeAlgorithms() -> void
 {
@@ -670,5 +688,166 @@ auto BoostRange::exampleBoostRangeAlgorithms() -> void
         auto iterator = boost::range::upper_bound(string, 'd');
 
         qDebug() << "boost::range::upper_bound" << (iterator - string.begin());
+    }
+}
+
+auto BoostRange::exampleBoostRangeAdaptors() -> void
+{
+    {
+
+    }
+
+    { // boost::adaptors::copied
+        boost::container::vector<int> vector { 1, 5, 2, 2, 2, 3, 4, 5, 6 };
+        boost::container::vector<int> vector_out = vector | boost::adaptors::copied(3, 6);
+
+        QDebug debug = qDebug();
+
+        debug << "boost::adaptors::copied =";
+        for (const auto& element : vector_out) {
+            debug << element;
+
+        }
+    }
+
+    { // boost::adaptors::filtered
+        struct is_even
+        {
+            auto operator()(int element) const -> bool {
+                return element % 2 == 0;
+            }
+        };
+
+        boost::container::vector<int> vector { 1, 5, 2, 2, 2, 3, 4, 5, 6 };
+
+        QDebug debug = qDebug();
+
+        debug << "boost::adaptors::filtered =";
+        for (const auto& element : vector | boost::adaptors::filtered(is_even())) {
+            debug << element;
+
+        }
+    }
+
+    { // boost::adaptors::indexed
+        boost::container::vector<int> vector { 1, 5, 2, 2, 2, 3, 4, 5, 6 };
+
+        QDebug debug = qDebug();
+
+        debug << "boost::adaptors::indexed =";
+        for (const auto& element : vector | boost::adaptors::indexed(0)) {
+            debug << "index" << element.index() << "value" << element.value();
+
+        }
+    }
+
+    { // boost::adaptors::map
+        const std::map<int, std::string> map = {
+            std::make_pair(1, "one"),
+            std::make_pair(2, "two"),
+            std::make_pair(3, "three"),
+        };
+
+        QDebug debug = qDebug();
+
+        debug << "boost::adaptors::map =";
+        for (const auto & key : map | boost::adaptors::map_keys) { //boost::adaptors::map_values
+            debug << key;
+        }
+    }
+
+    { // boost::adaptors::replaced
+        boost::container::vector<int> vector { 1, 5, 2, 2, 2, 3, 2, 5, 2 };
+
+        QDebug debug = qDebug();
+
+        debug << "boost::adaptors::replaced =";
+        for (const auto & element : vector | boost::adaptors::replaced(2, 0)) {
+            debug << element;
+        }
+    }
+
+    { // boost::adaptors::replaced_if
+        boost::container::vector<int> vector { 1, 5, 2, 2, 2, 3, 2, 5, 2 };
+        auto predicat = [] (const int& element) -> bool {
+            return element % 2 == 0;
+        };
+        QDebug debug = qDebug();
+
+        debug << "boost::adaptors::replaced_if =";
+        for (const auto & element : vector | boost::adaptors::replaced_if(predicat, 0)) {
+            debug << element;
+        }
+    }
+
+    { // boost::adaptors::reversed
+        boost::container::vector<int> vector { 1, 2, 3, 4, 5 };
+
+        QDebug debug = qDebug();
+
+        debug << "boost::adaptors::reversed =";
+        for (const auto & element : vector | boost::adaptors::reversed) {
+            debug << element;
+        }
+    }
+
+    { // boost::adaptors::sliced
+        boost::container::vector<int> vector { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+        QDebug debug = qDebug();
+
+        debug << "boost::adaptors::sliced =";
+        for (const auto & element : vector | boost::adaptors::sliced(2, 6)) {
+            debug << element;
+        }
+    }
+
+    { // boost::adaptors::strided
+        boost::container::vector<int> vector { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+        QDebug debug = qDebug();
+
+        debug << "boost::adaptors::strided =";
+        for (const auto & element : vector | boost::adaptors::strided(2)) {
+            debug << element;
+        }
+    }
+
+    { // boost::adaptors::tokenize
+        const std::string string = "111 222 333 444";
+
+        for (const auto& token : string | boost::adaptors::tokenized(boost::regex("\\w+"))) {
+            size_t token_begin_idx = token.first - string.begin();
+            size_t token_end_idx = token.second - string.begin();
+            qDebug() << "  "
+                     << "token [" << token.str().c_str() << "] "
+                     << "begin: " << token_begin_idx << "; "
+                     << "end: " << token_end_idx << "; "
+                     << "length: " << token.length() << ";";
+        }
+    }
+
+    { // boost::adaptors::transformed
+        boost::container::vector<int> vector { 1, 2, 3, 4, 5, 6, 7, 8 };
+        auto predicat = [] (const int& element) -> int {
+            return element * 3;
+        };
+        QDebug debug = qDebug();
+
+        debug << "boost::adaptors::transformed =";
+        for (const auto & element : vector | boost::adaptors::transformed(predicat)) {
+            debug << element;
+        }
+    }
+
+    { // boost::adaptors::uniqued
+        boost::container::vector<int> vector { 1, 2, 2, 4, 5, 5, 7, 1 };
+
+        QDebug debug = qDebug();
+
+        debug << "boost::adaptors::uniqued =";
+        for (const auto & element : vector | boost::adaptors::uniqued) {
+            debug << element;
+        }
     }
 }
