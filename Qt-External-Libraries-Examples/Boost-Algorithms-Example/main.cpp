@@ -1,4 +1,5 @@
 #include "BoostAlgorithm.h"
+#include "BoostRange.h"
 
 auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 {
@@ -8,7 +9,10 @@ auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
     //BoostAlgorithm::exampleCPP14Algorithms();
     //BoostAlgorithm::exampleCPP17Algorithms();
     //BoostAlgorithm::exampleCopyAlgorithms();
-    BoostAlgorithm::exampleOtherAlgorithms();
+    //BoostAlgorithm::exampleOtherAlgorithms();
+
+    // Диапазоны
+    BoostRange::exampleBoostRangeAlgorithms();
 
     return 0;
 }
