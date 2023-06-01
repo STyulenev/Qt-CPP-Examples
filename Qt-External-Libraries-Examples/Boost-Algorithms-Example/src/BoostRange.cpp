@@ -74,6 +74,18 @@
 #include <boost/range/adaptor/transformed.hpp>
 #include <boost/range/adaptor/uniqued.hpp>
 
+// adaptor algorithm extensions
+//#include <boost/range/algorithm_ext.hpp> // <- including all
+#include <boost/range/algorithm_ext/copy_n.hpp>
+#include <boost/range/algorithm_ext/erase.hpp>
+#include <boost/range/algorithm_ext/for_each.hpp>
+#include <boost/range/algorithm_ext/insert.hpp>
+#include <boost/range/algorithm_ext/iota.hpp>
+#include <boost/range/algorithm_ext/is_sorted.hpp>
+#include <boost/range/algorithm_ext/overwrite.hpp>
+#include <boost/range/algorithm_ext/push_back.hpp>
+#include <boost/range/algorithm_ext/push_front.hpp>
+
 auto BoostRange::exampleBoostRangeAlgorithms() -> void
 {
 
@@ -737,7 +749,6 @@ auto BoostRange::exampleBoostRangeAdaptors() -> void
         debug << "boost::adaptors::indexed =";
         for (const auto& element : vector | boost::adaptors::indexed(0)) {
             debug << "index" << element.index() << "value" << element.value();
-
         }
     }
 
@@ -751,7 +762,7 @@ auto BoostRange::exampleBoostRangeAdaptors() -> void
         QDebug debug = qDebug();
 
         debug << "boost::adaptors::map =";
-        for (const auto & key : map | boost::adaptors::map_keys) { //boost::adaptors::map_values
+        for (const auto& key : map | boost::adaptors::map_keys) { //boost::adaptors::map_values
             debug << key;
         }
     }
@@ -762,7 +773,7 @@ auto BoostRange::exampleBoostRangeAdaptors() -> void
         QDebug debug = qDebug();
 
         debug << "boost::adaptors::replaced =";
-        for (const auto & element : vector | boost::adaptors::replaced(2, 0)) {
+        for (const auto& element : vector | boost::adaptors::replaced(2, 0)) {
             debug << element;
         }
     }
@@ -775,7 +786,7 @@ auto BoostRange::exampleBoostRangeAdaptors() -> void
         QDebug debug = qDebug();
 
         debug << "boost::adaptors::replaced_if =";
-        for (const auto & element : vector | boost::adaptors::replaced_if(predicat, 0)) {
+        for (const auto& element : vector | boost::adaptors::replaced_if(predicat, 0)) {
             debug << element;
         }
     }
@@ -786,7 +797,7 @@ auto BoostRange::exampleBoostRangeAdaptors() -> void
         QDebug debug = qDebug();
 
         debug << "boost::adaptors::reversed =";
-        for (const auto & element : vector | boost::adaptors::reversed) {
+        for (const auto& element : vector | boost::adaptors::reversed) {
             debug << element;
         }
     }
@@ -797,7 +808,7 @@ auto BoostRange::exampleBoostRangeAdaptors() -> void
         QDebug debug = qDebug();
 
         debug << "boost::adaptors::sliced =";
-        for (const auto & element : vector | boost::adaptors::sliced(2, 6)) {
+        for (const auto& element : vector | boost::adaptors::sliced(2, 6)) {
             debug << element;
         }
     }
@@ -808,7 +819,7 @@ auto BoostRange::exampleBoostRangeAdaptors() -> void
         QDebug debug = qDebug();
 
         debug << "boost::adaptors::strided =";
-        for (const auto & element : vector | boost::adaptors::strided(2)) {
+        for (const auto& element : vector | boost::adaptors::strided(2)) {
             debug << element;
         }
     }
@@ -835,7 +846,7 @@ auto BoostRange::exampleBoostRangeAdaptors() -> void
         QDebug debug = qDebug();
 
         debug << "boost::adaptors::transformed =";
-        for (const auto & element : vector | boost::adaptors::transformed(predicat)) {
+        for (const auto& element : vector | boost::adaptors::transformed(predicat)) {
             debug << element;
         }
     }
@@ -846,7 +857,121 @@ auto BoostRange::exampleBoostRangeAdaptors() -> void
         QDebug debug = qDebug();
 
         debug << "boost::adaptors::uniqued =";
-        for (const auto & element : vector | boost::adaptors::uniqued) {
+        for (const auto& element : vector | boost::adaptors::uniqued) {
+            debug << element;
+        }
+    }
+}
+
+auto BoostRange::exampleBoostRangeAlgorithmExtensions() -> void
+{
+    { // boost::range::copy_n
+        boost::container::vector<int> vector = { 10, 20, 30, 40, 50 };
+        boost::container::vector<int> vector_out;
+        QDebug debug = qDebug();
+
+        boost::range::copy_n(vector, 3, std::back_inserter(vector_out));
+        debug << "boost::range::copy_n =";
+        for (const auto& element : vector_out) {
+            debug << element;
+        }
+    }
+
+    { // boost::range::erase
+        boost::container::vector<int> vector = { 10, 20, 30, 40, 50, 60, 70 };
+
+        boost::range::erase(vector, boost::make_iterator_range(vector.begin() + 1, vector.begin() + 4));
+        QDebug debug = qDebug();
+        debug << "boost::range::erase =";
+        for (const auto& element : vector) {
+            debug << element;
+        }
+    }
+
+    { // boost::range::for_each
+        boost::container::vector<int> vector1 = { 10, 20, 30, 40, 50, 60, 70 };
+        boost::container::vector<int> vector2 = { 10, 20, 30, 40, 50, 60, 70 };
+        QDebug debug = qDebug();
+
+        boost::range::for_each(vector1, vector2, [] (int& first, int& second) -> void {
+            first += second;
+        });
+
+        debug << "boost::range::for_each =";
+        for (const auto& element : vector1) {
+            debug << element;
+        }
+    }
+
+    { // boost::range::insert
+        boost::container::vector<int> vector1 = { 10, 20, 30, 40, 50, 60, 70 };
+        boost::container::vector<int> vector2 = { 15, 25, 35 };
+        QDebug debug = qDebug();
+
+        boost::range::insert(vector2, vector2.begin() + 2, vector1);
+
+        debug << "boost::range::insert =";
+        for (const auto& element : vector2) {
+            debug << element;
+        }
+    }
+
+    { // boost::range::iota
+        boost::container::vector<int> vector (5, 0);
+        QDebug debug = qDebug();
+
+        boost::range::iota(vector, 2);
+
+        debug << "boost::range::iota =";
+        for (const auto& element : vector) {
+            debug << element;
+        }
+    }
+
+    { // boost::range::is_sorted
+        boost::container::vector<int> vector = { 5, 4, 3, 2, 1 };
+
+        qDebug() << "boost::range::is_sorted = " << boost::range::is_sorted(vector);
+    }
+
+    { // boost::range::overwrite
+        boost::container::vector<int> vector1 = { 1, 2, 3, 4, 5, 6};
+        boost::container::vector<int> vector2 = { 4, 5, 6 };
+
+        boost::range::overwrite(vector2, vector1);
+
+        QDebug debug = qDebug();
+
+        debug << "boost::range::overwrite =";
+        for (const auto& element : vector1) {
+            debug << element;
+        }
+    }
+
+    { // boost::range::push_back
+        boost::container::vector<int> vector1 = { 1, 2, 3, 4, 5, 6};
+        boost::container::vector<int> vector2 = { 4, 5, 6 };
+
+        boost::range::push_back(vector1, vector2);
+
+        QDebug debug = qDebug();
+
+        debug << "boost::range::push_back =";
+        for (const auto& element : vector1) {
+            debug << element;
+        }
+    }
+
+    { // boost::range::push_front
+        boost::container::vector<int> vector1 = { 1, 2, 3, 4, 5, 6};
+        boost::container::vector<int> vector2 = { 4, 5, 6 };
+
+        boost::range::push_front(vector1, vector2);
+
+        QDebug debug = qDebug();
+
+        debug << "boost::range::push_front =";
+        for (const auto& element : vector1) {
             debug << element;
         }
     }
