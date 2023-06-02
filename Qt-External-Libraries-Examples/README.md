@@ -6,6 +6,7 @@
 * Boost-Containers-Example - Примеры использования контейнеров из библиотеки Boost
 * Boost-DataStructures-Example - Примеры использования структур данных из библиотеки Boost
 * Boost-FunctionalProgramming-Example - Примеры использования функциональных объектов из библиотеки Boost
+* Boost-GenericProgramming-Example - Примеры использования универсального программирования и метапрограммирования шаблонов из библиотеки Boost
 * Boost-MemoryManagement-Example - Примеры использования умных указателей из библиотеки Boost
 
 ## CURL-Example
