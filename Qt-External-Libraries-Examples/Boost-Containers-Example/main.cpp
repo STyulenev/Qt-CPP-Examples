@@ -1,16 +1,21 @@
-#include "containers-examples/include/BoostSequenceContainer.h"
-#include "containers-examples/include/BoostAssociativeContainer.h"
-#include "containers-examples/include/BoostAdaptorContainer.h"
+#include "BoostSequenceContainer.h"
+#include "BoostAssociativeContainer.h"
+#include "BoostAdaptorContainer.h"
+#include "BoostMultiIndex.h"
+#include "BoostHeap.h"
+#include "BoostIntrusive.h"
+#include "BoostMultiArray.h"
 
-auto main(int argc, char* argv[]) -> int
+auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 {
     /// Последовательные контейнеры
     //BoostSequenceContainer::exampleBoostArray();
     //BoostSequenceContainer::exampleBoostVector();
+    //BoostSequenceContainer::exampleBoostSList();
     //BoostSequenceContainer::exampleBoostList();
     //BoostSequenceContainer::exampleBoostDeque();
     //BoostSequenceContainer::exampleBoostSmallVector();
-    BoostSequenceContainer::exampleBoostDeVector();
+    //BoostSequenceContainer::exampleBoostDeVector();
     //BoostSequenceContainer::exampleBoostStableVector();
     //BoostSequenceContainer::exampleBoostCircularBuffer();
 
@@ -19,6 +24,8 @@ auto main(int argc, char* argv[]) -> int
     //BoostAssociativeContainer::exampleBoostMultiSet();
     //BoostAssociativeContainer::exampleBoostMap();
     //BoostAssociativeContainer::exampleBoostMultiMap();
+    //BoostAssociativeContainer::exampleBoostBimap();
+    //BoostAssociativeContainer::exampleBoostMultiBimap();
 
     //BoostAssociativeContainer::exampleBoostUnorderedSet();
     //BoostAssociativeContainer::exampleBoostUnorderedMultiSet();
@@ -30,6 +37,22 @@ auto main(int argc, char* argv[]) -> int
     //BoostAdaptorContainer::exampleBoostFlatMultiSet();
     //BoostAdaptorContainer::exampleBoostFlatMap();
     //BoostAdaptorContainer::exampleBoostFlatMultiMap();
+
+    /// Пользовательские контейнеры с множественным поиском
+    //BoostMultiIndex::exampleBoostMultiIndex();
+    //BoostMultiIndex::exampleBoostMultiIndex2();
+
+    // Очередь с приоритетом
+    //BoostHeap::exampleBoostPriorityQueue();
+    //BoostHeap::exampleBoostBinomialHeap();
+    //BoostHeap::exampleBoostFibonacciHeap();
+
+    // Высокопроизводительные навязчивые контейнеры
+    //BoostIntrusive::exampleBoostIntrusiveList();
+    //BoostIntrusive::exampleBoostIntrusiveSet();
+
+    // Многомерные массивы
+    BoostMultiArray::exampleBoostIMultiArray();
 
     return 0;
 }

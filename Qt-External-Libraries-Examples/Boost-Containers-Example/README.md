@@ -2,7 +2,16 @@
 
 ## Описание
 
-Примеры использования контейнеров из библиотеки Boost.
+Изучение темы "Containers" и примеры использования классов из библиотеки Boost:
+- Boost.MultiIndex
+- Boost.Bimap
+- Boost.Array
+- Boost.Unordered
+- Boost.CircularBuffer
+- Boost.Heap
+- Boost.Intrusive
+- Boost.MultiArray
+- Boost.Container
 
 [Ссылка на исходники Boost](https://github.com/boostorg/boost "Boost")
 

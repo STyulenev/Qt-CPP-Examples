@@ -5,7 +5,7 @@ CONFIG += console
 CONFIG -= app_bundle
 CONFIG += debug # release
 
-TARGET = Boost-Containers-Example
+TARGET = Boost-FunctionalProgramming-Example
 
 CONFIG(debug, release) { # debug|release
     message("debug mode")
