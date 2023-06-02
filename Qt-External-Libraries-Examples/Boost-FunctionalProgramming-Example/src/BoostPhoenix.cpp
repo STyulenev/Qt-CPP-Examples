@@ -8,8 +8,9 @@
 #include <boost/phoenix/statement.hpp>
 #include <boost/phoenix/statement/throw.hpp>
 #include <boost/phoenix/statement/try_catch.hpp>
-
+#include <boost/phoenix/scope.hpp>
 #include <boost/phoenix/object.hpp>
+#include <boost/phoenix/scope/let.hpp>
 
 struct is_odd_struct
 {
@@ -129,5 +130,34 @@ auto BoostPhoenix::exampleBoostPhoenixLazyStatements() -> void
                 ]
             )
         );
+    }
+
+    { // let
+        boost::container::vector<int> vector = { 1, 2, 3, 4, 5 };
+        //using namespace boost::phoenix::local_names;
+
+        std::for_each(vector.begin(), vector.end(),
+                 let(boost::phoenix::local_names::_a = 1, boost::phoenix::local_names::_b = 2)
+                 [
+                      boost::phoenix::placeholders::arg1 = boost::phoenix::local_names::_a + boost::phoenix::local_names::_b
+                 ]//(1, 2) // <- можно создавать локальные переменные тут
+        );
+
+        QDebug debug = qDebug();
+        for(const auto& element : vector) {
+            debug << element;
+        }
+    }
+
+    { // lambda
+        boost::container::vector<int> vector = { 1, 2, 3, 4, 5 };
+        QDebug debug = qDebug();
+
+        std::for_each(vector.begin(), vector.end(),
+                boost::phoenix::lambda(boost::phoenix::local_names::_a = 1)
+                [
+                      boost::phoenix::ref(debug) << boost::phoenix::local_names::_a
+                ]
+            );
     }
 }

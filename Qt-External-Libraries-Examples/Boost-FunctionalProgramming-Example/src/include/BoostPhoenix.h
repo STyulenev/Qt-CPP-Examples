@@ -3,7 +3,7 @@
 #include <QDebug>
 
 /*!
- * \brief The BoostPhoenix class
+ * \brief Пример использования феникс функций
  * \details
  * Boost.Phoenix — самая важная библиотека Boost для функционального программирования. В то время как такие библиотеки, как Boost.Bind или Boost.Lambda,
  * обеспечивают некоторую поддержку функционального программирования, Boost.Phoenix включает в себя функции этих библиотек и выходит за их рамки.
@@ -27,7 +27,11 @@ public:
      * \brief Пример использования феникс функций по сравнению с другими
      * \details
      * Заголовочный файл - #include <boost/phoenix/phoenix.hpp>
+     *
      * Помимо отсутствия заголовка функции со списком параметров, параметры функции Phoenix не имеют типов, по сравнению с лямбда
+     *
+     * - boost::phoenix::ref(value) - использовать переменную value из внешней области
+     * - boost::phoenix::placeholders::arg1 - первый аргумент в феникс функции, arg2, arg3, ...
      */
     static auto exampleBoostPhoenix() -> void;
 
@@ -35,6 +39,7 @@ public:
      * \brief Пример использования ленивой записи феникс функций
      * \details
      * Заголовочный файл - #include <boost/phoenix/statement.hpp>
+     *
      * Statement:
      * - if_ - оператор if
      * - if_else_ - оператор if else
@@ -44,7 +49,10 @@ public:
      * - for_ - цикл for
      * - try_ catch_ - блок try_ catch_
      * - throw_ - оператор throw
-     * - ref - использовать переменную из внешней области
+     *
+     * Scope:
+     * - let - создать локальную переменную
+     * - lambda - лямбда функция
      */
     static auto exampleBoostPhoenixLazyStatements() -> void;
 
