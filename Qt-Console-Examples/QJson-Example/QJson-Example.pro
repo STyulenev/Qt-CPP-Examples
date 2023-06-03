@@ -1,19 +1,32 @@
 QT -= gui
 
-CONFIG += c++20 console
+CONFIG += c++20
+CONFIG += console
 CONFIG -= app_bundle
+CONFIG += debug # release
 
 TARGET = QJson-Example
 
-OBJECTS_DIR = $$PWD/build/obj # промежуточные объекты
-MOC_DIR     = $$PWD/build/moc # промежуточные moc-файлы
-DESTDIR     = $$PWD/build/bin # результирующий файл
-RCC_DIR     = $$PWD/build/rcc # промежуточные файлы ресурсов
-UI_DIR      = $$PWD/build/ui  # промежуточные ui-файлы
+CONFIG(debug, release) { # debug|release
+    message("debug mode")
+
+    OBJECTS_DIR = $$OUT_PWD/debug/obj # промежуточные объекты
+    MOC_DIR     = $$OUT_PWD/debug/moc # промежуточные moc-файлы
+    DESTDIR     = $$OUT_PWD/debug/bin # результирующий файл
+    RCC_DIR     = $$OUT_PWD/debug/rcc # промежуточные файлы ресурсов
+} else {
+    message("release mode")
+
+    OBJECTS_DIR = $$OUT_PWD/release/obj # промежуточные объекты
+    MOC_DIR     = $$OUT_PWD/release/moc # промежуточные moc-файлы
+    DESTDIR     = $$OUT_PWD/release/bin # результирующий файл
+    RCC_DIR     = $$OUT_PWD/release/rcc # промежуточные файлы ресурсов
+}
+
+include(src/Source.pri)
 
 SOURCES += \
-        User.cpp \
         main.cpp
 
-HEADERS += \
-    User.h
+RESOURCES += \
+        resource.qrc

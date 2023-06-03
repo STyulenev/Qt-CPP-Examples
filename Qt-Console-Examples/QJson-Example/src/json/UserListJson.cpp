@@ -1,6 +1,8 @@
-#include "User.h"
+#include "UserListJson.h"
 
 #include <QDebug>
+
+#include <algorithm>
 
 inline auto swap(QJsonValueRef valueOne, QJsonValueRef valueTwo) -> void
 {
@@ -14,6 +16,12 @@ namespace JsonModel {
 UserListJson::UserListJson()
 {
     // ...
+}
+
+UserListJson::UserListJson(QJsonArray&& users)
+{
+    this->users = std::move(users);
+    // or std::copy(users.begin(), users.end(), std::back_inserter(this->users));
 }
 
 UserListJson::~UserListJson()
@@ -155,12 +163,7 @@ auto UserListJson::operator==(const UserListJson& twoList) const -> bool
     if (this->length() != twoList.length()) {
         return false;
     } else {
-        for (int i = 0; i < twoList.length(); ++i) {
-            if (this->at(i) != twoList.at(i))
-                return false;
-        }
-
-        return true;
+        return std::equal(users.begin(), users.end(), twoList.users.begin());
     }
 }
 
@@ -169,12 +172,7 @@ auto UserListJson::operator!=(const UserListJson& twoList) const -> bool
     if (this->length() != twoList.length()) {
         return true;
     } else {
-        for (int i = 0; i < twoList.length(); ++i) {
-            if (this->at(i) != twoList.at(i))
-                return true;
-        }
-
-        return false;
+        return std::equal(users.begin(), users.end(), twoList.users.begin());
     }
 }
 
@@ -182,9 +180,7 @@ auto UserListJson::operator=(const UserListJson& twoList) -> UserListJson
 {
     this->clearArray();
 
-    for (int i = 0; i < twoList.length(); ++i) {
-        this->users.append(twoList.at(i));
-    }
+    std::copy(twoList.users.begin(), twoList.users.end(), std::back_inserter(this->users));
 
     return *this;
 }

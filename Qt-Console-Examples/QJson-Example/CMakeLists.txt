@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(QJson-Example LANGUAGES CXX)
+project(QJson-Example
+    VERSION 0.1
+    DESCRIPTION "An example of working with QJson"
+    LANGUAGES CXX
+)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -14,11 +18,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
-add_executable(QJson-Example
+add_subdirectory(src)
+
+add_executable(${PROJECT_NAME}
     main.cpp
 
-    User.h
-    User.cpp
+    resource.qrc
 )
 
-target_link_libraries(QJson-Example Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt${QT_VERSION_MAJOR}::Core
+    Json-lib
+)

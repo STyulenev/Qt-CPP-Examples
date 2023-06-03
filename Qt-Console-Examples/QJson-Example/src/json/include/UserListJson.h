@@ -24,6 +24,8 @@ private:
 
 public:
     UserListJson();
+    UserListJson(QJsonArray&& users);
+
     ~UserListJson();
 
     auto addUser(const QString& firstName, const QString& lastName, const int age) -> void;
