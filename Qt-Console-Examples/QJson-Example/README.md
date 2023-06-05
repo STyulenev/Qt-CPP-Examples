@@ -1,6 +1,10 @@
 # QJson-Example
 
-Пример использования JSON в Qt
+Пример использования QJson в Qt:
+- QJsonArray
+- QJsonDocument
+- QJsonObject
+- QJsonValue
 
 ## Сборка проекта
 
