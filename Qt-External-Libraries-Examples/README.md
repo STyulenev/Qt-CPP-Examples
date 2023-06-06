@@ -8,8 +8,9 @@
 * Boost-FunctionalProgramming-Example - Примеры использования функциональных объектов из библиотеки Boost
 * Boost-GenericProgramming-Example - Примеры использования универсального программирования и метапрограммирования шаблонов из библиотеки Boost
 * Boost-MemoryManagement-Example - Примеры использования умных указателей из библиотеки Boost
+* Boost-StringHandling-Example - Примеры использования строк из библиотеки Boost
 
-## CURL-Example
+## CURL
 
 Пример использования библиотеки libcurl для создание http клиента.
 
