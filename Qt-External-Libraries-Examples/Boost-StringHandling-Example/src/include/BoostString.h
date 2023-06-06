@@ -152,12 +152,6 @@ public:
      * - range_finder()
      * - regex_finder()
      *
-     * Алгоритмы Formatters: (форматирование строк)
-     * - const_formatter()
-     * - identity_formatter()
-     * - empty_formatter()
-     * - regex_formatter()
-     *
      * Алгоритмы Find Iterators:
      * - find_iterator()
      * - split_iterator()
@@ -179,4 +173,35 @@ public:
      * - is_from_range()
      */
     static auto exampleBoostStringAlgorithms() -> void;
+
+
+    /*!
+     * \brief Пример использования приведение типов из строк
+     * \details
+     * Заголовочный файл - #include <boost/lexical_cast.hpp>
+     */
+    static auto exampleBoostStringLexicalCast() -> void;
+
+    /*!
+     * \brief Пример использования форматирования для строк
+     * \details
+     * Заголовочный файл - #include <boost/format.hpp>
+     *
+     * Boost.Format предлагает замену функции std::printf(). std::printf() исходит из стандарта C и позволяет выводить форматированные данные.
+     * Однако он не является ни типобезопасным, ни расширяемым. Boost.Format предоставляет типобезопасную и расширяемую альтернативу.
+     *
+     * Алгоритмы Formatters: (форматирование строк)
+     * - const_formatter()
+     * - identity_formatter()
+     * - empty_formatter()
+     * - regex_formatter()
+     */
+    static auto exampleBoostStringFormat() -> void;
+
+    /*!
+     * \brief Пример использования рег выражений для строк
+     * \details
+     * Заголовочный файл - #include <boost/regex.hpp>
+     */
+    static auto exampleBoostStringRegex() -> void;
 };

@@ -3,6 +3,8 @@
 #include <boost/algorithm/string.hpp>
 #include <boost/range.hpp>
 #include <boost/format.hpp>
+#include <boost/lexical_cast.hpp>
+#include <boost/regex.hpp>
 
 #include <iostream>
 
@@ -90,17 +92,59 @@ auto BoostString::exampleBoostStringAlgorithms() -> void
     }
 
     {
-        boost::format format = boost::format("1 - %1% 2 - %2%.") % "first" % "second";
-        qDebug() << boost::str(format).c_str(); // format.str();
-    }
-
-    {
         std::string words = "aBc";
 
         if (boost::algorithm::all(words, boost::algorithm::is_lower())) {
             qDebug() << "is lower";
         } else {
             qDebug() << "is not";
+        }
+    }
+}
+
+auto BoostString::exampleBoostStringLexicalCast() -> void
+{
+    try {
+        int goodNumber = boost::lexical_cast<int>("12");
+        qDebug() << goodNumber;
+        int badNumber = boost::lexical_cast<int>("abc");
+        qDebug() << badNumber;
+    } catch (const boost::bad_lexical_cast& error) {
+        qDebug() << error.what();
+    }
+}
+
+auto BoostString::exampleBoostStringFormat() -> void
+{
+    boost::format format = boost::format("1 - %1% 2 - %2%.") % "first" % "second";
+    qDebug() << boost::str(format).c_str(); // format.str();
+
+    try {
+        qDebug() << boost::str(boost::format("%|+| %2% %1%" ) % 1 % 2).c_str();
+    } catch (const boost::io::format_error& error) {
+        qDebug() << error.what();
+    }
+}
+
+auto BoostString::exampleBoostStringRegex() -> void
+{
+    {
+        std::string string = "Hello boost";
+        boost::regex expr("(\\w+)\\s(\\w+)");
+        std::string fmt("\\2 \\1");
+        std::string newString = boost::regex_replace(string, expr, fmt);
+
+        qDebug() << newString.c_str();
+    }
+
+    {
+        std::string string = "Hello boost";
+        boost::regex expr ("\\w+");
+        boost::regex_token_iterator<std::string::iterator> it (string.begin(), string.end(), expr);
+        boost::regex_token_iterator<std::string::iterator> end;
+
+        while (it != end) {
+            std::cout << *it++ << '\n';
         }
     }
 }
