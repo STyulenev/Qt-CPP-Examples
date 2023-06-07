@@ -204,4 +204,6 @@ public:
      * Заголовочный файл - #include <boost/regex.hpp>
      */
     static auto exampleBoostStringRegex() -> void;
+
+
 };
