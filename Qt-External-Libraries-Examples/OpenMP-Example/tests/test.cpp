@@ -30,3 +30,34 @@ auto Test::test_bench2() -> void
         NoOpenMP::sum(vector);
     }
 }
+
+auto Test::test_bench3() -> void
+{
+    QBENCHMARK {
+        QVector<int> vector1;
+        QVector<int> vector2;
+
+        for (int i = 0; i < 100000; ++i) {
+            vector1.push_back(i);
+            vector2.push_back(i);
+        }
+
+        QVector<int> vector3 = OpenMP::multiply(vector1, vector2);
+
+    }
+}
+
+auto Test::test_bench4() -> void
+{
+    QBENCHMARK {
+        QVector<int> vector1;
+        QVector<int> vector2;
+
+        for (int i = 0; i < 100000; ++i) {
+            vector1.push_back(i);
+            vector2.push_back(i);
+        }
+
+        QVector<int> vector3 = NoOpenMP::multiply(vector1, vector2);
+    }
+}
