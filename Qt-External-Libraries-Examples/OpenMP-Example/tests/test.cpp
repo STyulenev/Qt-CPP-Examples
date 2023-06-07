@@ -1,6 +1,7 @@
 #include "test.h"
 
-#include <functions.h>
+#include "SimpleFunction.h"
+#include "ParallelFunction.h"
 
 Test::Test(QObject* parent) :
     QObject(parent)

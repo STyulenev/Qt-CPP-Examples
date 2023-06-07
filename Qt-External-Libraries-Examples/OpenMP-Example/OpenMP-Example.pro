@@ -1,23 +1,28 @@
 QT -= gui
-QT += core testlib
+QT += core
 
 CONFIG += c++20
+CONFIG += debug # release
 
 TEMPLATE = app
 TARGET = OpenMP-Example
 
-OBJECTS_DIR = $$OUT_PWD/obj # промежуточные объекты
-MOC_DIR     = $$OUT_PWD/moc # промежуточные moc-файлы
-DESTDIR     = $$OUT_PWD/bin # результирующий файл
+CONFIG(debug, release) { # debug|release
+    message("debug mode")
 
-QMAKE_LIBS+=-static -lgomp -lpthread
-QMAKE_CXXFLAGS+=-msse3 -fopenmp
+    OBJECTS_DIR = $$OUT_PWD/debug/obj # промежуточные объекты
+    MOC_DIR     = $$OUT_PWD/debug/moc # промежуточные moc-файлы
+    DESTDIR     = $$OUT_PWD/debug/bin # результирующий файл
+} else {
+    message("release mode")
+
+    OBJECTS_DIR = $$OUT_PWD/release/obj # промежуточные объекты
+    MOC_DIR     = $$OUT_PWD/release/moc # промежуточные moc-файлы
+    DESTDIR     = $$OUT_PWD/release/bin # результирующий файл
+}
+
+include(src/Source.pri)
+include(tests/Test.pri)
 
 SOURCES += \
-    functions.cpp \
-    main.cpp \
-    test.cpp
-
-HEADERS += \
-    functions.h \
-    test.h
+    main.cpp
