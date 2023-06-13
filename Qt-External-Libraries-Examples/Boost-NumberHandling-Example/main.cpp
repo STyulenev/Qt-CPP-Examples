@@ -2,7 +2,8 @@
 
 auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 {
-    BoostNumber::exampleBoostInteger();
+    //BoostNumber::exampleBoostInteger();
+    BoostNumber::exampleBoostAccumulators();
 
     return 0;
 }

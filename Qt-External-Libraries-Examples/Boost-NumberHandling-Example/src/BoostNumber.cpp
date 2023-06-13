@@ -1,6 +1,8 @@
 #include "BoostNumber.h"
 
 #include <boost/cstdint.hpp>
+#include <boost/accumulators/accumulators.hpp>
+#include <boost/accumulators/statistics.hpp>
 
 auto BoostNumber::exampleBoostInteger() -> void
 {
@@ -32,4 +34,30 @@ auto BoostNumber::exampleBoostInteger() -> void
 #ifndef BOOST_NO_INT64_T
     qDebug() << sizeof(INT64_C(1));
 #endif
+}
+
+auto BoostNumber::exampleBoostAccumulators() -> void
+{
+    {
+        boost::accumulators::accumulator_set<int, boost::accumulators::features<boost::accumulators::tag::count>> accumulator;
+        accumulator(4);
+        accumulator(-6);
+        accumulator(9);
+
+        qDebug() << "count =" << boost::accumulators::count(accumulator);
+    }
+
+    {
+        boost::accumulators::accumulator_set<double,
+                boost::accumulators::features<boost::accumulators::tag::mean, boost::accumulators::tag::variance>> accumulator;
+
+        accumulator(8);
+        accumulator(9);
+        accumulator(10);
+        accumulator(11);
+        accumulator(12);
+
+        qDebug() << "mean =" << boost::accumulators::mean(accumulator);
+        qDebug() << "variance =" << boost::accumulators::variance(accumulator);
+    }
 }

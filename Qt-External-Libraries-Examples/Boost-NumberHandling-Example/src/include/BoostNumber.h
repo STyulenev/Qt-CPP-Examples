@@ -58,5 +58,24 @@ public:
      */
     static auto exampleBoostInteger() -> void;
 
+    /*!
+     * \brief Пример использования Boost.Accumulators
+     * \details
+     * Заголовочный файл - #include <boost/accumulators/accumulators.hpp>
+     *
+     * Некоторые функции для вычисления над числами:
+     * - count - количество
+     * - covariance - оценка ковариации методом Монте-Карло
+     * - density - плостность
+     * - error_of<mean> - ошибка среднего
+     * - max - максимальное
+     * - mean - вычисляет среднее значение выборок, весов или вариаций
+     * - median - медиана
+     * - min - минимальное
+     * - moment - вычисляет n-ый момент
+     * и другие ....
+     */
+    static auto exampleBoostAccumulators() -> void;
+
 
 };
