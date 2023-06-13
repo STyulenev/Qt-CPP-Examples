@@ -3,6 +3,9 @@
 #include <boost/cstdint.hpp>
 #include <boost/accumulators/accumulators.hpp>
 #include <boost/accumulators/statistics.hpp>
+#include <boost/algorithm/minmax.hpp>
+#include <boost/algorithm/minmax_element.hpp>
+#include <boost/tuple/tuple.hpp>
 
 auto BoostNumber::exampleBoostInteger() -> void
 {
@@ -59,5 +62,24 @@ auto BoostNumber::exampleBoostAccumulators() -> void
 
         qDebug() << "mean =" << boost::accumulators::mean(accumulator);
         qDebug() << "variance =" << boost::accumulators::variance(accumulator);
+    }
+}
+
+auto BoostNumber::exampleBoostMinMax() -> void
+{
+    {
+        boost::tuples::tuple<const int&, const int&> t = boost::minmax(2, 5);
+
+        qDebug() << "min =" << t.get<0>();
+        qDebug() << "max =" << t.get<1>();
+    }
+
+    {
+        std::vector<int> vector = { 2, 3, 0, 1 };
+
+        auto minmax_pair = boost::minmax_element(vector.begin(), vector.end());
+
+        qDebug() << "min =" << *minmax_pair.first;
+        qDebug() << "max =" << *minmax_pair.second;
     }
 }

@@ -77,5 +77,18 @@ public:
      */
     static auto exampleBoostAccumulators() -> void;
 
+    /*!
+     * \brief Пример использования Boost.MinMax
+     * \details
+     * Заголовочный файл - #include <boost/algorithm/minmax.hpp>
+     *
+     * Предоставляет алгоритм для нахождения минимума и максимума двух значений с использованием только одного вызова функции, который более
+     * эффективен, чем вызов std::min() и std::max().
+     *
+     * boost::minmax() вычисляет минимум и максимум двух объектов. Хотя и std::min(), и std::max() возвращают только одно значение, boost::minmax()
+     * возвращает два значения в виде кортежа.
+     */
+    static auto exampleBoostMinMax() -> void;
+
 
 };
