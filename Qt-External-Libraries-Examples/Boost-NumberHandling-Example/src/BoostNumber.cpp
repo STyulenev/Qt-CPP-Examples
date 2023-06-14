@@ -6,6 +6,8 @@
 #include <boost/algorithm/minmax.hpp>
 #include <boost/algorithm/minmax_element.hpp>
 #include <boost/tuple/tuple.hpp>
+#include <boost/random.hpp>
+#include <ctime>
 
 auto BoostNumber::exampleBoostInteger() -> void
 {
@@ -82,4 +84,11 @@ auto BoostNumber::exampleBoostMinMax() -> void
         qDebug() << "min =" << *minmax_pair.first;
         qDebug() << "max =" << *minmax_pair.second;
     }
+}
+
+auto BoostNumber::exampleBoostRandom() -> void
+{
+    std::time_t now = std::time(0);
+    boost::random::mt19937 gen {static_cast<std::uint32_t>(now)};
+    qDebug() << "boost::random::mt19937" << gen();
 }
