@@ -8,6 +8,8 @@
 #include <boost/tuple/tuple.hpp>
 #include <boost/random.hpp>
 #include <ctime>
+#include <boost/numeric/conversion/cast.hpp>
+#include <boost/numeric/conversion/converter.hpp>
 
 auto BoostNumber::exampleBoostInteger() -> void
 {
@@ -91,4 +93,25 @@ auto BoostNumber::exampleBoostRandom() -> void
     std::time_t now = std::time(0);
     boost::random::mt19937 gen {static_cast<std::uint32_t>(now)};
     qDebug() << "boost::random::mt19937" << gen();
+}
+
+auto BoostNumber::exampleBoostNumericConversion() -> void
+{
+    {
+        try {
+            int i = 10000; // > short int = bad
+            short s = boost::numeric_cast<short>(i);
+            qDebug() << s;
+        } catch (const boost::numeric::bad_numeric_cast& error) {
+            qDebug() << "error" << error.what();
+        }
+    }
+
+    {
+        int x = boost::numeric::converter<int, double>::convert(2.0);
+        qDebug() << (x == 2);
+
+        int y = boost::numeric::converter<int, double>()(3.14);
+        qDebug() << (y == 3);
+    }
 }
