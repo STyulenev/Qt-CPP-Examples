@@ -13,5 +13,7 @@ public:
 private slots:
     auto test_bench1() -> void;
     auto test_bench2() -> void;
+    auto test_bench3() -> void;
+    auto test_bench4() -> void;
 };
 

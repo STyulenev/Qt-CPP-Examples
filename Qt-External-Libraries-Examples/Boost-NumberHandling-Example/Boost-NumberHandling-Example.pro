@@ -1,11 +1,11 @@
 QT -= gui
-QT += core
 
 CONFIG += c++20
+CONFIG += console
+CONFIG -= app_bundle
 CONFIG += debug # release
 
-TEMPLATE = app
-TARGET = OpenMP-Example
+TARGET = Boost-NumberHandling-Example
 
 CONFIG(debug, release) { # debug|release
     message("debug mode")
@@ -22,7 +22,6 @@ CONFIG(debug, release) { # debug|release
 }
 
 include(src/Source.pri)
-include(tests/Test.pri)
 
 SOURCES += \
-    main.cpp
+        main.cpp

@@ -1,7 +1,12 @@
 #include <test.h>
+#include "ParallelFunction.h"
 
-auto main(int argc, char* argv[]) -> int
+#include <QDebug>
+
+auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 {
+    qDebug() << OpenMP::checkOpenMP();
+
     QTest::qExec(new Test, argc, argv);
 
     return 0;
