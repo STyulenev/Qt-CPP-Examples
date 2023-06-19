@@ -1,37 +1,3 @@
-# QxORM-Example
-
-## Описание
-
-Пример использования ORM библиотеки для Qt.
-
-[Ссылка на исходники QxOrm](https://github.com/QxOrm/QxOrm "QxOrm")
-
-![alt text](doc/QxORM-Example.png)
-
-## Структура проекта
-
-```
-QxORM-Example
-│   MainWindow...
-│
-└───src
-    │
-    └───dao
-    │
-    └───entity
-    │
-    └───view
-    │
-    └───view-model
-```
-
-## Сборка проекта
-
-1. Необходимо скачать и собрать библиотеку QxORM.
-2. Прописать пути к заголовочным файлам и файлам .ddl/.so в СMakeLists.txt (для CMake) или src/Source.pri (для QMake).
-3. Сгенерировать базу данных (или doc/create_database.sql):
-
-``` sql
 CREATE DATABASE test_db;
 
 CREATE TABLE IF NOT EXISTS Customers
@@ -78,38 +44,3 @@ INSERT INTO Products VALUES (default, 'Laptop', 'V15', 'Lenovo', 6, 46000);
 INSERT INTO Orders VALUES (default, 1, 1, 2, '2022-01-08', '12:21:34');
 INSERT INTO Orders VALUES (default, 2, 3, 1, '2022-01-04', '10:41:54');
 INSERT INTO Orders VALUES (default, 3, 5, 1, '2022-01-12', '16:09:12');
-```
-
-4. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
-
-```
-cmake ..
-make
-```
-или
-
-```
-qmake ../-project
-qmake ..
-make
-```
-
-## Версии
-
-Версии сред, языков и утилит, которые использовались на момент написания проекта.
-
-| Название   | Версия        |
-| -----------|---------------|
-| C++        | 20            |
-| Qt         | 6.4.0         |
-| CMake      | 3.5           |
-| QMake      | 6.0.1 (6.0.0) |
-| MinGW      | 9.0.0 64 bit  |
-| PostgreSQL | 9.4.10        |
-| QxORM      | 1.4.8         |
-
-## Тестирование
-
-- [x] Windows (10, сборка 19044.2604)
-- [ ] Linux
-- [ ] Mac
