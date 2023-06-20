@@ -4,7 +4,7 @@
 
 Пример использования StackView в QML.
 
-![alt text](../../doc/QML-StackView-Example.gif)
+![alt text](doc/QML-StackView-Example.gif)
 
 ## Сборка проекта
 

@@ -4,7 +4,7 @@
 
 Пример использования делегатов TableView в QML на основе модели.
 
-![alt text](../../doc/QML-TableView-Delegates-Example.png)
+![alt text](doc/QML-TableView-Delegates-Example.png)
 
 ## Сборка проекта
 

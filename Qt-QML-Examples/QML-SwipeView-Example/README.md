@@ -4,7 +4,7 @@
 
 Пример использования SwipeView в QML.
 
-![alt text](../../doc/QML-SwipeView-Example.gif)
+![alt text](doc/QML-SwipeView-Example.gif)
 
 ## Сборка проекта
 

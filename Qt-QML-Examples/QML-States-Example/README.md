@@ -4,7 +4,7 @@
 
 Пример использования States в QML.
 
-![alt text](../../doc/QML-States-Example.gif)
+![alt text](doc/QML-States-Example.gif)
 
 ## Сборка проекта
 

@@ -4,7 +4,7 @@
 
 Пример использования TableView в QML на основе модели.
 
-![alt text](../../doc/QML-TableView-Example.png)
+![alt text](doc/QML-TableView-Example.png)
 
 ## Сборка проекта
 

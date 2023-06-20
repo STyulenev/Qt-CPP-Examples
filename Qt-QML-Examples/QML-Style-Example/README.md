@@ -22,7 +22,7 @@
 - TextArea;
 - TextField;
 
-![alt text](../../doc/QML-Style-Example.gif)
+![alt text](doc/QML-Style-Example.gif)
 
 ## Сборка проекта
 
