@@ -17,7 +17,7 @@ include_directories(${PROJECT_NAME} PRIVATE "src/")
 add_executable(${PROJECT_NAME}
     main.cpp
 
-    qrc.qrc
+    resource.qrc
 
     src/ListModel.h
     src/ListModel.cpp
@@ -29,3 +29,8 @@ set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "QML import paths")
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Quick)
+
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+)
