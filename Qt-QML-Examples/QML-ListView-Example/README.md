@@ -4,7 +4,7 @@
 
 Пример использования ListView в QML на основе модели.
 
-![alt text](../../doc/QML-ListView-Example.png)
+![alt text](doc/QML-ListView-Example.png)
 
 ## Сборка проекта
 
