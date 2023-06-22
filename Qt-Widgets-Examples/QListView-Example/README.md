@@ -4,7 +4,7 @@
 
 Пример использования виджета QListView-Example со сложной моделью, а также с делегатом и без него.
 
-![alt text](../../doc/QListView-Example.png)
+![alt text](doc/QListView-Example.png)
 
 ## Сборка проекта
 
