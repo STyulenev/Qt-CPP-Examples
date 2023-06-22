@@ -4,7 +4,7 @@
 
 Пример использования QListWidget с ui формой.
 
-![alt text](../../doc/QListWidget-Example.png)
+![alt text](doc/QListWidget-Example.png)
 
 ## Сборка проекта
 
