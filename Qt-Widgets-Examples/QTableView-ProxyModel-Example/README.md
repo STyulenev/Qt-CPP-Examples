@@ -4,7 +4,7 @@
 
 Пример использования proxy model для фильтрации данных view model при отображении в QTableView.
 
-![alt text](../../doc/QTableView-ProxyModel-Example.gif)
+![alt text](doc/QTableView-ProxyModel-Example.gif)
 
 ## Сборка проекта
 
