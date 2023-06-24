@@ -4,7 +4,7 @@
 
 Пример использования делегатов (простых, рисованных и с использованием виджетов) для редактирования данных в ячейках QTableView.
 
-![alt text](../../doc/QTableView-Delegates-Example.gif)
+![alt text](doc/QTableView-Delegates-Example.gif)
 
 ## Сборка проекта
 
