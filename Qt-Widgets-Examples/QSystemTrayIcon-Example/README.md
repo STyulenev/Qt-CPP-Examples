@@ -4,6 +4,8 @@
 
 Пример использование QSystemTrayIcon для сворачивания приложения в системный трей.
 
+![alt text](doc/QSystemTrayIcon-Example.png)
+
 ## Сборка проекта
 
 Проект может быть собран из QtCreator или из папки build коммандами:

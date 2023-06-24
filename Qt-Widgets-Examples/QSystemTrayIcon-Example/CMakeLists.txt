@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Qt-QSystemTrayIcon-Example
+project(QSystemTrayIcon-Example
     VERSION 0.1
     DESCRIPTION "Project with sample QSystemTrayIcon"
     LANGUAGES CXX

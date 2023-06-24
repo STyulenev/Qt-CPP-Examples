@@ -8,8 +8,8 @@ MainWindow::MainWindow(QWidget* parent) :
     ui->setupUi(this);
 
     systemTray = new QSystemTrayIcon(this);
-    systemTray->setIcon(QIcon(":/icons/tray-icon.png"));
-    systemTray->setToolTip("Qt-QSystemTrayIcon-Example");
+    systemTray->setIcon(QIcon(":/res/icons/tray-icon.png"));
+    systemTray->setToolTip("QSystemTrayIcon-Example");
 
     QMenu* menu = new QMenu(this);
     QAction* viewWindow = new QAction("Развернуть окно", this);
@@ -34,7 +34,7 @@ MainWindow::~MainWindow()
 
 auto MainWindow::closeEvent(QCloseEvent* event) -> void
 {
-    systemTray->showMessage("Qt-QSystemTrayIcon-Example", "Приложение свернуто.", QSystemTrayIcon::Information);
+    systemTray->showMessage("QSystemTrayIcon-Example", "Приложение свернуто.", QSystemTrayIcon::Information);
 
     event->ignore();
     this->hide();
