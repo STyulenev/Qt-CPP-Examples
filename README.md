@@ -6,10 +6,6 @@
 Qt-CPP-Examples
 │   README.md
 │
-└───doc
-│   │
-│   └───*.gif / *.png / ...
-│
 └───Qt-Console-Examples
 │   │
 │   └───README.md
@@ -32,7 +28,6 @@ Qt-CPP-Examples
 
 ```
 
-* doc - Директория для документации (gif / png / ...)
 * Qt-Console-Examples - Директория с примерами консольных программ на Qt
 * Qt-External-Libraries-Examples - Директория с примерами Qt + внешние библиотеки
 * Qt-QML-Examples - Директория с QML примерами
