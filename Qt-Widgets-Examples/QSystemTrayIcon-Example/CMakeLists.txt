@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(QTreeView-Example
+project(QSystemTrayIcon-Example
     VERSION 0.1
-    DESCRIPTION "Project with sample QTreeView"
+    DESCRIPTION "Project with sample QSystemTrayIcon"
     LANGUAGES CXX
 )
 
@@ -21,7 +21,8 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 add_subdirectory(src)
 
 set(PROJECT_SOURCES
-        main.cpp
+    main.cpp
+    resource.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -31,7 +32,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     )
 endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets View-lib)
+target_link_libraries(${PROJECT_NAME} PRIVATE View-lib)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES

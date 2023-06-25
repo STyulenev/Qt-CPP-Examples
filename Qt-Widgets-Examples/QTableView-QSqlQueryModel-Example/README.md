@@ -6,12 +6,12 @@
 По клику правой кнопки мыши выводится меню редактирования таблицы БД.
 По двойному клику левой кнопки мыши редактируется значение ячейки.
 
-![alt text](../../doc/QTableView-QSqlQueryModel-Example.png)
+![alt text](doc/QTableView-QSqlQueryModel-Example.png)
 
 ## Сборка проекта
 
 1. Скачать и установить PostgreSQL.
-2. Сгенерировать базу данных:
+2. Сгенерировать базу данных (или doc/create_database.sql):
 
 ``` sql
 CREATE DATABASE localtest;

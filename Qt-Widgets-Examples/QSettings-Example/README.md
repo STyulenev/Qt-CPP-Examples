@@ -1,18 +1,12 @@
-# QListView-Example
+# QSettings-Example
 
 ## Описание
 
-Пример использования виджета QListView-Example со сложной моделью, а также с делегатом и без него.
+Пример использование QSettings для сохранения настроек приложения на локальном компьютере. 
+Приложение при нажатие на кнопку Save сохраняет введённые значения в полях и воспроизводит их при повторном запуске, а также размер и состояние окна.
+Класс сохранения данных реализован в виде синглтона.
 
-<<<<<<< HEAD
-<<<<<<< HEAD:Qt-Widgets-Examples/QListView-Example/README.md
-![alt text](../../doc/QListView-Example.png)
-=======
-![alt text](doc/QML-SwipeView-Example.gif)
->>>>>>> qt-qml:Qt-QML-Examples/QML-SwipeView-Example/README.md
-=======
-![alt text](doc/QListView-Example.png)
->>>>>>> qt-widgets
+![alt text](doc/QSettings-Example.png)
 
 ## Сборка проекта
 
@@ -45,4 +39,3 @@ make
 | MinGW      | 9.0.0 64 bit         |
 
 Тестировалось на ОС Windows 10 (сборка 19044.2604)
-

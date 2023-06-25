@@ -4,11 +4,15 @@
 
 Пример использования дополнительных составных и часто используемых пользовательских виджетов в QML.
 
+<<<<<<< HEAD:Qt-QML-Examples/QML-Widgets-Example/README.md
 Виджеты:
 
 - Label + TextField (с различным расположением label - снизу, сверху, слева или справа);
 - Label + ComboBox (с различным расположением label - снизу, сверху, слева или справа);
 - ...
+=======
+![alt text](doc/QTableView-Delegates-Example.gif)
+>>>>>>> qt-widgets:Qt-Widgets-Examples/QTableView-Delegates-Example/README.md
 
 ## Сборка проекта
 

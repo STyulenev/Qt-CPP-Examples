@@ -4,7 +4,7 @@
 
 Пример использования QTreeView на примере данных из вектора.
 
-![alt text](../../doc/QTreeView-Example.png)
+![alt text](doc/QTreeView-Example.png)
 
 ## Сборка проекта
 

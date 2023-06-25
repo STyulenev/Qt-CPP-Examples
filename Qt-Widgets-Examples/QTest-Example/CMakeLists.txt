@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(QTreeView-Example
+project(QTest-Example
     VERSION 0.1
-    DESCRIPTION "Project with sample QTreeView"
+    DESCRIPTION "Project with sample qtest"
     LANGUAGES CXX
 )
 
@@ -19,19 +19,18 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 add_subdirectory(src)
-
-set(PROJECT_SOURCES
-        main.cpp
-)
+add_subdirectory(tests)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
+        main.cpp
     )
 endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets View-lib)
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Test-Lib
+)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES

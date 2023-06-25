@@ -1,18 +1,10 @@
-# QListView-Example
+# QComboBox-Delegate-Example
 
 ## Описание
 
-Пример использования виджета QListView-Example со сложной моделью, а также с делегатом и без него.
+Пример использование модели и делегата для QComboBox.
 
-<<<<<<< HEAD
-<<<<<<< HEAD:Qt-Widgets-Examples/QListView-Example/README.md
-![alt text](../../doc/QListView-Example.png)
-=======
-![alt text](doc/QML-SwipeView-Example.gif)
->>>>>>> qt-qml:Qt-QML-Examples/QML-SwipeView-Example/README.md
-=======
-![alt text](doc/QListView-Example.png)
->>>>>>> qt-widgets
+![alt text](doc/QComboBox-Delegate-Example.png)
 
 ## Сборка проекта
 

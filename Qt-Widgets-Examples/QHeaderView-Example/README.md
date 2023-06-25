@@ -2,7 +2,9 @@
 
 ## Описание
 
-Пример использования пользовательского заголовка QHeaderView в QTableView.
+Пример использования пользовательского заголовка QHeaderView в QTableView (добавление QCheckBox в одну из колонок).
+
+![alt text](doc/QHeaderView-Example.png)
 
 ## Сборка проекта
 

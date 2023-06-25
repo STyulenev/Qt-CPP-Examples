@@ -3,7 +3,7 @@ QT += core gui widgets
 CONFIG += c++20
 CONFIG += debug # release
 
-TARGET = QTableView-QSqlDatabase-Example
+TARGET = QSettings-Example
 
 CONFIG(debug, release) { # debug|release
     message("debug mode")

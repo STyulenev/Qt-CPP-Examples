@@ -4,10 +4,12 @@
 
 Пример использования QSqlDatabase с выводом данных в QTableView.
 
+![alt text](doc/QTableView-QSqlDatabase-Example.png)
+
 ## Сборка проекта
 
 1. Скачать и установить PostgreSQL.
-2. Сгенерировать базу данных:
+2. Сгенерировать базу данных (или doc/create_database.sql):
 
 ``` sql
 CREATE DATABASE test_db;
