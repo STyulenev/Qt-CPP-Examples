@@ -6,7 +6,7 @@
 
 [Ссылка на исходники Curl](https://github.com/curl/curl "Curl")
 
-![alt text](../../doc/CURL-Example.png)
+![alt text](doc/CURL-Example.png)
 
 ## Сборка проекта
 

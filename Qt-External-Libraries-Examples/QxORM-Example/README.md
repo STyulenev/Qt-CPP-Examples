@@ -6,6 +6,8 @@
 
 [Ссылка на исходники QxOrm](https://github.com/QxOrm/QxOrm "QxOrm")
 
+![alt text](doc/QxORM-Example.png)
+
 ## Структура проекта
 
 ```
@@ -27,7 +29,7 @@ QxORM-Example
 
 1. Необходимо скачать и собрать библиотеку QxORM.
 2. Прописать пути к заголовочным файлам и файлам .ddl/.so в СMakeLists.txt (для CMake) или src/Source.pri (для QMake).
-3. Сгенерировать базу данных:
+3. Сгенерировать базу данных (или doc/create_database.sql):
 
 ``` sql
 CREATE DATABASE test_db;

@@ -1,18 +1,3 @@
-# PostgreSQL-Example
-
-## Описание
-
-Пример использования библиотеки libpq для взаимодействия с базами данных PostgreSQL.
-Данные выводятся через view-model в QTableView. Используется пул соединений.
-
-![alt text](doc/PostgreSQL-Example.png)
-
-## Сборка проекта
-
-1. Скачать и установить PostgreSQL.
-2. Сгенерировать базу данных (или doc/create_database.sql):
-
-``` sql
 CREATE DATABASE test_db;
 
 CREATE TABLE IF NOT EXISTS Customers
@@ -59,40 +44,3 @@ INSERT INTO Products VALUES (default, 'Laptop', 'V15', 'Lenovo', 6, 46000);
 INSERT INTO Orders VALUES (default, 1, 1, 2, '2022-01-08', '12:21:34');
 INSERT INTO Orders VALUES (default, 2, 3, 1, '2022-01-04', '10:41:54');
 INSERT INTO Orders VALUES (default, 3, 5, 1, '2022-01-12', '16:09:12');
-```
-3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
-
-```
-cmake ..
-make
-```
-или
-
-```
-qmake ../-project
-qmake ..
-make
-```
-
-## Версии
-
-Версии сред, языков и утилит, которые использовались на момент написания проекта.
-
-| Название   | Версия               |
-| -----------|----------------------|
-| C++        | 20                   |
-| Qt         | 6.4.0                |
-| CMake      | 3.5                  |
-| QMake      | 6.0.1 (6.0.0)        |
-| MSVC2019   | 17.4.33403.182 64 bit|
-| PostgreSQL | 9.4.10               |
-
-> MinGW 9.0.0 64 bit работает в CMake и QMake сборке, но выдаёт ошибку при использовании многопоточности.
-
-> MSVC2019 может не найти libpq в QMake сборке, необходимо проверять пути.
-
-## Тестирование
-
-- [x] Windows (10, сборка 19044.2604)
-- [ ] Linux
-- [ ] Mac
