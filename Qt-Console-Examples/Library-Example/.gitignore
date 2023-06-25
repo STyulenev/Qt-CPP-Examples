@@ -1,8 +1,0 @@
-*.user
-*.autosave
-ProjectOne/*.user
-ProjectTwo/*.user
-SharedLibrary/*.user
-ProjectOne/*.autosave
-ProjectTwo/*.autosave
-SharedLibrary/*.autosave

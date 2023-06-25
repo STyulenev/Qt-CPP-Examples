@@ -1,9 +1,0 @@
-module Pages
-
-MainScreen 1.0 QuestionnairePages/MainScreen.qml
-
-OneScreen 1.0 QuestionnairePages/OneScreen.qml
-TwoScreen 1.0 QuestionnairePages/TwoScreen.qml
-ThreeScreen 1.0 QuestionnairePages/ThreeScreen.qml
-FourScreen  1.0 QuestionnairePages/FourScreen.qml
-FiveScreen  1.0 QuestionnairePages/FiveScreen.qml
