@@ -3,7 +3,7 @@ QT += quick
 CONFIG += c++20
 CONFIG += debug # release
 
-TARGET = QML-Widgets-Example
+TARGET = QML-SipeView-Example
 
 CONFIG(debug, release) { # debug|release
     message("debug mode")
@@ -23,8 +23,14 @@ CONFIG(debug, release) { # debug|release
 
 QML_IMPORT_PATH += $$PWD/qml
 
+INCLUDEPATH += src/
+
+HEADERS += \
+        src/QuestionnaireModel.h
+
 SOURCES += \
-        main.cpp
-		
+        main.cpp \
+        src/QuestionnaireModel.cpp
+
 RESOURCES += \
         resource.qrc

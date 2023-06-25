@@ -3,7 +3,7 @@ QT += quick
 CONFIG += c++20
 CONFIG += debug # release
 
-TARGET = QML-Widgets-Example
+TARGET = QML-Style-Example
 
 CONFIG(debug, release) { # debug|release
     message("debug mode")
@@ -21,10 +21,12 @@ CONFIG(debug, release) { # debug|release
     RCC_DIR     = $$OUT_PWD/release/rcc # промежуточные файлы ресурсов
 }
 
-QML_IMPORT_PATH += $$PWD/qml
+QML_IMPORT_PATH += \
+		$$PWD/qml \
+		$$PWD/qml/CustomStyle
 
 SOURCES += \
         main.cpp
-		
+
 RESOURCES += \
         resource.qrc

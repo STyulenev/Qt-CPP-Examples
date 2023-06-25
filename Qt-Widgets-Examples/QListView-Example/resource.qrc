@@ -1,10 +1,35 @@
 <RCC>
     <qresource prefix="/">
+<<<<<<< HEAD:Qt-Widgets-Examples/QListView-Example/resource.qrc
         <file>res/china.png</file>
         <file>res/germany.png</file>
         <file>res/india.png</file>
         <file>res/russia.png</file>
         <file>res/spain.png</file>
         <file>res/united-kingdom.png</file>
+=======
+        <file>main.qml</file>
+
+        <file>qml/Common/qmldir</file>
+        <file>qml/Common/Consts.qml</file>
+        <file>qml/Common/RegExp.qml</file>
+        <file>qml/Common/helpers.js</file>
+
+        <file>qml/Pages/qmldir</file>
+        <file>qml/Pages/QuestionnairePages/OneScreen.qml</file>
+        <file>qml/Pages/QuestionnairePages/OneScreen_Form.ui.qml</file>
+        <file>qml/Pages/QuestionnairePages/TwoScreen.qml</file>
+        <file>qml/Pages/QuestionnairePages/TwoScreen_Form.ui.qml</file>
+        <file>qml/Pages/QuestionnairePages/ThreeScreen.qml</file>
+        <file>qml/Pages/QuestionnairePages/ThreeScreen_Form.ui.qml</file>
+        <file>qml/Pages/QuestionnairePages/FourScreen.qml</file>
+        <file>qml/Pages/QuestionnairePages/FourScreen_Form.ui.qml</file>
+        <file>qml/Pages/QuestionnairePages/MainScreen.qml</file>
+        <file>qml/Pages/QuestionnairePages/MainScreen_Form.ui.qml</file>
+
+        <file>qml/Forms/qmldir</file>
+        <file>qml/Forms/BaseForm.qml</file>
+
+>>>>>>> qt-qml:Qt-QML-Examples/QML-SwipeView-Example/resource.qrc
     </qresource>
 </RCC>

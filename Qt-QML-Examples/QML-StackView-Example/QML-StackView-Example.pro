@@ -3,7 +3,7 @@ QT += quick
 CONFIG += c++20
 CONFIG += debug # release
 
-TARGET = QML-Widgets-Example
+TARGET = QML-StackView-Example
 
 CONFIG(debug, release) { # debug|release
     message("debug mode")
@@ -25,6 +25,6 @@ QML_IMPORT_PATH += $$PWD/qml
 
 SOURCES += \
         main.cpp
-		
+
 RESOURCES += \
         resource.qrc

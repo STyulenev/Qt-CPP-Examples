@@ -1,14 +1,10 @@
-# QListView-Example
+# QML-States-Example
 
 ## Описание
 
-Пример использования виджета QListView-Example со сложной моделью, а также с делегатом и без него.
+Пример использования States в QML.
 
-<<<<<<< HEAD:Qt-Widgets-Examples/QListView-Example/README.md
-![alt text](../../doc/QListView-Example.png)
-=======
-![alt text](doc/QML-SwipeView-Example.gif)
->>>>>>> qt-qml:Qt-QML-Examples/QML-SwipeView-Example/README.md
+![alt text](doc/QML-States-Example.gif)
 
 ## Сборка проекта
 
@@ -41,4 +37,3 @@ make
 | MinGW      | 9.0.0 64 bit         |
 
 Тестировалось на ОС Windows 10 (сборка 19044.2604)
-

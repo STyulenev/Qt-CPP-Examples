@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(QML-Widgets-Example
+project(QML-ListView-Example
     VERSION 0.1
-    DESCRIPTION "Project with sample custom widgets"
+    DESCRIPTION "Project with sample QML-ListView"
     LANGUAGES CXX
 )
 
@@ -12,10 +12,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
 
+include_directories(${PROJECT_NAME} PRIVATE "src/")
+
 add_executable(${PROJECT_NAME}
     main.cpp
 
     resource.qrc
+
+    src/ListModel.h
+    src/ListModel.cpp
 )
 
 list(APPEND QML_DIRS "${CMAKE_SOURCE_DIR}/qml")

@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(QML-Widgets-Example
+project(QML-StackView-Example
     VERSION 0.1
-    DESCRIPTION "Project with sample custom widgets"
+    DESCRIPTION "Project with sample QML-StackView"
     LANGUAGES CXX
 )
 
