@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>res/businessman.png</file>
-        <file>res/man.png</file>
-        <file>res/priest.png</file>
-        <file>res/woman.png</file>
-    </qresource>
-</RCC>
