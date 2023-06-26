@@ -1,10 +1,10 @@
-# QListView-Example
+# QTableView-Delegates-Example
 
 ## Описание
 
-Пример использования виджета QListView-Example со сложной моделью, а также с делегатом и без него.
+Пример использования делегатов (простых, рисованных и с использованием виджетов) для редактирования данных в ячейках QTableView.
 
-![alt text](doc/QListView-Example.png)
+![alt text](doc/QTableView-Delegates-Example.gif)
 
 ## Сборка проекта
 
