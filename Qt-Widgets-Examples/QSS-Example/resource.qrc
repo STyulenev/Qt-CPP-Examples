@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/font/Helvetica.ttf</file>
+        <file>res/style/style.css</file>
+    </qresource>
+</RCC>
