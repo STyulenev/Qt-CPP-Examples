@@ -1,9 +1,25 @@
 INCLUDEPATH += \
         $$PWD \
-        $$PWD/json/include/
+        $$PWD/include/
 
 HEADERS += \
-        $$files($$PWD/json/include/*.h)
+        $$files($$PWD/include/*.h)
 
 SOURCES += \
-        $$files($$PWD/json/*.cpp)
+        $$files($$PWD/*.cpp)
+		
+win32 {
+    ## Windows common build here
+
+    mingw {
+        INCLUDEPATH += C:/3rdparty/boost_1_81_0/ # Boost include path
+        LIBS += -Wl,-rpath,C:/3rdparty/boost_1_81_0/boost_mingw900_64/lib -LC:/3rdparty/boost_1_81_0/boost_mingw900_64/lib # Boost lib path
+        LIBS += $$files($$PWD/*.dll)
+
+        message("OK. There is boost library for MinGW compiler on the current OS")
+    } else {
+        message("Error. There is no boost library for this compiler on the current OS")
+    }
+} else {
+    message("Error. There is no boost library for this compiler on the current OS")
+}
