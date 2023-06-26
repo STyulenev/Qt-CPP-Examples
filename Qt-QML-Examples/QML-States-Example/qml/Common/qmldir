@@ -1,0 +1,4 @@
+module Common
+
+singleton Consts 1.0 Consts.qml
+
