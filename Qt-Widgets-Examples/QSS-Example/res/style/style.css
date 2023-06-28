@@ -1,25 +1,87 @@
-QPushButton {
-        height: 25px;
-        padding-left: 10px;
-        padding-right: 10px;
-        border: 1px solid black;
-        border-radius: 5px;
-        background-color: rgb(189, 189, 189);
+/*
+    Стиль для главного виджета QMainWindow
+*/
+QMainWindow
+{
+    background: #111315;
 }
 
-QPushButton:hover, QPushButton:focus  {
-        padding-left: 1px;
-        padding-right: 1px;
-        height: 28px;
-        border: 2px solid black;
-        border-radius: 5px;
-        font-weight: bold;
+/*
+    Стили фона для вертикального и горизонтального заголовков QHeaderView
+    Можно оставить просто QHeaderView
+*/
+QHeaderView::vertical, QHeaderView::horizontal
+{
+    color: white;
 
-        background-color: rgb(129, 129, 129);
+    font-size: 14px;
+    font-weight: bold;
+
+    background-color: rgb(108, 108, 108);
+
+    border: 0px solid rgb(144, 144, 144);
+    border: 0px solid rgb(191,191,191);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-radius: 0px;
+
+    min-height: 30px;
 }
 
-QPushButton:pressed {
-        border: 2px solid black;
-        border-radius: 5px;
-        background-color: rgb(85, 170, 255);
+/*
+    Стили для ячеек вертикального и горизонтального заголовков QHeaderView
+    Можно оставить просто QHeaderView::section
+*/
+QHeaderView::section::vertical, QHeaderView::section::horizontal
+{
+    color: white;
+    background-color: rgb(64, 64, 64);
+    border: 5px solid #f6f7fa;
+    border-radius: 0px;
+    border-color: rgb(64, 64, 64);
+}
+
+/*
+    Стили для кнопок QPushButton
+*/
+QPushButton
+{
+    height: 25px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    /*border: 1px solid white;*/
+    border-radius: 5px;
+    background-color: rgb(189, 189, 189);
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/*
+    Стили для кнопок QPushButton при наведении и фокусе
+*/
+QPushButton::hover, QPushButton::focus
+{
+    padding-left: 1px;
+    padding-right: 1px;
+    height: 28px;
+    /*border: 3px solid white;*/
+    border-radius: 5px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    background-color: rgb(129, 129, 129);
+}
+
+/*
+    Стили для кнопок QPushButton при нажатии
+*/
+QPushButton::pressed
+{
+    /*border: 3px solid white;*/
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgb(85, 170, 255);
 }
