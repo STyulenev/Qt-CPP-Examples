@@ -17,7 +17,7 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="exitButton">
     <property name="geometry">
      <rect>
       <x>650</x>
@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Exit</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="tableWidget">

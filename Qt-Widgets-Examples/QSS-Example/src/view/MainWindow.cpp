@@ -13,3 +13,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+auto MainWindow::on_exitButton_clicked() -> void
+{
+    exit(0);
+}

@@ -42,6 +42,36 @@ QHeaderView::section::vertical, QHeaderView::section::horizontal
 }
 
 /*
+    Стили для секций виджета QTableView
+*/
+QTableCornerButton::section
+{
+   /*  background: red;
+    border: 2px outset red;*/
+
+    background-color: rgb(64, 64, 64);
+    border: 5px solid #f6f7fa;
+    border-radius: 0px;
+    border-color: rgb(64, 64, 64);
+}
+
+/*
+    Стили для виджета QTableView
+*/
+QTableView
+{
+    color: white;
+    gridline-color: black;
+    background-color: rgb(108, 108, 108);
+    alternate-background-color: rgb(64, 64, 64);
+    selection-color: white;
+    selection-background-color: rgb(77, 77, 77);
+    border: 2px groove gray;
+    border-radius: 0px;
+    padding: 2px 4px;
+}
+
+/*
     Стили для кнопок QPushButton
 */
 QPushButton
