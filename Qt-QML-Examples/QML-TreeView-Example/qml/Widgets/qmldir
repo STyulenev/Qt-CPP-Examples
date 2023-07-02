@@ -1,0 +1,3 @@
+module Widgets
+
+TreeViewWidget 1.0 TreeViewWidget.qml
