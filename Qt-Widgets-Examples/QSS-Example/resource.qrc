@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>res/font/Helvetica.ttf</file>
         <file>res/style/style.css</file>
+        <file>res/icons/checkBoxOff.svg</file>
+        <file>res/icons/checkBoxOn.svg</file>
     </qresource>
 </RCC>

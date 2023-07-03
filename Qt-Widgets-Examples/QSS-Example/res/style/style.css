@@ -1,5 +1,7 @@
 /*
     Стиль для главного виджета QMainWindow
+
+    .MainWindow QHeaderView.... - ограничить стили для формы MainWindow
 */
 QMainWindow
 {
@@ -114,4 +116,34 @@ QPushButton::pressed
     border-radius: 5px;
     font-size: 16px;
     background-color: rgb(85, 170, 255);
+}
+
+/*
+    Стили для QCheckBox
+*/
+QCheckBox
+{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    spacing: 8px;
+
+    color: #FFFFFF;
+}
+
+/*
+    Стили для индикатора QCheckBox прои значении on
+*/
+QCheckBox::indicator:checked
+{
+    image: url(:/res/icons/checkBoxOn.svg);
+}
+
+/*
+    Стили для индикатора QCheckBox прои значении off
+*/
+QCheckBox::indicator:unchecked
+{
+    image: url(:/res/icons/checkBoxOff.svg);
 }
