@@ -1,0 +1,51 @@
+cmake_minimum_required(VERSION 3.5)
+
+project(cpack-example #CPack-Example
+    VERSION 0.5
+    DESCRIPTION "CPack Example"
+    LANGUAGES CXX
+)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
+
+add_executable(${PROJECT_NAME}
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Widgets)
+
+set(PROGRAM_PERMISSIONS_DEFAULT
+    OWNER_WRITE OWNER_READ OWNER_EXECUTE
+    GROUP_READ GROUP_EXECUTE
+    WORLD_READ WORLD_EXECUTE) #755
+
+set(LIB_PERMISSIONS_DEFAULT
+    OWNER_WRITE OWNER_READ
+    GROUP_READ WORLD_READ)
+
+set(DOC_PERMISSIONS_DEFAULT
+    OWNER_WRITE OWNER_READ
+    GROUP_READ WORLD_READ)
+
+set(INC_PERMISSIONS_DEFAULT
+    OWNER_WRITE OWNER_READ
+    GROUP_READ WORLD_READ)
+
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/debian"
+)
+
+add_subdirectory(debian)

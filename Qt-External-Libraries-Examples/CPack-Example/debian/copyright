@@ -1,0 +1,18 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: 
+ https://github.com/STyulenev/Qt-CPP-Examples
+Upstream-Name: CPack-Example
+Upstream-Contact: Sergey Tyulenev <tyulenev.i@yandex.ru>
+Disclaimer:
+ This package is not part of the GNU/Linux Debian distribution.
+ ...
+
+Files:
+ *
+Copyright: 2023 ... .
+
+License: UNKNOWN
+UNKNOWN license text placeholder
+Comment:
+.
+
