@@ -7,20 +7,22 @@
 ## Сборка проекта
 
 Проект может быть собран из QtCreator или из папки build коммандами:
-CMake:
 
-```
+### CMake:
+
+```bash
 cmake ..
 make
 ```
+> Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
 
-QMake:
+### QMake:
 
-```
-qmake ../-project
+```bash
 qmake ..
 make
 ```
+> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
 
 ## Версии
 

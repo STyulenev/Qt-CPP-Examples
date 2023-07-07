@@ -1,11 +1,11 @@
 QT += core gui widgets
 
 CONFIG += c++20
-CONFIG += debug # release
+#CONFIG += debug / release
 
 TARGET = QListWidget-Example
 
-CONFIG(debug, release) { # debug|release
+CONFIG(debug, debug | release) {
     message("debug mode")
 
     OBJECTS_DIR = $$OUT_PWD/debug/obj # промежуточные объекты

@@ -29,20 +29,21 @@ CREATE TABLE test
 
 3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
-Для CMake:
+### CMake:
 
-```
+```bash
 cmake ..
 make
 ```
+> Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
 
-Для QMake:
+### QMake:
 
-```
-qmake ../-project
+```bash
 qmake ..
 make
 ```
+> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
 
 ## Версии
 
