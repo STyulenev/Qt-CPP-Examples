@@ -3,11 +3,12 @@ QT -= gui
 CONFIG += c++20
 CONFIG += console
 CONFIG -= app_bundle
-CONFIG += debug # release
+#CONFIG += debug / release
 
+TEMPLATE = app
 TARGET = Boost-FunctionalProgramming-Example
 
-CONFIG(debug, release) { # debug|release
+CONFIG(debug, debug | release) {
     message("debug mode")
 
     OBJECTS_DIR = $$OUT_PWD/debug/obj # промежуточные объекты

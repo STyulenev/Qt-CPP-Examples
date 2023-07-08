@@ -12,17 +12,21 @@
 2. Указать правильное название папки в файлах сборки CMakeLists.txt (для CMake) или gtest_dependency.pri (для QMake).
 3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
-```
+### CMake:
+
+```bash
 cmake ..
 make
 ```
-или
+> Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
 
-```
-qmake ../-project
+### QMake:
+
+```bash
 qmake ..
 make
 ```
+> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
 
 ## Версии
 
