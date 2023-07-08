@@ -18,7 +18,7 @@ auto main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) -> int
         styleFile.close();
     }
 
-    MainWindow w;
+    View::MainWindow w;
     w.show();
 
     return a.exec();

@@ -1,6 +1,8 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
+namespace View {
+
 MainWindow::MainWindow(QWidget* parent):
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -18,3 +20,5 @@ auto MainWindow::on_exitButton_clicked() -> void
 {
     exit(0);
 }
+
+} // namespace View

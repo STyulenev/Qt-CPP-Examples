@@ -6,6 +6,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+namespace View {
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -20,3 +22,5 @@ private slots:
 private:
     Ui::MainWindow* ui;
 };
+
+} // namespace View

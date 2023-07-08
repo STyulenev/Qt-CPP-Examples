@@ -147,3 +147,17 @@ QCheckBox::indicator:unchecked
 {
     image: url(:/res/icons/checkBoxOff.svg);
 }
+
+/*
+    Стили для кнопок настроек QToolButton - toolButtonUser, toolButtonSetting, toolButtonSearch
+*/
+QToolButton#toolButtonUser, QToolButton#toolButtonSetting, QToolButton#toolButtonSearch
+{
+    min-height: 40px;
+    min-width: 40px;
+
+    border: 2px solid #7777FF;
+
+    border-radius: 5px;
+    background-color: rgb(189, 189, 189);
+}
