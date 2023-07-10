@@ -78,7 +78,8 @@ QTableView
 */
 QPushButton
 {
-    height: 25px;
+    min-height: 40px;
+    min-width: 120px;
 
     padding-left: 10px;
     padding-right: 10px;
@@ -160,4 +161,47 @@ QToolButton#toolButtonUser, QToolButton#toolButtonSetting, QToolButton#toolButto
 
     border-radius: 5px;
     background-color: rgb(189, 189, 189);
+}
+
+QTabWidget::pane
+{
+    border: 2px solid #7777FF;
+}
+
+QTabWidget::tab-bar
+{
+    left: 25px;
+}
+
+QTabBar::tab
+{
+    background: #111315;
+    border: 2px solid #C4C4C3;
+    border-bottom-color: #C2C7CB;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    min-width: 120px;
+    min-height: 30px;
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+    padding: 2px;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover
+{
+    background: #111315;
+    color: #7777FF;
+    font-weight: bold;
+}
+
+QTabBar::tab:selected
+{
+    border-color: #7777FF;
+    border-bottom-color: #111315;
+}
+
+QTabBar::tab:!selected
+{
+    margin-top: 2px;
 }
