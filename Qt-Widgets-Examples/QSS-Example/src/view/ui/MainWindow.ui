@@ -89,7 +89,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -187,18 +187,31 @@
        <attribute name="title">
         <string>Tab 2</string>
        </attribute>
-       <widget class="QCheckBox" name="checkBox">
+       <widget class="QGroupBox" name="groupBox">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>40</y>
-          <width>201</width>
-          <height>51</height>
+          <x>20</x>
+          <y>30</y>
+          <width>361</width>
+          <height>291</height>
          </rect>
         </property>
-        <property name="text">
-         <string>CheckBox</string>
+        <property name="title">
+         <string>GroupBox</string>
         </property>
+        <widget class="QCheckBox" name="checkBox">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>50</y>
+           <width>201</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>CheckBox</string>
+         </property>
+        </widget>
        </widget>
       </widget>
      </widget>

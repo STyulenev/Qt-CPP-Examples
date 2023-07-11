@@ -205,3 +205,20 @@ QTabBar::tab:!selected
 {
     margin-top: 2px;
 }
+
+QGroupBox
+{
+    border: 2px solid #7777FF;
+    border-radius: 4px;
+    margin-top: 8ex;
+    font-size: 16px;
+    color: #7777FF;
+    font-weight: bold;
+}
+
+QGroupBox::title
+{
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 5px 5px;
+}
