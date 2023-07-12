@@ -213,6 +213,19 @@
          </property>
         </widget>
        </widget>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>380</y>
+          <width>113</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
       </widget>
      </widget>
     </item>

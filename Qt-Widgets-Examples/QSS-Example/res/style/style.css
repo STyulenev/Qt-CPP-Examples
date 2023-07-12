@@ -222,3 +222,27 @@ QGroupBox::title
     subcontrol-position: top left;
     padding: 5px 5px;
 }
+
+QLineEdit
+{
+    border: 2px solid #7777FF;
+    border-radius: 4px;
+    padding: 2px 2px;
+    background: rgb(64, 64, 64);
+
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+
+    min-height: 30px;
+}
+
+QLineEdit::focus
+{
+    background: rgb(77, 77, 77);
+}
+
+QLineEdit:read-only
+{
+    background: darkgrey;
+}
