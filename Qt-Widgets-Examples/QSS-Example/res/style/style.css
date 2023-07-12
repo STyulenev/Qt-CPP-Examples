@@ -266,3 +266,71 @@ QProgressBar::chunk
     margin: 2px;
     background-color: #7777FF;
 }
+
+QComboBox
+{
+    background: #111315;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 5px 1px 10px;
+    border: 2px solid #7777FF;
+    border-radius: 4px;
+    min-height: 36px;
+}
+
+QComboBox:on
+{
+    padding-left: 12px;
+}
+
+QComboBox::drop-down
+{
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+    border-bottom: none;
+}
+
+QComboBox::down-arrow
+{
+    image: url(:/res/icons/icon-arrow-down.png);
+    padding: 0px 20px 0px 0px;
+}
+
+QComboBox::down-arrow::on
+{
+    image: url(:/res/icons/icon-arrow-left.png);
+}
+
+QComboBox QAbstractItemView
+{
+    background: #7777FF;
+    border: 2px solid #7777FF;
+    border-radius: 0px 0px 5px 5px;
+    font-size: 14px;
+    outline: 2px;
+}
+
+QComboBox QAbstractItemView::item
+{
+    font-size: 18px;
+    font-weight: bold;
+    height: 36px;
+    color: white;
+    padding-left: 9px;
+    background-color: #111315;
+}
+
+QComboBox QAbstractItemView::item::hover
+{
+    padding-left: 12px;
+    background-color: #7777FF;
+    color: #7777FF;
+}
+
+QComboBox QAbstractItemView::item::selected
+{
+    background-color: #7777FF;
+    color: white;
+}

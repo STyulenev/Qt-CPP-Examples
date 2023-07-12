@@ -7,5 +7,7 @@
         <file>res/icons/icon-search.png</file>
         <file>res/icons/icon-setting.png</file>
         <file>res/icons/icon-user.png</file>
+        <file>res/icons/icon-arrow-down.png</file>
+        <file>res/icons/icon-arrow-left.png</file>
     </qresource>
 </RCC>
