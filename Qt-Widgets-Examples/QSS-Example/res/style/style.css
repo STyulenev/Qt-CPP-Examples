@@ -242,7 +242,27 @@ QLineEdit::focus
     background: rgb(77, 77, 77);
 }
 
-QLineEdit:read-only
+QLineEdit::read-only
 {
     background: darkgrey;
+}
+
+QProgressBar
+{
+    border: 2px solid #7777FF;
+    border-radius: 4px;
+    outline-color: red;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    min-height: 30px;
+    background-color: #111315;
+}
+
+QProgressBar::chunk
+{
+    width: 10px;
+    margin: 2px;
+    background-color: #7777FF;
 }
