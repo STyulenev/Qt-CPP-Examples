@@ -1,5 +1,7 @@
 # QHttpServer-Example
 
+## Описание
+
 Пример использования HTTP сервера с добавлением, удалением и получением списка пользователей
 
 ## Сборка проекта
@@ -7,17 +9,21 @@
 В примере присутствуют два типа сборки - CMake и QMake.
 Сборку можно производить из QtCreator или из папки build коммандами:
 
-```
+### CMake:
+
+```bash
 cmake ..
 make
 ```
-или
+> Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
 
-```
-qmake ../-project
+### QMake:
+
+```bash
 qmake ..
 make
 ```
+> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
 
 ## Версии
 
