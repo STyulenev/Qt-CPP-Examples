@@ -334,3 +334,13 @@ QComboBox QAbstractItemView::item::selected
     background-color: #7777FF;
     color: white;
 }
+
+/*
+    Стили для линий HLine (QFrame[frameShape="4"]), VLine(QFrame[frameShape="5"])
+*/
+QFrame[frameShape="4"], QFrame[frameShape="5"]
+{
+    border: none;
+    background: #7777FF;
+    max-height: 2px;
+}
