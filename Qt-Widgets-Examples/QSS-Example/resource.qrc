@@ -9,5 +9,7 @@
         <file>res/icons/icon-user.png</file>
         <file>res/icons/icon-arrow-down.png</file>
         <file>res/icons/icon-arrow-left.png</file>
+        <file>res/icons/icon-add.png</file>
+        <file>res/icons/icon-reduce.png</file>
     </qresource>
 </RCC>

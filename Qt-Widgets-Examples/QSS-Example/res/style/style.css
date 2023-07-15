@@ -344,3 +344,43 @@ QFrame[frameShape="4"], QFrame[frameShape="5"]
     background: #7777FF;
     max-height: 2px;
 }
+
+/*
+    Стили для горизонтального скролла QScrollBar
+*/
+QScrollBar::horizontal
+{
+    border: 2px solid #7777FF;
+    background: white;
+    min-height: 20px;
+    margin: 0px 20px 0 20px;
+}
+
+QScrollBar::handle::horizontal
+{
+    background: #7777FF;
+    min-width: 20px;
+}
+
+QScrollBar::add-line::horizontal
+{
+    border: 2px solid #7777FF;
+    background: white;
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+
+    image: url(:/res/icons/icon-add.png);
+
+}
+
+QScrollBar::sub-line:horizontal
+{
+    border: 2px solid #7777FF;
+    background: white;
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+
+    image: url(:/res/icons/icon-reduce.png);
+}
