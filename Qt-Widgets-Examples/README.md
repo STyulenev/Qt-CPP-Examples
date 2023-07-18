@@ -55,3 +55,7 @@
 ## QTreeView-Example
 
 Пример использования QTreeView на примере данных из вектора.
+
+## QWebView-Example
+
+Пример использования QWebView для создания отчета в pdf с помощью html разметки.
