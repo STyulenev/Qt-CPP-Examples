@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Report</title>
+	
+    <style>
+        :root {
+            --main-padding-left: 20px;
+        }
+
+        .mainTextStyle {
+            padding-left: var(--main-padding-left);
+            align: left;
+        }
+
+        /* Data + Image */
+        .imageNTable {
+            display: table;
+            width: 100%;
+            /*margin-left: auto;
+            margin-right: auto;*/
+        }
+
+        .imageNTableRow {
+            display: table-row;
+        }
+
+        .imageNTableCell {
+            border: 1px solid black;
+            border: none;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .imageNTableBody {
+            display: table-row-group;
+        }
+
+        .imageNTableTwo {
+            display: table;
+            width: 100%;
+        }
+    </style>
+    
+    <script type="text/javascript">
+        function set() {
+            document.getElementById('title').innerHTML = report.getTitle();
+            document.getElementById('from').innerHTML = "From: " + report.getFrom();
+            document.getElementById('logo').innerHTML = report.getLogo();
+            document.getElementById('to').innerHTML = "To: " + report.getTo();
+            document.getElementById('main_text').innerHTML = report.getMainText();
+            document.getElementById('date').innerHTML = report.getDateTime();
+        }
+    </script>
+  	
+</head>
+
+<body onload="set();">
+
+    <div class="imageNTable">
+        <div class="imageNTableBody">
+            <div class="imageNTableRow">
+
+                <div class="imageNTableCell">
+                    <h2 align=center id="title"></h2>
+                    <h4 align=left class="mainTextStyle" id="from"/>
+                    <h4 align=left class="mainTextStyle" id="to"/>
+                </div>
+
+                <div class="imageNTableCell">
+                    <h1 id='logo'/>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="mainTextStyle" id="main_text"></div>
+
+    <br>
+
+    <div class="mainTextStyle" id="date"></div>
+
+</body>
+
+</html>

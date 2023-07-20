@@ -1,0 +1,386 @@
+/*
+    Стиль для главного виджета QMainWindow
+
+    .MainWindow QHeaderView.... - ограничить стили для формы MainWindow
+*/
+QMainWindow
+{
+    background: #111315;
+}
+
+/*
+    Стили фона для вертикального и горизонтального заголовков QHeaderView
+    Можно оставить просто QHeaderView
+*/
+QHeaderView::vertical, QHeaderView::horizontal
+{
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    background-color: rgb(108, 108, 108);
+
+    border: 0px solid rgb(144, 144, 144);
+    border: 0px solid rgb(191,191,191);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-radius: 0px;
+
+    min-height: 30px;
+}
+
+/*
+    Стили для ячеек вертикального и горизонтального заголовков QHeaderView
+    Можно оставить просто QHeaderView::section
+*/
+QHeaderView::section::vertical, QHeaderView::section::horizontal
+{
+    color: white;
+    background-color: rgb(64, 64, 64);
+    border: 5px solid #f6f7fa;
+    border-radius: 0px;
+    border-color: rgb(64, 64, 64);
+}
+
+/*
+    Стили для секций виджета QTableView
+*/
+QTableCornerButton::section
+{
+   /*  background: red;
+    border: 2px outset red;*/
+
+    background-color: rgb(64, 64, 64);
+    border: 5px solid #f6f7fa;
+    border-radius: 0px;
+    border-color: rgb(64, 64, 64);
+}
+
+/*
+    Стили для виджета QTableView
+*/
+QTableView
+{
+    color: white;
+    gridline-color: black;
+    background-color: rgb(108, 108, 108);
+    alternate-background-color: rgb(64, 64, 64);
+    selection-color: white;
+    selection-background-color: rgb(77, 77, 77);
+    border: 2px groove gray;
+    border-radius: 0px;
+    padding: 2px 4px;
+}
+
+/*
+    Стили для кнопок QPushButton
+*/
+QPushButton
+{
+    min-height: 40px;
+    min-width: 120px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    /*border: 1px solid white;*/
+    border-radius: 5px;
+    background-color: rgb(189, 189, 189);
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/*
+    Стили для кнопок QPushButton при наведении и фокусе
+*/
+QPushButton::hover, QPushButton::focus
+{
+    padding-left: 1px;
+    padding-right: 1px;
+    height: 28px;
+    /*border: 3px solid white;*/
+    border-radius: 5px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    background-color: rgb(129, 129, 129);
+}
+
+/*
+    Стили для кнопок QPushButton при нажатии
+*/
+QPushButton::pressed
+{
+    /*border: 3px solid white;*/
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgb(85, 170, 255);
+}
+
+/*
+    Стили для QCheckBox
+*/
+QCheckBox
+{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    spacing: 8px;
+
+    color: #FFFFFF;
+}
+
+/*
+    Стили для индикатора QCheckBox прои значении on
+*/
+QCheckBox::indicator:checked
+{
+    image: url(:/res/icons/checkBoxOn.svg);
+}
+
+/*
+    Стили для индикатора QCheckBox прои значении off
+*/
+QCheckBox::indicator:unchecked
+{
+    image: url(:/res/icons/checkBoxOff.svg);
+}
+
+/*
+    Стили для кнопок настроек QToolButton - toolButtonUser, toolButtonSetting, toolButtonSearch
+*/
+QToolButton#toolButtonUser, QToolButton#toolButtonSetting, QToolButton#toolButtonSearch
+{
+    min-height: 40px;
+    min-width: 40px;
+
+    border: 2px solid #7777FF;
+
+    border-radius: 5px;
+    background-color: rgb(189, 189, 189);
+}
+
+QTabWidget::pane
+{
+    border: 2px solid #7777FF;
+}
+
+QTabWidget::tab-bar
+{
+    left: 25px;
+}
+
+QTabBar::tab
+{
+    background: #111315;
+    border: 2px solid #C4C4C3;
+    border-bottom-color: #C2C7CB;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    min-width: 120px;
+    min-height: 30px;
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+    padding: 2px;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover
+{
+    background: #111315;
+    color: #7777FF;
+    font-weight: bold;
+}
+
+QTabBar::tab:selected
+{
+    border-color: #7777FF;
+    border-bottom-color: #111315;
+}
+
+QTabBar::tab:!selected
+{
+    margin-top: 2px;
+}
+
+QGroupBox
+{
+    border: 2px solid #7777FF;
+    border-radius: 4px;
+    margin-top: 8ex;
+    font-size: 16px;
+    color: #7777FF;
+    font-weight: bold;
+}
+
+QGroupBox::title
+{
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 5px 5px;
+}
+
+QLineEdit
+{
+    border: 2px solid #7777FF;
+    border-radius: 4px;
+    padding: 2px 2px;
+    background: rgb(64, 64, 64);
+
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+
+    min-height: 30px;
+}
+
+QLineEdit::focus
+{
+    background: rgb(77, 77, 77);
+}
+
+QLineEdit::read-only
+{
+    background: darkgrey;
+}
+
+QProgressBar
+{
+    border: 2px solid #7777FF;
+    border-radius: 4px;
+    outline-color: red;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    min-height: 30px;
+    background-color: #111315;
+}
+
+QProgressBar::chunk
+{
+    width: 10px;
+    margin: 2px;
+    background-color: #7777FF;
+}
+
+QComboBox
+{
+    background: #111315;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 5px 1px 10px;
+    border: 2px solid #7777FF;
+    border-radius: 4px;
+    min-height: 36px;
+}
+
+QComboBox:on
+{
+    padding-left: 12px;
+}
+
+QComboBox::drop-down
+{
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+    border-bottom: none;
+}
+
+QComboBox::down-arrow
+{
+    image: url(:/res/icons/icon-arrow-down.png);
+    padding: 0px 20px 0px 0px;
+}
+
+QComboBox::down-arrow::on
+{
+    image: url(:/res/icons/icon-arrow-left.png);
+}
+
+QComboBox QAbstractItemView
+{
+    background: #7777FF;
+    border: 2px solid #7777FF;
+    border-radius: 0px 0px 5px 5px;
+    font-size: 14px;
+    outline: 2px;
+}
+
+QComboBox QAbstractItemView::item
+{
+    font-size: 18px;
+    font-weight: bold;
+    height: 36px;
+    color: white;
+    padding-left: 9px;
+    background-color: #111315;
+}
+
+QComboBox QAbstractItemView::item::hover
+{
+    padding-left: 12px;
+    background-color: #7777FF;
+    color: #7777FF;
+}
+
+QComboBox QAbstractItemView::item::selected
+{
+    background-color: #7777FF;
+    color: white;
+}
+
+/*
+    Стили для линий HLine (QFrame[frameShape="4"]), VLine(QFrame[frameShape="5"])
+*/
+QFrame[frameShape="4"], QFrame[frameShape="5"]
+{
+    border: none;
+    background: #7777FF;
+    max-height: 2px;
+}
+
+/*
+    Стили для горизонтального скролла QScrollBar
+*/
+QScrollBar::horizontal
+{
+    border: 2px solid #7777FF;
+    background: white;
+    min-height: 20px;
+    margin: 0px 20px 0 20px;
+}
+
+QScrollBar::handle::horizontal
+{
+    background: #7777FF;
+    min-width: 20px;
+}
+
+QScrollBar::add-line::horizontal
+{
+    border: 2px solid #7777FF;
+    background: white;
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+
+    image: url(:/res/icons/icon-add.png);
+
+}
+
+QScrollBar::sub-line:horizontal
+{
+    border: 2px solid #7777FF;
+    background: white;
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+
+    image: url(:/res/icons/icon-reduce.png);
+}
