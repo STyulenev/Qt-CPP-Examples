@@ -4,6 +4,26 @@
 
 Пример использования библиотеки распараллеливания программ OpenMP (Встроенная библиотека).
 
+## Сборка
+
+Собрать проект можно из QtCreator или из папки build коммандами:
+
+### CMake:
+
+```bash
+cmake ..
+make
+```
+> Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
+
+### QMake:
+
+```bash
+qmake ..
+make
+```
+> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
+
 ## Версии
 
 Версии сред, языков и утилит, которые использовались на момент написания проекта.

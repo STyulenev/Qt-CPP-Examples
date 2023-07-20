@@ -17,17 +17,21 @@
 2. Прописать пути к заголовочным файлам и файлам .ddl/.so в containers-examples/СMakeLists.txt (для CMake) или containers-examples/Source.pri (для QMake).
 3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
-```
+### CMake:
+
+```bash
 cmake ..
 make
 ```
-или
+> Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
 
-```
-qmake ../-project
+### QMake:
+
+```bash
 qmake ..
 make
 ```
+> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
 
 ## Версии
 
