@@ -4,6 +4,10 @@
 
 Пример использования ListView в QML на основе модели.
 
+## QML-RadioButtonGroup-Example
+
+Пример использования RadioButton в QML на основе модели из C++ слоя.
+
 ## QML-StackView-Example
 
 Пример использования StackView в QML.
