@@ -1,5 +1,7 @@
 #include "RadioButtonGroupsView.h"
 
+namespace Views {
+
 RadioButtonGroupsView::RadioButtonGroupsView(QObject* parent) :
     QObject(parent)
 {
@@ -9,10 +11,12 @@ RadioButtonGroupsView::RadioButtonGroupsView(QObject* parent) :
         "No data"
     };
 
-    m_radioButtonGroupModel = new RadioButtonGroupListModel(radioButtonList, 1, this);
+    m_radioButtonGroupModel = new ViewModels::RadioButtonGroupListModel(radioButtonList, 1, this);
 }
 
 auto RadioButtonGroupsView::getRadioButtonGroupModel() const -> QAbstractListModel*
 {
     return m_radioButtonGroupModel;
 }
+
+} // namespace Views

@@ -8,7 +8,7 @@ auto main(int argc, char* argv[]) -> int
     QGuiApplication app(argc, argv);
 
     // Register C ++ type to QML
-    qmlRegisterType<RadioButtonGroupsView>("ViewModels", 0, 1, "RadioButtonGroupsView");
+    qmlRegisterType<Views::RadioButtonGroupsView>("ViewModels", 0, 1, "RadioButtonGroupsView");
 
     QQmlApplicationEngine engine;
     engine.addImportPath("qrc:/qml");

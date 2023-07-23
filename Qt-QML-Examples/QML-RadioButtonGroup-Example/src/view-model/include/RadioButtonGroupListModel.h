@@ -1,7 +1,8 @@
 #pragma once
 
 #include <QAbstractListModel>
-#include <QList>
+
+namespace ViewModels {
 
 class RadioButtonGroupListModel final : public QAbstractListModel
 {
@@ -20,8 +21,7 @@ private:
 
 public:
     enum Role {
-        TextRole = Qt::UserRole + 1,
-        EnabledRole,
+        EnabledRole = Qt::UserRole + 1,
         CheckedRole
     };
 
@@ -32,11 +32,12 @@ public:
     auto setCurrentItem(int newCurrentItem) -> void;
 
 protected:
-    virtual auto roleNames() const -> QHash<int, QByteArray> override;
     virtual auto rowCount(const QModelIndex& = QModelIndex()) const -> int override;
+    virtual auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
     virtual auto data(const QModelIndex& index, int role) const -> QVariant override;
     virtual auto setData(const QModelIndex& index, const QVariant& value, int role) -> bool override;
-    virtual auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
+    virtual auto roleNames() const -> QHash<int, QByteArray> override;
 
 };
 
+} // namespace ViewModels

@@ -6,6 +6,8 @@ import QtQuick.Layouts 1.15
 Item {
     id: radioButtonGroup
 
+    property alias columns: container.columns
+    property alias rows: container.rows
     property alias model: maker.model
 
     ButtonGroup {
@@ -15,8 +17,6 @@ Item {
 
     Grid {
         id: container
-        columns: 2
-        rows: 2
 
         anchors.fill: parent
         spacing: 5
@@ -30,9 +30,9 @@ Item {
                 height: 40
 
                 RadioButton {
-                    text: model.text
-                    checked: model.checked
-                    enabled: model.enabled
+                    text: model.DisplayRole
+                    checked: model.CheckedRole
+                    enabled: model.EnabledRole
                     anchors.centerIn: parent
 
                     ButtonGroup.group: group

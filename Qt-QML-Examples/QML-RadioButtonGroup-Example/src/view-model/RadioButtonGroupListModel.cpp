@@ -2,6 +2,8 @@
 
 #include <QDebug>
 
+namespace ViewModels {
+
 RadioButtonGroupListModel::RadioButtonGroupListModel(const QStringList& options, const int currentItem, QObject* parent) :
     QAbstractListModel(parent),
     currentItem(currentItem)
@@ -15,19 +17,24 @@ RadioButtonGroupListModel::RadioButtonGroupListModel(const QStringList& options,
     }
 }
 
-auto RadioButtonGroupListModel::roleNames() const -> QHash<int, QByteArray>
+auto RadioButtonGroupListModel::getCurrentItem() const -> int
 {
-    return {
-        { Role::TextRole,    "text"    },
-        { Role::EnabledRole, "enabled" },
-        { Role::CheckedRole, "checked" },
-        { Qt::EditRole,      "EditRole" }
-    };
+    return currentItem;
+}
+
+auto RadioButtonGroupListModel::setCurrentItem(int newCurrentItem) -> void
+{
+    currentItem = newCurrentItem;
 }
 
 auto RadioButtonGroupListModel::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
     return listData.size();
+}
+
+auto RadioButtonGroupListModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
+{
+    return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsUserCheckable | Qt::ItemIsEditable;
 }
 
 auto RadioButtonGroupListModel::data(const QModelIndex& index, int role) const -> QVariant
@@ -37,7 +44,7 @@ auto RadioButtonGroupListModel::data(const QModelIndex& index, int role) const -
     }
 
     switch (role) {
-    case Role::TextRole:
+    case Qt::DisplayRole:
         return listData[index.row()].text;
     case Role::EnabledRole:
         return listData[index.row()].enabled;
@@ -63,17 +70,17 @@ auto RadioButtonGroupListModel::setData(const QModelIndex& index, [[maybe_unused
     return true;
 }
 
-auto RadioButtonGroupListModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
+auto RadioButtonGroupListModel::roleNames() const -> QHash<int, QByteArray>
 {
-    return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsUserCheckable | Qt::ItemIsEditable;
+    QHash<int, QByteArray> roles;
+
+    roles[Qt::DisplayRole]  = "DisplayRole";
+    roles[Role::EnabledRole] = "EnabledRole";
+    roles[Role::CheckedRole] = "CheckedRole";
+    roles[Qt::EditRole] = "EditRole";
+
+    return roles;
 }
 
-auto RadioButtonGroupListModel::getCurrentItem() const -> int
-{
-    return currentItem;
-}
 
-auto RadioButtonGroupListModel::setCurrentItem(int newCurrentItem) -> void
-{
-    currentItem = newCurrentItem;
-}
+} // namespace ViewModels

@@ -3,6 +3,8 @@
 #include <QObject>
 #include "RadioButtonGroupListModel.h"
 
+namespace Views {
+
 class RadioButtonGroupsView : public QObject
 {
     Q_OBJECT
@@ -23,3 +25,4 @@ signals:
 
 };
 
+} // namespace Views

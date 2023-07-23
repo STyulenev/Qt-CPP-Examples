@@ -23,5 +23,7 @@ Window {
 
         anchors.fill: parent
         model: appWindow.viewModel.radioButtonGroupModel
+        columns: 1
+        rows: 3
     }
 }
