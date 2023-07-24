@@ -23,13 +23,9 @@ CONFIG(debug, debug | release) {
 
 QML_IMPORT_PATH += $$PWD/qml
 
-INCLUDEPATH += src/
-
-HEADERS += \
-        src/ListModel.h
+include(src/Source.pri)
 
 SOURCES += \
-        src/ListModel.cpp \
         main.cpp
 
 RESOURCES += \
