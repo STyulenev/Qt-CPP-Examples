@@ -8,7 +8,7 @@ auto main(int argc, char* argv[]) -> int
     QGuiApplication app(argc, argv);
 
     // Register C ++ type to QML
-    qmlRegisterType<ViewModels::TableModel>("TableModels", 0, 1, "TableModel");
+    qmlRegisterType<ViewModels::TableModel>("ViewModels", 0, 1, "TableModel");
 
     QQmlApplicationEngine engine;
     engine.addImportPath("qrc:/qml");

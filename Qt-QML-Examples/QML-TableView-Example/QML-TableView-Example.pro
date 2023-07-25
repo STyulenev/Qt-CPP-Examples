@@ -23,13 +23,9 @@ CONFIG(debug, debug | release) {
 
 QML_IMPORT_PATH += $$PWD/qml
 
-INCLUDEPATH += src/
-
-HEADERS += \
-        src/TableModel.h
+include(src/Source.pri)
 
 SOURCES += \
-        src/TableModel.cpp \
         main.cpp
 
 RESOURCES += \
