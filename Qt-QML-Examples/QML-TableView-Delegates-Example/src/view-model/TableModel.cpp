@@ -4,28 +4,17 @@
 
 namespace ViewModels {
 
-struct TestModel {
-    QString name;
-    QString iconUrl;
-    QString number;
-    bool    status;
-};
-
 TableModel::TableModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
-    model = { { "John",  "qrc:/images/user1.png",  "12345", true  },
-              { "Masha", "qrc:/images/user2.png", "12345",  false },
-              { "Ben",   "qrc:/images/user3.png", "12345",  false },
-              { "Kent",  "qrc:/images/user4.png", "12345",  true  }
-            };
+    m_model = {
+                { "John",  "qrc:/res/images/user1.png", "12345", true  },
+                { "Masha", "qrc:/res/images/user2.png", "12345", false },
+                { "Ben",   "qrc:/res/images/user3.png", "12345", false },
+                { "Kent",  "qrc:/res/images/user4.png", "12345", true  }
+              };
 
-    columnWidthList = { 0.25, 0.25, 0.25, 0.25 };
-}
-
-TableModel::~TableModel()
-{
-
+    m_columnWidthList = { 0.25, 0.25, 0.25, 0.25 };
 }
 
 auto TableModel::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
@@ -35,7 +24,7 @@ auto TableModel::columnCount([[maybe_unused]] const QModelIndex& index) const ->
 
 auto TableModel::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
-    return model.length();
+    return m_model.length();
 }
 
 auto TableModel::data(const QModelIndex& index, int role) const -> QVariant
@@ -43,9 +32,9 @@ auto TableModel::data(const QModelIndex& index, int role) const -> QVariant
     switch (role) {
     case Qt::DisplayRole:
         switch (index.column()) {
-        case 0: return model.at(index.row()).name;
+        case 0: return m_model.at(index.row()).name;
         case 1: return QVariant("");
-        case 2: return model.at(index.row()).number;
+        case 2: return m_model.at(index.row()).number;
         case 3: return QVariant("");
         [[unlikely]] default: assert(!"Should not get here");
         }
@@ -54,7 +43,7 @@ auto TableModel::data(const QModelIndex& index, int role) const -> QVariant
         case 0: return QVariant();
         case 1: return QVariant();
         case 2: return QVariant();
-        case 3: return model.at(index.row()).status ? Qt::Checked : Qt::Unchecked;
+        case 3: return m_model.at(index.row()).status ? Qt::Checked : Qt::Unchecked;
         [[unlikely]] default: assert(!"Should not get here");
         }
     case Qt::TextAlignmentRole:
@@ -62,7 +51,7 @@ auto TableModel::data(const QModelIndex& index, int role) const -> QVariant
     case Qt::DecorationRole:
         switch (index.column()) {
         case 0: return QUrl();
-        case 1: return QUrl(model.at(index.row()).iconUrl);
+        case 1: return QUrl(m_model.at(index.row()).iconUrl);
         case 2: return QUrl();
         case 3: return QUrl();
         [[unlikely]] default: assert(!"Should not get here");
@@ -116,13 +105,13 @@ auto TableModel::setData(const QModelIndex& index, const QVariant& value, int ro
     switch (role) {
     case Qt::CheckStateRole:
         if (index.column() == 3) {
-            model[index.row()].status = (value.toInt() == Qt::Checked);
+            m_model[index.row()].status = (value.toInt() == Qt::Checked);
         }
         emit dataChanged(index, index);
         break;
     case Qt::EditRole:
         if (index.column() == 2) {
-            model[index.row()].number = value.toString();
+            m_model[index.row()].number = value.toString();
         }
 
         emit dataChanged(index, index);
@@ -146,9 +135,9 @@ auto TableModel::roleNames() const -> QHash<int, QByteArray>
     return roles;
 }
 
-auto TableModel::columnWidths() const -> const QList<double>&
+auto TableModel::getColumnWidths() const -> const QList<double>&
 {
-    return columnWidthList;
+    return m_columnWidthList;
 }
 
 } // namespace ViewModels

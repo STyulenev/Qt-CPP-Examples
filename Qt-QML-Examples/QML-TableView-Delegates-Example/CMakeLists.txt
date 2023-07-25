@@ -12,15 +12,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
 
-include_directories(${PROJECT_NAME} PRIVATE "src/")
+add_subdirectory(src)
 
 add_executable(${PROJECT_NAME}
     main.cpp
 
     resource.qrc
-
-    src/TableModel.h
-    src/TableModel.cpp
 )
 
 list(APPEND QML_DIRS "${CMAKE_SOURCE_DIR}/qml")
@@ -28,7 +25,11 @@ list(REMOVE_DUPLICATES QML_DIRS)
 set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "QML import paths")
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Quick)
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt6::Quick
+
+    View-model-lib
+)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES

@@ -1,6 +1,10 @@
-import QtQuick
 import QtQml 2.15
+import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Window 2.15
+
+//import Delegates 1.0 as Delegates
 
 TableView {
     id: tableView
@@ -70,92 +74,18 @@ TableView {
 
         implicitWidth: (tableView.width - 35) * widthsColumn[column]
         implicitHeight: 35
-
         clip: true
 
-        Label {
-            id: labelDelegate
-            text: model.DisplayRole
-            visible: model.column === 0
-            anchors.fill: parent
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: model.TextAlignmentRole
-
-            ToolTip.text: model.ToolTipRole
-            ToolTip.visible: model.ToolTipRole ? maLabelDelegate.containsMouse : false
-
-            MouseArea {
-                id: maLabelDelegate
-                anchors.fill: parent
-                hoverEnabled: true
-            }
-        }
-
-        Image {
-            id: iconDelegate
-            visible: model.column === 1
+        Loader {
             anchors.centerIn: parent
-            source: model.DecorationRole
-
-            ToolTip.text: model.ToolTipRole
-            ToolTip.visible: model.ToolTipRole ? maIconDelegate.containsMouse : false
-
-            MouseArea {
-                id: maIconDelegate
-                anchors.fill: parent
-                hoverEnabled: true
-            }
-        }
-
-        TextInput {
-            id: lineEditDelegate
-            anchors.centerIn: parent
-            visible: model.column === 2
-            text: model.DisplayRole
-
-            onTextEdited:  {
-                model.EditRole = text
-            }
-
-            ToolTip.text: model.ToolTipRole
-            ToolTip.visible: model.ToolTipRole ? maLineEditDelegate.containsMouse : false
-
-            MouseArea {
-                id: maLineEditDelegate
-                anchors.fill: parent
-                hoverEnabled: true
-                acceptedButtons: Qt.RightButton
-
-                onClicked: {
-                    mouse.accepted = true
-                }
-            }
-        }
-
-        CheckBox {
-            id: checkDelegate
-            visible: model.column === 3
-            checked: model.CheckStateRole ? Qt.Checked : Qt.Unchecked
-            anchors.centerIn: parent
-            default property alias children: maCheckDelegate.data
-
-            onClicked: {
-                model.CheckStateRole = checked ? Qt.Checked : Qt.Unchecked
-            }
-
-            ToolTip.text: model.ToolTipRole
-            ToolTip.visible: model.ToolTipRole ? maCheckDelegate.containsMouse : false
-
-            MouseArea {
-                id: maCheckDelegate
-                anchors.fill: parent
-                hoverEnabled: true
-                acceptedButtons: Qt.RightButton
-
-                onClicked: {
-                    mouse.accepted = true
-                }
-            }
+            asynchronous: true
+            visible: status == Loader.Ready
+            source: switch (model.column) {
+                    case 0: return "../Delegates/LabelDelegate.qml"
+                    case 1: return "../Delegates/ImageDelegate.qml"
+                    case 2: return "../Delegates/TextInputDelegate.qml"
+                    case 3: return "../Delegates/CheckBoxDelegate.qml"
+                    }
         }
 
         Rectangle {
