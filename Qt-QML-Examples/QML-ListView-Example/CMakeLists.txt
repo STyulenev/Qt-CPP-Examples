@@ -12,8 +12,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
 
-include_directories(${PROJECT_NAME} PRIVATE "src/")
-
 add_subdirectory(src)
 
 add_executable(${PROJECT_NAME}
