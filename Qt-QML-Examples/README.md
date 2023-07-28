@@ -1,5 +1,9 @@
 # Qt-QML-Examples
 
+## QML-ChartView-Example
+
+Пример использования ChartView в QML на основе модели.
+
 ## QML-ListView-Example
 
 Пример использования ListView в QML на основе модели.
