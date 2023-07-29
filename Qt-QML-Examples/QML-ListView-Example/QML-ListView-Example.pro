@@ -1,11 +1,11 @@
 QT += quick
 
 CONFIG += c++20
-CONFIG += debug # release
+#CONFIG += debug / release
 
 TARGET = QML-ListView-Example
 
-CONFIG(debug, release) { # debug|release
+CONFIG(debug, debug | release) {
     message("debug mode")
 
     OBJECTS_DIR = $$OUT_PWD/debug/obj # промежуточные объекты
@@ -23,13 +23,9 @@ CONFIG(debug, release) { # debug|release
 
 QML_IMPORT_PATH += $$PWD/qml
 
-INCLUDEPATH += src/
-
-HEADERS += \
-        src/ListModel.h
+include(src/Source.pri)
 
 SOURCES += \
-        src/ListModel.cpp \
         main.cpp
 
 RESOURCES += \

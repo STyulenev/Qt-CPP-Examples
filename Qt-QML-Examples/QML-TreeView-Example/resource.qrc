@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qml/Widgets/TreeViewWidget.qml</file>
+        <file>qml/Widgets/qmldir</file>
+    </qresource>
+</RCC>

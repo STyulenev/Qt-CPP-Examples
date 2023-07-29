@@ -1,11 +1,11 @@
 QT += quick
 
 CONFIG += c++20
-CONFIG += debug # release
+#CONFIG += debug / release
 
 TARGET = QML-TableView-Example
 
-CONFIG(debug, release) { # debug|release
+CONFIG(debug, debug | release) {
     message("debug mode")
 
     OBJECTS_DIR = $$OUT_PWD/debug/obj # промежуточные объекты
@@ -23,13 +23,9 @@ CONFIG(debug, release) { # debug|release
 
 QML_IMPORT_PATH += $$PWD/qml
 
-INCLUDEPATH += src/
-
-HEADERS += \
-        src/TableModel.h
+include(src/Source.pri)
 
 SOURCES += \
-        src/TableModel.cpp \
         main.cpp
 
 RESOURCES += \

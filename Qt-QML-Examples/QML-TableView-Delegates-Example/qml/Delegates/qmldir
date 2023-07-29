@@ -1,0 +1,6 @@
+module Delegates
+
+CheckBoxDelegate 1.0 CheckBoxDelegate.qml
+ImageDelegate 1.0 ImageDelegate.qml
+LabelDelegate 1.0 LabelDelegate.qml
+TextInputDelegate 1.0 TextInputDelegate.qml

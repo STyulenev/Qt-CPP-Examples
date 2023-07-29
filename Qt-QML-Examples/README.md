@@ -1,8 +1,16 @@
 # Qt-QML-Examples
 
+## QML-ChartView-Example
+
+Пример использования ChartView в QML на основе модели.
+
 ## QML-ListView-Example
 
 Пример использования ListView в QML на основе модели.
+
+## QML-RadioButtonGroup-Example
+
+Пример использования RadioButton в QML на основе модели из C++ слоя.
 
 ## QML-StackView-Example
 
@@ -27,6 +35,10 @@
 ## QML-TableView-Example
 
 Пример использования TableView в QML на основе модели.
+
+## QML-TreeView-Example
+
+Пример использования TreeView в QML на основе модели.
 
 ## QML-Widgets-Example
 

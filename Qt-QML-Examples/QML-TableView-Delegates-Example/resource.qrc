@@ -1,14 +1,16 @@
 <RCC>
     <qresource prefix="/">
-        <!-- qml -->
         <file>main.qml</file>
         <file>qml/Widgets/TableViewData.qml</file>
         <file>qml/Widgets/qmldir</file>
-
-        <!-- icons -->
-        <file>images/user1.png</file>
-        <file>images/user2.png</file>
-        <file>images/user3.png</file>
-        <file>images/user4.png</file>
+        <file>qml/Delegates/CheckBoxDelegate.qml</file>
+        <file>qml/Delegates/ImageDelegate.qml</file>
+        <file>qml/Delegates/LabelDelegate.qml</file>
+        <file>qml/Delegates/qmldir</file>
+        <file>qml/Delegates/TextInputDelegate.qml</file>
+        <file>res/images/user1.png</file>
+        <file>res/images/user2.png</file>
+        <file>res/images/user3.png</file>
+        <file>res/images/user4.png</file>
     </qresource>
 </RCC>

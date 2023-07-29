@@ -1,11 +1,11 @@
 QT += quick
 
 CONFIG += c++20
-CONFIG += debug # release
+#CONFIG += debug / release
 
 TARGET = QML-StackView-Example
 
-CONFIG(debug, release) { # debug|release
+CONFIG(debug, debug | release) {
     message("debug mode")
 
     OBJECTS_DIR = $$OUT_PWD/debug/obj # промежуточные объекты

@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qml/Widgets/qmldir</file>
+        <file>qml/Widgets/RadioButtonGroup.qml</file>
+        <file>qml/Widgets/RadioButtonGroup_Form.ui.qml</file>
+    </qresource>
+</RCC>
