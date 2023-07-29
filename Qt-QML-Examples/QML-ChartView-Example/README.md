@@ -4,6 +4,8 @@
 
 Пример использования ChartView в QML на основе модели.
 
+![alt text](doc/QML-ChartView-Example.png)
+
 ## Сборка проекта
 
 Проект может быть собран из QtCreator или из папки build коммандами:

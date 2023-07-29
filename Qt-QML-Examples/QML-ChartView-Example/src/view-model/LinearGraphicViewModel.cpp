@@ -1,14 +1,6 @@
 #include "LinearGraphicViewModel.h"
 
-#include <QUrl>
-
 namespace ViewModels {
-
-LinearGraphicViewModel::LinearGraphicViewModel(QObject *parent)
-    : QAbstractTableModel(parent)
-{
-
-}
 
 LinearGraphicViewModel::LinearGraphicViewModel(const QVector<std::pair<double, double>>& data, QObject* parent)
     : QAbstractTableModel(parent),
@@ -17,12 +9,12 @@ LinearGraphicViewModel::LinearGraphicViewModel(const QVector<std::pair<double, d
 
 }
 
-auto LinearGraphicViewModel::columnCount(const QModelIndex& parent) const -> int
+auto LinearGraphicViewModel::columnCount([[maybe_unused]] const QModelIndex& parent) const -> int
 {
     return 2;
 }
 
-auto LinearGraphicViewModel::rowCount(const QModelIndex& parent) const -> int
+auto LinearGraphicViewModel::rowCount([[maybe_unused]] const QModelIndex& parent) const -> int
 {
     return m_data.length();
 }

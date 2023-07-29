@@ -12,7 +12,7 @@ private:
     QVector<std::pair<double, double>> m_data;
 
 public:
-    explicit LinearGraphicViewModel(QObject* parent = 0);
+    LinearGraphicViewModel(QObject* parent = 0) = delete;
     explicit LinearGraphicViewModel(const QVector<std::pair<double, double>>& data, QObject* parent = 0);
 
     virtual ~LinearGraphicViewModel() = default;

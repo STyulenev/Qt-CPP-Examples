@@ -14,7 +14,7 @@ Window {
     visible: true
     title: "QML-ChartView-Example"
 
-    property QtObject currentModel: Views.LinearGraphicsView {}
+    property QtObject currentView: Views.LinearGraphicsView {}
 
     ChartView {
         antialiasing: true
@@ -28,22 +28,22 @@ Window {
         }
 
         LineSeries {
-            name: "Chart 1"
+            name: currentView.firstGraphicName
             color: "red"
 
             VXYModelMapper {
-                model: currentModel.firstGraphic
+                model: currentView.firstGraphic
                 xColumn: 0
                 yColumn: 1
             }
         }
 
         LineSeries {
-            name: "Chart 2"
+            name: currentView.secondGraphicName
             color: "blue"
 
             VXYModelMapper {
-                model: currentModel.secondGraphic
+                model: currentView.secondGraphic
                 xColumn: 0
                 yColumn: 1
             }
