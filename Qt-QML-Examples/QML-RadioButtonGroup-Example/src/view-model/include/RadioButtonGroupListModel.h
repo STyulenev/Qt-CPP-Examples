@@ -25,7 +25,8 @@ public:
         CheckedRole
     };
 
-    RadioButtonGroupListModel(const QStringList& options, const int currentItem, QObject* parent);
+    RadioButtonGroupListModel(QObject* parent) = delete;
+    explicit RadioButtonGroupListModel(const QStringList& options, const int currentItem, QObject* parent);
     virtual ~RadioButtonGroupListModel() = default;
 
     auto getCurrentItem() const -> int;

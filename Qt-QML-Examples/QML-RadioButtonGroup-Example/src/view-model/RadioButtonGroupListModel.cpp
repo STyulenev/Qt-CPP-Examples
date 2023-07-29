@@ -1,7 +1,5 @@
 #include "RadioButtonGroupListModel.h"
 
-#include <QDebug>
-
 namespace ViewModels {
 
 RadioButtonGroupListModel::RadioButtonGroupListModel(const QStringList& options, const int currentItem, QObject* parent) :

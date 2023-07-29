@@ -4,7 +4,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 
 // Import C ++ class
-import ViewModels 0.1 as ViewModels
+import Views 0.1 as Views
 
 // Import QML module
 import Widgets 1.0 as Widgets
@@ -16,7 +16,7 @@ Window {
     visible: true
     title: "QML-RadioButtonGroup-Example"
 
-    property QtObject viewModel: ViewModels.RadioButtonGroupsView {}
+    property QtObject viewModel: Views.RadioButtonGroupsView {}
 
     Widgets.RadioButtonGroup {
         id: radioButtonGroup

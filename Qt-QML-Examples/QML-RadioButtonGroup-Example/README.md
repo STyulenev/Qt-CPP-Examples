@@ -4,6 +4,8 @@
 
 Пример использования RadioButton в QML на основе модели из C++ слоя.
 
+![alt text](doc/QML-RadioButtonGroup-Example.png)
+
 ## Сборка проекта
 
 Проект может быть собран из QtCreator или из папки build коммандами:
