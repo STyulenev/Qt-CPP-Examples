@@ -384,3 +384,21 @@ QScrollBar::sub-line:horizontal
 
     image: url(:/res/icons/icon-reduce.png);
 }
+
+/*
+    Стили для диалогового окна QMessageBox
+*/
+QMessageBox
+{
+    background: #111315;
+}
+
+QMessageBox QLabel
+{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 19px;
+
+    color: #FFFFFF;
+}

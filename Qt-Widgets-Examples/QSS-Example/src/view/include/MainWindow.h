@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget* parent = nullptr);
-    ~MainWindow();
+    virtual ~MainWindow();
 
 private slots:
     auto on_exitButton_clicked() -> void;
