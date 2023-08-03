@@ -5,7 +5,8 @@
 
 namespace Screens {
 
-AuthenticationScreen::AuthenticationScreen() :
+AuthenticationScreen::AuthenticationScreen(QWidget* parent) :
+    BaseScreen(parent),
     ui(new Ui::AuthenticationScreen)
 {
     ui->setupUi(this);

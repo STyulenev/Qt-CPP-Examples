@@ -1,5 +1,13 @@
 <RCC>
     <qresource prefix="/">
         <file>res/image/example.png</file>
+        <file>res/icon/main_about.png</file>
+        <file>res/icon/main_company.png</file>
+        <file>res/icon/main_config.png</file>
+        <file>res/icon/main_data.png</file>
+        <file>res/icon/main_exit.png</file>
+        <file>res/icon/main_help.png</file>
+        <file>res/icon/main_main.png</file>
+        <file>res/icon/main_person.png</file>
     </qresource>
 </RCC>

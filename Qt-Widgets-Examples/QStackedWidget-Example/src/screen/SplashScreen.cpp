@@ -7,7 +7,8 @@
 
 namespace Screens {
 
-SplashScreen::SplashScreen() :
+SplashScreen::SplashScreen(QWidget* parent) :
+    BaseScreen(parent),
     ui(new Ui::SplashScreen)
 {
     ui->setupUi(this);

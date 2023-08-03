@@ -12,7 +12,7 @@ private:
     QString m_screenName;
 
 public:
-    explicit BaseScreen();
+    explicit BaseScreen(QWidget* parent = nullptr);
     virtual ~BaseScreen() = default;
 
     auto screenName() const -> const QString&;

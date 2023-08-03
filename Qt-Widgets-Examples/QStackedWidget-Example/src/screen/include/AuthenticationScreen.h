@@ -13,7 +13,7 @@ class AuthenticationScreen : public BaseScreen
     Q_OBJECT
 
 public:
-    explicit AuthenticationScreen();
+    explicit AuthenticationScreen(QWidget* parent = nullptr);
     virtual ~AuthenticationScreen();
 
 private slots:

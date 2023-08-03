@@ -13,7 +13,7 @@ class SplashScreen : public BaseScreen
     Q_OBJECT
 
 public:
-    explicit SplashScreen();
+    explicit SplashScreen(QWidget* parent = nullptr);
     virtual ~SplashScreen();
 
 private:

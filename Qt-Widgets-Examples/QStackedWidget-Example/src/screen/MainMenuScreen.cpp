@@ -1,9 +1,13 @@
 #include "MainMenuScreen.h"
 #include "ui_MainMenuScreen.h"
 
+#include "UserScreen.h"
+#include "SettingScreen.h"
+
 namespace Screens {
 
-MainMenuScreen::MainMenuScreen() :
+MainMenuScreen::MainMenuScreen(QWidget* parent) :
+    BaseScreen(parent),
     ui(new Ui::MainMenuScreen)
 {
     ui->setupUi(this);
@@ -15,10 +19,17 @@ MainMenuScreen::~MainMenuScreen()
     delete ui;
 }
 
-void MainMenuScreen::on_pushButton_clicked()
+
+auto MainMenuScreen::on_userScreenButton_clicked() -> void
 {
-    //back();
-    backTo("AuthenticationScreen");
+    next(new UserScreen());
 }
+
+
+auto MainMenuScreen::on_settingScreenButton_clicked() -> void
+{
+    next(new SettingScreen());
+}
+
 
 } // namespace Screens

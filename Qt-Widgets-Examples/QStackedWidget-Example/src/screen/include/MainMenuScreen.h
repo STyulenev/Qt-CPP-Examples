@@ -16,12 +16,12 @@ private:
     Ui::MainMenuScreen* ui;
 
 public:
-    explicit MainMenuScreen();
+    explicit MainMenuScreen(QWidget* parent = nullptr);
     virtual ~MainMenuScreen();
 
 private slots:
-    void on_pushButton_clicked();
-
+    auto on_userScreenButton_clicked() -> void;
+    auto on_settingScreenButton_clicked() -> void;
 };
 
 } // namespace Screens
