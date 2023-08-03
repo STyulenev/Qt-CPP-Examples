@@ -45,6 +45,13 @@
         </spacer>
        </item>
        <item>
+        <widget class="QPushButton" name="toUserScreenButton">
+         <property name="text">
+          <string>to UserScreen</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="logoutButton">
          <property name="text">
           <string>Logout</string>

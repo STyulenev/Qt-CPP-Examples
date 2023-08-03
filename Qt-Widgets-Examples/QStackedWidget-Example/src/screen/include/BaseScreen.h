@@ -21,6 +21,7 @@ public:
 signals:
     auto back() -> void;
     auto backTo(QString screenName) -> void;
+    auto backToAndNext(QString screenName, Screens::BaseScreen* newFragment) -> void;
     auto next(BaseScreen* newFragment) -> void;
     auto replace(BaseScreen* newFragment) -> void;
 

@@ -15,7 +15,6 @@ UserScreen::~UserScreen()
     delete ui;
 }
 
-
 auto UserScreen::on_backButton_clicked() -> void
 {
   back();

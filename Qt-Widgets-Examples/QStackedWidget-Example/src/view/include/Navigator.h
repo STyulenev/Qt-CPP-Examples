@@ -27,6 +27,7 @@ private:
 public slots:
     auto back() -> void;
     auto backTo(QString screenName) -> void;
+    auto backToAndNext(QString screenName, Screens::BaseScreen* newFragment) -> void;
     auto next(Screens::BaseScreen* newFragment) -> void;
     auto replace(Screens::BaseScreen* newFragment) -> void;
 

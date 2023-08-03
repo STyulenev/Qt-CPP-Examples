@@ -19,6 +19,8 @@ public:
 private slots:
     auto on_logoutButton_clicked() -> void;
 
+    void on_toUserScreenButton_clicked();
+
 private:
     Ui::SettingScreen* ui;
 };
