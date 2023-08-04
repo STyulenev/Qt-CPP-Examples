@@ -10,11 +10,17 @@ SettingScreen::SettingScreen(QWidget* parent) :
     ui(new Ui::SettingScreen)
 {
     ui->setupUi(this);
+    setScreenName(this->objectName());
 }
 
 SettingScreen::~SettingScreen()
 {
     delete ui;
+}
+
+auto SettingScreen::updateScreen() -> void
+{
+
 }
 
 auto SettingScreen::on_logoutButton_clicked() -> void
@@ -25,6 +31,11 @@ auto SettingScreen::on_logoutButton_clicked() -> void
 auto SettingScreen::on_toUserScreenButton_clicked() -> void
 {
     backToAndNext("MainMenuScreen", new UserScreen());
+}
+
+auto SettingScreen::on_backButton_clicked() -> void
+{
+    back();
 }
 
 } // namespace Screens

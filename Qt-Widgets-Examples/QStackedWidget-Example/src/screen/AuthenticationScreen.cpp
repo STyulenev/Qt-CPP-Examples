@@ -10,13 +10,17 @@ AuthenticationScreen::AuthenticationScreen(QWidget* parent) :
     ui(new Ui::AuthenticationScreen)
 {
     ui->setupUi(this);
-
     setScreenName(this->objectName());
 }
 
 AuthenticationScreen::~AuthenticationScreen()
 {
     delete ui;
+}
+
+auto AuthenticationScreen::updateScreen() -> void
+{
+
 }
 
 void AuthenticationScreen::on_enterButton_clicked()

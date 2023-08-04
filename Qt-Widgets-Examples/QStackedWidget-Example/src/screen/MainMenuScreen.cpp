@@ -19,6 +19,11 @@ MainMenuScreen::~MainMenuScreen()
     delete ui;
 }
 
+auto MainMenuScreen::updateScreen() -> void
+{
+
+}
+
 auto MainMenuScreen::on_userScreenButton_clicked() -> void
 {
     next(new UserScreen());
@@ -28,6 +33,5 @@ auto MainMenuScreen::on_settingScreenButton_clicked() -> void
 {
     next(new SettingScreen());
 }
-
 
 } // namespace Screens

@@ -12,6 +12,7 @@ SplashScreen::SplashScreen(QWidget* parent) :
     ui(new Ui::SplashScreen)
 {
     ui->setupUi(this);
+    setScreenName(this->objectName());
 
     QTimer::singleShot(3000, this, [this]() -> void {
         replace(new AuthenticationScreen());
@@ -21,6 +22,11 @@ SplashScreen::SplashScreen(QWidget* parent) :
 SplashScreen::~SplashScreen()
 {
     delete ui;
+}
+
+auto SplashScreen::updateScreen() -> void
+{
+
 }
 
 } // namespace Screens

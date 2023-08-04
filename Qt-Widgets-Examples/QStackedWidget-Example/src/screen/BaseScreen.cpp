@@ -2,7 +2,7 @@
 
 namespace Screens {
 
-BaseScreen::BaseScreen(QWidget *parent) :
+BaseScreen::BaseScreen(QWidget* parent) :
     QWidget(parent)
 {
 

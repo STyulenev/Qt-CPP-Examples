@@ -2,22 +2,22 @@
 
 namespace Views {
 
-Navigator::Navigator(QStackedWidget* container, Screens::BaseScreen* startFragment) :
+Navigator::Navigator(QStackedWidget* container, Screens::BaseScreen* startScreen) :
     m_container(container)
 {
-    connectScreen(startFragment);
-    this->m_stackWidgets.append(startFragment);
+    connectScreen(startScreen);
+    this->m_stackWidgets.append(startScreen);
     m_container->addWidget(m_stackWidgets.last());
     m_container->setCurrentIndex(0);
 }
 
-auto Navigator::next(Screens::BaseScreen* newFragment) -> void
+auto Navigator::next(Screens::BaseScreen* newScreen) -> void
 {
     disconnectScreen(m_stackWidgets.last());
-    connectScreen(newFragment);
-    m_stackWidgets.append(newFragment);
-    m_container->addWidget(newFragment);
-    m_container->setCurrentWidget(newFragment);
+    connectScreen(newScreen);
+    m_stackWidgets.append(newScreen);
+    m_container->addWidget(newScreen);
+    m_container->setCurrentWidget(newScreen);
 }
 
 auto Navigator::back() -> void
@@ -27,6 +27,7 @@ auto Navigator::back() -> void
     m_stackWidgets.removeLast();
     connectScreen(m_stackWidgets.last());
     m_container->setCurrentWidget(m_stackWidgets.last());
+    m_stackWidgets.last()->updateScreen();
 }
 
 auto Navigator::backTo(QString screenName) -> void
@@ -44,11 +45,11 @@ auto Navigator::backTo(QString screenName) -> void
     }
 }
 
-auto Navigator::backToAndNext(QString screenName, Screens::BaseScreen* newFragment) -> void
+auto Navigator::backToAndNext(QString screenName, Screens::BaseScreen* newScreen) -> void
 {
     while (!m_stackWidgets.isEmpty()) {
         if (m_stackWidgets.last()->screenName() == screenName) {
-            next(newFragment);
+            next(newScreen);
             break;
         } else {
             m_container->removeWidget(m_stackWidgets.last());
@@ -58,33 +59,33 @@ auto Navigator::backToAndNext(QString screenName, Screens::BaseScreen* newFragme
     }
 }
 
-auto Navigator::replace(Screens::BaseScreen* newFragment) -> void
+auto Navigator::replace(Screens::BaseScreen* newScreen) -> void
 {
     m_container->removeWidget(m_stackWidgets.last());
     disconnectScreen(m_stackWidgets.last());
     delete m_stackWidgets.last();
     m_stackWidgets.removeLast();
-    m_stackWidgets.append(newFragment);
-    connectScreen(newFragment);
-    m_container->addWidget(newFragment);
+    m_stackWidgets.append(newScreen);
+    connectScreen(newScreen);
+    m_container->addWidget(newScreen);
 }
 
-auto Navigator::connectScreen(Screens::BaseScreen* fragment) -> void
+auto Navigator::connectScreen(Screens::BaseScreen* screen) -> void
 {
-    connect(fragment, &Screens::BaseScreen::back, this, &Navigator::back);
-    connect(fragment, &Screens::BaseScreen::backTo, this, &Navigator::backTo);
-    connect(fragment, &Screens::BaseScreen::backToAndNext, this, &Navigator::backToAndNext);
-    connect(fragment, &Screens::BaseScreen::replace, this, &Navigator::replace);
-    connect(fragment, &Screens::BaseScreen::next, this, &Navigator::next);
+    connect(screen, &Screens::BaseScreen::back, this, &Navigator::back);
+    connect(screen, &Screens::BaseScreen::backTo, this, &Navigator::backTo);
+    connect(screen, &Screens::BaseScreen::backToAndNext, this, &Navigator::backToAndNext);
+    connect(screen, &Screens::BaseScreen::replace, this, &Navigator::replace);
+    connect(screen, &Screens::BaseScreen::next, this, &Navigator::next);
 }
 
-auto Navigator::disconnectScreen(Screens::BaseScreen* fragment) -> void
+auto Navigator::disconnectScreen(Screens::BaseScreen* screen) -> void
 {
-    disconnect(fragment, &Screens::BaseScreen::back, this, &Navigator::back);
-    disconnect(fragment, &Screens::BaseScreen::backTo, this, &Navigator::backTo);
-    disconnect(fragment, &Screens::BaseScreen::backToAndNext, this, &Navigator::backToAndNext);
-    disconnect(fragment, &Screens::BaseScreen::replace, this, &Navigator::replace);
-    disconnect(fragment, &Screens::BaseScreen::next, this, &Navigator::next);
+    disconnect(screen, &Screens::BaseScreen::back, this, &Navigator::back);
+    disconnect(screen, &Screens::BaseScreen::backTo, this, &Navigator::backTo);
+    disconnect(screen, &Screens::BaseScreen::backToAndNext, this, &Navigator::backToAndNext);
+    disconnect(screen, &Screens::BaseScreen::replace, this, &Navigator::replace);
+    disconnect(screen, &Screens::BaseScreen::next, this, &Navigator::next);
 }
 
 } // namespace Views

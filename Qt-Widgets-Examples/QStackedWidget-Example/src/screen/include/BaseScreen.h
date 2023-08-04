@@ -18,6 +18,8 @@ public:
     auto screenName() const -> const QString&;
     auto setScreenName(const QString &newScreenName) -> void;
 
+    virtual auto updateScreen() -> void = 0;
+
 signals:
     auto back() -> void;
     auto backTo(QString screenName) -> void;

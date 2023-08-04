@@ -8,6 +8,7 @@ UserScreen::UserScreen(QWidget* parent) :
     ui(new Ui::UserScreen)
 {
     ui->setupUi(this);
+    setScreenName(this->objectName());
 }
 
 UserScreen::~UserScreen()
@@ -15,9 +16,14 @@ UserScreen::~UserScreen()
     delete ui;
 }
 
+auto UserScreen::updateScreen() -> void
+{
+
+}
+
 auto UserScreen::on_backButton_clicked() -> void
 {
-  back();
+    back();
 }
 
 } // namespace Screens
