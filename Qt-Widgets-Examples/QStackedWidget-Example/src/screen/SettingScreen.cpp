@@ -25,17 +25,17 @@ auto SettingScreen::updateScreen() -> void
 
 auto SettingScreen::on_logoutButton_clicked() -> void
 {
-    backTo("AuthenticationScreen");
+    emit backTo("AuthenticationScreen");
 }
 
 auto SettingScreen::on_toUserScreenButton_clicked() -> void
 {
-    backToAndNext("MainMenuScreen", new UserScreen());
+    emit backToAndNext("MainMenuScreen", new UserScreen());
 }
 
 auto SettingScreen::on_backButton_clicked() -> void
 {
-    back();
+    emit back();
 }
 
 } // namespace Screens

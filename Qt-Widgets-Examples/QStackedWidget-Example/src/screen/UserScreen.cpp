@@ -23,7 +23,7 @@ auto UserScreen::updateScreen() -> void
 
 auto UserScreen::on_backButton_clicked() -> void
 {
-    back();
+    emit back();
 }
 
 } // namespace Screens

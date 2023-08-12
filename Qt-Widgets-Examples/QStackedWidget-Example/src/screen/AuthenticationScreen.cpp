@@ -25,7 +25,7 @@ auto AuthenticationScreen::updateScreen() -> void
 
 void AuthenticationScreen::on_enterButton_clicked()
 {
-    next(new MainMenuScreen());
+    emit next(new MainMenuScreen());
 }
 
 } // namespace Screens

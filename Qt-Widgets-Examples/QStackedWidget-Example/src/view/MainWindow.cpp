@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget* parent) :
 
     m_navigator = std::make_shared<Navigator>(ui->stackedWidget, new Screens::SplashScreen());
 
-    QTimer *timer = new QTimer(this);
+    QTimer* timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, [this]() -> void {
         ui->dateTimeLabel->setText(QDateTime::currentDateTime().toString("hh:mm:ss dd-MM-yyyy dddd"));
     });

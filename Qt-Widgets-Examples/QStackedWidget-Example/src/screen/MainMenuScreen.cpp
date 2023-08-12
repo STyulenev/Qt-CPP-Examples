@@ -26,12 +26,12 @@ auto MainMenuScreen::updateScreen() -> void
 
 auto MainMenuScreen::on_userScreenButton_clicked() -> void
 {
-    next(new UserScreen());
+    emit next(new UserScreen());
 }
 
 auto MainMenuScreen::on_settingScreenButton_clicked() -> void
 {
-    next(new SettingScreen());
+    emit next(new SettingScreen());
 }
 
 } // namespace Screens

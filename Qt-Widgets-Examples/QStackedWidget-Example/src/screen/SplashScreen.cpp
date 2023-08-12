@@ -15,7 +15,7 @@ SplashScreen::SplashScreen(QWidget* parent) :
     setScreenName(this->objectName());
 
     QTimer::singleShot(3000, this, [this]() -> void {
-        replace(new AuthenticationScreen());
+        emit replace(new AuthenticationScreen());
     });
 }
 
