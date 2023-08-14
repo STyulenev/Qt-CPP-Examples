@@ -24,6 +24,7 @@ public:
 private slots:
     auto on_userScreenButton_clicked() -> void;
     auto on_settingScreenButton_clicked() -> void;
+    auto on_closeButton_clicked() -> void;
 
 };
 

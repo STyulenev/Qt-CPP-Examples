@@ -21,7 +21,7 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 add_subdirectory(src)
 
 set(PROJECT_SOURCES
-    main.cpp
+    main.cpp 
     resource.qrc
 )
 

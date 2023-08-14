@@ -23,7 +23,7 @@ auto AuthenticationScreen::updateScreen() -> void
 
 }
 
-void AuthenticationScreen::on_enterButton_clicked()
+auto AuthenticationScreen::on_enterButton_clicked() -> void
 {
     emit next(new MainMenuScreen());
 }

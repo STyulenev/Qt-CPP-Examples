@@ -12,6 +12,9 @@ class AuthenticationScreen final : public BaseScreen
 {
     Q_OBJECT
 
+private:
+    Ui::AuthenticationScreen* ui;
+
 public:
     explicit AuthenticationScreen(QWidget* parent = nullptr);
     virtual ~AuthenticationScreen();
@@ -19,10 +22,7 @@ public:
     virtual auto updateScreen() -> void override;
 
 private slots:
-    void on_enterButton_clicked();
-
-private:
-    Ui::AuthenticationScreen* ui;
+    auto on_enterButton_clicked() -> void;
 
 };
 

@@ -12,6 +12,9 @@ class UserScreen final : public BaseScreen
 {
     Q_OBJECT
 
+private:
+    Ui::UserScreen* ui;
+
 public:
     explicit UserScreen(QWidget* parent = nullptr);
     virtual ~UserScreen();
@@ -20,9 +23,6 @@ public:
 
 private slots:
     auto on_backButton_clicked() -> void;
-
-private:
-    Ui::UserScreen* ui;
 
 };
 

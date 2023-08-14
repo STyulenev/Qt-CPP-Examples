@@ -12,6 +12,9 @@ class SettingScreen final : public BaseScreen
 {
     Q_OBJECT
 
+private:
+    Ui::SettingScreen* ui;
+
 public:
     explicit SettingScreen(QWidget* parent = nullptr);
     virtual ~SettingScreen();
@@ -23,8 +26,6 @@ private slots:
     auto on_toUserScreenButton_clicked() -> void;
     auto on_backButton_clicked() -> void;
 
-private:
-    Ui::SettingScreen* ui;
 };
 
 } // namespace Screens

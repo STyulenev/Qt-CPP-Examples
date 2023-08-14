@@ -34,4 +34,10 @@ auto MainMenuScreen::on_settingScreenButton_clicked() -> void
     emit next(new SettingScreen());
 }
 
+
+auto MainMenuScreen::on_closeButton_clicked() -> void
+{
+   exit(0);
+}
+
 } // namespace Screens
