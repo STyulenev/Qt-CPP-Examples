@@ -1,8 +1,13 @@
-#include <gtest/gtest.h>
+#include <QApplication>
+
+#include "MainWindow.h"
 
 auto main(int argc, char* argv[]) -> int
 {
-    ::testing::InitGoogleTest(&argc, argv);
+    QApplication a(argc, argv);
 
-    return RUN_ALL_TESTS();
+    Views::MainWindow w;
+    w.show();
+
+    return a.exec();
 }

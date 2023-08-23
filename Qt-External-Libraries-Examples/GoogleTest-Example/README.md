@@ -8,9 +8,7 @@
 
 ## Сборка проекта
 
-1. Необходимо скачать googletest-release необходимой версии и добавить в текущую папку.
-2. Указать правильное название папки в файлах сборки CMakeLists.txt (для CMake) или gtest_dependency.pri (для QMake).
-3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
 ### CMake:
 
@@ -19,14 +17,6 @@ cmake ..
 make
 ```
 > Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
-
-### QMake:
-
-```bash
-qmake ..
-make
-```
-> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
 
 ## Версии
 
@@ -37,9 +27,8 @@ make
 | C++        | 20                   |
 | Qt         | 6.4.0                |
 | CMake      | 3.5                  |
-| QMake      | 6.0.1 (6.0.0)        |
 | MinGW      | 9.0.0 64 bit         |
-| GoogleTest | 1.12.1               |
+| GoogleTest | 1.14.0               |
 
 ## Тестирование
 
