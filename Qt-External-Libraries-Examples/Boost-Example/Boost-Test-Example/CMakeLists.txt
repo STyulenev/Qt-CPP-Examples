@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.15)
 
-project(GoogleTest-Example
+project(Boost-Test-Example
     VERSION 0.1
-    DESCRIPTION "Project with sample qtest"
+    DESCRIPTION "Project with sample Boost Test"
     LANGUAGES CXX
 )
 
