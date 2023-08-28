@@ -89,7 +89,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -250,6 +250,19 @@
           <string>3</string>
          </property>
         </item>
+       </widget>
+       <widget class="QDateEdit" name="dateEdit">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>90</y>
+          <width>141</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_3">

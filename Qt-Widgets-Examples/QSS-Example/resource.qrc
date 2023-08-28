@@ -11,5 +11,6 @@
         <file>res/icons/icon-arrow-left.png</file>
         <file>res/icons/icon-add.png</file>
         <file>res/icons/icon-reduce.png</file>
+        <file>res/icons/icon-arrow-right.png</file>
     </qresource>
 </RCC>

@@ -384,3 +384,118 @@ QScrollBar::sub-line:horizontal
 
     image: url(:/res/icons/icon-reduce.png);
 }
+
+/*
+    Стили для диалогового окна QMessageBox
+*/
+QMessageBox
+{
+    background: #111315;
+}
+
+QMessageBox QLabel
+{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 19px;
+
+    color: #FFFFFF;
+}
+
+/*
+    Стили для QDateEdit
+*/
+QDateEdit
+{
+    background: #2A3035;
+    border-radius: 4px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    padding: 8px;
+
+    color: #FFFFFF;
+
+    min-width: 150px;
+    min-height: 30px;
+}
+
+QDateEdit::drop-down
+{
+    background: #2A3035;
+    image: url(:/res/icons/icon-arrow-down.png);
+    width: 40px;
+}
+
+/*
+    Стили для выпадающего календаря QDateEdit
+*/
+
+QCalendarWidget
+{
+    background-color: #111315;
+    color: #FFFFFF;
+    font-size: 18px;
+    min-height: 500px;
+}
+
+QCalendarWidget QTableView
+{
+    alternate-background-color: rgba(10, 95, 189, 1);
+    color: rgba(255,255,255,1);
+}
+
+QCalendarWidget QWidget#qt_calendar_navigationbar
+{
+    background: #2A3035;
+    min-height: 50px;
+}
+
+QCalendarWidget QWidget#qt_calendar_monthbutton
+{
+    background: #2A3035;
+    color: #FFFFFF;
+    font-size: 18px;
+    min-width: 150px;
+    qproperty-icon: none;
+}
+
+QCalendarWidget QWidget#qt_calendar_yearbutton
+{
+    background: #2A3035;
+    color: #FFFFFF;
+    font-size: 18px;
+    min-width: 150px;
+}
+
+QCalendarWidget QToolButton#qt_calendar_prevmonth
+{
+    background: #2A3035;
+    qproperty-icon: url(:/res/icons/icon-arrow-left.png);
+    min-width: 50px;
+    min-height: 40px;
+}
+
+QCalendarWidget QToolButton#qt_calendar_nextmonth
+{
+    background: #2A3035;
+    qproperty-icon: url(:/res/icons/icon-arrow-right.png);
+    min-width: 50px;
+    min-height: 40px;
+}
+
+QCalendarWidget QAbstractItemView::enabled
+{
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+}
+
+QCalendarWidget QAbstractItemView:disabled
+{
+    color: rgb(64, 64, 64);
+}

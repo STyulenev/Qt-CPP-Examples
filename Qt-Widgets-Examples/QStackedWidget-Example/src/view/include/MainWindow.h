@@ -2,11 +2,13 @@
 
 #include <QMainWindow>
 
+#include "Navigator.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-namespace View {
+namespace Views {
 
 class MainWindow : public QMainWindow
 {
@@ -16,11 +18,10 @@ public:
     explicit MainWindow(QWidget* parent = nullptr);
     virtual ~MainWindow();
 
-private slots:
-    auto on_exitButton_clicked() -> void;
-
 private:
     Ui::MainWindow* ui;
+    std::shared_ptr<Navigator> m_navigator;
+
 };
 
-} // namespace View
+} // namespace Views

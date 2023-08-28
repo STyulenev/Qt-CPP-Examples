@@ -1,22 +1,24 @@
-#include "Setting.h"
+#include "ApplicationSettings.h"
 
 #include <QSettings>
 #include <QCoreApplication>
 
-Setting* Setting::self = 0;
+namespace Settings {
+
+ApplicationSettings* ApplicationSettings::self = 0;
 
 QSettings settings("Qt-CPP-Examples", "QSetting-Example");
 
-Setting* Setting::getSetting()
+ApplicationSettings* ApplicationSettings::getSetting()
 {
     if (!self) {
-        self = new Setting();
+        self = new ApplicationSettings();
     }
 
     return self;
 }
 
-auto Setting::setMainWindowsSetting(const QSize& size, const QByteArray& state) -> void
+auto ApplicationSettings::setMainWindowsSetting(const QSize& size, const QByteArray& state) -> void
 {
     settings.beginGroup("mainWindow");
     settings.setValue("size", size);
@@ -24,7 +26,7 @@ auto Setting::setMainWindowsSetting(const QSize& size, const QByteArray& state) 
     settings.endGroup();
 }
 
-auto Setting::getMainWindowsSetting() -> std::pair<QSize, QByteArray>
+auto ApplicationSettings::getMainWindowsSetting() -> std::pair<QSize, QByteArray>
 {
     settings.beginGroup("mainWindow");
     auto pair = std::make_pair<QSize, QByteArray>(settings.value("size").toSize(), settings.value("state").toByteArray());
@@ -33,7 +35,7 @@ auto Setting::getMainWindowsSetting() -> std::pair<QSize, QByteArray>
     return pair;
 }
 
-auto Setting::setFieldsData(const QString& name, const QString& surname, const QString& description) -> void
+auto ApplicationSettings::setFieldsData(const QString& name, const QString& surname, const QString& description) -> void
 {
     settings.beginGroup("fieldsData");
     settings.setValue("name", name);
@@ -42,7 +44,7 @@ auto Setting::setFieldsData(const QString& name, const QString& surname, const Q
     settings.endGroup();
 }
 
-auto Setting::getFieldsData(QString& name, QString& surname, QString& description) -> void
+auto ApplicationSettings::getFieldsData(QString& name, QString& surname, QString& description) -> void
 {
     settings.beginGroup("fieldsData");
     name        = settings.value("name").toString();
@@ -50,3 +52,5 @@ auto Setting::getFieldsData(QString& name, QString& surname, QString& descriptio
     description = settings.value("description").toString();
     settings.endGroup();
 }
+
+} // namespace Settings
