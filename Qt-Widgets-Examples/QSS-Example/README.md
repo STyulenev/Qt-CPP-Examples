@@ -2,7 +2,26 @@
 
 ## Описание
 
-Пример использования стилей CSS (QSS) для изменения внешнего вида виджетов.
+Пример использования стилей CSS (QSS) для изменения внешнего вида виджетов:
+ - QMainWindow;
+ - QHeaderView;
+ - QTableCornerButton;
+ - QTableView;
+ - QPushButton;
+ - QCheckBox;
+ - QToolButton;
+ - QTabWidget;
+ - QGroupBox;
+ - QLineEdit;
+ - QProgressBar;
+ - QComboBox;
+ - QFrame (HLine, VLine);
+ - QScrollBar;
+ - QMessageBox;
+ - QDateEdit;
+ - QCalendarWidget.
+
+![alt text](doc/QSS-Example.png)
 
 ## Сборка проекта
 
@@ -11,18 +30,19 @@
 ### CMake:
 
 ```bash
-cmake ..
-make
+cmake -DCMAKE_BUILD_TYPE=type -G generator ..
+cmake --build .
 ```
-> Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
+> type заменить на Debug, Release или другой
+> generator заменить на Ninja, Unix Makefiles или другой
 
 ### QMake:
 
 ```bash
-qmake ..
+qmake CONFIG+=type ..
 make
 ```
-> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
+> type заменить на debug, release или другой
 
 ## Версии
 

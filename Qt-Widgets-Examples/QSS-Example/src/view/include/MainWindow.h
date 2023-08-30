@@ -12,6 +12,9 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    Ui::MainWindow* ui;
+
 public:
     explicit MainWindow(QWidget* parent = nullptr);
     virtual ~MainWindow();
@@ -19,8 +22,6 @@ public:
 private slots:
     auto on_exitButton_clicked() -> void;
 
-private:
-    Ui::MainWindow* ui;
 };
 
 } // namespace View
