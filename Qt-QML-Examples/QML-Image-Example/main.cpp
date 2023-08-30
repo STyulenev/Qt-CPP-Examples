@@ -1,14 +1,14 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "QIconImage.h"
+#include "ImageBox.h"
 #include "ImageProvider.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<QIconImage>("QIconImage", 1, 0, "QIconImage");
+    qmlRegisterType<ImageBox>("MyWidgets", 1, 0, "ImageBox");
     //qmlRegisterType<ColorImageProvider>("ColorImageProvider", 1, 0, "ColorImageProvider");
 
     QQmlApplicationEngine engine;

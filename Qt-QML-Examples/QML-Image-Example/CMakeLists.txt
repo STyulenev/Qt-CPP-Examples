@@ -12,21 +12,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
 
+add_subdirectory(src)
+
 add_executable(${PROJECT_NAME}
     main.cpp
-
-    QIconImage.h
-    QIconImage.cpp
-
-    ImageProvider.h
-    ImageProvider.cpp
-
     resource.qrc
 )
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Quick
+    Model-lib
 )
 
 set_target_properties(${PROJECT_NAME}

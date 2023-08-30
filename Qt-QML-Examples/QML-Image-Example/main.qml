@@ -1,8 +1,9 @@
 import QtQuick 2.15
 import QtQml 2.15
 import QtQuick.Window 2.15
+import QtQuick.Layouts 1.3
 
-import QIconImage 1.0 as Models
+import MyWidgets 1.0 as MyWidgets
 
 Window {
     width: 640
@@ -10,17 +11,19 @@ Window {
     visible: true
     title: qsTr("QML-Image-Example")
 
-    Models.QIconImage {
-            anchors.centerIn: parent
-           height: 160
-            //rightAligned: index % 2 != 0
-           width: 160
+    RowLayout {
+        anchors.centerIn: parent
+        spacing: 20
+
+        MyWidgets.ImageBox {
+            height: 32
+            width: 32
         }
 
-   /*Image {
-        width: 81
-        height: 81
-        anchors.centerIn: parent
-        source: "image://colors"
-    }*/
+        Image {
+            width: 32
+            height: 32
+            source: "image://colors"
+        }
+    }
 }
