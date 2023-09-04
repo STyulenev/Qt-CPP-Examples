@@ -23,6 +23,11 @@ auto AuthenticationScreen::updateScreen() -> void
 
 }
 
+auto AuthenticationScreen::updateScreen([[maybe_unused]] QVariant data) -> void
+{
+
+}
+
 auto AuthenticationScreen::on_enterButton_clicked() -> void
 {
     emit next(new MainMenuScreen());

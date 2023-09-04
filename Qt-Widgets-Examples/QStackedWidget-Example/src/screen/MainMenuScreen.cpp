@@ -4,6 +4,8 @@
 #include "UserScreen.h"
 #include "SettingScreen.h"
 
+#include <QDebug>
+
 namespace Screens {
 
 MainMenuScreen::MainMenuScreen(QWidget* parent) :
@@ -24,6 +26,11 @@ auto MainMenuScreen::updateScreen() -> void
 
 }
 
+auto MainMenuScreen::updateScreen(QVariant data) -> void
+{
+    qDebug() << data;
+}
+
 auto MainMenuScreen::on_userScreenButton_clicked() -> void
 {
     emit next(new UserScreen());
@@ -33,7 +40,6 @@ auto MainMenuScreen::on_settingScreenButton_clicked() -> void
 {
     emit next(new SettingScreen());
 }
-
 
 auto MainMenuScreen::on_closeButton_clicked() -> void
 {

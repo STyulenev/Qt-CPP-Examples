@@ -29,4 +29,9 @@ auto SplashScreen::updateScreen() -> void
 
 }
 
+auto SplashScreen::updateScreen([[maybe_unused]] QVariant data) -> void
+{
+
+}
+
 } // namespace Screens
