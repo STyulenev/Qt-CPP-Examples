@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 project(QTest-Example
     VERSION 0.1
     DESCRIPTION "Project with sample qtest"
+    HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )
 
@@ -19,7 +20,7 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 add_subdirectory(src)
-add_subdirectory(tests)
+add_subdirectory(test)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(${PROJECT_NAME}
