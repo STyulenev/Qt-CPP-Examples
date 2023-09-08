@@ -8,6 +8,7 @@ project(View-lib
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC_SEARCH_PATHS ui)
 
@@ -18,7 +19,10 @@ file(GLOB view-src "include/*.h" "*.cpp" "ui/*.ui")
 
 add_library(${PROJECT_NAME} STATIC ${view-src})
 
-target_link_libraries(${PROJECT_NAME} PUBLIC Qt${QT_VERSION_MAJOR}::Widgets View-model-lib)
+target_link_libraries(${PROJECT_NAME} PUBLIC
+    Qt${QT_VERSION_MAJOR}::Widgets
+    View-model-lib
+)
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 

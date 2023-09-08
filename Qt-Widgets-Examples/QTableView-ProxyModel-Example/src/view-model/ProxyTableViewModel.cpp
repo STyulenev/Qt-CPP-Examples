@@ -53,7 +53,7 @@ auto ProxyTableViewModel::setName(const QString& name) -> void
     emit dataReady(count, sumAge);
 }
 
-auto ProxyTableViewModel::setStatus(const Status status) -> void
+auto ProxyTableViewModel::setStatus(const Status& status) -> void
 {
     if (m_status != status)
         m_status = status;
