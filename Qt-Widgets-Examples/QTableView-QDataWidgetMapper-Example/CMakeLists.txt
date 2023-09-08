@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 project(QTableView-QDataWidgetMapper-Example
     VERSION 0.1
     DESCRIPTION "Project with sample QDataWidgetMapper for QTableView"
+    HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )
 

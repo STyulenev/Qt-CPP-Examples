@@ -16,15 +16,15 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
-    explicit MainWindow(QWidget* parent = nullptr);
-    virtual ~MainWindow();
-
 private:
     Ui::MainWindow* ui;
 
     std::shared_ptr<ViewModels::TableViewModel> viewModel;
     std::shared_ptr<EditForm> editForm;
+
+public:
+    explicit MainWindow(QWidget* parent = nullptr);
+    virtual ~MainWindow();
 
 private slots:
     auto on_tableView_customContextMenuRequested(const QPoint& pos) -> void;
