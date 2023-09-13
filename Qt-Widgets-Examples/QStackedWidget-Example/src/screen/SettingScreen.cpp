@@ -1,7 +1,7 @@
 #include "SettingScreen.h"
 #include "ui_SettingScreen.h"
 
-#include "UserScreen.h"
+#include "ScreenFactory.h"
 
 namespace Screens {
 
@@ -35,7 +35,7 @@ auto SettingScreen::on_logoutButton_clicked() -> void
 
 auto SettingScreen::on_toUserScreenButton_clicked() -> void
 {
-    emit backToAndNext("MainMenuScreen", new UserScreen());
+    emit backToAndNext("MainMenuScreen", getScreen(ScreenName::USER_SCREEN));
 }
 
 auto SettingScreen::on_backButton_clicked() -> void
