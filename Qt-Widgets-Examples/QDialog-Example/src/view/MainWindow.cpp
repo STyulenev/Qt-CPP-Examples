@@ -2,6 +2,7 @@
 #include "./ui_MainWindow.h"
 
 #include <QDebug>
+#include <QMessageBox>
 #include "ConfirmationDialog.h"
 
 namespace Views {
@@ -18,7 +19,27 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-auto MainWindow::on_dialogButton_clicked() -> void
+auto MainWindow::on_standartDialogButton_clicked() -> void
+{
+    QMessageBox dialog(QMessageBox::Question, "Dialog title", "Dialog text", QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+    //dialog.setWindowFlags(Qt::FramelessWindowHint);
+
+    switch (dialog.exec()) {
+    case QMessageBox::Yes:
+        qDebug() << "YES";
+        break;
+    case QMessageBox::No:
+        qDebug() << "NO";
+        break;
+    case QMessageBox::Cancel:
+        qDebug() << "CANCEL";
+        break;
+    default:
+        return;
+    }
+}
+
+auto MainWindow::on_customDialogButton_clicked() -> void
 {
     Dialogs::ConfirmationDialog* dialog = new Dialogs::ConfirmationDialog(this);
 
@@ -28,7 +49,7 @@ auto MainWindow::on_dialogButton_clicked() -> void
 
     switch (dialog->exec()) {
     case Dialogs::ExitCode::YES:
-        qDebug() << "OK";
+        qDebug() << "YES";
         break;
     case Dialogs::ExitCode::NO:
         qDebug() << "NO";
