@@ -2,11 +2,14 @@
 
 #include <QMainWindow>
 
-#include "Caretaker.h"
+namespace Ui {
+    class MainWindow;
+}
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+namespace Settings {
+    class Originator;
+    class Caretaker;
+}
 
 namespace Views {
 

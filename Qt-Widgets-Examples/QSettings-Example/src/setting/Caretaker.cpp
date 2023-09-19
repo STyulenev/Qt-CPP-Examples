@@ -1,5 +1,7 @@
 #include "Caretaker.h"
 
+#include <QDebug>
+
 namespace Settings {
 
 Caretaker::Caretaker(Originator* originator) :
@@ -8,7 +10,7 @@ Caretaker::Caretaker(Originator* originator) :
 
 }
 
-void Caretaker::save()
+auto Caretaker::save() -> void
 {
     if (m_snapshots.size() == 0) {
         currentItem = 0;
@@ -31,7 +33,7 @@ void Caretaker::save()
     }
 }
 
-bool Caretaker::previous()
+auto Caretaker::previous() -> bool
 {
     if (m_snapshots.size() == 0 || currentItem == 0) {
         return false;
@@ -49,7 +51,7 @@ bool Caretaker::previous()
     }
 }
 
-bool Caretaker::next()
+auto Caretaker::next() -> bool
 {
     if (currentItem + 1 == m_snapshots.size()) {
         return false;
@@ -67,12 +69,12 @@ bool Caretaker::next()
     }
 }
 
-std::pair<bool, bool> Caretaker::getStatus()
+auto Caretaker::getStatus() -> std::pair<bool, bool>
 {
     return std::make_pair<bool, bool>(!(currentItem == 0 && m_snapshots.size() > 0), !(currentItem + 1 == m_snapshots.size()));
 }
 
-void Caretaker::showHistory() const
+auto Caretaker::showHistory() const -> void
 {
     for (const std::shared_ptr<Snapshot>& snapshot : m_snapshots) {
         qDebug() << snapshot->name() << snapshot->surname() << snapshot->description();

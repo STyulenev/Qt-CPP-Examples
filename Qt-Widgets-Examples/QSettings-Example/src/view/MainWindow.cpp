@@ -2,6 +2,7 @@
 #include "./ui_MainWindow.h"
 
 #include "ApplicationSettings.h"
+#include "Caretaker.h"
 
 namespace Views {
 

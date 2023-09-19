@@ -19,9 +19,9 @@ public:
     explicit Snapshot(const QString& name, const QString& surname, const QString& description);
     ~Snapshot() = default;
 
-    const QString& name() const;
-    const QString& surname() const;
-    const QString& description() const;
+    auto name() const -> const QString&;
+    auto surname() const -> const QString&;
+    auto description() const -> const QString&;
 
 };
 

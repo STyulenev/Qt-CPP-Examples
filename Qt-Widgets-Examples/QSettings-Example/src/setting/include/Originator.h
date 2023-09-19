@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Snapshot.h"
-#include <QDebug>
 
 #include <memory>
 
@@ -21,6 +20,7 @@ private:
     QString m_description;
 
 public:
+    Originator() = delete;
     explicit Originator(const QString& name, const QString& surname, const QString& description);
     ~Originator() = default;
 
@@ -28,13 +28,13 @@ public:
     const QString& surname() const;
     const QString& description() const;
 
-    void setName(const QString& name);
-    void setSurname(const QString& surname);
-    void setDescription(const QString& description);
+    auto setName(const QString& name) -> void;
+    auto setSurname(const QString& surname) -> void;
+    auto setDescription(const QString& description) -> void;
 
 private:
-    std::shared_ptr<Snapshot> save();
-    void restore(std::shared_ptr<Snapshot> snapshot);
+    auto save() -> std::shared_ptr<Snapshot>;
+    auto restore(std::shared_ptr<Snapshot> snapshot) -> void;
 
 };
 

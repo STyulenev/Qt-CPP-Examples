@@ -2,6 +2,8 @@
 
 #include "Originator.h"
 
+#include <QVector>
+
 namespace Settings {
 
 /*!
@@ -21,13 +23,11 @@ public:
     explicit Caretaker(Originator* originator);
     ~Caretaker() = default;
 
-    void save();
-    bool previous();
-    bool next();
-
-    std::pair<bool, bool> getStatus();
-
-    void showHistory() const;
+    auto save() -> void;
+    auto previous() -> bool;
+    auto next() -> bool;
+    auto getStatus() -> std::pair<bool, bool>;
+    auto showHistory() const -> void;
 
 };
 
