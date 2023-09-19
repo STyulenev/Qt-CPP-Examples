@@ -8,6 +8,7 @@ project(Dialog-lib
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC_SEARCH_PATHS ui)
 
@@ -18,7 +19,13 @@ file(GLOB dialog-src "include/*.h" "ui/*.ui" "*.cpp")
 
 add_library(${PROJECT_NAME} STATIC ${dialog-src})
 
-target_link_libraries(${PROJECT_NAME} PUBLIC Qt${QT_VERSION_MAJOR}::Widgets)
+if(COMMAND target_precompile_headers)
+   target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/DialogData.h)
+endif()
+
+target_link_libraries(${PROJECT_NAME} PUBLIC
+    Qt${QT_VERSION_MAJOR}::Widgets
+)
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 

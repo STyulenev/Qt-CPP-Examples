@@ -18,21 +18,22 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-auto MainWindow::on_pushButton_clicked() -> void
+auto MainWindow::on_dialogButton_clicked() -> void
 {
     Dialogs::ConfirmationDialog* dialog = new Dialogs::ConfirmationDialog(this);
 
-    dialog->setFlags(DialogButtons::OK_BUTTON | DialogButtons::NO_BUTTON | DialogButtons::CANCEL_BUTTON);
+    dialog->setFlags(Dialogs::DialogButtons::OK_BUTTON | Dialogs::DialogButtons::NO_BUTTON | Dialogs::DialogButtons::CANCEL_BUTTON);
     dialog->setTitle("Dialog title");
+    dialog->setIcon(Dialogs::IconType::INFORMATION);
 
     switch (dialog->exec()) {
-    case ExitCode::YES:
+    case Dialogs::ExitCode::YES:
         qDebug() << "OK";
         break;
-    case ExitCode::NO:
+    case Dialogs::ExitCode::NO:
         qDebug() << "NO";
         break;
-    case ExitCode::CANCEL:
+    case Dialogs::ExitCode::CANCEL:
         qDebug() << "CANCEL";
         break;
     default:

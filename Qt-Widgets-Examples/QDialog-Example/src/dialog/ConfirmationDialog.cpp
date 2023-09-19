@@ -1,9 +1,11 @@
 #include "ConfirmationDialog.h"
 #include "ui_ConfirmationDialog.h"
 
+#include <QPixmap>
+
 namespace Dialogs {
 
-ConfirmationDialog::ConfirmationDialog(QWidget *parent) :
+ConfirmationDialog::ConfirmationDialog(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::ConfirmationDialog)
 {
@@ -13,6 +15,28 @@ ConfirmationDialog::ConfirmationDialog(QWidget *parent) :
 ConfirmationDialog::~ConfirmationDialog()
 {
     delete ui;
+}
+
+auto ConfirmationDialog::setIcon(const IconType&& iconType) -> void
+{
+    switch (iconType) {
+
+    case IconType::ERROR:
+        ui->iconLabel->setPixmap(QPixmap(":/res/icon/error.png"));
+        break;
+    case IconType::INFORMATION:
+        ui->iconLabel->setPixmap(QPixmap(":/res/icon/information.png"));
+        break;
+    case IconType::NONE:
+        ui->iconLabel->setPixmap(QPixmap());
+        break;
+    case IconType::WARNING:
+        ui->iconLabel->setPixmap(QPixmap(":/res/icon/warning.png"));
+        break;
+    default:
+        ui->iconLabel->setPixmap(QPixmap());
+        break;
+    }
 }
 
 auto ConfirmationDialog::setTitle(const QString& title) -> void

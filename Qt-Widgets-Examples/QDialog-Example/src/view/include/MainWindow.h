@@ -19,8 +19,8 @@ public:
     explicit MainWindow(QWidget* parent = nullptr);
     virtual ~MainWindow();
 
-public slots:
-    auto on_pushButton_clicked() -> void;
+private slots:
+    auto on_dialogButton_clicked() -> void;
 
 };
 

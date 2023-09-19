@@ -9,7 +9,6 @@ project(QDialog-Example
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
@@ -23,6 +22,7 @@ add_subdirectory(src)
 
 set(PROJECT_SOURCES
     main.cpp
+    resource.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
