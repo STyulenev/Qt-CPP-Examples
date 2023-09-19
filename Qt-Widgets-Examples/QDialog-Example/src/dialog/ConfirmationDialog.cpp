@@ -20,7 +20,6 @@ ConfirmationDialog::~ConfirmationDialog()
 auto ConfirmationDialog::setIcon(const IconType&& iconType) -> void
 {
     switch (iconType) {
-
     case IconType::ERROR:
         ui->iconLabel->setPixmap(QPixmap(":/res/icon/error.png"));
         break;
