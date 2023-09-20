@@ -1,6 +1,35 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
+// View models
+#include <TableViewModelForSimpleDelegates.h>
+#include <TableViewModelForStyledDelegates.h>
+#include <TableViewModelForCustomDelegates.h>
+
+// Custom delegates
+#include <CustomRadioButtonDelegate.h>
+#include <CustomFileEditorDelegate.h>
+#include <CustomColorEditorDelegate.h>
+
+// Simple delegates
+#include <ComboBoxDelegate.h>
+#include <DateBoxDelegate.h>
+#include <DoubleSpinBoxDelegate.h>
+#include <LineEditDelegate.h>
+#include <MultiLineTextDelegate.h>
+#include <ReadOnlyDelegate.h>
+#include <SpinBoxDelegate.h>
+#include <TimeBoxDelegate.h>
+#include <SliderDelegate.h>
+
+// Styled delegates
+#include <ImageDelegate.h>
+#include <StyledSliderDelegate.h>
+#include <CheckBoxDelegate.h>
+#include <StyledPieChartDelegate.h>
+
+namespace Views {
+
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -8,9 +37,9 @@ MainWindow::MainWindow(QWidget* parent) :
     ui->setupUi(this);
 
     { // Simple delegates for tableView
-        viewModelSimple = std::make_shared<ViewModels::TableViewModelForSimpleDelegates>();
+        viewModelSimple = new ViewModels::TableViewModelForSimpleDelegates(this);
 
-        ui->tableView->setModel(viewModelSimple.get());
+        ui->tableView->setModel(viewModelSimple);
 
         ui->tableView->setItemDelegateForColumn(0, new SimpleDelegates::ReadOnlyDelegate());
         ui->tableView->setItemDelegateForColumn(1, new SimpleDelegates::LineEditDelegate());
@@ -26,9 +55,9 @@ MainWindow::MainWindow(QWidget* parent) :
     }
 
     { // Styled delegates for tableView
-        viewModelStyled = std::make_shared<ViewModels::TableViewModelForStyledDelegates>();
+        viewModelStyled = new ViewModels::TableViewModelForStyledDelegates(this);
 
-        ui->tableView_2->setModel(viewModelStyled.get());
+        ui->tableView_2->setModel(viewModelStyled);
 
         ui->tableView_2->setItemDelegateForColumn(0, new StyledDelegates::StyledSliderDelegate());
         ui->tableView_2->setItemDelegateForColumn(1, new StyledDelegates::ImageDelegate());
@@ -39,9 +68,9 @@ MainWindow::MainWindow(QWidget* parent) :
     }
 
     { // Custom delegates for tableView viewModelCustom;
-        viewModelCustom = std::make_shared<ViewModels::TableViewModelForCustomDelegates>();
+        viewModelCustom = new ViewModels::TableViewModelForCustomDelegates(this);
 
-        ui->tableView_3->setModel(viewModelCustom.get());
+        ui->tableView_3->setModel(viewModelCustom);
 
         ui->tableView_3->setItemDelegateForColumn(0, new CustomDelegates::CustomRadioButtonDelegate());
         ui->tableView_3->setItemDelegateForColumn(1, new CustomDelegates::CustomFileEditorDelegate());
@@ -55,3 +84,5 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+} // namespace Views

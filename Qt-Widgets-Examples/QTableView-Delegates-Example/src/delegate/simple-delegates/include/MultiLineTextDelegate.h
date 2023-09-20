@@ -9,12 +9,15 @@ class MultiLineTextDelegate : public QItemDelegate
     Q_OBJECT
 
 public:
-    MultiLineTextDelegate(QWidget* parent = 0);
+    explicit MultiLineTextDelegate(QWidget* parent = 0);
+    virtual ~MultiLineTextDelegate() = default;
 
-    auto createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget* override;
-    auto setEditorData(QWidget* editor, const QModelIndex& index) const -> void override;
-    auto setModelData(QWidget* editor, QAbstractItemModel* model, const QModelIndex& index) const -> void override;
-    auto updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void override;
+protected:
+    virtual auto createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget* override;
+    virtual auto setEditorData(QWidget* editor, const QModelIndex& index) const -> void override;
+    virtual auto setModelData(QWidget* editor, QAbstractItemModel* model, const QModelIndex& index) const -> void override;
+    virtual auto updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void override;
+
 };
 
 } // namespace SimpleDelegates

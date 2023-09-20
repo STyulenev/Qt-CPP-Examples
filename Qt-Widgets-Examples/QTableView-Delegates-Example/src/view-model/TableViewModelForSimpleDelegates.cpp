@@ -5,7 +5,7 @@
 
 namespace ViewModels {
 	
-const QString text = "C++ is a high-level general-purpose programming language created by Danish computer "
+static const QString text = "C++ is a high-level general-purpose programming language created by Danish computer "
         "scientist Bjarne Stroustrup as an extension of the C programming language, or 'C with Classes'.";
 
 struct TestModelSimple {
@@ -47,10 +47,10 @@ auto TableViewModelForSimpleDelegates::rowCount([[maybe_unused]] const QModelInd
 
 auto TableViewModelForSimpleDelegates::data(const QModelIndex& index, int role) const -> QVariant
 {
-    if (role ==Qt::TextAlignmentRole)
+    switch (role) {
+    case Qt::TextAlignmentRole:
         return Qt::AlignCenter;
-
-    if (role == Qt::DisplayRole) {
+    case Qt::DisplayRole:
         switch (index.column()) {
         case 0: return model.at(index.row()).line_0;
         case 1: return model.at(index.row()).line_1;
@@ -60,9 +60,11 @@ auto TableViewModelForSimpleDelegates::data(const QModelIndex& index, int role) 
         case 5: return model.at(index.row()).line_5;
         case 6: return model.at(index.row()).line_6;
         case 7: return model.at(index.row()).line_7;
-		case 8: return model.at(index.row()).line_8;
+        case 8: return model.at(index.row()).line_8;
         [[unlikely]] default: assert(!"Should not get here");
         }
+    default:
+        return QVariant();
     }
 
     return QVariant();
@@ -129,7 +131,7 @@ auto TableViewModelForSimpleDelegates::setData(const QModelIndex& index, const Q
             break;
         }
 
-        emit dataChanged(index,index);
+        emit QAbstractTableModel::dataChanged(index,index);
     }
 
     return true;

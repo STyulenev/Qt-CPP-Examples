@@ -6,8 +6,8 @@
 
 namespace CustomDelegates {
 
-CustomFileEditorDelegate::CustomFileEditorDelegate(QObject* parent)
-    : QItemDelegate(parent)
+CustomFileEditorDelegate::CustomFileEditorDelegate(QObject* parent) :
+    QItemDelegate(parent)
 {
 
 }

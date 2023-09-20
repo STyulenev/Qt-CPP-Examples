@@ -7,10 +7,14 @@ namespace SimpleDelegates {
 class ReadOnlyDelegate : public QItemDelegate
 {
     Q_OBJECT
-public:
-    ReadOnlyDelegate(QObject* parent = nullptr);
 
-    auto createEditor(QWidget *parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget*;
+public:
+    explicit ReadOnlyDelegate(QObject* parent = nullptr);
+    virtual ~ReadOnlyDelegate() = default;
+
+protected:
+    virtual auto createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget*;
+
 };
 
 } // namespace SimpleDelegates

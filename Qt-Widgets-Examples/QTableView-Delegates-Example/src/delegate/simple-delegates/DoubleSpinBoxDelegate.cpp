@@ -4,16 +4,16 @@
 
 namespace SimpleDelegates {
 
-DoubleSpinBoxDelegate::DoubleSpinBoxDelegate(double min, double max, double step, QObject* parent)
-    : QItemDelegate(parent),
-      minValue(min),
-      maxValue(max),
-      stepValue(step)
+DoubleSpinBoxDelegate::DoubleSpinBoxDelegate(double min, double max, double step, QObject* parent) :
+    QItemDelegate(parent),
+    minValue(min),
+    maxValue(max),
+    stepValue(step)
 {
 
 }
 
-auto DoubleSpinBoxDelegate::setRange(double min, double max) -> void
+auto DoubleSpinBoxDelegate::setRange(const double min, const double max) -> void
 {
     minValue = min;
     maxValue = max;

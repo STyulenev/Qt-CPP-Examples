@@ -16,10 +16,12 @@ SliderDelegate::SliderDelegate(int min, int max, int step, QObject* parent) :
 auto SliderDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QWidget*
 {
     QSlider* editor = new QSlider(Qt::Horizontal, parent);
+
     editor->setRange(min, max);
     editor->setSingleStep(step);
     editor->setTickPosition(QSlider::TickPosition::TicksBelow);
     editor->setAutoFillBackground(true);
+
     return editor;
 }
 

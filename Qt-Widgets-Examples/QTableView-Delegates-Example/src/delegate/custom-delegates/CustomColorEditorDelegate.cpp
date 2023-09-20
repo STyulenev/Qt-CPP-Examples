@@ -6,8 +6,8 @@
 
 namespace CustomDelegates {
 
-CustomColorEditorDelegate::CustomColorEditorDelegate(QObject* parent)
-    : QItemDelegate(parent)
+CustomColorEditorDelegate::CustomColorEditorDelegate(QObject* parent) :
+    QItemDelegate(parent)
 {
 
 }
@@ -54,7 +54,7 @@ auto CustomColorEditorDelegate::paint(QPainter* painter, const QStyleOptionViewI
     painter->restore();
 }
 
-auto CustomColorEditorDelegate::updateEditorGeometry(QWidget* editor,const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> void
+auto CustomColorEditorDelegate::updateEditorGeometry(QWidget* editor, const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> void
 {
     editor->setGeometry(option.rect);
 }
