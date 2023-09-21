@@ -89,6 +89,7 @@ auto TableViewModelForStyledDelegates::setData(const QModelIndex& index, const Q
             break;
         case 3:
             break;
+        default: assert(!"Should not get here");
         }
 
         emit QAbstractTableModel::dataChanged(index,index);

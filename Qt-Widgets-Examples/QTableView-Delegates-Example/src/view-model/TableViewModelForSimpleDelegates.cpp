@@ -63,6 +63,7 @@ auto TableViewModelForSimpleDelegates::data(const QModelIndex& index, int role) 
         case 8: return model.at(index.row()).line_8;
         [[unlikely]] default: assert(!"Should not get here");
         }
+    // Other roles
     default:
         return QVariant();
     }
@@ -129,6 +130,7 @@ auto TableViewModelForSimpleDelegates::setData(const QModelIndex& index, const Q
 		case 8:
             model[index.row()].line_8 = value.toString();
             break;
+        default: assert(!"Should not get here");
         }
 
         emit QAbstractTableModel::dataChanged(index,index);
