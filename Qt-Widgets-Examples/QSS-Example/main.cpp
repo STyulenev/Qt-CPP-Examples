@@ -7,7 +7,7 @@
 
 auto main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) -> int
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
 
     QFontDatabase::addApplicationFont(":/res/font/intermedium.ttf");
 
@@ -21,5 +21,5 @@ auto main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) -> int
     View::MainWindow w;
     w.show();
 
-    return a.exec();
+    return app.exec();
 }
