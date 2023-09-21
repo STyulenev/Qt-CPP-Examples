@@ -46,7 +46,7 @@
      <item>
       <widget class="QPushButton" name="btnYes">
        <property name="text">
-        <string>yes</string>
+        <string>Yes</string>
        </property>
       </widget>
      </item>

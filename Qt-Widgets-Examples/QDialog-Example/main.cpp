@@ -1,11 +1,22 @@
 #include "MainWindow.h"
 
 #include <QApplication>
+#include <QTranslator>
+#include <QLibraryInfo>
 
 auto main(int argc, char* argv[]) -> int
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
+
+    // Set local language for Standart QMessageBox and other
+    QTranslator translator;
+    if (translator.load(QLocale::system(), "qt", "_", QLibraryInfo::path(QLibraryInfo::TranslationsPath))) {
+        app.installTranslator(&translator);
+    } else {
+        // error
+    }
+
     Views::MainWindow w;
     w.show();
-    return a.exec();
+    return app.exec();
 }

@@ -34,7 +34,7 @@ endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
-    Libs::View-lib
+    UI::View-lib
 )
 
 set_target_properties(${PROJECT_NAME}

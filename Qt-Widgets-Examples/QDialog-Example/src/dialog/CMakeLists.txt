@@ -18,7 +18,7 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 file(GLOB dialog-src "include/*.h" "ui/*.ui" "*.cpp")
 
 add_library(${PROJECT_NAME} STATIC ${dialog-src})
-add_library(Libs::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+add_library(UI::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 if(COMMAND target_precompile_headers)
    target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/DialogData.h)
