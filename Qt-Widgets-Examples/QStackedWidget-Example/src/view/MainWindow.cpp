@@ -6,6 +6,8 @@
 #include <QTimer>
 #include <QDateTime>
 
+#include "Navigator.h"
+
 namespace Views {
 
 MainWindow::MainWindow(QWidget* parent) :

@@ -21,6 +21,11 @@ auto UserScreen::updateScreen() -> void
 
 }
 
+auto UserScreen::updateScreen([[maybe_unused]] QVariant data) -> void
+{
+
+}
+
 auto UserScreen::on_backButton_clicked() -> void
 {
     emit back();

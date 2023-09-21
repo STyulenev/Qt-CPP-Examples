@@ -3,9 +3,9 @@
 
 #include <QColorDialog>
 
-ColorEditor::ColorEditor(QWidget* parent)
-    : QWidget(parent),
-      ui(new Ui::ColorEditor)
+ColorEditor::ColorEditor(QWidget* parent) :
+    QWidget(parent),
+    ui(new Ui::ColorEditor)
 {
     ui->setupUi(this);
 }

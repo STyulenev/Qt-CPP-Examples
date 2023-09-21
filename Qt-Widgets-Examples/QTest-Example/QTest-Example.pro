@@ -22,7 +22,7 @@ CONFIG(debug, debug | release) {
 }
 
 include(src/Source.pri)
-include(tests/Test.pri)
+include(test/Test.pri)
 
 SOURCES += \
         main.cpp

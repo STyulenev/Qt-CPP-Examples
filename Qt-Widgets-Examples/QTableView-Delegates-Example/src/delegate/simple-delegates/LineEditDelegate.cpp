@@ -19,7 +19,6 @@ auto LineEditDelegate::createEditor(QWidget* parent, [[maybe_unused]] const QSty
 
 auto LineEditDelegate::setEditorData(QWidget* editor, const QModelIndex& index) const -> void
 {
-    QString text = index.data().toString();
     QLineEdit* lineEdit = qobject_cast<QLineEdit*>(editor);
     lineEdit->setText(index.data().toString());
 }

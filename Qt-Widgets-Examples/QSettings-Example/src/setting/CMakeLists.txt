@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(Setting-lib
     VERSION 0.1
-    DESCRIPTION "Setting"
+    DESCRIPTION "Static library for settings"
     LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)

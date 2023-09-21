@@ -5,4 +5,5 @@ project(Source
     DESCRIPTION "Source"
     LANGUAGES CXX)
 
+add_subdirectory(setting)
 add_subdirectory(view)

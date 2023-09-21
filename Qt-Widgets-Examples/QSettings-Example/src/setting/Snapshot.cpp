@@ -10,17 +10,17 @@ Snapshot::Snapshot(const QString& name, const QString& surname, const QString& d
 
 }
 
-const QString& Snapshot::name() const
+auto Snapshot::name() const -> const QString&
 {
     return m_name;
 }
 
-const QString& Snapshot::surname() const
+auto Snapshot::surname() const -> const QString&
 {
     return m_surname;
 }
 
-const QString& Snapshot::description() const
+auto Snapshot::description() const -> const QString&
 {
     return m_description;
 }

@@ -1,8 +1,7 @@
 #include "MainMenuScreen.h"
 #include "ui_MainMenuScreen.h"
 
-#include "UserScreen.h"
-#include "SettingScreen.h"
+#include "ScreenFactory.h"
 
 namespace Screens {
 
@@ -24,20 +23,24 @@ auto MainMenuScreen::updateScreen() -> void
 
 }
 
+auto MainMenuScreen::updateScreen(QVariant data) -> void
+{
+    qDebug() << data;
+}
+
 auto MainMenuScreen::on_userScreenButton_clicked() -> void
 {
-    emit next(new UserScreen());
+    emit next(getScreen(ScreenName::USER_SCREEN));
 }
 
 auto MainMenuScreen::on_settingScreenButton_clicked() -> void
 {
-    emit next(new SettingScreen());
+    emit next(getScreen(ScreenName::SETTING_SCREEN));
 }
-
 
 auto MainMenuScreen::on_closeButton_clicked() -> void
 {
-   exit(0);
+    exit(0);
 }
 
 } // namespace Screens

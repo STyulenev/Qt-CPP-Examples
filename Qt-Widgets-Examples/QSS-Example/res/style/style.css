@@ -430,6 +430,7 @@ QDateEdit::drop-down
     background: #2A3035;
     image: url(:/res/icons/icon-arrow-down.png);
     width: 40px;
+    border-radius: 4px;
 }
 
 /*

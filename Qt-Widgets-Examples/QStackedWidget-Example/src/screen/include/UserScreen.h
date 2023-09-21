@@ -3,7 +3,7 @@
 #include "BaseScreen.h"
 
 namespace Ui {
-class UserScreen;
+    class UserScreen;
 }
 
 namespace Screens {
@@ -19,7 +19,9 @@ public:
     explicit UserScreen(QWidget* parent = nullptr);
     virtual ~UserScreen();
 
+protected:
     virtual auto updateScreen() -> void override;
+    virtual auto updateScreen(QVariant data) -> void override;
 
 private slots:
     auto on_backButton_clicked() -> void;

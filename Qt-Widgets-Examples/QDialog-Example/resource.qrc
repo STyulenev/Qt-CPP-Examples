@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/icon/warning.png</file>
+        <file>res/icon/information.png</file>
+        <file>res/icon/error.png</file>
+    </qresource>
+</RCC>

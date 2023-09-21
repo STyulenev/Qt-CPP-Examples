@@ -3,14 +3,13 @@ cmake_minimum_required(VERSION 3.5)
 project(QTableView-ProxyModel-Example
     VERSION 0.1
     DESCRIPTION "Project with sample proxy model for QTableView"
+    HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

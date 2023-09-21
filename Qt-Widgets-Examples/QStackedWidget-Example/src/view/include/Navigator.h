@@ -2,8 +2,8 @@
 
 #include "BaseScreen.h"
 
-#include <QStackedWidget>
 #include <QStack>
+#include <QStackedWidget>
 
 namespace Views {
 
@@ -26,6 +26,7 @@ private:
 
 public slots:
     auto back() -> void;
+    auto back(QVariant data) -> void;
     auto backTo(QString screenName) -> void;
     auto backToAndNext(QString screenName, Screens::BaseScreen* newScreen) -> void;
     auto next(Screens::BaseScreen* newScreen) -> void;

@@ -6,8 +6,8 @@
 
 namespace CustomDelegates {
 
-CustomRadioButtonDelegate::CustomRadioButtonDelegate(QObject* parent)
-    : QItemDelegate(parent)
+CustomRadioButtonDelegate::CustomRadioButtonDelegate(QObject* parent) :
+    QItemDelegate(parent)
 {
 
 }

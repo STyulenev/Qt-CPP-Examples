@@ -1,7 +1,7 @@
 #include "AuthenticationScreen.h"
 #include "ui_AuthenticationScreen.h"
 
-#include "MainMenuScreen.h"
+#include "ScreenFactory.h"
 
 namespace Screens {
 
@@ -23,9 +23,14 @@ auto AuthenticationScreen::updateScreen() -> void
 
 }
 
+auto AuthenticationScreen::updateScreen([[maybe_unused]] QVariant data) -> void
+{
+
+}
+
 auto AuthenticationScreen::on_enterButton_clicked() -> void
 {
-    emit next(new MainMenuScreen());
+    emit next(getScreen(ScreenName::MAIN_MENU_SCREEN));
 }
 
 } // namespace Screens

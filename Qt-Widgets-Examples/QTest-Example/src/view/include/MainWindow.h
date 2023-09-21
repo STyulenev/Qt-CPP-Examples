@@ -1,8 +1,6 @@
 #pragma once
 
 #include <QMainWindow>
-#include <QRegularExpression>
-#include <QRegularExpressionValidator>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,21 +12,16 @@ class MainWindow : public QMainWindow
 
     friend class Test_MainWindow;
 
+private:
+    Ui::MainWindow* ui;
+    bool status = false;
+
 public:
-    MainWindow(QWidget* parent = nullptr);
-    ~MainWindow();
+    explicit MainWindow(QWidget* parent = nullptr);
+    virtual ~MainWindow();
 
 private slots:
     auto on_pushButton_clicked() -> void;
-
-private:
-    Ui::MainWindow* ui;
-
-    std::shared_ptr<QRegularExpressionValidator> nameValidator;
-    std::shared_ptr<QRegularExpressionValidator> ipAddressValidator;
-    std::shared_ptr<QRegularExpressionValidator> emailValidator;
-
-    bool status = false;
 
 };
 

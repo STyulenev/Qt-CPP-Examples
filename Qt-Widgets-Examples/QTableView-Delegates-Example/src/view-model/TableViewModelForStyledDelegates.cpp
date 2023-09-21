@@ -42,8 +42,8 @@ auto TableViewModelForStyledDelegates::data(const QModelIndex& index, int role) 
         switch (index.column()) {
         case 0: return model.at(index.row()).line_0;
         case 1: return model.at(index.row()).line_1;
-        case 2 :return model.at(index.row()).line_2 ? Qt::Checked : Qt::Unchecked;
-        case 3 :return model.at(index.row()).line_3;
+        case 2: return model.at(index.row()).line_2 ? Qt::Checked : Qt::Unchecked;
+        case 3: return model.at(index.row()).line_3;
         [[unlikely]] default: assert(!"Should not get here");
         }
     }
@@ -89,9 +89,10 @@ auto TableViewModelForStyledDelegates::setData(const QModelIndex& index, const Q
             break;
         case 3:
             break;
+        default: assert(!"Should not get here");
         }
 
-        emit dataChanged(index,index);
+        emit QAbstractTableModel::dataChanged(index,index);
     }
 
     return true;

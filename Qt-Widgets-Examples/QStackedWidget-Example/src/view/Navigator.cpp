@@ -30,6 +30,16 @@ auto Navigator::back() -> void
     m_stackWidgets.last()->updateScreen();
 }
 
+auto Navigator::back(QVariant data) -> void
+{
+    m_container->removeWidget(m_stackWidgets.last());
+    delete m_stackWidgets.last();
+    m_stackWidgets.removeLast();
+    connectScreen(m_stackWidgets.last());
+    m_container->setCurrentWidget(m_stackWidgets.last());
+    m_stackWidgets.last()->updateScreen(data);
+}
+
 auto Navigator::backTo(QString screenName) -> void
 {
     while (!m_stackWidgets.isEmpty()) {
@@ -72,7 +82,8 @@ auto Navigator::replace(Screens::BaseScreen* newScreen) -> void
 
 auto Navigator::connectScreen(Screens::BaseScreen* screen) -> void
 {
-    connect(screen, &Screens::BaseScreen::back, this, &Navigator::back);
+    connect(screen, qOverload<>(&Screens::BaseScreen::back), this, qOverload<>(&Navigator::back));
+    connect(screen, qOverload<QVariant>(&Screens::BaseScreen::back), this, qOverload<QVariant>(&Navigator::back));
     connect(screen, &Screens::BaseScreen::backTo, this, &Navigator::backTo);
     connect(screen, &Screens::BaseScreen::backToAndNext, this, &Navigator::backToAndNext);
     connect(screen, &Screens::BaseScreen::replace, this, &Navigator::replace);
@@ -81,7 +92,8 @@ auto Navigator::connectScreen(Screens::BaseScreen* screen) -> void
 
 auto Navigator::disconnectScreen(Screens::BaseScreen* screen) -> void
 {
-    disconnect(screen, &Screens::BaseScreen::back, this, &Navigator::back);
+    disconnect(screen, qOverload<>(&Screens::BaseScreen::back), this, qOverload<>(&Navigator::back));
+    disconnect(screen, qOverload<QVariant>(&Screens::BaseScreen::back), this, qOverload<QVariant>(&Navigator::back));
     disconnect(screen, &Screens::BaseScreen::backTo, this, &Navigator::backTo);
     disconnect(screen, &Screens::BaseScreen::backToAndNext, this, &Navigator::backToAndNext);
     disconnect(screen, &Screens::BaseScreen::replace, this, &Navigator::replace);

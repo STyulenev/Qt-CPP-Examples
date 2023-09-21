@@ -1,10 +1,14 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(QSS-Example VERSION 0.1 LANGUAGES CXX)
+project(QSS-Example
+    VERSION 0.1
+    DESCRIPTION "Project with sample QSS"
+    HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
+    LANGUAGES CXX
+)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
@@ -18,7 +22,6 @@ add_subdirectory(src)
 
 set(PROJECT_SOURCES
     main.cpp
-
     resource.qrc
 )
 
@@ -29,7 +32,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     )
 endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets View-lib)
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    View-lib
+)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES

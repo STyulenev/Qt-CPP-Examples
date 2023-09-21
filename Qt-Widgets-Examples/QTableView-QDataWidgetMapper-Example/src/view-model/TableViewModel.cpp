@@ -123,7 +123,7 @@ auto TableViewModel::setData(const QModelIndex& index, const QVariant& value, in
             break;
         }
 
-        emit dataChanged(index,index);
+        emit QAbstractTableModel::dataChanged(index,index);
     }
 
     return true;
@@ -131,7 +131,7 @@ auto TableViewModel::setData(const QModelIndex& index, const QVariant& value, in
 
 auto TableViewModel::insertRows(int position, int rows, [[maybe_unused]] const QModelIndex& parent) -> bool
 {
-    beginInsertRows(QModelIndex(), position, position + rows - 1);
+    QAbstractTableModel::beginInsertRows(QModelIndex(), position, position + rows - 1);
 
     for (int row = 0; row < rows; ++row) {
         TestModel data;
@@ -141,20 +141,27 @@ auto TableViewModel::insertRows(int position, int rows, [[maybe_unused]] const Q
         model.insert(position, data);
     }
 
-    endInsertRows();
+    QAbstractTableModel::endInsertRows();
 
     return true;
 }
 
 auto TableViewModel::removeRows(int position, int rows, [[maybe_unused]] const QModelIndex& parent) -> bool
 {
-    beginRemoveRows(QModelIndex(), position, position + rows - 1);
+    QAbstractTableModel::beginRemoveRows(QModelIndex(), position, position + rows - 1);
 
-    for (int row = 0; row < rows; ++row) {
-        model.removeAt(position);
+    try {
+        auto iterator = this->model.begin() + position;
+
+        if (iterator > model.end() || iterator + rows > model.end())
+            throw std::out_of_range("current iterator is out of range");
+
+        this->model.erase(iterator, iterator + rows);
+    } catch (const std::exception& error) {
+        qDebug() << error.what();
     }
 
-    endRemoveRows();
+    QAbstractTableModel::endRemoveRows();
 
     return true;
 }

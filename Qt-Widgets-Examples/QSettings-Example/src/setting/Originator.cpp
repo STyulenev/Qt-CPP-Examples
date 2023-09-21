@@ -10,42 +10,42 @@ Originator::Originator(const QString& m_name, const QString& m_surname, const QS
 
 }
 
-const QString& Originator::name() const
+auto Originator::name() const -> const QString&
 {
     return m_name;
 }
 
-const QString& Originator::surname() const
+auto Originator::surname() const -> const QString&
 {
     return m_surname;
 }
 
-const QString& Originator::description() const
+auto Originator::description() const -> const QString&
 {
     return m_description;
 }
 
-void Originator::setName(const QString& name)
+auto Originator::setName(const QString& name) -> void
 {
     m_name = name;
 }
 
-void Originator::setSurname(const QString& surname)
+auto Originator::setSurname(const QString& surname) -> void
 {
     m_surname = surname;
 }
 
-void Originator::setDescription(const QString& description)
+auto Originator::setDescription(const QString& description) -> void
 {
     m_description = description;
 }
 
-std::shared_ptr<Snapshot> Originator::save()
+auto Originator::save() -> std::shared_ptr<Snapshot>
 {
     return std::make_shared<Snapshot>(m_name, m_surname, m_description);
 }
 
-void Originator::restore(std::shared_ptr<Snapshot> snapshot)
+auto Originator::restore(std::shared_ptr<Snapshot> snapshot) -> void
 {
     m_name        = snapshot->name();
     m_surname     = snapshot->surname();

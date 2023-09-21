@@ -18,6 +18,13 @@ file(GLOB screen-src "include/*.h" "ui/*.ui" "./*.cpp")
 
 add_library(${PROJECT_NAME} STATIC ${screen-src})
 
+if(COMMAND target_precompile_headers)
+   target_precompile_headers(${PROJECT_NAME} PUBLIC
+       ./include/ScreenPrecompile.h
+   )
+endif()
+
+
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Widgets
 )

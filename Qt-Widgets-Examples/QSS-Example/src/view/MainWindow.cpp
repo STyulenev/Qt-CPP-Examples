@@ -17,7 +17,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 auto MainWindow::on_exitButton_clicked() -> void
 {
     QMessageBox questionBox;

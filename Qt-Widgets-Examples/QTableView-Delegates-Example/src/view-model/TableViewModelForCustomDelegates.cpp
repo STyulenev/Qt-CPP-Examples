@@ -89,7 +89,7 @@ auto TableViewModelForCustomDelegates::setData(const QModelIndex& index, const Q
             break;
         }
 
-        emit dataChanged(index,index);
+        emit QAbstractTableModel::dataChanged(index,index);
     }
 
     return true;

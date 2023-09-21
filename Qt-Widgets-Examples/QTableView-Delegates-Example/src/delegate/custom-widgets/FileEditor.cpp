@@ -3,9 +3,9 @@
 
 #include <QFileDialog>
 
-FileEditor::FileEditor(QWidget* parent)
-    : QWidget(parent),
-      ui(new Ui::FileEditor)
+FileEditor::FileEditor(QWidget* parent) :
+    QWidget(parent),
+    ui(new Ui::FileEditor)
 {
     ui->setupUi(this);
 }

@@ -13,7 +13,7 @@ SpinBoxDelegate::SpinBoxDelegate(int min, int max, int step, QObject* parent) :
 
 }
 
-auto SpinBoxDelegate::setRange(int min, int max) -> void
+auto SpinBoxDelegate::setRange(const int min, const int max) -> void
 {
     minValue = min;
     maxValue = max;

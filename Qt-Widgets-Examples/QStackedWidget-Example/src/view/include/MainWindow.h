@@ -2,13 +2,13 @@
 
 #include <QMainWindow>
 
-#include "Navigator.h"
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
 namespace Views {
+
+class Navigator;
 
 class MainWindow : public QMainWindow
 {

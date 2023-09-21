@@ -3,7 +3,7 @@
 #include "BaseScreen.h"
 
 namespace Ui {
-class SplashScreen;
+    class SplashScreen;
 }
 
 namespace Screens {
@@ -19,7 +19,9 @@ public:
     explicit SplashScreen(QWidget* parent = nullptr);
     virtual ~SplashScreen();
 
+protected:
     virtual auto updateScreen() -> void override;
+    virtual auto updateScreen(QVariant data) -> void override;
 
 };
 

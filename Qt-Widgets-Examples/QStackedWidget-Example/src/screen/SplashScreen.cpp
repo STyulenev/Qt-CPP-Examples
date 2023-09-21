@@ -3,7 +3,7 @@
 
 #include <QTimer>
 
-#include "AuthenticationScreen.h"
+#include "ScreenFactory.h"
 
 namespace Screens {
 
@@ -15,7 +15,7 @@ SplashScreen::SplashScreen(QWidget* parent) :
     setScreenName(this->objectName());
 
     QTimer::singleShot(3000, this, [this]() -> void {
-        emit replace(new AuthenticationScreen());
+        emit replace(getScreen(ScreenName::AUTHENTICATION_SCREEN));
     });
 }
 
@@ -25,6 +25,11 @@ SplashScreen::~SplashScreen()
 }
 
 auto SplashScreen::updateScreen() -> void
+{
+
+}
+
+auto SplashScreen::updateScreen([[maybe_unused]] QVariant data) -> void
 {
 
 }
