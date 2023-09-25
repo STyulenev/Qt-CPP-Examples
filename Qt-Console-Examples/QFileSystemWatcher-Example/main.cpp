@@ -3,12 +3,12 @@
 
 #include "FilesWatcher.h"
 
-int main(int argc, char *argv[])
+auto main(int argc, char *argv[]) -> int
 {
-    QCoreApplication a(argc, argv);
+    QCoreApplication app(argc, argv);
 
     Settings::FilesWatcher* filesWatcher = Settings::FilesWatcher::getSelf();
-    filesWatcher->addWatchPath("...");
+    filesWatcher->addWatchPath("..."); // add path
 
     QObject::connect(filesWatcher, &Settings::FilesWatcher::createFile, [](const QString& file) -> void {
         qDebug() << "New file: " << file;
@@ -22,5 +22,5 @@ int main(int argc, char *argv[])
         qDebug() << "Rename file from: " << oldFile << "to" << newFile;
     });
 
-    return a.exec();
+    return app.exec();
 }
