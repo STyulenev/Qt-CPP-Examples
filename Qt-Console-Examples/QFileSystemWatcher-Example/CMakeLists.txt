@@ -1,10 +1,13 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(QFileSystemWatcher-Example LANGUAGES CXX)
+project(QFileSystemWatcher-Example
+    VERSION 0.1
+    DESCRIPTION "Project with sample QFileSystemWatcher"
+    HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
+    LANGUAGES CXX
+)
 
-set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,6 +22,7 @@ add_subdirectory(src)
 add_executable(${PROJECT_NAME}
     main.cpp
 )
+
 target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Core
     Setting-lib
