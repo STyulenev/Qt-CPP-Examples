@@ -1,0 +1,6 @@
+[submodule "extern/toml11"]
+	path = extern/toml11
+	url = https://github.com/ToruNiina/toml11
+[submodule "extern/googletest"]
+	path = extern/googletest
+	url = https://github.com/google/googletest.git
