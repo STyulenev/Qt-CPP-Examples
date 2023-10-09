@@ -25,10 +25,10 @@ auto ProductsViewModel::rowCount([[maybe_unused]] const QModelIndex& index) cons
 
 auto ProductsViewModel::data(const QModelIndex& index, int role) const -> QVariant
 {
-    if (role == Qt::TextAlignmentRole )
+    switch (role) {
+    case Qt::TextAlignmentRole:
         return Qt::AlignCenter;
-
-    if (role == Qt::DisplayRole) {
+    case Qt::DisplayRole:
         switch (index.column()) {
         case 0: return products.at(index.row()).getId();
         case 1: return products.at(index.row()).getType();
@@ -38,6 +38,8 @@ auto ProductsViewModel::data(const QModelIndex& index, int role) const -> QVaria
         case 5: return products.at(index.row()).getPrice();
         [[unlikely]] default: assert(!"Should not get here");
         }
+    default:
+        break;
     }
 
     return QVariant();

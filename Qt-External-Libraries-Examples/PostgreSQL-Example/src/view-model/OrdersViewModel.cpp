@@ -25,10 +25,10 @@ auto OrdersViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const 
 
 auto OrdersViewModel::data(const QModelIndex& index, int role) const -> QVariant
 {
-    if (role == Qt::TextAlignmentRole )
+    switch (role) {
+    case Qt::TextAlignmentRole:
         return Qt::AlignCenter;
-
-    if (role == Qt::DisplayRole) {
+    case Qt::DisplayRole:
         switch (index.column()) {
         case 0: return orders.at(index.row()).getId();
         case 1: return orders.at(index.row()).getCustomer().getFirstName();
@@ -43,6 +43,8 @@ auto OrdersViewModel::data(const QModelIndex& index, int role) const -> QVariant
         case 10: return orders.at(index.row()).getTime();
         default: assert(!"Should not get here");
         }
+    default:
+        break;
     }
 
     return QVariant();
