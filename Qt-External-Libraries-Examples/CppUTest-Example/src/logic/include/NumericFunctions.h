@@ -9,11 +9,19 @@ private:
     int secondNumber;
 
 public:
-    Numeric();
+    explicit Numeric(int firstNumber, int secondNumber);
     ~Numeric();
+
+    int getFirstNumber() const;
+    int getSecondNumber() const;
+
+    void setFirstNumber(int newFirstNumber);
+    void setSecondNumber(int newSecondNumber);
 
     int add();
     int sub();
+    int div();
+    int multi();
 
 };
 

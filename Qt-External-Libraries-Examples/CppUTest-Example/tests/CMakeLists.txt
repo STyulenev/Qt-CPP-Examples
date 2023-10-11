@@ -12,8 +12,7 @@ file(GLOB test-src "./*.cpp")
 
 add_executable(${PROJECT_NAME} ${test-src})
 
-
-set(CPPUTEST_LINK "static") # static / conan / fetch / ...
+set(CPPUTEST_LINK "static") # Типы подключения: static / conan / fetch / ... (другой)
 
 if(CPPUTEST_LINK STREQUAL "static")
     # git clone https://github.com/cpputest/cpputest.git

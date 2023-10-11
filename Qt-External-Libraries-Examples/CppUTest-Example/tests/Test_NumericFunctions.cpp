@@ -8,7 +8,7 @@ TEST_GROUP(Numeric)
 
     void setup()
     {
-        className = new Logic::Numeric();
+        className = new Logic::Numeric(2, 0);
     }
 
     void teardown()
@@ -19,11 +19,10 @@ TEST_GROUP(Numeric)
 
 TEST(Numeric, Create)
 {
-//CHECK(0 != className);
-    CHECK(true);
-    CHECK_EQUAL(1,1);
-    LONGS_EQUAL(1,1);
-   /* DOUBLES_EQUAL(1.000, 1.001, .01);
-    STRCMP_EQUAL("hello", "hello");
-    FAIL("The prior tests pass, but this one doesn't");*/
+    CHECK(className->getFirstNumber() == 2);
+    CHECK_TRUE(className->getSecondNumber() == 0);
+    CHECK_EQUAL(className->add(), 2);
+    CHECK_EQUAL(className->sub(), 2);
+    CHECK_EQUAL(className->multi(), 0);
+    CHECK_THROWS(std::logic_error, className->div());
 }
