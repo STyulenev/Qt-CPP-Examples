@@ -23,13 +23,13 @@ FORMS += \
 win32 {
     msvc {
         ## Windows common build here
-        INCLUDEPATH += "C:\Program Files\PostgreSQL\9.4\include" # PostgreSQL include folder
-        LIBS += "C:\Program Files\PostgreSQL\9.4\lib\libpq.lib"  # PostgreSQL lib folder
+        INCLUDEPATH += "C:\Program Files\PostgreSQL\16\include" # PostgreSQL include folder
+        LIBS += "C:\Program Files\PostgreSQL\16\lib\libpq.lib"  # PostgreSQL lib folder
     }
 
     gcc {
         ## Windows common build here
-        INCLUDEPATH += "C:\Program Files\PostgreSQL\9.4\include" # PostgreSQL include folder
-        LIBS += "C:\Program Files\PostgreSQL\9.4\lib\libpq.dll"  # PostgreSQL lib folder
+        INCLUDEPATH += "C:\Program Files\PostgreSQL\16\include" # PostgreSQL include folder
+        LIBS += "C:\Program Files\PostgreSQL\16\lib\libpq.dll"  # PostgreSQL lib folder
     }
 }

@@ -13,6 +13,8 @@ set(CMAKE_AUTOMOC ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
+set(PostgreSQL_ADDITIONAL_VERSIONS "16")
+
 find_package(PostgreSQL REQUIRED)
 if (PostgreSQL_FOUND)
     message("Version = ${PostgreSQL_VERSION_STRING}")

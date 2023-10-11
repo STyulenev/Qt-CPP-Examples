@@ -3,6 +3,8 @@
 
 #include <thread>
 
+namespace Views {
+
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -92,3 +94,5 @@ auto MainWindow::updateProduct() -> void
 
     DAO::updateProduct(product);
 }
+
+} // namespace Views

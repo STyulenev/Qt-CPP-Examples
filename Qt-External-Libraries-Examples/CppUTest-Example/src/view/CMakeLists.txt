@@ -12,16 +12,15 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC_SEARCH_PATHS ui)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-file(GLOB view-src "include/*.h" "*.cpp" "ui/*.ui")
+file(GLOB view-src "include/*.h" "ui/*.ui" "./*.cpp")
 
 add_library(${PROJECT_NAME} STATIC ${view-src})
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Widgets
-    View-model-lib
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)

@@ -25,10 +25,10 @@ auto CustomersViewModel::rowCount([[maybe_unused]] const QModelIndex& index) con
 
 auto CustomersViewModel::data(const QModelIndex& index, int role) const -> QVariant
 {
-    if (role == Qt::TextAlignmentRole )
+    switch (role) {
+    case Qt::TextAlignmentRole:
         return Qt::AlignCenter;
-
-    if (role == Qt::DisplayRole) {
+    case Qt::DisplayRole:
         switch (index.column()) {
         case 0: return customers.at(index.row()).getId();
         case 1: return customers.at(index.row()).getFirstName();
@@ -37,6 +37,8 @@ auto CustomersViewModel::data(const QModelIndex& index, int role) const -> QVari
         case 4: return customers.at(index.row()).getAge();
         default: assert(!"Should not get here");
         }
+    default:
+        break;
     }
 
     return QVariant();
