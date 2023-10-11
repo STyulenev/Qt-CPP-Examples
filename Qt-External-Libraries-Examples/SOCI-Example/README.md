@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS Products
     product_name CHARACTER VARYING(30) NOT NULL,
     manufacturer CHARACTER VARYING(30) NOT NULL,
     product_count INTEGER DEFAULT 0,
-    price NUMERIC
+    price BIGINT CHECK(price > 0)
 );
 
 CREATE TABLE IF NOT EXISTS Orders

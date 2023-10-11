@@ -2,6 +2,9 @@
 #include "./ui_MainWindow.h"
 
 #include "Customer.h"
+#include "Product.h"
+#include "Order.h"
+
 #include <QDebug>
 
 #include <iostream>
@@ -20,14 +23,31 @@ MainWindow::MainWindow(QWidget* parent) :
 
         qDebug() << "Successfully connected to \", " << "using \"" << sql.get_backend_name() << "\" backend.\n";
 
-        //std::vector<Customer> customers;
-        //sql << "SELECT * FROM customers", soci::into(customers);
-        //qDebug() << customers.size();
+        {
+            soci::rowset<Entities::Customer> rs = (sql.prepare << "SELECT * FROM Customers ORDER BY id ASC;");
+            for (auto it = rs.begin(); it != rs.end(); it++) {
+                Entities::Customer& i = *it;
+                i.print();
+            }
+        }
 
-        soci::rowset<Customer> rs = (sql.prepare << "SELECT * FROM customers");
-        for (auto it = rs.begin(); it != rs.end(); it++) {
-            Customer& i = *it;
-            i.print();
+        {
+            soci::rowset<Entities::Product> pr = (sql.prepare << "SELECT * FROM Products ORDER BY id ASC;");
+            for (auto iterator = pr.begin(); iterator != pr.end(); iterator++) {
+                Entities::Product& i = *iterator;
+                i.print();
+            }
+        }
+
+        {
+            soci::rowset<Entities::Order> pr = (sql.prepare << "SELECT * FROM Orders "
+                                                               "JOIN Products as Products ON Products.id = Orders.product_id "
+                                                               "JOIN Customers as Customers ON Customers.id = Orders.customer_id "
+                                                               "ORDER BY Orders.id ASC;");
+            for (auto iterator = pr.begin(); iterator != pr.end(); iterator++) {
+                Entities::Order& i = *iterator;
+                i.print();
+            }
         }
 
     } catch (const soci::soci_error& e) {
