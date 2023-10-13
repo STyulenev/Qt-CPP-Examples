@@ -15,3 +15,7 @@
 ## QJson-Example
 
 Пример использования JSON в Qt
+
+## QtUiPlugin-Example
+
+Пример использования QtUiPlugin для добавления новых виджетов в QtCreator
