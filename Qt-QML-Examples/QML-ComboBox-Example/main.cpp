@@ -1,8 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-
-#include "ListModel.h"
+#include "ComboBoxViews.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,7 +11,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     // Register C ++ type to QML
-    qmlRegisterType<ViewModels::ListModel>("ListModels", 0, 1, "ListModel");
+    qmlRegisterType<Views::ComboBoxViews>("ViewModels", 0, 1, "ComboBoxViews");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

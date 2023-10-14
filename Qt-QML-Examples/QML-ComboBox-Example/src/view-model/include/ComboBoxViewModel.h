@@ -4,7 +4,7 @@
 
 namespace ViewModels {
 
-class ListModel : public QAbstractListModel
+class ComboBoxViewModel : public QAbstractListModel
 {
 
 private:
@@ -18,8 +18,8 @@ private:
     QList<TestModel> model;
 
 public:
-    explicit ListModel(QObject* parent = 0);
-    virtual ~ListModel() = default;
+    explicit ComboBoxViewModel(QObject* parent = 0);
+    virtual ~ComboBoxViewModel() = default;
 
 protected:
     enum Role {

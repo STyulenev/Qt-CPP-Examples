@@ -3,7 +3,7 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 
 // Import C ++ class
-import ListModels 0.1 as Models
+import ViewModels 0.1 as Models
 
 Window {
     width: 640
@@ -11,10 +11,12 @@ Window {
     visible: true
     title: qsTr("QML-ComboBox-Example")
 
+    property QtObject currentView: Models.ComboBoxViews {}
+
     ComboBox {
         anchors.centerIn: parent
         id: control
-        model: Models.ListModel {}
+        model: currentView.comboBoxViewModel
         delegate: ItemDelegate {
             width: control.width
             contentItem: Text {

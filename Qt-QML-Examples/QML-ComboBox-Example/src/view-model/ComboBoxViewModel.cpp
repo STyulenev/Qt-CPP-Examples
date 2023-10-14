@@ -1,10 +1,10 @@
-#include "ListModel.h"
+#include "ComboBoxViewModel.h"
 
 #include <QUrl>
 
 namespace ViewModels {
 
-ListModel::ListModel(QObject* parent) :
+ComboBoxViewModel::ComboBoxViewModel(QObject* parent) :
     QAbstractListModel(parent)
 {
     model = {
@@ -18,12 +18,12 @@ ListModel::ListModel(QObject* parent) :
             };
 }
 
-auto ListModel::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
+auto ComboBoxViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
     return model.length();
 }
 
-auto ListModel::data(const QModelIndex& index, int role) const -> QVariant
+auto ComboBoxViewModel::data(const QModelIndex& index, int role) const -> QVariant
 {
     switch (role) {
     case Qt::DisplayRole:
@@ -41,12 +41,12 @@ auto ListModel::data(const QModelIndex& index, int role) const -> QVariant
     return QVariant();
 }
 
-auto ListModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
+auto ComboBoxViewModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt::ItemFlags
 {
     return Qt::ItemIsEnabled;
 }
 
-auto ListModel::roleNames() const -> QHash<int, QByteArray>
+auto ComboBoxViewModel::roleNames() const -> QHash<int, QByteArray>
 {
     QHash<int, QByteArray> roles;
 
