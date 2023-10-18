@@ -10,9 +10,7 @@ class ComboBoxViewModel : public QAbstractListModel
 private:
     struct TestModel {
         QString name;
-        /*QString iconUrl;
-        QString description;
-        bool status;*/
+        QString iconUrl;
     };
 
     QList<TestModel> model;
@@ -20,12 +18,6 @@ private:
 public:
     explicit ComboBoxViewModel(QObject* parent = 0);
     virtual ~ComboBoxViewModel() = default;
-
-protected:
-    enum Role {
-        DescriptionRole = Qt::UserRole + 1,
-        StatusRole
-    };
 
     virtual auto rowCount(const QModelIndex& parent) const -> int override;
     virtual auto data(const QModelIndex& index, int role) const -> QVariant override;

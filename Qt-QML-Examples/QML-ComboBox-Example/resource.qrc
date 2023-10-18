@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>res/images/donut.png</file>
+        <file>res/images/hamburger.png</file>
+        <file>res/images/ice-cream.png</file>
+        <file>res/images/pizza.png</file>
+        <file>qml/Components/ComboBox.qml</file>
+        <file>qml/Components/qmldir</file>
+    </qresource>
+</RCC>
