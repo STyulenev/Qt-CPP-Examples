@@ -14,8 +14,8 @@ public:
     explicit TcpSocket(QObject* parent = 0);
     virtual ~TcpSocket();
 
-    virtual void launch() override;
-    virtual void onReadyWrite(const QByteArray& message) override;
+    virtual auto launch() -> void override;
+    virtual auto onReadyWrite(const QByteArray& message) -> void override;
 
 public slots:
     virtual void onReadyRead() override;

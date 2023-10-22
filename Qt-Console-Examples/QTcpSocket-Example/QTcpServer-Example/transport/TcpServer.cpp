@@ -1,6 +1,5 @@
 #include "TcpServer.h"
 
-#include <QDebug>
 #include <QHostAddress>
 
 namespace Transport {
@@ -51,7 +50,6 @@ void TcpServer::onReadyRead()
     QTcpSocket* sender = static_cast<QTcpSocket*>(QObject::sender());
     QByteArray datas = sender->readAll();
 
-    qDebug() << QString(datas);
     const QString message = QString(datas);
 
     emit getMessage(message);

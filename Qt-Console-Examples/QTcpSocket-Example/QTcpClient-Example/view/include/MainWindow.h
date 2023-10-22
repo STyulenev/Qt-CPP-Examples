@@ -21,7 +21,7 @@ public:
     virtual ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    auto on_pushButton_clicked() -> void;
 
 private:
     Ui::MainWindow* ui;

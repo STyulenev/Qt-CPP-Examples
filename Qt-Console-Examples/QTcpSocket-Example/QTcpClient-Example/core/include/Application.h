@@ -13,7 +13,7 @@ public:
     explicit Application(int& argc, char** argv);
     virtual ~Application();
 
-    void launch();
+    auto launch() -> void;
 
 private:
     Transport::AbstractSocket* socket;

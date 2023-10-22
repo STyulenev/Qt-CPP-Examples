@@ -19,7 +19,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+auto MainWindow::on_pushButton_clicked() -> void
 {
     const QString message = ui->lineEdit->text();
 

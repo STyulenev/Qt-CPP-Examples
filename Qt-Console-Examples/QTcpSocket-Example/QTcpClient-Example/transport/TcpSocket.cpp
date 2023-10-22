@@ -15,7 +15,7 @@ TcpSocket::~TcpSocket()
 
 }
 
-void TcpSocket::launch()
+auto TcpSocket::launch() -> void
 {
     socket = new QTcpSocket(this);
 
@@ -24,12 +24,12 @@ void TcpSocket::launch()
     connect(this, &AbstractSocket::write, this, &TcpSocket::onReadyWrite);
 }
 
-void TcpSocket::onReadyWrite(const QByteArray& message)
+auto TcpSocket::onReadyWrite(const QByteArray& message) -> void
 {
     socket->write(message);
 }
 
-void TcpSocket::onReadyRead()
+auto TcpSocket::onReadyRead() -> void
 {
     QByteArray datas = socket->readAll();
     const QString message = QString(datas);

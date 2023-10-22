@@ -20,10 +20,15 @@ Application::~Application()
     delete socket;
 }
 
-void Application::launch()
+auto Application::launch() -> void
 {
     socketThread = new QThread();
     socket = new Transport::TcpSocket();
+
+    connect(socket, &Transport::TcpSocket::getMessage, this, [](const QString& message) -> void {
+        qDebug() << message;
+    });
+
     socket->launch();
     socket->moveToThread(socketThread);
     socketThread->start();

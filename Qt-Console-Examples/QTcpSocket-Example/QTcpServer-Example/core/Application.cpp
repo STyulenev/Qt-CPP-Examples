@@ -24,9 +24,15 @@ void Application::launch()
 {
     serverThread = new QThread();
     server = new Transport::TcpServer();
+
+    connect(server, &Transport::TcpServer::getMessage, this, [](const QString& message) -> void {
+        qDebug() << message;
+    });
+
     server->launch();
     server->moveToThread(serverThread);
     serverThread->start();
 
-    //this->setProperty("Server", QVariant::fromValue<QObject*>(server));
+    // if need be
+    // this->setProperty("...", QVariant::fromValue<QObject*>(...));
 }
