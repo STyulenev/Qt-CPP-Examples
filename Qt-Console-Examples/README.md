@@ -16,6 +16,10 @@
 
 Пример использования JSON в Qt
 
+## QTcpSocket-Example
+
+Пример использования QTcpSocket и QTcpServer (клиент и сервер).
+
 ## QtUiPlugin-Example
 
 Пример использования QtUiPlugin для добавления новых виджетов в QtCreator
