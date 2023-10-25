@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.5)
+
+project(Source
+    VERSION 0.1
+    DESCRIPTION "Source"
+    LANGUAGES CXX
+)
+
+add_subdirectory(core)
+add_subdirectory(transport)
+add_subdirectory(view)
