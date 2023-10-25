@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(Transport-Server-lib
+project(Transport-lib
     VERSION 0.1
     DESCRIPTION "Static library for transport data"
     LANGUAGES CXX

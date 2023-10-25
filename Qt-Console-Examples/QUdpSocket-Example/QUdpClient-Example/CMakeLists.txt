@@ -15,9 +15,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-add_subdirectory(core)
-add_subdirectory(transport)
-add_subdirectory(view)
+add_subdirectory(src)
 
 set(PROJECT_SOURCES
     main.cpp
@@ -36,6 +34,6 @@ endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
-    Core-Client-lib
+    Core-lib
     View-lib
 )

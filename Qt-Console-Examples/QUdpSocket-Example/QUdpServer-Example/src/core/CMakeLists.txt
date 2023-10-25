@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(Core-Server-lib
+project(Core-lib
     VERSION 0.1
     DESCRIPTION "Static library for core"
     LANGUAGES CXX
@@ -19,7 +19,7 @@ add_library(${PROJECT_NAME} STATIC ${core-src})
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Core
-    Transport-Server-lib
+    Transport-lib
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)
