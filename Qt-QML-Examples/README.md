@@ -6,7 +6,7 @@
 
 ## QML-ComboBox-Example
 
-Пример использования ComboBox в QML на основе модели.
+Пример использования ComboBox в QML на основе модели и переопределения шаблона ComboBox.
 
 ## QML-Image-Example
 
