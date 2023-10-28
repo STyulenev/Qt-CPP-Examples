@@ -16,8 +16,8 @@ class Order
 {
 private:
     int      id;
-    Customer customer;
-    Product  product;
+    mutable Customer customer;
+    mutable Product  product;
     int      quantity;
     std::tm  date;
     std::tm  time;
@@ -27,8 +27,8 @@ public:
     ~Order() = default;
 
     auto getId() const -> int;
-    auto getCustomer() -> Customer&;
-    auto getProduct() -> Product&;
+    auto getCustomer() const-> Customer&;
+    auto getProduct() const -> Product&;
     auto getQuantity() const -> int;
     auto getDate() const -> const std::tm&;
     auto getTime() const -> const std::tm&;

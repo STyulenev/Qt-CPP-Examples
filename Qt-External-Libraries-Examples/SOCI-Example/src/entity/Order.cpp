@@ -1,7 +1,5 @@
 #include "Order.h"
 
-
-
 namespace Entities {
 
 Order::Order() :
@@ -15,12 +13,12 @@ auto Order::getId() const -> int
     return id;
 }
 
-auto Order::getCustomer() -> Customer&
+auto Order::getCustomer() const -> Customer&
 {
     return customer;
 }
 
-auto Order::getProduct() -> Product&
+auto Order::getProduct() const -> Product&
 {
     return product;
 }

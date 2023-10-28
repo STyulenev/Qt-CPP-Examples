@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(SOCI-Example
     VERSION 0.1
-    DESCRIPTION "Project with sample SOCI"
+    DESCRIPTION "Project with sample SOCI ORM library"
     HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )
