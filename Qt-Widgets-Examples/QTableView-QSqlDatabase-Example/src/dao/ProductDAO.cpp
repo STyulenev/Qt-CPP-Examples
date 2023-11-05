@@ -5,7 +5,8 @@
 
 namespace DAO {
 
-ProductDAO::ProductDAO()
+ProductDAO::ProductDAO(QObject* parent) :
+    QObject(parent)
 {
     connection = ConnectionPool::getPool()->getConnection();
     query = std::make_shared<QSqlQuery>(*connection.get());

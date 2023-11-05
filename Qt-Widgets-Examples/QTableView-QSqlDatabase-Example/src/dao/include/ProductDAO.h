@@ -1,6 +1,5 @@
 #pragma once
 
-#include <QDebug>
 #include <QMutex>
 
 #include "Product.h"
@@ -8,16 +7,18 @@
 
 namespace DAO {
 
-class ProductDAO
+class ProductDAO : public QObject
 {
+    Q_OBJECT
+
 private:
     std::shared_ptr<QSqlDatabase> connection;
     std::shared_ptr<QSqlQuery> query;
     QMutex mutex;
 
 public:
-    ProductDAO();
-    ~ProductDAO();
+    explicit ProductDAO(QObject* parent = nullptr);
+    virtual ~ProductDAO();
 
     auto selectProducts(QList<Entities::Product>& products) -> void;
 

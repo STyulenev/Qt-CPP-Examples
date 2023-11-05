@@ -1,6 +1,5 @@
 #pragma once
 
-#include <QDebug>
 #include <QMutex>
 
 #include "Customer.h"
@@ -8,16 +7,18 @@
 
 namespace DAO {
 
-class CustomerDAO
+class CustomerDAO : public QObject
 {
+    Q_OBJECT
+
 private:
     std::shared_ptr<QSqlDatabase> connection;
     std::shared_ptr<QSqlQuery> query;
     QMutex mutex;
 
 public:
-    CustomerDAO();
-    ~CustomerDAO();
+    explicit CustomerDAO(QObject* parent = nullptr);
+    virtual ~CustomerDAO();
 
     auto selectCustomers(QList<Entities::Customer>& customers) -> void;
 
