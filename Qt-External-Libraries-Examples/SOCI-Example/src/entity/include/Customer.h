@@ -3,7 +3,7 @@
 #include <soci/soci.h>
 #include <soci/postgresql/soci-postgresql.h>
 
-#include <QDebug>
+#include <QString>
 
 namespace Entities {
 

@@ -1,5 +1,7 @@
 #include "Customer.h"
 
+#include <QDebug>
+
 namespace Entities {
 
 Customer::Customer() :

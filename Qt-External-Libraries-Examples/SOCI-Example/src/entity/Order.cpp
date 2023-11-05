@@ -1,5 +1,7 @@
 #include "Order.h"
 
+#include <QDebug>
+
 namespace Entities {
 
 Order::Order() :
@@ -36,6 +38,16 @@ auto Order::getDate() const -> const std::tm&
 auto Order::getTime() const -> const std::tm&
 {
     return time;
+}
+
+auto Order::getDateAsString() const -> QString
+{
+    return QString("%1-%2-%3").arg(date.tm_mday).arg(1 + date.tm_mon).arg(1900 + date.tm_year);
+}
+
+auto Order::getTimeAsString() const -> QString
+{
+    return QString("%1:%2:%3").arg(time.tm_hour).arg(time.tm_min).arg(time.tm_sec);
 }
 
 auto Order::setId(int id) -> void
@@ -101,12 +113,13 @@ void type_conversion<Entities::Order>::from_base(const values& v, indicator, Ent
 
 void type_conversion<Entities::Order>::to_base(const Entities::Order& order, values& v, indicator& ind)
 {
-    /*v.set("id", product.getId());
-    v.set("product_type", product.getType().toStdString());
-    v.set("product_name", product.getName().toStdString());
-    v.set("manufacturer", product.getManufacturer().toStdString());
-    v.set("product_count", product.getCount());
-    v.set("price", product.getPrice());*/
+    v.set("id", order.getId());
+    v.set("quantity", order.getQuantity());
+    v.set("order_date", order.getDate());
+    v.set("order_time", order.getTime());
+    v.set("customer_id", order.getCustomer().getId());
+    v.set("product_id", order.getProduct().getId());
+
     ind = i_ok;
 }
 

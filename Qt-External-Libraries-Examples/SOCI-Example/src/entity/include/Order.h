@@ -3,8 +3,6 @@
 #include <soci/soci.h>
 #include <soci/postgresql/soci-postgresql.h>
 
-#include <QDebug>
-
 #include "Customer.h"
 #include "Product.h"
 
@@ -32,6 +30,9 @@ public:
     auto getQuantity() const -> int;
     auto getDate() const -> const std::tm&;
     auto getTime() const -> const std::tm&;
+
+    auto getDateAsString() const -> QString;
+    auto getTimeAsString() const -> QString;
 
     auto setId(int id) -> void;
     auto setCustomer(const Customer& customer) -> void;

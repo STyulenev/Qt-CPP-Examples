@@ -1,7 +1,5 @@
 #pragma once
 
-#include <QDebug>
-
 #include "Customer.h"
 #include "Product.h"
 #include "Order.h"

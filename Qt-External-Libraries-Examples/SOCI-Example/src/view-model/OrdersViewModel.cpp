@@ -39,8 +39,8 @@ auto OrdersViewModel::data(const QModelIndex& index, int role) const -> QVariant
         case 6: return orders.at(index.row()).getProduct().getPrice();
         case 7: return orders.at(index.row()).getQuantity();
         case 8: return (orders.at(index.row()).getQuantity() * orders.at(index.row()).getProduct().getPrice());
-        case 9: return ""; //orders.at(index.row()).getDate();
-        case 10: return ""; //orders.at(index.row()).getTime();
+        case 9: return orders.at(index.row()).getDateAsString();
+        case 10: return orders.at(index.row()).getTimeAsString();
         default: assert(!"Should not get here");
         }
     default:

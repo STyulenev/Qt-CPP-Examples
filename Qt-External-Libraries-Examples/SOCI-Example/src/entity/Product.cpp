@@ -1,5 +1,7 @@
 #include "Product.h"
 
+#include <QDebug>
+
 namespace Entities {
 
 Product::Product() :
