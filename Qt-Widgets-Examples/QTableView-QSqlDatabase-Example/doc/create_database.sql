@@ -31,6 +31,15 @@ CREATE TABLE IF NOT EXISTS Orders
     FOREIGN KEY (product_id) REFERENCES Products (id) ON DELETE RESTRICT
 );
 
+CREATE OR REPLACE RULE insert_products_notification
+AS ON INSERT TO products DO SELECT pg_notify('insert_products_notification'::text, new.id::text) AS pg_notify;
+
+CREATE OR REPLACE RULE delete_products_notification
+AS ON DELETE TO products DO SELECT pg_notify('delete_products_notification'::text, old.id::text) AS pg_notify;
+
+CREATE OR REPLACE RULE update_products_notification
+AS ON UPDATE TO products DO SELECT pg_notify('update_products_notification'::text, new.id::text) AS pg_notify;
+
 INSERT INTO Customers VALUES (default, 'Roy', 'Jones', 'roy_jones@gmail.com', 19);
 INSERT INTO Customers VALUES (default, 'Philip', 'Morgan', 'philip_morgan@yandex.com', 24);
 INSERT INTO Customers VALUES (default, 'Mary', 'Parker', 'mary_parker@free.com', 43);
@@ -40,6 +49,7 @@ INSERT INTO Products VALUES (default, 'Phone', 'Galaxy A23', 'Samsung', 2, 55000
 INSERT INTO Products VALUES (default, 'Phone', 'Redmi 12T', 'Xiaomi', 7, 46000);
 INSERT INTO Products VALUES (default, 'Laptop', 'RedmiBook 15', 'Xiaomi', 4, 46000);
 INSERT INTO Products VALUES (default, 'Laptop', 'V15', 'Lenovo', 6, 46000);
+INSERT INTO Products VALUES (default, 'Phone', 'iPhone 15', 'Apple', 5, 150000);
 
 INSERT INTO Orders VALUES (default, 1, 1, 2, '2022-01-08', '12:21:34');
 INSERT INTO Orders VALUES (default, 2, 3, 1, '2022-01-04', '10:41:54');

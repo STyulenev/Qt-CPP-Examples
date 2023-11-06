@@ -5,7 +5,11 @@ namespace ViewModels {
 ProductsViewModel::ProductsViewModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
-    dao.selectProducts(products);
+    dao = new DAO::ProductDAO(this);
+
+    connect(dao, &DAO::ProductDAO::productsTableChanged, this, &ProductsViewModel::updateProductList);
+
+    updateProductList();
 }
 
 ProductsViewModel::~ProductsViewModel()
@@ -67,6 +71,16 @@ auto ProductsViewModel::headerData(int section, Qt::Orientation orientation, int
     }
 
     return QVariant();
+}
+
+auto ProductsViewModel::updateProductList() -> void
+{
+    QAbstractTableModel::beginResetModel();
+
+    products.clear();
+    dao->selectProducts(products);
+
+    QAbstractTableModel::endResetModel();
 }
 
 } // namespace ViewModels

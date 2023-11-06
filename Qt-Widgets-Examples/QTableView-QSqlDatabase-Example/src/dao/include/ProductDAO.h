@@ -28,6 +28,9 @@ public:
 
     auto updateProduct(const Entities::Product& product) -> void;
 
+signals:
+    auto productsTableChanged() -> void;
+
 };
 
 } // namespace DAO
