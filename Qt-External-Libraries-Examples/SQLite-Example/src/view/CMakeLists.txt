@@ -21,7 +21,7 @@ add_library(${PROJECT_NAME} STATIC ${view-src})
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Widgets
-    DAO-lib
+    View-model-lib
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)

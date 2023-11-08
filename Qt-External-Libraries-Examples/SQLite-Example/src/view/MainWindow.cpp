@@ -1,7 +1,7 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
-#include "DAO.h"
+#include "PersonsViewModel.h"
 
 namespace Views {
 
@@ -11,10 +11,10 @@ MainWindow::MainWindow(QWidget* parent) :
 {
     ui->setupUi(this);
 
-    DAO dao;
-    dao.openDatabase();
-    dao.insertNewPerson();
-    dao.selectPeople();
+    personsViewModel = new ViewModels::PersonsViewModel(this);
+
+    ui->personsTableView->setModel(personsViewModel);
+    ui->personsTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 MainWindow::~MainWindow()

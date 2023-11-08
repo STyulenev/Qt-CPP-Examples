@@ -2,9 +2,13 @@
 
 #include <QMainWindow>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+namespace Ui {
+    class MainWindow;
+}
+
+namespace ViewModels {
+    class PersonsViewModel;
+}
 
 namespace Views {
 
@@ -18,6 +22,7 @@ public:
 
 private:
     Ui::MainWindow* ui;
+    ViewModels::PersonsViewModel* personsViewModel;
 
 };
 

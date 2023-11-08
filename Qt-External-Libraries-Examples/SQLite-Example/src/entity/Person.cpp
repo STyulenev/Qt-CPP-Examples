@@ -1,6 +1,6 @@
 #include "Person.h"
 
-namespace Models {
+namespace Entities {
 
 Person::Person() :
     id(0),
@@ -59,4 +59,4 @@ void Person::print() const
     qDebug() << id << firstName << lastName << age;
 }
 
-} // namespace Models
+} // namespace Entities

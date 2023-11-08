@@ -14,7 +14,7 @@ public:
     bool openDatabase();
     void closeDatabase();
 
-    void/*QList<Person>*/ selectPeople();
+    void selectPeople(QList<Entities::Person>& people);
 
     void insertNewPerson(/*const QString& firstName, const QString& lastName, const int age*/);
 

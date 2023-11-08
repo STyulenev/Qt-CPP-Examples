@@ -25,38 +25,30 @@ void DAO::closeDatabase()
         sqlite3_close(db);
 }
 
-void/*QList<Person>*/ DAO::selectPeople()
+void DAO::selectPeople(QList<Entities::Person>& people)
 {
     sqlite3_stmt* stmt;
-    QVector<Models::Person> persons;
 
     if (isOpen) {
-        sqlite3_prepare(db, "SELECT * FROM \"test.people\";", -1, &stmt, NULL); //preparing the statement
+        sqlite3_prepare(db, "SELECT * FROM \"test.people\";", -1, &stmt, NULL); // preparing the statement
         sqlite3_step(stmt); //executing the statement
 
         while (sqlite3_column_text(stmt, 0)) {
-            Models::Person person;
+            Entities::Person person;
             person.setId(std::stoi((char *)sqlite3_column_text(stmt, 0)));
             person.setFirstName(QString((char *)sqlite3_column_text(stmt, 1)));
             person.setLastName(QString((char *)sqlite3_column_text(stmt, 2)));
             person.setAge(std::stoi((char *)sqlite3_column_text(stmt, 3)));
 
-            persons << std::move(person);
+            people << std::move(person);
 
             sqlite3_step( stmt );
         }
-
-        for (int i = 0; i < persons.size(); ++i) {
-            persons[i].print();
-        }
     } else {
-        qDebug() << "Failed to open db\n";
-        qDebug() << "Error open DB " << QString(sqlite3_errmsg(db));
+        qDebug() << "Failed to open db:" << QString(sqlite3_errmsg(db));
     }
 
     sqlite3_finalize(stmt);
-
-    //return QList<Person>;
 }
 
 void DAO::insertNewPerson(/*const QString &firstName, const QString &lastName, const int age*/)

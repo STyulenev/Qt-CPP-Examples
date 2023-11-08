@@ -3,7 +3,7 @@
 #include <QString>
 #include <QDebug>
 
-namespace Models {
+namespace Entities {
 
 class Person
 {
@@ -31,4 +31,4 @@ public:
 
 };
 
-} // namespace Models
+} // namespace Entities
