@@ -1,47 +1,42 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(SQLite-Example VERSION 0.1 LANGUAGES CXX)
+project(SQLite-Example
+    DESCRIPTION "Example of connecting to a SQLite database and retrieving data"
+    HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
+    LANGUAGES CXX
+)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
-find_library(SQLITE3_LIBRARIES REQUIRED)
+add_subdirectory(src)
 
 set(PROJECT_SOURCES
-        main.cpp
-        MainWindow.cpp
-        MainWindow.h
-        MainWindow.ui
-
-        DAO.h
-        DAO.cpp
-
-        Person.h
+    main.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(SQLite-Example
+    qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
 else()
-    add_executable(SQLite-Example
+    add_executable(${PROJECT_NAME}
         ${PROJECT_SOURCES}
     )
 endif()
 
-include_directories(${SQLite3_INCLUDE_DIRS})
-
-target_link_libraries(SQLite-Example PRIVATE
+target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
-    ${SQLITE3_LIBRARIES}
+    View-lib
+)
+
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )

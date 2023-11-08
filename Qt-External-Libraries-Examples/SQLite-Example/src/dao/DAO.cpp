@@ -28,18 +28,18 @@ void DAO::closeDatabase()
 void/*QList<Person>*/ DAO::selectPeople()
 {
     sqlite3_stmt* stmt;
-    QVector<Person> persons;
+    QVector<Models::Person> persons;
 
     if (isOpen) {
         sqlite3_prepare(db, "SELECT * FROM \"test.people\";", -1, &stmt, NULL); //preparing the statement
         sqlite3_step(stmt); //executing the statement
 
         while (sqlite3_column_text(stmt, 0)) {
-            Person person;
-            person.id = std::stoi((char *)sqlite3_column_text(stmt, 0));
-            person.firstName = QString((char *)sqlite3_column_text(stmt, 1));
-            person.lastName = QString((char *)sqlite3_column_text(stmt, 2));
-            person.age = std::stoi((char *)sqlite3_column_text(stmt, 3));
+            Models::Person person;
+            person.setId(std::stoi((char *)sqlite3_column_text(stmt, 0)));
+            person.setFirstName(QString((char *)sqlite3_column_text(stmt, 1)));
+            person.setLastName(QString((char *)sqlite3_column_text(stmt, 2)));
+            person.setAge(std::stoi((char *)sqlite3_column_text(stmt, 3)));
 
             persons << std::move(person);
 
