@@ -1,0 +1,6 @@
+[requires]
+soci/4.0.3
+
+[generators]
+CMakeDeps
+CMakeToolchain
