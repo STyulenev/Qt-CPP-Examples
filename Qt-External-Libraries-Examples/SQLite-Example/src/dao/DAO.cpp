@@ -3,35 +3,37 @@
 #include <string>
 #include <QDebug>
 
-DAO::DAO()
+namespace DAO {
+
+PersonDAO::PersonDAO()
 {
 
 }
 
-DAO::~DAO()
+PersonDAO::~PersonDAO()
 {
     closeDatabase();
 }
 
-bool DAO::openDatabase()
+bool PersonDAO::openDatabase()
 {
-    isOpen = (sqlite3_open("/home/sergey/Examples/SQLite-Example/example.db", &db) == SQLITE_OK);
+    isOpen = (sqlite3_open("/path-to-database/example.db", &db) == SQLITE_OK);
     return isOpen;
 }
 
-void DAO::closeDatabase()
+void PersonDAO::closeDatabase()
 {
     if (isOpen)
         sqlite3_close(db);
 }
 
-void DAO::selectPeople(QList<Entities::Person>& people)
+void PersonDAO::selectPeople(QList<Entities::Person>& people)
 {
-    sqlite3_stmt* stmt;
+    sqlite3_stmt* stmt = nullptr;
 
     if (isOpen) {
-        sqlite3_prepare(db, "SELECT * FROM \"test.people\";", -1, &stmt, NULL); // preparing the statement
-        sqlite3_step(stmt); //executing the statement
+        sqlite3_prepare(db, "SELECT * FROM \"test.people\";", -1, &stmt, nullptr);
+        sqlite3_step(stmt);
 
         while (sqlite3_column_text(stmt, 0)) {
             Entities::Person person;
@@ -51,14 +53,80 @@ void DAO::selectPeople(QList<Entities::Person>& people)
     sqlite3_finalize(stmt);
 }
 
-void DAO::insertNewPerson(/*const QString &firstName, const QString &lastName, const int age*/)
+bool PersonDAO::insertNewPerson(const QString& firstName, const QString& lastName, const int age)
 {
     if (isOpen) {
-        char *zErrMsg = 0;
+        char* messaggeError;
 
-        std::string sql = "INSERT INTO \"test.people\" (first_name, last_name, age) VALUES ('Ken2', 'Dyrun2', 23);";
+        const QString query = QString("INSERT INTO \"test.people\" (first_name, last_name, age) VALUES ('%1', '%2', %3);")
+                .arg(firstName)
+                .arg(lastName)
+                .arg(age);
 
-        // Run the SQL (convert the string to a C-String with c_str() )
-        int rc = sqlite3_exec(db, sql.c_str(), NULL, 0, &zErrMsg);
+        const int status = sqlite3_exec(db, query.toStdString().c_str(), nullptr, 0, &messaggeError);
+
+        if (status != SQLITE_OK) {
+            qDebug() << "Error:" << QString(messaggeError);
+            sqlite3_free(messaggeError);
+
+            return false;
+        } else
+            return true;
+    } else {
+        return false;
     }
 }
+
+bool PersonDAO::insertNewPerson(const Entities::Person& person)
+{
+    return insertNewPerson(person.getFirstName(), person.getLastName(), person.getAge());
+}
+
+bool PersonDAO::deleteById(const int id)
+{
+    if (isOpen) {
+        char* messaggeError;
+
+        const QString query = QString("DELETE FROM \"test.people\" WHERE id = '%1';")
+                .arg(id);
+
+        const int status = sqlite3_exec(db, query.toStdString().c_str(), nullptr, 0, &messaggeError);
+
+        if (status != SQLITE_OK) {
+            qDebug() << "Error:" << QString(messaggeError);
+            sqlite3_free(messaggeError);
+
+            return false;
+        } else
+            return true;
+    } else {
+        return false;
+    }
+}
+
+bool PersonDAO::updatePerson(const int id, const QString& firstName, const QString& lastName, const int age)
+{
+    if (isOpen) {
+        char* messaggeError;
+
+        const QString query = QString("UPDATE \"test.people\" SET first_name = '%1', last_name = '%2', age = %3 WHERE id = %4;")
+                .arg(firstName)
+                .arg(lastName)
+                .arg(age)
+                .arg(id);
+
+        const int status = sqlite3_exec(db, query.toStdString().c_str(), nullptr, 0, &messaggeError);
+
+        if (status != SQLITE_OK) {
+            qDebug() << "Error:" << QString(messaggeError);
+            sqlite3_free(messaggeError);
+
+            return false;
+        } else
+            return true;
+    } else {
+        return false;
+    }
+}
+
+} //namespace DAO

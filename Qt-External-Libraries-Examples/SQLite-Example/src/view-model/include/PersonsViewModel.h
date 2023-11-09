@@ -19,7 +19,7 @@ public:
 
 private:
     QList<Entities::Person> people;
-    DAO* dao;
+    DAO::PersonDAO* dao;
 
 };
 

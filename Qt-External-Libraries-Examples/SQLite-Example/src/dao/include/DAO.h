@@ -5,22 +5,31 @@
 
 #include "Person.h"
 
-class DAO
+namespace DAO {
+
+class PersonDAO
 {
+private:
+    sqlite3* db;
+
+    bool isOpen = false;
+
 public:
-    DAO();
-    ~DAO();
+    PersonDAO();
+    ~PersonDAO();
 
     bool openDatabase();
     void closeDatabase();
 
     void selectPeople(QList<Entities::Person>& people);
 
-    void insertNewPerson(/*const QString& firstName, const QString& lastName, const int age*/);
+    bool insertNewPerson(const QString& firstName, const QString& lastName, const int age);
+    bool insertNewPerson(const Entities::Person& person);
 
-private:
-    sqlite3* db;
+    bool deleteById(const int id);
 
-    bool isOpen = false;
+    bool updatePerson(const int id, const QString& firstName, const QString& lastName, const int age);
 
 };
+
+} //namespace DAO

@@ -5,7 +5,7 @@ namespace ViewModels {
 PersonsViewModel::PersonsViewModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
-    dao = new DAO();
+    dao = new DAO::PersonDAO();
     dao->openDatabase();
     dao->selectPeople(people);
 }
