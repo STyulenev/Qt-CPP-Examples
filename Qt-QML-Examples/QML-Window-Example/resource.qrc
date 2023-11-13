@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qml/Windows/MessageBox.qml</file>
+        <file>qml/Windows/qmldir</file>
+        <file>ComponentLoader.qml</file>
+    </qresource>
+</RCC>
