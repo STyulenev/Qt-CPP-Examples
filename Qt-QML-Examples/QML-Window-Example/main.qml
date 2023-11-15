@@ -4,6 +4,7 @@ import QtQuick.Window 2.15
 import QtQuick.Layouts 1.15
 
 import QtQuick.Dialogs
+import QtQml 2.15
 
 import Windows 1.0 as MyWindows
 
@@ -59,6 +60,25 @@ ApplicationWindow {
         }
     }
 
+    MessageDialog {
+        id: messageDialog
+
+        title: qsTr("Title")
+        text: qsTr("Text")
+        //detailedText: qsTr("detailed")
+
+        buttons: MessageDialog.Yes | MessageDialog.No | MessageDialog.Abort
+        Component.onCompleted: visible = false
+
+        onAccepted: {
+            console.log("Accept")
+        }
+
+        onRejected: {
+            console.log("cancel")
+        }
+    }
+
     Column {
         anchors.centerIn: parent
 
@@ -108,6 +128,19 @@ ApplicationWindow {
 
             onClicked: {
                 fileDialog.open();
+            }
+        }
+
+        Button {
+            id: buttonMessageDialog
+
+            height: 45
+            width: 200
+
+            text: qsTr("Open standart Message Dialog")
+
+            onClicked: {
+                messageDialog.open();
             }
         }
     }
