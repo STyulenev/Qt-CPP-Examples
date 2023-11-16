@@ -79,6 +79,30 @@ ApplicationWindow {
         }
     }
 
+    ColorDialog {
+        id: colorDialog
+        visible: false
+        modality: /*colorDialogModal.checked ?*/ Qt.WindowModal //: Qt.NonModal
+        title: "Choose a color"
+        //color: "green"
+        //showAlphaChannel: true //colorDialogAlpha.checked
+        onAccepted: (color) =>  {
+            console.log("Accepted: " + color)
+        }
+
+        onRejected: {
+            console.log("Rejected")
+        }
+
+        Component.onCompleted: {
+            console.log("create ColorDialog ")
+        }
+
+        Component.onDestruction: {
+            console.log("delete ColorDialog ")
+        }
+    }
+
     Column {
         anchors.centerIn: parent
 
@@ -141,6 +165,19 @@ ApplicationWindow {
 
             onClicked: {
                 messageDialog.open();
+            }
+        }
+
+        Button {
+            id: buttonColorDialog
+
+            height: 45
+            width: 200
+
+            text: qsTr("Open standart Color Dialog")
+
+            onClicked: {
+                colorDialog.open();
             }
         }
     }

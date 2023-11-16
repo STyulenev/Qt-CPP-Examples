@@ -5,7 +5,9 @@
 Пример использования окон и диалогов в QML:
 
 - MessageBox с загрузкой компонента и удалением;
-- стандартный FileDialog;
+- FileDialog;
+- MessageDialog;
+- ColorDialog;
 
 ## Сборка проекта
 
