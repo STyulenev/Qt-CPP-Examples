@@ -8,6 +8,7 @@ import QtQuick.Dialogs
 import QtQml 2.15
 
 import Windows 1.0 as MyWindows
+import Dialogs 1.0 as MyDialogs
 
 ApplicationWindow {
     id: window
@@ -17,8 +18,8 @@ ApplicationWindow {
     title: qsTr("QML-Window-Example")
 
     Component {
-        id: component
-        ComponentLoader {
+        id: componentMessageBox
+        WindowLoader {
             component: MyWindows.MessageBox {
                 title: "Are you sure?"
                 btnType: mb_YES | mb_NO | mb_CANCEL;
@@ -36,96 +37,35 @@ ApplicationWindow {
         }
     }
 
-    FileDialog {
-        id: fileDialog
-        title: qsTr("Open txt file")
-        nameFilters: ["Text files (*.txt)"]
-        acceptLabel: qsTr("OK")
-        rejectLabel: qsTr("Cancel")
-        fileMode: FileDialog.OpenFile
-
-        onAccepted: {
-            console.log("You chose: " + fileDialog.currentFiles)
-        }
-
-        onRejected: {
-            console.log("cancel")
-        }
-
-        Component.onCompleted: {
-            console.log("create FileDialog ")
-        }
-
-        Component.onDestruction: {
-            console.log("delete FileDialog ")
+    Component {
+        id: componentColorDialog
+        DialogLoader {
+            component: MyDialogs.ColorDialog {
+            }
         }
     }
 
-    MessageDialog {
-        id: messageDialog
-
-        title: qsTr("Title")
-        text: qsTr("Text")
-        //detailedText: qsTr("detailed")
-
-        buttons: MessageDialog.Yes | MessageDialog.No | MessageDialog.Abort
-        Component.onCompleted: visible = false
-
-        onAccepted: {
-            console.log("Accept")
-        }
-
-        onRejected: {
-            console.log("cancel")
+    Component {
+        id: componentFileDialog
+        DialogLoader {
+            component: MyDialogs.FileDialog {
+            }
         }
     }
 
-    ColorDialog {
-        id: colorDialog
-        visible: false
-        modality: /*colorDialogModal.checked ?*/ Qt.WindowModal //: Qt.NonModal
-        title: "Choose a color"
-        //color: "green"
-        //showAlphaChannel: true //colorDialogAlpha.checked
-        onAccepted: (color) =>  {
-            console.log("Accepted: " + color)
-        }
-
-        onRejected: {
-            console.log("Rejected")
-        }
-
-        Component.onCompleted: {
-            console.log("create ColorDialog ")
-        }
-
-        Component.onDestruction: {
-            console.log("delete ColorDialog ")
+    Component {
+        id: componentFolderDialog
+        DialogLoader {
+            component: MyDialogs.FolderDialog {
+            }
         }
     }
 
-    FolderDialog {
-        id: folderDialog
-        currentFolder: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
-
-        onSelectedFolderChanged: {
-            console.log("Current folder changed: " + folderDialog.selectedFolder)
-        }
-
-        onAccepted: {
-            console.log("Accept = " + folderDialog.selectedFolder)
-        }
-
-        onRejected: {
-            console.log("cancel")
-        }
-
-        Component.onCompleted: {
-            console.log("create FolderDialog ")
-        }
-
-        Component.onDestruction: {
-            console.log("delete FolderDialog ")
+    Component {
+        id: componentMessageDialog
+        DialogLoader {
+            component: MyDialogs.MessageDialog {
+            }
         }
     }
 
@@ -145,7 +85,7 @@ ApplicationWindow {
 
                 if (openWithLoader) {
                     // Component + Loader
-                    component.createObject(window);
+                    componentMessageBox.createObject(window);
                 } else {
                     // Qt.createComponent
                     var dlg = Qt.createComponent("qrc:/qml/Windows/MessageBox.qml", Component.Asynchronous).createObject(window);
@@ -177,7 +117,7 @@ ApplicationWindow {
             text: qsTr("Open standart File Dialog")
 
             onClicked: {
-                fileDialog.open();
+                componentFileDialog.createObject(window);
             }
         }
 
@@ -190,7 +130,7 @@ ApplicationWindow {
             text: qsTr("Open standart Message Dialog")
 
             onClicked: {
-                messageDialog.open();
+                componentMessageDialog.createObject(window);
             }
         }
 
@@ -203,7 +143,7 @@ ApplicationWindow {
             text: qsTr("Open standart Color Dialog")
 
             onClicked: {
-                colorDialog.open();
+                componentColorDialog.createObject(window);
             }
         }
 
@@ -216,7 +156,7 @@ ApplicationWindow {
             text: qsTr("Open standart Folder Dialog")
 
             onClicked: {
-                folderDialog.open();
+                componentFolderDialog.createObject(window);
             }
         }
     }

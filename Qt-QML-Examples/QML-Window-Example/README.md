@@ -8,6 +8,7 @@
 - FileDialog;
 - MessageDialog;
 - ColorDialog;
+- FolderDialog;
 
 ## Сборка проекта
 

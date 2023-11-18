@@ -3,6 +3,12 @@
         <file>main.qml</file>
         <file>qml/Windows/MessageBox.qml</file>
         <file>qml/Windows/qmldir</file>
-        <file>ComponentLoader.qml</file>
+        <file>qml/Dialogs/qmldir</file>
+        <file>qml/Dialogs/FolderDialog.qml</file>
+        <file>qml/Dialogs/FileDialog.qml</file>
+        <file>qml/Dialogs/MessageDialog.qml</file>
+        <file>qml/Dialogs/ColorDialog.qml</file>
+        <file>DialogLoader.qml</file>
+        <file>WindowLoader.qml</file>
     </qresource>
 </RCC>

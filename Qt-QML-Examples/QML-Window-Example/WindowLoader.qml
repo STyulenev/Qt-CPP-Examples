@@ -11,7 +11,6 @@ Loader {
 
     onLoaded: {
         item.show()
-        //item.view ? item.view.visibleChanged(true) : {}
 
         loader.item.closing.connect(loader.destroy)
     }
