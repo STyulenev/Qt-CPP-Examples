@@ -3,6 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
 import QtQuick.Layouts 1.15
 
+import QtCore // for StandardPaths
 import QtQuick.Dialogs
 import QtQml 2.15
 
@@ -22,7 +23,7 @@ ApplicationWindow {
                 title: "Are you sure?"
                 btnType: mb_YES | mb_NO | mb_CANCEL;
 
-                onClosing: {
+                Component.onDestruction: {
                     if (retValue === mb_YES) {
                         console.log("yes");
                     } else if(retValue === mb_NO) {
@@ -103,6 +104,31 @@ ApplicationWindow {
         }
     }
 
+    FolderDialog {
+        id: folderDialog
+        currentFolder: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
+
+        onSelectedFolderChanged: {
+            console.log("Current folder changed: " + folderDialog.selectedFolder)
+        }
+
+        onAccepted: {
+            console.log("Accept = " + folderDialog.selectedFolder)
+        }
+
+        onRejected: {
+            console.log("cancel")
+        }
+
+        Component.onCompleted: {
+            console.log("create FolderDialog ")
+        }
+
+        Component.onDestruction: {
+            console.log("delete FolderDialog ")
+        }
+    }
+
     Column {
         anchors.centerIn: parent
 
@@ -178,6 +204,19 @@ ApplicationWindow {
 
             onClicked: {
                 colorDialog.open();
+            }
+        }
+
+        Button {
+            id: buttonFolderDialog
+
+            height: 45
+            width: 200
+
+            text: qsTr("Open standart Folder Dialog")
+
+            onClicked: {
+                folderDialog.open();
             }
         }
     }
