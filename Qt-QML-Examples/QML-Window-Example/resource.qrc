@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qml/Windows/MessageBox.qml</file>
+        <file>qml/Windows/qmldir</file>
+        <file>qml/Dialogs/qmldir</file>
+        <file>qml/Dialogs/FolderDialog.qml</file>
+        <file>qml/Dialogs/FileDialog.qml</file>
+        <file>qml/Dialogs/MessageDialog.qml</file>
+        <file>qml/Dialogs/ColorDialog.qml</file>
+        <file>qml/Screens/Other/SomeScreen.qml</file>
+        <file>qml/Screens/Other/SomeScreen_Form.ui.qml</file>
+        <file>qml/Screens/qmldir</file>
+        <file>qml/Screens/DialogLoader.qml</file>
+        <file>qml/Screens/WindowLoader.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>qml/Dialogs/FontDialog.qml</file>
+    </qresource>
+</RCC>

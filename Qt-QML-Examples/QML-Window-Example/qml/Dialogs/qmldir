@@ -1,0 +1,7 @@
+module Dialogs
+
+ColorDialog 1.0 ColorDialog.qml
+FileDialog 1.0 FileDialog.qml
+FolderDialog 1.0 FolderDialog.qml
+FontDialog 1.0 FontDialog.qml
+MessageDialog 1.0 MessageDialog.qml
