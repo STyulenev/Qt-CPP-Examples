@@ -1,15 +1,15 @@
 import QtQuick 2.15
 
-import QtQuick.Dialogs as Dialogs
+import QtQuick.Dialogs as StandartDialogs
 
-Dialogs.MessageDialog {
+StandartDialogs.MessageDialog {
     id: messageDialog
 
     title: qsTr("Title")
     text: qsTr("Text")
     //detailedText: qsTr("detailed")
 
-    buttons: Dialogs.MessageDialog.Yes | Dialogs.MessageDialog.No | Dialogs.MessageDialog.Abort
+    buttons: StandartDialogs.MessageDialog.Yes | StandartDialogs.MessageDialog.No | StandartDialogs.MessageDialog.Abort
 
     onAccepted: {
         console.log("Accept")

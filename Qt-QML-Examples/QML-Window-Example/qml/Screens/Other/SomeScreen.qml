@@ -32,6 +32,7 @@ SomeScreen_Form {
         id: componentColorDialog
         Screens.DialogLoader {
             component: MyDialogs.ColorDialog {
+                // ...
             }
         }
     }
@@ -40,6 +41,7 @@ SomeScreen_Form {
         id: componentFileDialog
         Screens.DialogLoader {
             component: MyDialogs.FileDialog {
+                // ...
             }
         }
     }
@@ -48,6 +50,7 @@ SomeScreen_Form {
         id: componentFolderDialog
         Screens.DialogLoader {
             component: MyDialogs.FolderDialog {
+                // ...
             }
         }
     }
@@ -56,6 +59,16 @@ SomeScreen_Form {
         id: componentMessageDialog
         Screens.DialogLoader {
             component: MyDialogs.MessageDialog {
+                // ...
+            }
+        }
+    }
+
+    Component {
+        id: componentFontDialog
+        Screens.DialogLoader {
+            component: MyDialogs.FontDialog {
+                // ...
             }
         }
     }
@@ -101,5 +114,9 @@ SomeScreen_Form {
 
     onButtonFolderDialogClicked: {
         componentFolderDialog.createObject(formSomeScreen);
+    }
+
+    onButtonFontDialogClicked: {
+        componentFontDialog.createObject(formSomeScreen);
     }
 }

@@ -14,5 +14,6 @@
         <file>qml/Screens/DialogLoader.qml</file>
         <file>qml/Screens/WindowLoader.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>qml/Dialogs/FontDialog.qml</file>
     </qresource>
 </RCC>

@@ -1,9 +1,9 @@
 import QtQuick 2.15
 
 import QtCore as Core
-import QtQuick.Dialogs as Dialogs
+import QtQuick.Dialogs as StandartDialogs
 
-Dialogs.FolderDialog {
+StandartDialogs.FolderDialog {
     id: folderDialog
 
     currentFolder: Core.StandardPaths.standardLocations(Core.StandardPaths.PicturesLocation)[0]

@@ -1,8 +1,8 @@
 import QtQuick 2.15
 
-import QtQuick.Dialogs as Dialogs
+import QtQuick.Dialogs as StandartDialogs
 
-Dialogs.FileDialog {
+StandartDialogs.FileDialog {
     id: fileDialog
 
     title: qsTr("Open txt file")

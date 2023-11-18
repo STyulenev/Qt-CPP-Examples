@@ -11,6 +11,7 @@ Item {
     signal buttonMessageDialogClicked
     signal buttonColorDialogClicked
     signal buttonFolderDialogClicked
+    signal buttonFontDialogClicked
 
     QtObject {
         id: internal
@@ -103,6 +104,23 @@ Item {
 
                 function onClicked() {
                     formSomeScreen.buttonFolderDialogClicked()
+                }
+            }
+        }
+
+        Button {
+            id: buttonFontDialog
+
+            height: internal.buttonHeight
+            width: internal.buttonWidth
+
+            text: qsTr("Open standart Font Dialog")
+
+            Connections {
+                target: buttonFontDialog
+
+                function onClicked() {
+                    formSomeScreen.buttonFontDialogClicked()
                 }
             }
         }
