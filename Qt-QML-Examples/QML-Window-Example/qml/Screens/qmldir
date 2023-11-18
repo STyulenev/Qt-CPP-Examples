@@ -1,0 +1,6 @@
+module Screens
+
+DialogLoader 1.0 DialogLoader.qml
+WindowLoader 1.0 WindowLoader.qml
+
+SomeScreen 1.0 Other/SomeScreen.qml
