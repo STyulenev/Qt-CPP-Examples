@@ -1,11 +1,9 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
-import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
 
 import QtCore as Core
 import QtQuick.LocalStorage 2.0 as Sql // for DataBase.js
-
 import Logics 1.0 as Logics
 
 Window {
@@ -18,6 +16,8 @@ Window {
     title: qsTr("QML-LocaleStorage-Example")
 
     Core.Settings {
+        category: "General"
+
         property alias x: window.x
         property alias y: window.y
         property alias width: window.width
@@ -25,11 +25,17 @@ Window {
     }
 
     Text {
-        text: "?"
-        anchors.horizontalCenter: parent.horizontalCenter
+        id: text
+        anchors.centerIn: parent
 
         Component.onCompleted: {
-            Logics.DataBase.selectAll();
+            Logics.DataBase.createTablePerson();
+
+            Logics.DataBase.insert("Ben", "Tomson", 66);
+            Logics.DataBase.insert('Tom', 'Smith', 37);
+            Logics.DataBase.insert('Ken', 'Dyrun', 23);
+
+            text.text = Logics.DataBase.selectAll();
         }
     }
 }

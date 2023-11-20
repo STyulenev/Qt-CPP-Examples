@@ -20,6 +20,10 @@
 
 Пример использования ListView в QML на основе модели.
 
+## QML-LocalStorage-Example
+
+Пример использования локального хранения данных в QML.
+
 ## QML-RadioButtonGroup-Example
 
 Пример использования RadioButton в QML на основе модели из C++ слоя.
