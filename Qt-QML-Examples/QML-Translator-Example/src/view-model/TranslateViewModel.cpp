@@ -10,8 +10,7 @@
 #include <QQmlContext>
 
 TranslateViewModel::TranslateViewModel(QObject* parent) :
-    QObject(parent),
-    m_currentPath(QCoreApplication::applicationDirPath())
+    QObject(parent)
 {
     m_translator = new QTranslator(this);
     qApp->installTranslator(m_translator);
@@ -24,7 +23,7 @@ void TranslateViewModel::setEn()
     qDebug() <<  locale;
     QLocale::setDefault(locale);
     qDebug() << QLocale::languageToString(locale.language());
-    switchTranslator(m_currLang);
+    switchTranslator();
 
     qDebug() << QCoreApplication::tr("Hello");
 }
@@ -36,25 +35,21 @@ void TranslateViewModel::setRu()
     qDebug() <<  locale;
     QLocale::setDefault(locale);
     qDebug() << QLocale::languageToString(locale.language());
-    switchTranslator(m_currLang);
+    switchTranslator();
 
     qDebug() << QCoreApplication::tr("Hello");
 }
 
-bool TranslateViewModel::switchTranslator(const QString &filename)
+void TranslateViewModel::switchTranslator()
 {
     qApp->removeTranslator(m_translator);
 
-    if (m_translator->load(QString("%1/test_%2.qm").arg(m_currentPath, filename))) {
+    if (m_translator->load(QString(":/test_%1.qm").arg(m_currLang))) {
         QCoreApplication::installTranslator(m_translator);
 
         QQmlEngine* engine = QQmlEngine::contextForObject(this)->engine();
         engine->retranslate();
-
-        return true;
     } else {
-        qDebug() << "Failed to load " << QString("%1/test_%2.qm").arg(m_currentPath, filename);
+        qDebug() << "Failed to load " << QString(":/test_%1.qm").arg(m_currLang);
     }
-
-    return false;
 }

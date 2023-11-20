@@ -16,29 +16,25 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick LinguistTools REQUIRED)
 
-file(GLOB TS_FILES "./res/languages/*.ts") # translation files
+include(cmake/TranslationUtils.cmake)
+add_app_translations_resource(APP_RES ${QM_FILES})
 
 add_subdirectory(src)
 
 set(PROJECT_SOURCES
     main.cpp
     resource.qrc
+    ${APP_RES}
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${TS_FILES})
-
     qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        ${QM_FILES}
     )
 else()
-    qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
-
     add_executable(${PROJECT_NAME}
         ${PROJECT_SOURCES}
-        ${QM_FILES}
     )
 endif()
 

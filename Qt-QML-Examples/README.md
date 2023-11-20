@@ -48,6 +48,10 @@
 
 Пример использования TableView в QML на основе модели.
 
+## QML-Translator-Example
+
+Пример использования QTranslator в QML.
+
 ## QML-TreeView-Example
 
 Пример использования TreeView в QML на основе модели.

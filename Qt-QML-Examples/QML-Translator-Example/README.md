@@ -1,9 +1,8 @@
-# QML-TreeView-Example
+# QML-Translator-Example
 
 ## Описание
 
-Пример использования QTranslator в QML. В примере файлы должны быть в той же папке, что и исполняемый файл.
-Файлы qm могут быть добавлены в ресурсы resource.qrc и загружаться оттуда.
+Пример использования QTranslator в QML. TranslationUtils используется для автоматического добавления qm файлов в файл ресурсов.
 
 ## Сборка проекта
 
@@ -23,14 +22,6 @@ cmake ..
 make
 ```
 > Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
-
-### QMake:
-
-```bash
-qmake ..
-make
-```
-> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
 
 ## Версии
 

@@ -13,7 +13,7 @@ Window {
 
     title: qsTr("Hello World")
 
-    property QtObject currentModel: MyViewModels.TranslateViewModel {}
+    property QtObject currentModel: MyViewModels.TranslateViewModel { }
 
     Column {
         anchors.centerIn: parent

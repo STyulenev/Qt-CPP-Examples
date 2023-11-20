@@ -13,13 +13,10 @@ public:
     Q_INVOKABLE void setRu();
 
 private:
-    bool switchTranslator(const QString& filename);
-
-signals:
+    void switchTranslator();
 
 private:
     QTranslator* m_translator;
-    QString m_currentPath;
     QString m_currLang;
 
 };
