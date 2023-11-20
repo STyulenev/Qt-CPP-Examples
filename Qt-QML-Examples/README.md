@@ -18,7 +18,7 @@
 
 ## QML-ListView-Example
 
-Пример использования ListView в QML на основе модели.
+Пример использования ListView в QML на основе различных моделей.
 
 ## QML-LocalStorage-Example
 
