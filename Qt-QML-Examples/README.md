@@ -50,7 +50,7 @@
 
 ## QML-TableView-Example
 
-Пример использования TableView в QML на основе модели.
+Пример использования TableView в QML на основе различных моделей.
 
 ## QML-Translator-Example
 

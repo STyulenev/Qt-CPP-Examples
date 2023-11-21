@@ -66,7 +66,7 @@ auto TableModel::roleNames() const -> QHash<int, QByteArray>
 {
     QHash<int, QByteArray> roles;
 
-    roles[Qt::DisplayRole] = "DisplayRole";
+    roles[Qt::DisplayRole] = "display";
     // other roles
 
     return roles;

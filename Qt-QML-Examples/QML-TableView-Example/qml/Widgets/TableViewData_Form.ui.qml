@@ -52,13 +52,13 @@ TableView {
         }
     }
 
-    delegate: Rectangle {
+    delegate: Item {
         implicitWidth: tableView.width * tableView.columnWidths[column]
         implicitHeight: 30
 
         Label {
             id: labelDelegate
-            text: model.DisplayRole
+            text: model.display
             anchors.centerIn: parent
         }
 
