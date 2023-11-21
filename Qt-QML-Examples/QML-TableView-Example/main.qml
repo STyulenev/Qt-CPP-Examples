@@ -1,7 +1,7 @@
 import QtQuick
 
 // Import C ++ class
-import ViewModels 0.1 as Models
+import ViewModels 0.1 as ViewModels
 
 // Import QML module
 import Widgets 1.0 as Widgets
@@ -13,7 +13,7 @@ Window {
     visible: true
     title: "QML-TableView-Example"
 
-    property QtObject currentModel: Models.TableModel {}
+    property QtObject cppTableViewModel: ViewModels.TableViewModel { }
 
     Widgets.TableViewData {
         id: tableView
@@ -22,6 +22,10 @@ Window {
         hasHorizontalHeader: true
         hasHorizontalSeparator: true
 
-        model: currentModel
+        model: cppTableViewModel.tableModel
+
+        horizontalHeaders: cppTableViewModel.horizontalHeaders
+        columnWidths: cppTableViewModel.columnWidths
+        textAlignments: cppTableViewModel.textAlignments
     }
 }

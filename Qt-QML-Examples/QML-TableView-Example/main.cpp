@@ -1,14 +1,14 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "TableModel.h"
+#include "TableViewModel.h"
 
 auto main(int argc, char* argv[]) -> int
 {
     QGuiApplication app(argc, argv);
 
     // Register C ++ type to QML
-    qmlRegisterType<ViewModels::TableModel>("ViewModels", 0, 1, "TableModel");
+    qmlRegisterType<ViewModels::TableViewModel>("ViewModels", 0, 1, "TableViewModel");
 
     QQmlApplicationEngine engine;
     engine.addImportPath("qrc:/qml");

@@ -10,7 +10,10 @@ TableView {
     rowSpacing: 8
     clip: true
 
-    property var tableViewColumnsWidths: tableView.model.columnWidths
+    property var horizontalHeaders
+    property var columnWidths
+    property var textAlignments
+
     property bool hasHorizontalHeader: true
     property bool hasHorizontalSeparator: true
 
@@ -32,15 +35,15 @@ TableView {
         Repeater {
             model: tableView.columns > 0 ? tableView.columns : 1
             Label {
-                width: tableView.width * tableView.tableViewColumnsWidths[modelData]
+                width: tableView.width * tableView.columnWidths[modelData]
                 visible: tableView.hasHorizontalHeader
                 height: 35
-                text: tableView.model.horizontalHeaders[modelData] ? tableView.model.horizontalHeaders[modelData] : ""
+                text: tableView.horizontalHeaders[modelData] ? tableView.horizontalHeaders[modelData] : ""
                 color: '#aaaaaa'
                 font.pixelSize: 15
                 padding: 10
                 verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: tableView.model.textAlignments[modelData]
+                horizontalAlignment: tableView.textAlignments[modelData]
 
                 background: Rectangle {
                     color: "#333333"
@@ -50,7 +53,7 @@ TableView {
     }
 
     delegate: Rectangle {
-        implicitWidth: tableView.width * tableView.tableViewColumnsWidths[column]
+        implicitWidth: tableView.width * tableView.columnWidths[column]
         implicitHeight: 30
 
         Label {

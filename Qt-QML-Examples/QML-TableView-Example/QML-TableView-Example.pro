@@ -29,4 +29,4 @@ SOURCES += \
         main.cpp
 
 RESOURCES += \
-        resource.qrc
+        resources.qrc
