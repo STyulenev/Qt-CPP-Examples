@@ -2,7 +2,7 @@
 
 #include "LinearGraphicViewModel.h"
 
-namespace Views {
+namespace ViewModels {
 
 LinearGraphicsView::LinearGraphicsView(QObject* parent) :
     QObject(parent)
@@ -34,4 +34,4 @@ auto LinearGraphicsView::getSecondGraphicName() const -> const QString&
     return m_secondGraphicName;
 }
 
-} // namespace Views
+} // namespace ViewModels

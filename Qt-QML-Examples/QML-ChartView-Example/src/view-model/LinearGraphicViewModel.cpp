@@ -2,9 +2,9 @@
 
 namespace ViewModels {
 
-LinearGraphicViewModel::LinearGraphicViewModel(const QVector<std::pair<double, double>>& data, QObject* parent)
-    : QAbstractTableModel(parent),
-      m_data(data)
+LinearGraphicViewModel::LinearGraphicViewModel(const QVector<std::pair<double, double>>& data, QObject* parent) :
+    QAbstractTableModel(parent),
+    m_data(data)
 {
 
 }

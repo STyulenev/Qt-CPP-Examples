@@ -1,9 +1,9 @@
 #pragma once
 
+#include <QAbstractTableModel> // or class QAbstractTableModel;
 #include <QObject>
-#include "LinearGraphicViewModel.h"
 
-namespace Views {
+namespace ViewModels {
 
 class LinearGraphicsView : public QObject
 {
@@ -33,4 +33,4 @@ public:
 
 };
 
-} // namespace Views
+} // namespace ViewModels

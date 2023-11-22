@@ -5,7 +5,7 @@ import QtCharts 2.15
 import QtQuick.Layouts 1.15
 
 // Import C ++ class
-import Views 0.1 as Views
+import ViewModels 0.1 as ViewModels
 
 Window {
     id: appWindow
@@ -14,7 +14,7 @@ Window {
     visible: true
     title: "QML-ChartView-Example"
 
-    property QtObject currentView: Views.LinearGraphicsView {}
+    property QtObject currentView: ViewModels.LinearGraphicsView {}
 
     ChartView {
         antialiasing: true
