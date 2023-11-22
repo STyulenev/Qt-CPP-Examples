@@ -6,30 +6,11 @@ TableModel::TableModel(QObject* parent) :
     QAbstractTableModel(parent)
 {
     m_model = {
-                  { 1, "John",  "12345", "yes" },
-                  { 2, "Masha", "12346", "no"  },
-                  { 3, "Ben",   "12347", "yes" },
-                  { 4, "Alla",  "12348", "no"  }
+                { 1, "John",  "12345", "yes" },
+                { 2, "Masha", "12346", "no"  },
+                { 3, "Ben",   "12347", "yes" },
+                { 4, "Alla",  "12348", "no"  }
               };
-
-    m_horizontalHeaders = QStringList({ tr("id"), tr("name"), tr("number"), tr("status") });
-    m_textAlignments = { Qt::AlignCenter, Qt::AlignCenter, Qt::AlignCenter, Qt::AlignCenter };
-    m_columnWidths = { 0.1, 0.35, 0.35, 0.2 };
-}
-
-auto TableModel::getHorizontalHeaders() const -> const QStringList&
-{
-    return m_horizontalHeaders;
-}
-
-auto TableModel::getColumnWidths() const -> const QList<double>&
-{
-    return m_columnWidths;
-}
-
-auto TableModel::getTextAlignments() const -> const QList<int>&
-{
-    return m_textAlignments;
 }
 
 auto TableModel::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
@@ -85,7 +66,7 @@ auto TableModel::roleNames() const -> QHash<int, QByteArray>
 {
     QHash<int, QByteArray> roles;
 
-    roles[Qt::DisplayRole] = "DisplayRole";
+    roles[Qt::DisplayRole] = "display";
     // other roles
 
     return roles;

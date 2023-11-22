@@ -18,7 +18,11 @@
 
 ## QML-ListView-Example
 
-Пример использования ListView в QML на основе модели.
+Пример использования ListView в QML на основе различных моделей.
+
+## QML-LocalStorage-Example
+
+Пример использования локального хранения данных в QML.
 
 ## QML-RadioButtonGroup-Example
 
@@ -46,7 +50,11 @@
 
 ## QML-TableView-Example
 
-Пример использования TableView в QML на основе модели.
+Пример использования TableView в QML на основе различных моделей.
+
+## QML-Translator-Example
+
+Пример использования QTranslator в QML.
 
 ## QML-TreeView-Example
 

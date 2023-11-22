@@ -17,7 +17,6 @@ public:
 
     virtual ~LinearGraphicViewModel() = default;
 
-protected:
     virtual auto columnCount(const QModelIndex& parent) const -> int override;
     virtual auto rowCount(const QModelIndex& parent) const -> int override;
     virtual auto data(const QModelIndex& index, int role) const -> QVariant override;

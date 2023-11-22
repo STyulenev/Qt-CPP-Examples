@@ -1,12 +1,11 @@
-# QML-TableView-Example
+# QML-LocalStorage-Example
 
 ## Описание
 
-Пример использования TableView в QML на основе различных моделей:
-- На основе TableView (qml);
-- На основе QAbstractTableModel (с++).
+Пример использования локального хранения данных в QML:
 
-![alt text](doc/QML-TableView-Example.png)
+- Setting (хранение в ini файле);
+- LocalStorage (SQLite db файл).
 
 ## Сборка проекта
 
@@ -31,6 +30,7 @@ make
 ## Версии
 
 Версии сред, языков и утилит, которые использовались на момент написания проекта.
+
 
 | Название   | Версия               |
 | -----------|----------------------|
