@@ -1,11 +1,11 @@
 #pragma once
 
 #include <QObject>
-#include "RadioButtonGroupListModel.h"
+#include <QAbstractListModel> //or class QAbstractListModel;
 
-namespace Views {
+namespace ViewModels {
 
-class RadioButtonGroupsView : public QObject
+class RadioButtonGroupsViewModel : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QAbstractListModel* radioButtonGroupModel READ getRadioButtonGroupModel NOTIFY radioButtonGroupChanged)
@@ -15,8 +15,8 @@ private:
     // other models
 
 public:
-    explicit RadioButtonGroupsView(QObject* parent = nullptr);
-    virtual ~RadioButtonGroupsView() = default;
+    explicit RadioButtonGroupsViewModel(QObject* parent = nullptr);
+    virtual ~RadioButtonGroupsViewModel() = default;
 
     auto getRadioButtonGroupModel() const -> QAbstractListModel*;
 
@@ -25,4 +25,4 @@ signals:
 
 };
 
-} // namespace Views
+} // namespace ViewModels

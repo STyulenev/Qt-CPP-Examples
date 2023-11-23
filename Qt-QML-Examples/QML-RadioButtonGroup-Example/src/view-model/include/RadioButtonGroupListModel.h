@@ -7,7 +7,6 @@ namespace ViewModels {
 class RadioButtonGroupListModel final : public QAbstractListModel
 {
     Q_OBJECT
-    Q_ENUMS(Role)
 
 private:
     struct RadioButtonGroupData {
@@ -32,7 +31,6 @@ public:
     auto getCurrentItem() const -> int;
     auto setCurrentItem(int newCurrentItem) -> void;
 
-protected:
     virtual auto rowCount(const QModelIndex& = QModelIndex()) const -> int override;
     virtual auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
     virtual auto data(const QModelIndex& index, int role) const -> QVariant override;

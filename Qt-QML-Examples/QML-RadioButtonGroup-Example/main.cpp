@@ -1,14 +1,14 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "RadioButtonGroupsView.h"
+#include "RadioButtonGroupsViewModel.h"
 
 auto main(int argc, char* argv[]) -> int
 {
     QGuiApplication app(argc, argv);
 
     // Register C ++ type to QML
-    qmlRegisterType<Views::RadioButtonGroupsView>("Views", 0, 1, "RadioButtonGroupsView");
+    qmlRegisterType<ViewModels::RadioButtonGroupsViewModel>("ViewModels", 1, 0, "RadioButtonGroupsViewModel");
 
     QQmlApplicationEngine engine;
     engine.addImportPath("qrc:/qml");
