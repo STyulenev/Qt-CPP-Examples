@@ -2,6 +2,8 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 2.15
 
+import Components 1.0 as Components
+
 SomeScreen_Form {
     id: formSomeScreen
 
@@ -12,12 +14,16 @@ SomeScreen_Form {
         readonly property int heightElement: 40
     }
 
-    onMenuButtonClicked: {
+    onMenuButton1Clicked: {
         if (internal.isOpened) {
             drawer.close();
         } else {
             drawer.open();
         }
+    }
+
+    onMenuButton2Clicked: {
+        customDrawer.onMenu();
     }
 
     Drawer {
@@ -67,5 +73,12 @@ SomeScreen_Form {
         onClosed: {
             internal.isOpened = false;
         }
+    }
+
+    Components.Drawer {
+        id: customDrawer
+
+        size: 300
+        position: Qt.AlignRight
     }
 }

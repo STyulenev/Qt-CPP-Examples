@@ -2,7 +2,9 @@
 
 ## Описание
 
-Пример использования Drawer в QML.
+Пример использования Drawer в QML:
+- Standart Drawer;
+- Custom Drawer.
 
 ## Сборка проекта
 

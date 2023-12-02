@@ -4,9 +4,10 @@ import QtQuick.Controls 2.15
 Item {
     id: formSomeScreen
 
-    signal menuButtonClicked
+    signal menuButton1Clicked
+    signal menuButton2Clicked
 
-    readonly property int headerSize: 48
+    readonly property int headerSize: 50
 
     Rectangle {
         id: header
@@ -20,21 +21,41 @@ Item {
             right: parent.right
         }
 
-        Button {
-            id: menuButton
-            width: headerSize
-            text: qsTr("Menu")
-            anchors {
-                bottom: parent.bottom
-                left: parent.left
-                top: parent.top
+        Row {
+            anchors.fill: parent
+            anchors.margins: 10
+
+            Button {
+                id: menuButton1
+
+                text: qsTr("Standart Drawer")
+
+                height: 40
+                width: 100
+
+                Connections {
+                    target: menuButton1
+
+                    function onClicked() {
+                        formSomeScreen.menuButton1Clicked();
+                    }
+                }
             }
 
-            Connections {
-                target: menuButton
+            Button {
+                id: menuButton2
 
-                function onClicked() {
-                    formSomeScreen.menuButtonClicked();
+                text: qsTr("Custom Drawer")
+
+                height: 40
+                width: 100
+
+                Connections {
+                    target: menuButton2
+
+                    function onClicked() {
+                        formSomeScreen.menuButton2Clicked();
+                    }
                 }
             }
         }
