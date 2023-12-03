@@ -80,5 +80,19 @@ SomeScreen_Form {
 
         size: 300
         position: Qt.AlignRight
+
+        content: Text {
+            id: textOnDrawer
+
+            text: qsTr("Menu")
+
+            anchors.centerIn: parent
+
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+
+            font.pointSize: 14
+            font.family: "Helvetica"
+        }
     }
 }
