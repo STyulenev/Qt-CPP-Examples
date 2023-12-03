@@ -7,6 +7,7 @@ import Common 1.0 as Common
 
 ApplicationWindow {
     id: appWindow
+
     visible: true
     width: Common.Consts.screenWidth
     height: Common.Consts.screenHeight
@@ -15,7 +16,7 @@ ApplicationWindow {
     minimumHeight: height
     minimumWidth: width*/
 
-    visibility: "Windowed" // "FullScreen" //
+    visibility: "Windowed" // "FullScreen"
     title: "QML-ListView-Example"
 
     color:"lightgray"
@@ -203,11 +204,15 @@ ApplicationWindow {
                     height: 20 * Common.Consts.xCoord
                     width: 150 * Common.Consts.yCoord
 
-                    model: [ "1", "2", "3" ]
+                    model: [ "blue", "purple", "red" ]
 
                     Layout.row: 0
                     Layout.column: 3
                     Layout.alignment: Qt.AlignHCenter
+
+                    onCurrentTextChanged: {
+                        Common.Colors.theme = currentText;
+                    }
                 }
 
                 Switch {

@@ -46,7 +46,7 @@ Template.RoundButton {
         color: roundButton.pressed ? roundButton.palette.highlight : roundButton.palette.button
         border {
             width: (roundButton.hovered ? 1 : 0) * Common.Consts.radialSize
-            color: roundButton.hovered ? Common.Colors.mainThemeColor : Common.Colors.mainBackgroundColor
+            color: roundButton.hovered ? Common.Colors.currentTheme.mainThemeColor : Common.Colors.mainBackgroundColor
         }
     }
 }

@@ -28,7 +28,7 @@ Template.CheckBox {
         color: checkBox.enabled ? Common.Colors.mainBackgroundColor : Common.Colors.greyColor
         border {
             width: (checkBox.hovered ? 2 : 1) * Common.Consts.radialSize
-            color: checkBox.enabled ? Common.Colors.mainThemeColor : Common.Colors.greyColor
+            color: checkBox.enabled ? Common.Colors.currentTheme.mainThemeColor : Common.Colors.greyColor
         }
 
         Image {

@@ -40,7 +40,7 @@ Template.TextField {
         color: textField.enabled ? Common.Colors.textFieldBackgroundColor : Common.Colors.textFieldDisabledBackgroundColor
         border.width: 2 * Common.Consts.radialSize
         border.color: textField.enabled ? (textField.activeFocus ?
-                                               Common.Colors.mainThemeColor : Common.Colors.textFieldBackgroundColor)
+                                               Common.Colors.currentTheme.mainThemeColor : Common.Colors.textFieldBackgroundColor)
                                         : Common.Colors.textFieldDisabledBackgroundColor
         implicitWidth: 120 * Common.Consts.xCoord
         implicitHeight: 29 * Common.Consts.yCoord

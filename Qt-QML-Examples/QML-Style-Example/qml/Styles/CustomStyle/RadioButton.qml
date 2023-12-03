@@ -26,7 +26,7 @@ Template.RadioButton {
         color: radioButton.enabled ? Common.Colors.mainBackgroundColor : Common.Colors.greyColor
         border {
             width: (radioButton.hovered ? 2 : 1) * Common.Consts.radialSize
-            color: Common.Colors.mainThemeColor
+            color: Common.Colors.currentTheme.mainThemeColor
         }
 
         Canvas {
@@ -43,7 +43,7 @@ Template.RadioButton {
                 var context = getContext("2d");
                 context.reset();
                 context.arc(height / 2, height / 2, height / 3, 0 * Math.PI, 2 * Math.PI);
-                context.fillStyle = Common.Colors.mainThemeColor;
+                context.fillStyle = Common.Colors.currentTheme.mainThemeColor;
                 context.fill();
             }
         }

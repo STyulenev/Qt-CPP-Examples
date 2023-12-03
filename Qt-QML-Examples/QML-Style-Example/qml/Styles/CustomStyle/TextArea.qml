@@ -22,7 +22,7 @@ Template.TextArea {
         border {
             width: 2 * Common.Consts.radialSize
             color: textArea.enabled ? (textArea.activeFocus ?
-                                           Common.Colors.mainThemeColor : Common.Colors.textFieldBackgroundColor)
+                                           Common.Colors.currentTheme.mainThemeColor : Common.Colors.textFieldBackgroundColor)
                                     : Common.Colors.textFieldDisabledBackgroundColor
         }
     }

@@ -23,7 +23,7 @@ Template.Slider {
 
         border {
             width: 2 * Common.Consts.radialSize
-            color: Common.Colors.mainThemeColor
+            color: Common.Colors.currentTheme.mainThemeColor
         }
 
         Rectangle {
@@ -36,7 +36,7 @@ Template.Slider {
                 rightMargin: handle.width * 0.5
             }
 
-            color: Common.Colors.mainThemeColor
+            color: Common.Colors.currentTheme.mainThemeColor
             radius: 2 * Common.Consts.radialSize
         }
 
@@ -90,7 +90,7 @@ Template.Slider {
         color: "transparent"
 
         border {
-            color: Common.Colors.mainThemeColor
+            color: Common.Colors.currentTheme.mainThemeColor
             width: 2 * Common.Consts.radialSize
         }
 

@@ -30,7 +30,7 @@ Template.TabBar {
         color: Common.Colors.mainBackgroundColor
 
         Rectangle {
-            color: Common.Colors.mainThemeColor
+            color: Common.Colors.currentTheme.mainThemeColor
             width: parent.width
             height: 2 * Common.Consts.yCoord
             anchors.bottom: parent.bottom

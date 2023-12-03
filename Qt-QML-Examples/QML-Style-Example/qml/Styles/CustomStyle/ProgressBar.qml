@@ -17,7 +17,7 @@ Template.ProgressBar {
 
         border {
             width: 2 * Common.Consts.radialSize
-            color: Common.Colors.mainThemeColor
+            color: Common.Colors.currentTheme.mainThemeColor
         }
     }
 
@@ -34,7 +34,7 @@ Template.ProgressBar {
             width: progressBar.visualPosition * parent.width
             height: parent.height
             radius: 2 * Common.Consts.radialSize
-            color: Common.Colors.mainThemeColor
+            color: Common.Colors.currentTheme.mainThemeColor
         }
 
         Text {

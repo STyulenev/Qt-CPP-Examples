@@ -41,7 +41,7 @@ Template.TabButton {
         color: tabButton.pressed ? tabButton.palette.highlight : Common.Colors.mainBackgroundColor
 
         border {
-            color: Common.Colors.mainThemeColor
+            color: Common.Colors.currentTheme.mainThemeColor
             width: (tabButton.hovered ? 2 : 1) * Common.Consts.radialSize
         }
     }

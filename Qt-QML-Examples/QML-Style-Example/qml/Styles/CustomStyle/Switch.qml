@@ -20,7 +20,7 @@ Template.Switch {
 
         border {
             width: control.enabled ? (control.hovered ? 2 * Common.Consts.radialSize : 1 * Common.Consts.radialSize) : 1 * Common.Consts.radialSize
-            color: Common.Colors.mainThemeColor
+            color: Common.Colors.currentTheme.mainThemeColor
         }
 
         Rectangle {
@@ -30,11 +30,11 @@ Template.Switch {
             width: parent.height - indicatorRectangle.border.width
             height: parent.height - indicatorRectangle.border.width
             radius: 20 * Common.Consts.radialSize
-            color: control.checked ?  Common.Colors.mainThemeColor : Common.Colors.mainBackgroundColor
+            color: control.checked ?  Common.Colors.currentTheme.mainThemeColor : Common.Colors.mainBackgroundColor
 
             border {
                 width: indicatorRectangle.border.width
-                color: Common.Colors.mainThemeColor
+                color: Common.Colors.currentTheme.mainThemeColor
             }
         }
 
