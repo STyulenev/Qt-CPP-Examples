@@ -10,4 +10,3 @@ public:
 
     virtual QPixmap requestPixmap(const QString& id, QSize* size, const QSize& requestedSize) override;
 };
-
