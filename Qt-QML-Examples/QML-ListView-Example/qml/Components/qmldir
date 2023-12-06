@@ -1,3 +1,3 @@
-module Widgets
+module Components
 
 ListViewData 1.0 ListViewData.qml

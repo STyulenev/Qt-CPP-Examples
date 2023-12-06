@@ -1,14 +1,12 @@
 <RCC>
     <qresource prefix="/">
-        <!-- qml -->
         <file>main.qml</file>
-        <file>qml/Widgets/ListViewData.qml</file>
-        <file>qml/Widgets/qmldir</file>
-
-        <!-- icons -->
+        <file>qml/Components/ListViewData.qml</file>
+        <file>qml/Components/qmldir</file>
         <file>res/images/hamburger.png</file>
         <file>res/images/donut.png</file>
         <file>res/images/pizza.png</file>
         <file>res/images/ice-cream.png</file>
+        <file>res/xml/example.xml</file>
     </qresource>
 </RCC>

@@ -2,12 +2,13 @@ import QtQuick
 import QtQml 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
+import QtQml.XmlListModel as XML
 
 // Import C ++ class
 import ListModels 0.1 as Models
 
 // Import QML module
-import Widgets 1.0 as Widgets
+import Components 1.0 as Components
 
 Window {
     id: appWindow
@@ -43,7 +44,7 @@ Window {
 
         ListElement {
             DisplayRole: "Pizza"
-            DecorationRole: "qrc:/res/images/hamburger.png"
+            DecorationRole: "qrc:/res/images/pizza.png"
             ToolTipRole: "User status here\nYou can change it"
             DescriptionRole: "Pizza is a dish of Italian origin consisting of a usually round, flat base of leavened wheat-based
             dough topped with tomatoes, cheese, and often various other ingredients (such as various types of sausage, anchovies, mushrooms, onions,
@@ -64,7 +65,39 @@ Window {
         }
     }
 
-    Widgets.ListViewData {
+    XML.XmlListModel {
+        id: xmlModel
+
+        source: "qrc:/res/xml/example.xml"
+        query: "/body/listmodel/item"
+
+        XML.XmlListModelRole {
+            name: "DisplayRole"
+            elementName: "DisplayRole"
+        }
+
+        XML.XmlListModelRole {
+            name: "DecorationRole"
+            elementName: "DecorationRole"
+        }
+
+        XML.XmlListModelRole {
+            name: "ToolTipRole"
+            elementName: "ToolTipRole"
+        }
+
+        XML.XmlListModelRole {
+            name: "DescriptionRole"
+            elementName: "DescriptionRole"
+        }
+
+        XML.XmlListModelRole {
+            name: "StatusRole"
+            elementName: "StatusRole"
+        }
+    }
+
+    Components.ListViewData {
         id: listView
 
         anchors {
@@ -75,6 +108,6 @@ Window {
             leftMargin: 10
         }
 
-        model: qmlListModel // or cppListModel
+        model: cppListModel // or qmlListModel or xmlModel
     }
 }
