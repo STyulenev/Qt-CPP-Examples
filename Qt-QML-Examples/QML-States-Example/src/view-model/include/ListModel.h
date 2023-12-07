@@ -8,6 +8,8 @@ struct TestModel;
 
 class ListModel : public QAbstractListModel
 {
+    Q_OBJECT
+
 public:
     explicit ListModel(QObject* parent = 0);
     virtual ~ListModel();
