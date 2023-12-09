@@ -2,9 +2,12 @@
 #include "./ui_MainWindow.h"
 
 #include <QDebug>
+
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QStandardPaths>
+#include <QColorDialog>
+
 #include "ConfirmationDialog.h"
 
 namespace Views {
@@ -76,6 +79,14 @@ auto MainWindow::on_standartPathDialogButton_clicked() -> void
                                                 tr("Image Files (*.png *.jpg *.bmp)"));
 
     qDebug() << path;
+}
+
+auto MainWindow::on_standartColorDialogButton_clicked() -> void
+{
+    QColor color = QColorDialog::getColor(Qt::black, this, tr("Choose color"));
+    if (color.isValid() ) {
+        qDebug() << color;
+    }
 }
 
 } // namespace Views

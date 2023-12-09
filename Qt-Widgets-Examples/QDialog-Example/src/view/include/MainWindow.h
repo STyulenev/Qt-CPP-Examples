@@ -24,6 +24,7 @@ private slots:
     auto on_customDialogButton_clicked() -> void;
     auto on_standartPathDialogButton_clicked() -> void;
 
+    auto on_standartColorDialogButton_clicked() -> void;
 };
 
 } // namespace Views
