@@ -5,7 +5,10 @@
 Пример использование QDialog для создания пользовательских диалогов:
 - Пример стандартного QMessageBox;
 - Пример пользовательского QDialog;
-- Пример стандартного QFileDialog.
+- Пример стандартного QFileDialog;
+- Пример стандартного QColorDialog;
+- Пример стандартного QFontDialog;
+- Пример стандартного QProgressDialog.
 
 ![alt text](doc/QDialog-Example.png)
 

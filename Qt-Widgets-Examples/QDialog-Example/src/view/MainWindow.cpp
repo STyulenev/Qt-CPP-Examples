@@ -8,7 +8,9 @@
 #include <QStandardPaths>
 #include <QColorDialog>
 #include <QFontDialog>
-
+#include <QProgressDialog>
+#include <QTimer>
+#include <QThread>
 #include "ConfirmationDialog.h"
 
 namespace Views {
@@ -105,6 +107,27 @@ auto MainWindow::on_standartFontDialog_clicked() -> void
         qDebug() << font;
     } else {
         qDebug() << "CANCEL";
+    }
+}
+
+auto MainWindow::on_standartProgressDialogButton_clicked() -> void
+{
+    std::shared_ptr<QProgressDialog> progressDialog = std::make_shared<QProgressDialog>();
+    progressDialog->setWindowModality(Qt::WindowModal);
+    progressDialog->setLabelText(tr("Loading"));
+    progressDialog->setCancelButtonText(tr("Cancel"));
+    progressDialog->setMaximum(100);
+    progressDialog->show();
+
+    double start = 0;
+    double stop = 100;
+    double step = 5;
+
+    for (double value = start; value <= stop && !progressDialog->wasCanceled(); value += step) {
+        progressDialog->setValue((int)((value - start) * 100.0 / (stop - start)));
+        QCoreApplication::processEvents();
+
+        QThread::currentThread()->sleep(1);
     }
 }
 
