@@ -67,7 +67,14 @@
       <item>
        <widget class="QPushButton" name="standartColorDialogButton">
         <property name="text">
-         <string>Color dialog</string>
+         <string>Standart color dialog</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="standartFontDialog">
+        <property name="text">
+         <string>Standart font dialog</string>
         </property>
        </widget>
       </item>

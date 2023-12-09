@@ -7,6 +7,7 @@
 #include <QFileDialog>
 #include <QStandardPaths>
 #include <QColorDialog>
+#include <QFontDialog>
 
 #include "ConfirmationDialog.h"
 
@@ -42,6 +43,12 @@ auto MainWindow::on_standartDialogButton_clicked() -> void
     default:
         return;
     }
+
+    // or very simple message boxes
+    // QMessageBox::about(this, tr("About"), tr("Project with sample QDialog Ver. 0.1"));
+    // QMessageBox::critical(this, tr("Error"), tr("Some error"));
+    // QMessageBox::information(this, tr("Information"), tr("Some information"));
+    // QMessageBox::warning(this, tr("Warning"), tr("Some warning"));
 }
 
 auto MainWindow::on_customDialogButton_clicked() -> void
@@ -83,9 +90,21 @@ auto MainWindow::on_standartPathDialogButton_clicked() -> void
 
 auto MainWindow::on_standartColorDialogButton_clicked() -> void
 {
-    QColor color = QColorDialog::getColor(Qt::black, this, tr("Choose color"));
+    const QColor color = QColorDialog::getColor(Qt::black, this, tr("Choose color"));
     if (color.isValid() ) {
         qDebug() << color;
+    }
+}
+
+auto MainWindow::on_standartFontDialog_clicked() -> void
+{
+    bool ok;
+    const QFont font = QFontDialog::getFont(&ok, QFont("Times new Roman", 14), this, tr("Choose font"));
+
+    if (ok) {
+        qDebug() << font;
+    } else {
+        qDebug() << "CANCEL";
     }
 }
 
