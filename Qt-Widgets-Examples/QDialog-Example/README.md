@@ -8,7 +8,8 @@
 - Пример стандартного QFileDialog;
 - Пример стандартного QColorDialog;
 - Пример стандартного QFontDialog;
-- Пример стандартного QProgressDialog.
+- Пример стандартного QProgressDialog;
+- Пример стандартного QInputDialog.
 
 ![alt text](doc/QDialog-Example.png)
 

@@ -9,8 +9,9 @@
 #include <QColorDialog>
 #include <QFontDialog>
 #include <QProgressDialog>
-#include <QTimer>
+#include <QInputDialog>
 #include <QThread>
+
 #include "ConfirmationDialog.h"
 
 namespace Views {
@@ -129,6 +130,20 @@ auto MainWindow::on_standartProgressDialogButton_clicked() -> void
 
         QThread::currentThread()->sleep(1);
     }
+}
+
+auto MainWindow::on_standartInputDialogButton_clicked() -> void
+{
+    bool ok;
+    QString text = QInputDialog::getText(this,
+                                         tr("Input some text"),
+                                         tr("Some text:"),
+                                         QLineEdit::Normal,
+                                         "example",
+                                         &ok);
+
+    if (ok && !text.isEmpty())
+        qDebug() << text;
 }
 
 } // namespace Views

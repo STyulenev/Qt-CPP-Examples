@@ -85,6 +85,13 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="standartInputDialogButton">
+        <property name="text">
+         <string>Standart input dialog</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item row="1" column="3">
