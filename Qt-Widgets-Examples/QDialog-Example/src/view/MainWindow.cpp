@@ -3,6 +3,8 @@
 
 #include <QDebug>
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QStandardPaths>
 #include "ConfirmationDialog.h"
 
 namespace Views {
@@ -21,7 +23,7 @@ MainWindow::~MainWindow()
 
 auto MainWindow::on_standartDialogButton_clicked() -> void
 {
-    QMessageBox dialog(QMessageBox::Question, "Dialog title", "Dialog text", QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+    QMessageBox dialog(QMessageBox::Question, tr("Dialog title"), tr("Dialog text"), QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
     //dialog.setWindowFlags(Qt::FramelessWindowHint);
 
     switch (dialog.exec()) {
@@ -62,6 +64,18 @@ auto MainWindow::on_customDialogButton_clicked() -> void
     }
 
     delete dialog;
+}
+
+auto MainWindow::on_standartPathDialogButton_clicked() -> void
+{
+    const QStringList standartPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
+
+    QString path = QFileDialog::getOpenFileName(this,
+                                                tr("Open Image"),
+                                                (standartPath.isEmpty() ? QDir::currentPath() : standartPath.first()),
+                                                tr("Image Files (*.png *.jpg *.bmp)"));
+
+    qDebug() << path;
 }
 
 } // namespace Views
