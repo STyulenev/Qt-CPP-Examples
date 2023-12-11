@@ -27,6 +27,7 @@ private slots:
     auto on_standartFontDialog_clicked() -> void;
     auto on_standartProgressDialogButton_clicked() -> void;
     auto on_standartInputDialogButton_clicked() -> void;
+    auto on_standartPrintDialogButton_clicked() -> void;
 
 };
 

@@ -11,6 +11,8 @@
 #include <QProgressDialog>
 #include <QInputDialog>
 #include <QThread>
+#include <QPrinter>
+#include <QPrintDialog>
 
 #include "ConfirmationDialog.h"
 
@@ -144,6 +146,26 @@ auto MainWindow::on_standartInputDialogButton_clicked() -> void
 
     if (ok && !text.isEmpty())
         qDebug() << text;
+}
+
+auto MainWindow::on_standartPrintDialogButton_clicked() -> void
+{
+    QPrintDialog dialog(this);
+    dialog.setWindowTitle(tr("Print Document"));
+
+    dialog.setOptions(QAbstractPrintDialog::PrintSelection);
+
+    if (dialog.exec() == QPrintDialog::Accepted) {
+        QPrinter* printer = dialog.printer();
+        QTextDocument textDocument;
+
+        //textDocument.setPlainText("Print example document");
+        textDocument.setHtml("<h1>Print example document</hl>");
+        printer->setOutputFileName(QString("%1/test.pdf").arg(QDir::currentPath()));
+        textDocument.print(printer);
+    } else {
+        qDebug() << "CANCEL";
+    }
 }
 
 } // namespace Views
