@@ -9,7 +9,7 @@ class ProductsViewModel : public QAbstractTableModel
 {
 private:
     const int COLUMN_COUNT = 6;
-    DAO::ProductDAO dao;
+    DAO::ProductDAO* dao;
     QList<Entities::Product> products;
 
 public:
@@ -21,6 +21,9 @@ public:
     virtual auto data(const QModelIndex& index, int role) const -> QVariant override;
     virtual auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
     virtual auto headerData(int section, Qt::Orientation orientation, int role) const -> QVariant override;
+
+private slots:
+    auto updateProductList() -> void;
 
 };
 

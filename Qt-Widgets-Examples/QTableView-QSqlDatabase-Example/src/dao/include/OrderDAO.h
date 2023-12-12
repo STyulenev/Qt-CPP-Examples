@@ -1,6 +1,5 @@
 #pragma once
 
-#include <QDebug>
 #include <QMutex>
 
 #include "Order.h"
@@ -8,16 +7,18 @@
 
 namespace DAO {
 
-class OrderDAO
+class OrderDAO : public QObject
 {
+    Q_OBJECT
+
 private:
     std::shared_ptr<QSqlDatabase> connection;
     std::shared_ptr<QSqlQuery> query;
     QMutex mutex;
 
 public:
-    OrderDAO();
-    ~OrderDAO();
+    explicit OrderDAO(QObject* parent = nullptr);
+    virtual ~OrderDAO();
 
     auto selectOrders(QList<Entities::Order>& orders) -> void;
 

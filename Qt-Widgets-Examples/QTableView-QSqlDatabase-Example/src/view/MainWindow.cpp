@@ -1,7 +1,11 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
-#include <thread>
+#include <CustomersViewModel.h>
+#include <ProductsViewModel.h>
+#include <OrdersViewModel.h>
+
+namespace Views {
 
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
@@ -9,25 +13,13 @@ MainWindow::MainWindow(QWidget* parent) :
 {
     ui->setupUi(this);
 
-    std::thread threadThree ([this]() -> void {
-        customersViewModel = std::make_shared<ViewModels::CustomersViewModel>();
-    });
+    customersViewModel = new ViewModels::CustomersViewModel(this);
+    productsViewModel = new ViewModels::ProductsViewModel(this);
+    ordersViewModel = new ViewModels::OrdersViewModel(this);
 
-    std::thread threadFour ([this]() -> void {
-        productsViewModel = std::make_shared<ViewModels::ProductsViewModel>();
-    });
-
-    std::thread threadFive ([this]() -> void {
-        ordersViewModel = std::make_shared<ViewModels::OrdersViewModel>();
-    });
-
-    threadThree.join();
-    threadFour.join();
-    threadFive.join();
-
-    ui->customersTableView->setModel(customersViewModel.get());
-    ui->productsTableView->setModel(productsViewModel.get());
-    ui->ordersTableView->setModel(ordersViewModel.get());
+    ui->customersTableView->setModel(customersViewModel);
+    ui->productsTableView->setModel(productsViewModel);
+    ui->ordersTableView->setModel(ordersViewModel);
 
     ui->customersTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->productsTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -38,3 +30,5 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+} // namespace Views

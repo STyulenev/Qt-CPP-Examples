@@ -1,0 +1,13 @@
+SELECT * FROM public.Products
+ORDER BY id ASC;
+
+SELECT * FROM public.Customers
+ORDER BY id ASC;
+
+SELECT * FROM public.Orders as Orders
+JOIN public.Products as Products ON Products.id = Orders.product_id
+JOIN public.Customers as Customers ON Customers.id = Orders.customer_id
+ORDER BY Orders.id ASC;
+
+DELETE FROM public.Products
+WHERE id = 6;

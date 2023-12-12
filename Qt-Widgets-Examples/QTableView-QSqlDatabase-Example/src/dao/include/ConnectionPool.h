@@ -5,6 +5,7 @@
 #include <QSqlError>
 #include <QSqlRecord>
 #include <QSqlQuery>
+#include <QSqlDriver>
 
 class ConnectionPool
 {

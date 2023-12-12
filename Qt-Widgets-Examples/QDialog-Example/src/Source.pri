@@ -1,3 +1,5 @@
+QT += printsupport
+
 INCLUDEPATH += \
         $$PWD/dialog/include/ \
 	$$PWD/view/include/

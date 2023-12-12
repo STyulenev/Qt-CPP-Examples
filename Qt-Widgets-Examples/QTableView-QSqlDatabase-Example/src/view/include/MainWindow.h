@@ -2,27 +2,33 @@
 
 #include <QMainWindow>
 
-#include <CustomersViewModel.h>
-#include <ProductsViewModel.h>
-#include <OrdersViewModel.h>
+namespace Ui {
+    class MainWindow;
+}
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+namespace ViewModels {
+    class CustomersViewModel;
+    class ProductsViewModel;
+    class OrdersViewModel;
+}
+
+namespace Views {
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget* parent = nullptr);
-    ~MainWindow();
+    explicit MainWindow(QWidget* parent = nullptr);
+    virtual ~MainWindow();
 
 private:
     Ui::MainWindow* ui;
 
-    std::shared_ptr<ViewModels::CustomersViewModel> customersViewModel;
-    std::shared_ptr<ViewModels::ProductsViewModel>  productsViewModel;
-    std::shared_ptr<ViewModels::OrdersViewModel>    ordersViewModel;
+    ViewModels::CustomersViewModel* customersViewModel;
+    ViewModels::ProductsViewModel*  productsViewModel;
+    ViewModels::OrdersViewModel*    ordersViewModel;
 
 };
+
+} // namespace Views

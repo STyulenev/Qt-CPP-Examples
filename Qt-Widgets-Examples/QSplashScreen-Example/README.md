@@ -1,18 +1,8 @@
-# QDialog-Example
+# QSplashScreen-Example
 
 ## Описание
 
-Пример использование QDialog для создания пользовательских диалогов:
-- Пример стандартного QMessageBox;
-- Пример пользовательского QDialog;
-- Пример стандартного QFileDialog;
-- Пример стандартного QColorDialog;
-- Пример стандартного QFontDialog;
-- Пример стандартного QProgressDialog;
-- Пример стандартного QInputDialog;
-- Пример стандартного QPrintDialog.
-
-![alt text](doc/QDialog-Example.png)
+Пример использование QSplashScreen.
 
 ## Сборка проекта
 
