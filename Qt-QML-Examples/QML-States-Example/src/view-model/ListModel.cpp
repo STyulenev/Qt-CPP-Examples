@@ -7,8 +7,8 @@ namespace ViewModels {
 struct TestModel {
     QString name;
     QString image;
-    int weight;
-    double price;
+    int     weight;
+    double  price;
 };
 
 ListModel::ListModel(QObject* parent) :

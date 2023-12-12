@@ -80,5 +80,4 @@ auto RadioButtonGroupListModel::roleNames() const -> QHash<int, QByteArray>
     return roles;
 }
 
-
 } // namespace ViewModels

@@ -21,16 +21,12 @@ CONFIG(debug, debug | release) {
     RCC_DIR     = $$OUT_PWD/release/rcc # промежуточные файлы ресурсов
 }
 
+include(src/Source.pri)
+
 QML_IMPORT_PATH += $$PWD/qml
 
-INCLUDEPATH += src/
-
-HEADERS += \
-        src/ListModel.h
-
 SOURCES += \
-        main.cpp \
-        src/ListModel.cpp
+    main.cpp
 
 RESOURCES += \
-        resource.qrc
+    resource.qrc

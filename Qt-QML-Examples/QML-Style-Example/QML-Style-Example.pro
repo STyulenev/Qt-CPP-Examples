@@ -22,8 +22,8 @@ CONFIG(debug, debug | release) {
 }
 
 QML_IMPORT_PATH += \
-		$$PWD/qml \
-		$$PWD/qml/CustomStyle
+        $$PWD/qml \
+        $$PWD/qml/CustomStyle
 
 SOURCES += \
         main.cpp

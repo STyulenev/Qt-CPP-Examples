@@ -7,14 +7,14 @@ MainScreen_Form {
     objectName: "MainScreen"
 
     Component.onCompleted: {
-        state = "Grid";
+        state = "grid";
     }
 
     onChangeViewState: {
-        if (state === "Grid") {
-            state = "List";
+        if (state === "grid") {
+            state = "list";
         } else {
-            state = "Grid";
+            state = "grid";
         }
     }
 

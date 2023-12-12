@@ -4,7 +4,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.3
 
 // Import C ++ class
-import Models 0.1 as Models
+import ViewModels 0.1 as ViewModels
 import Common 1.0 as CommonData
 
 Rectangle {
@@ -21,41 +21,8 @@ Rectangle {
     QtObject {
         id: data
 
-        property QtObject model: Models.ListModel {}
+        property QtObject model: ViewModels.ListModel {}
     }
-
-    states: [
-        State {
-            name: "Grid"
-            PropertyChanges {
-                target: grid
-                cellWidth: grid.width / 2
-            }
-            PropertyChanges {
-                target: iconView
-                source: "qrc:/res/icons/list.png"
-            }
-            PropertyChanges {
-                target: main
-                viewDescription: false
-            }
-        },
-        State {
-            name: "List"
-            PropertyChanges {
-                target: grid
-                cellWidth: grid.width
-            }
-            PropertyChanges {
-                target: iconView
-                source: "qrc:/res/icons/grid.png"
-            }
-            PropertyChanges {
-                target: main
-                viewDescription: true
-            }
-        }
-    ]
 
     Rectangle {
         id: header
@@ -214,4 +181,37 @@ Rectangle {
             }
         }
     }
+
+    states: [
+        State {
+            name: "grid"
+            PropertyChanges {
+                target: grid
+                cellWidth: grid.width / 2
+            }
+            PropertyChanges {
+                target: iconView
+                source: "qrc:/res/icons/list.png"
+            }
+            PropertyChanges {
+                target: main
+                viewDescription: false
+            }
+        },
+        State {
+            name: "list"
+            PropertyChanges {
+                target: grid
+                cellWidth: grid.width
+            }
+            PropertyChanges {
+                target: iconView
+                source: "qrc:/res/icons/grid.png"
+            }
+            PropertyChanges {
+                target: main
+                viewDescription: true
+            }
+        }
+    ]
 }

@@ -31,7 +31,7 @@ ListView {
 
         GridLayout {
             id: grid
-            opacity: model.StatusRole ? 0.4 : 1;
+            opacity: model.StatusRole ? 0.4 : 1; // for xmlModel needs === "true"
 
             anchors {
                 fill: parent

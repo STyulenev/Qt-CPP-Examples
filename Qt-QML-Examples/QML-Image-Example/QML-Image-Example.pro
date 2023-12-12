@@ -26,7 +26,7 @@ QML_IMPORT_PATH += $$PWD/qml
 include(src/Source.pri)
 
 SOURCES += \
-        main.cpp
+    main.cpp
 
 RESOURCES += \
-        resource.qrc
+    resource.qrc

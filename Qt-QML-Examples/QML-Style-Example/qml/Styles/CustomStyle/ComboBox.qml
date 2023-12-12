@@ -96,7 +96,7 @@ Template.ComboBox {
         visible: !comboBox.flat || comboBox.down
 
         border {
-            color: Common.Colors.mainThemeColor
+            color: Common.Colors.currentTheme.mainThemeColor
             width: (comboBox.hovered ? 2 : 1) * Common.Consts.radialSize
         }
     }
@@ -126,7 +126,7 @@ Template.ComboBox {
 
         background: Rectangle {
             color: comboBox.popup.palette.window
-            border.color: Common.Colors.mainThemeColor
+            border.color: Common.Colors.currentTheme.mainThemeColor
             border.width: 1 * Common.Consts.radialSize
             radius: 3 * Common.Consts.radialSize
         }

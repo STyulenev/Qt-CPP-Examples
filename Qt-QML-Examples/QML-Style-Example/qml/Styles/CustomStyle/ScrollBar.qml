@@ -70,7 +70,7 @@ Template.ScrollBar {
     contentItem: Rectangle {
         id: slider
         radius: 4 * Common.Consts.radialSize
-        color: Common.Colors.mainThemeColor
+        color: Common.Colors.currentTheme.mainThemeColor
 
         states: [
             State {

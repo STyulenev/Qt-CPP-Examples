@@ -4,5 +4,7 @@
         <file>qml/Screens/SomeScreen.qml</file>
         <file>qml/Screens/SomeScreen_Form.ui.qml</file>
         <file>qml/Screens/qmldir</file>
+        <file>qml/Components/Drawer.qml</file>
+        <file>qml/Components/qmldir</file>
     </qresource>
 </RCC>

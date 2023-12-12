@@ -2,22 +2,14 @@
     <qresource prefix="/">
         <file>qtquickcontrols2.conf</file>
         <file>main.qml</file>
-
-        <!-- Fonts -->
         <file>fonts/Helvetica.ttf</file>
-
-        <!-- Common -->
         <file>qml/Common/qmldir</file>
         <file>qml/Common/Consts.qml</file>
         <file>qml/Common/Colors.qml</file>
         <file>qml/Common/Fonts.qml</file>
-
-        <!-- Resources -->
         <file>res/check.png</file>
         <file>res/uncheck.png</file>
         <file>res/white_arrow.svg</file>
-
-        <!-- Custom Style lib -->
         <file>qml/Styles/CustomStyle/ApplicationWindow.qml</file>
         <file>qml/Styles/CustomStyle/qmldir</file>
         <file>qml/Styles/CustomStyle/RoundButton.qml</file>
@@ -36,5 +28,10 @@
         <file>qml/Styles/CustomStyle/ProgressBar.qml</file>
         <file>qml/Styles/CustomStyle/Slider.qml</file>
         <file>qml/Styles/CustomStyle/SpinBox.qml</file>
+        <file>qml/Styles/Theme/qmldir</file>
+        <file>qml/Styles/Theme/AbstractTheme.qml</file>
+        <file>qml/Styles/Theme/BlueTheme.qml</file>
+        <file>qml/Styles/Theme/RedTheme.qml</file>
+        <file>qml/Styles/Theme/PurpleTheme.qml</file>
     </qresource>
 </RCC>
