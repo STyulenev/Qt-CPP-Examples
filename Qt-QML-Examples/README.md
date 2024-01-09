@@ -24,6 +24,14 @@
 
 Пример использования локального хранения данных в QML.
 
+## QML-Map-Example
+
+Пример использования Map в QML.
+
+## QML-Menu-Example
+
+Пример использования различных меню в QML.
+
 ## QML-RadioButtonGroup-Example
 
 Пример использования RadioButton в QML на основе модели из C++ слоя.
