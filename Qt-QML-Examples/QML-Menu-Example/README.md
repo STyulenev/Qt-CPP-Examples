@@ -4,8 +4,9 @@
 
 Пример использования различных меню в QML:
 
-- Menu (standart menu);
-- Popup (custom menu as popup).
+- Menu (standart Menu);
+- Popup (custom menu as Popup);
+- MenuBar (standart MenuBar).
 
 ## Сборка проекта
 

@@ -11,25 +11,90 @@ ApplicationWindow {
     visible: true
     title: qsTr("QML-Menu-Example")
 
-    MouseArea {
-        id: mouseArea
-        focus: true
-        anchors.fill: parent
-        acceptedButtons: Qt.LeftButton | Qt.RightButton
+    // Standart MenuBar
+    menuBar: MenuBar {
+        Menu {
+            title: qsTr("File")
 
-        Connections {
-            target: mouseArea
+            Action {
+                text: qsTr("New")
 
-            function onClicked(mouse) {
-                if (mouse.button === Qt.RightButton)
-                    firstContextMenu.popup()
+                onTriggered: {
+                    console.log("New")
+                }
             }
 
-            function onPressAndHold(mouse) {
-                if (mouse.button === Qt.LeftButton) {
-                    secondContextMenu.x = mouse.x;
-                    secondContextMenu.y = mouse.y;
-                    secondContextMenu.open();
+            Action {
+                text: qsTr("Open")
+
+                onTriggered: {
+                    console.log("Open")
+                }
+            }
+
+            Action {
+                text: qsTr("Save")
+
+                onTriggered: {
+                    console.log("Save")
+                }
+            }
+
+            MenuSeparator { }
+
+            Action {
+                text: qsTr("Quit")
+
+                onTriggered: {
+                    console.log("Quit")
+                }
+            }
+        }
+
+        MenuSeparator { }
+
+        Menu {
+            title: qsTr("Help")
+
+            Action {
+                text: qsTr("About")
+
+                onTriggered: {
+                    console.log("About")
+                }
+            }
+        }
+    }
+
+    Rectangle {
+        id: testArea
+
+        anchors.centerIn: parent
+        height: 100
+        width: 100
+        color: "lightgrey"
+
+        MouseArea {
+            id: mouseArea
+
+            focus: true
+            anchors.fill: parent
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
+
+            Connections {
+                target: mouseArea
+
+                function onClicked(mouse) {
+                    if (mouse.button === Qt.RightButton)
+                        firstContextMenu.popup()
+                }
+
+                function onPressAndHold(mouse) {
+                    if (mouse.button === Qt.LeftButton) {
+                        secondContextMenu.x = testArea.x + mouse.x;
+                        secondContextMenu.y = testArea.y + mouse.y;
+                        secondContextMenu.open();
+                    }
                 }
             }
         }
