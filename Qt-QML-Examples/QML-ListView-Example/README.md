@@ -5,7 +5,8 @@
 Пример использования ListView в QML на основе различных моделей:
 - На основе ListModel (qml);
 - На основе QAbstractListModel (с++);
-- На основе XmlListModel (qml).
+- На основе XmlListModel (qml);
+- На основе JSONListModel (qml - https://github.com/kromain/qml-utils)
 
 ![alt text](doc/QML-ListView-Example.png)
 

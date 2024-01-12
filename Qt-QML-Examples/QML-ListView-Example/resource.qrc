@@ -8,5 +8,8 @@
         <file>res/images/pizza.png</file>
         <file>res/images/ice-cream.png</file>
         <file>res/xml/example.xml</file>
+        <file>qml/External/JSONListModel/JSONListModel.qml</file>
+        <file>qml/External/JSONListModel/jsonpath.js</file>
+        <file>qml/External/qmldir</file>
     </qresource>
 </RCC>
