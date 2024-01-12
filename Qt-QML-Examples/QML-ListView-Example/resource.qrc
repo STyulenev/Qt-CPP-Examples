@@ -11,5 +11,6 @@
         <file>qml/External/JSONListModel/JSONListModel.qml</file>
         <file>qml/External/JSONListModel/jsonpath.js</file>
         <file>qml/External/qmldir</file>
+        <file>qml/Components/CustomObject.qml</file>
     </qresource>
 </RCC>
