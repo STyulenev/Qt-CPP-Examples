@@ -17,7 +17,7 @@ public:
     virtual ~SecondPage();
 
 protected:
-    int nextId() const;
+    virtual auto nextId() const -> int;
 
 private:
     Ui::SecondPage* ui;

@@ -13,11 +13,12 @@ class FirstPage : public QWizardPage
     Q_OBJECT
 
 public:
-    explicit FirstPage(QWidget* parent = nullptr);
+    explicit FirstPage(QWidget* widget = nullptr);
     virtual ~FirstPage();
 
 protected:
-    int nextId() const;
+    virtual auto nextId() const -> int;
+    virtual auto validatePage() -> bool;
 
 private:
     Ui::FirstPage* ui;

@@ -16,6 +16,8 @@ public:
     explicit FinalPage(QWidget* parent = nullptr);
     virtual ~FinalPage();
 
+    virtual auto initializePage() -> void;
+
 private:
     Ui::FinalPage* ui;
 

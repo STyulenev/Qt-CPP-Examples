@@ -17,7 +17,7 @@ public:
     virtual ~ThirdPage();
 
 protected:
-    int nextId() const;
+    virtual auto nextId() const -> int;
 
 private:
     Ui::ThirdPage* ui;
