@@ -4,6 +4,10 @@
 
 Пример использования ChartView в QML на основе модели.
 
+## QML-CircularGauge-Example
+
+Пример использования CircularGauge в QML.
+
 ## QML-ComboBox-Example
 
 Пример использования ComboBox в QML на основе модели и переопределения шаблона ComboBox.
