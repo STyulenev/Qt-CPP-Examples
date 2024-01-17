@@ -1,5 +1,6 @@
 import QtQml 2.15
 import QtQuick 2.15
+import QtQuick.Controls 2.15
 
 import Windows 1.0 as MyWindows
 import Dialogs 1.0 as MyDialogs
@@ -73,6 +74,36 @@ SomeScreen_Form {
         }
     }
 
+    Component {
+        id: componentPopup
+
+        Popup {
+            id: popup
+
+            width: 200
+            height: 200
+
+            x: parent.width / 2 - popup.width / 2
+            y: parent.height / 2 - popup.height / 2
+
+            Text {
+                anchors.centerIn: parent
+                text: qsTr("Some popup message")
+            }
+
+            MouseArea {
+                id: exitButton
+
+                anchors.fill: parent
+
+                onClicked: {
+                    // ...
+                    popup.destroy();
+                }
+            }
+        }
+    }
+
     onButtonCustomMessageBoxClicked: {
         var openWithLoader = true;
 
@@ -118,5 +149,10 @@ SomeScreen_Form {
 
     onButtonFontDialogClicked: {
         componentFontDialog.createObject(formSomeScreen);
+    }
+
+    onButtonPopupClicked: {
+        var popupComponent = componentPopup.createObject(formSomeScreen);
+        popupComponent.open();
     }
 }

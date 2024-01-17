@@ -11,8 +11,8 @@ Window {
     property int mb_CANCEL: 0x01 << 3
 
     property string title: ""
-    property int btnType: 0x01  // button combination type
-    property int retValue: 0x01 // The button type that clicks after the dialog box
+    property int btnType: 0x01
+    property int retValue: 0x01
 
     modality: Qt.ApplicationModal
     flags: Qt.FramelessWindowHint | Qt.Window
@@ -30,48 +30,61 @@ Window {
     }
 
     Rectangle {
+        id: body
+
         anchors {
             fill: parent
             margins: 4
         }
+
         color: "#23518b"
         radius: 5
 
         Item {
-            id: id_item_header
+            id: headerItem
+
             anchors {
                 left: parent.left
                 top: parent.top
                 right: parent.right
             }
+
             height: 40
 
             Text {
-                id: id_img_icon
+                id: text
+
                 anchors {
                     verticalCenter: parent.verticalCenter
                     left: parent.left
                     leftMargin: 10
                 }
+
                 text: qsTr("hint")
                 color: "white"
             }
 
             Button {
-                id: img
-                text: "x"
+                id: closeButton
+
                 anchors {
                     right: parent.right
                     rightMargin: 5
                     verticalCenter: parent.verticalCenter
                 }
+
                 width: 30
                 height: 30
-                onClicked: checkd(mb_CANCEL)
+                text: "x"
+
+                onClicked: {
+                    root.checkd(mb_CANCEL);
+                }
             }
 
             MouseArea {
                 id: dragMouseArea
+
                 property point clickPos
                 property bool isPressed: false
 
@@ -79,29 +92,31 @@ Window {
                     left: parent.left
                     top: parent.top
                     bottom: parent.bottom
-                    right: img.left
+                    right: closeButton.left
                 }
 
                 Connections {
                     target: dragMouseArea
 
                     function onPressed(mouse) {
-                        dragMouseArea.isPressed = true
-                        dragMouseArea.clickPos = Qt.point(mouse.x, mouse.y)
+                        dragMouseArea.isPressed = true;
+                        dragMouseArea.clickPos = Qt.point(mouse.x, mouse.y);
                     }
 
                     function onReleased() {
-                        dragMouseArea.isPressed = false
+                        dragMouseArea.isPressed = false;
                     }
 
                     function onPositionChanged(mouse) {
-                        var delta = Qt.point(mouse.x - dragMouseArea.clickPos.x, mouse.y - dragMouseArea.clickPos.y)
-                        var tmpX = root.x + delta.x
-                        var tmpY = root.y + delta.y
+                        const delta = Qt.point(mouse.x - dragMouseArea.clickPos.x, mouse.y - dragMouseArea.clickPos.y);
+                        const tmpX = root.x + delta.x;
+                        const tmpY = root.y + delta.y;
+
                         if (tmpX + root.width > 25 && Screen.desktopAvailableWidth - tmpX > 25)
-                            root.x = tmpX
+                            root.x = tmpX;
+
                         if (tmpY + root.height > 25 && Screen.desktopAvailableHeight - tmpY > 25)
-                            root.y = tmpY
+                            root.y = tmpY;
                     }
                 }
             }
@@ -112,17 +127,20 @@ Window {
 
             anchors {
                 left: parent.left
-                top: id_item_header.bottom
+                top: headerItem.bottom
                 right: parent.right
                 bottom: parent.bottom
             }
 
-            Keys.onPressed: root.close()
             color: "#3568a7"
             radius: parent.radius
 
+            Keys.onPressed: {
+                root.close()
+            }
+
             Item {
-                id: id_rect_msg
+                id: messageItem
 
                 anchors {
                     fill: parent
@@ -130,6 +148,8 @@ Window {
                 }
 
                 Text {
+                    id: messageText
+
                     anchors {
                         fill: parent
                         leftMargin: 30
@@ -150,7 +170,7 @@ Window {
                 anchors {
                     left: parent.left
                     right: parent.right
-                    top: id_rect_msg.bottom
+                    top: messageItem.bottom
                     bottom: parent.bottom
                 }
             }
@@ -162,7 +182,7 @@ Window {
     }
 
     Component {
-        id: id_btn_comp
+        id: newButtonComponent
 
         Button {
             property int type: 0x01
@@ -176,11 +196,11 @@ Window {
     }
 
     function add_one(type, text) {
-        var obj = id_btn_comp.createObject(buttonsLayout, {
-                                               "Layout.alignment" : Qt.AlignHCenter,
-                                               "Layout.preferredWidth" : 60,
-                                               "Layout.preferredHeight" : 30,
-                                               "text" : text });
+        var obj = newButtonComponent.createObject(buttonsLayout, {
+                                                      "Layout.alignment" : Qt.AlignHCenter,
+                                                      "Layout.preferredWidth" : 60,
+                                                      "Layout.preferredHeight" : 30,
+                                                      "text" : text });
         obj.type = type;
     }
 
