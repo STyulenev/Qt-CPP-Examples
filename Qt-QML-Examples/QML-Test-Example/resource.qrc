@@ -3,7 +3,5 @@
         <file>main.qml</file>
         <file>qml/Components/qmldir</file>
         <file>qml/Components/SomeComponent.qml</file>
-        <file>qml/Tests/SomeComponent_Test.qml</file>
-        <file>qml/Tests/qmldir</file>
     </qresource>
 </RCC>
