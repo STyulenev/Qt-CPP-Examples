@@ -64,6 +64,10 @@
 
 Пример использования TableView в QML на основе различных моделей.
 
+## QML-Test-Example
+
+Пример использования TestCase (QQuickTest) для тестирования qml-компонентов.
+
 ## QML-Translator-Example
 
 Пример использования QTranslator в QML.
