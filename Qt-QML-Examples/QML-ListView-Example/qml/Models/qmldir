@@ -1,0 +1,6 @@
+module Models
+
+QMLJSONListModel 1.0 QMLJSONListModel.qml
+QMLListModel 1.0 QMLListModel.qml
+QMLObjectModel 1.0 QMLObjectModel.qml
+QMLXmlListModel 1.0 QMLXmlListModel.qml
