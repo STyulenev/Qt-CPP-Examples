@@ -1,19 +1,14 @@
-# QML-ListView-Example
+# QML-Test-Example
 
 ## Описание
 
-Пример использования ListView в QML на основе различных моделей:
-- На основе ListModel (qml);
-- На основе QAbstractListModel (с++);
-- На основе XmlListModel (qml);
-- На основе JSONListModel (qml - https://github.com/kromain/qml-utils);
-- На основе ObjectModel (qml).
+Пример использования TestCase (QQuickTest) для тестирования qml-компонентов.
 
-![alt text](doc/QML-ListView-Example.png)
+![alt text](doc/QML-Test-Example.png)
 
 ## Сборка проекта
 
-Проект может быть собран из QtCreator или из папки build коммандами:
+1. Проект может быть собран из QtCreator или из папки build коммандами:
 
 ### CMake:
 
@@ -30,6 +25,11 @@ qmake ..
 make
 ```
 > Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
+
+2. Для тестов созданы подпроекты. Чтобы запустить тесты через консоль, необходимо воспользоваться утилитой qmltestrunner:
+```bash
+qmltestrunner -input tst_SomeComponent.qml
+```
 
 ## Версии
 

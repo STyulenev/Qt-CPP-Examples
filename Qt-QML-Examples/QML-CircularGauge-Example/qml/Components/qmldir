@@ -1,0 +1,5 @@
+module Components
+
+CircularGauge 1.0 CircularGauge.qml
+
+designersupported

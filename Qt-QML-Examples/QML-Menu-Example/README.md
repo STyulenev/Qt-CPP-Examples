@@ -1,15 +1,12 @@
-# QML-ListView-Example
+# QML-Menu-Example
 
 ## Описание
 
-Пример использования ListView в QML на основе различных моделей:
-- На основе ListModel (qml);
-- На основе QAbstractListModel (с++);
-- На основе XmlListModel (qml);
-- На основе JSONListModel (qml - https://github.com/kromain/qml-utils);
-- На основе ObjectModel (qml).
+Пример использования различных меню в QML:
 
-![alt text](doc/QML-ListView-Example.png)
+- Menu (standart Menu);
+- Popup (custom menu as Popup);
+- MenuBar (standart MenuBar).
 
 ## Сборка проекта
 

@@ -9,7 +9,8 @@
 - MessageDialog (standart dialog);
 - ColorDialog (standart dialog);
 - FolderDialog (standart dialog);
-- FontDialog (standart dialog).
+- FontDialog (standart dialog);
+- Popup (standart popup).
 
 ## Сборка проекта
 

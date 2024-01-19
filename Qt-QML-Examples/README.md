@@ -4,6 +4,10 @@
 
 Пример использования ChartView в QML на основе модели.
 
+## QML-CircularGauge-Example
+
+Пример использования CircularGauge в QML.
+
 ## QML-ComboBox-Example
 
 Пример использования ComboBox в QML на основе модели и переопределения шаблона ComboBox.
@@ -23,6 +27,14 @@
 ## QML-LocalStorage-Example
 
 Пример использования локального хранения данных в QML.
+
+## QML-Map-Example
+
+Пример использования Map в QML.
+
+## QML-Menu-Example
+
+Пример использования различных меню в QML.
 
 ## QML-RadioButtonGroup-Example
 
@@ -51,6 +63,10 @@
 ## QML-TableView-Example
 
 Пример использования TableView в QML на основе различных моделей.
+
+## QML-Test-Example
+
+Пример использования TestCase (QQuickTest) для тестирования qml-компонентов.
 
 ## QML-Translator-Example
 
