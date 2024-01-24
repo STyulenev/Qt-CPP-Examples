@@ -34,7 +34,6 @@ void CustomerDAO::selectCustomers(QList<Entities::Customer>& customers)
         pqxx::work tx (*connection);
 
         for (auto [id, first_name, last_name, e_mail, age] : tx.query<int, std::string, std::string, std::string, int>("SELECT * FROM Customers ORDER BY id ASC;")) {
-            //qDebug() << id << first_name;
             Entities::Customer customer;
 
             customer.setId(id);
