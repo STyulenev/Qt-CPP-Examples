@@ -15,11 +15,8 @@ ProductDAO::ProductDAO()
         };
 
         qDebug() << "Connected to" << connection->dbname();
-
-        /**/
-
     } catch (std::exception const& error) {
-        qDebug() << "ERROR: " << error.what() << '\n';
+        qDebug() << "error: " << error.what();
     }
 }
 
@@ -47,6 +44,6 @@ void ProductDAO::selectProducts(QList<Entities::Product>& products)
             products << std::move(product);
         }
     } catch (std::exception const& error) {
-        qDebug() << "ERROR: " << error.what() << '\n';
+        qDebug() << "error: " << error.what();
     }
 }

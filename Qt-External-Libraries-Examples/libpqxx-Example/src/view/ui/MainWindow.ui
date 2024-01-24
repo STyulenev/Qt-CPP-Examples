@@ -40,6 +40,16 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Orders</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QTableView" name="ordersTableView"/>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>

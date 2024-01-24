@@ -15,11 +15,8 @@ CustomerDAO::CustomerDAO()
         };
 
         qDebug() << "Connected to" << connection->dbname();
-
-        /**/
-
     } catch (std::exception const& error) {
-        qDebug() << "ERROR: " << error.what() << '\n';
+        qDebug() << "error: " << error.what();
     }
 }
 
@@ -45,6 +42,6 @@ void CustomerDAO::selectCustomers(QList<Entities::Customer>& customers)
             customers << std::move(customer);
         }
     } catch (std::exception const& error) {
-        qDebug() << "ERROR: " << error.what() << '\n';
+        qDebug() << "error: " << error.what();
     }
 }

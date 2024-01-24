@@ -9,6 +9,7 @@ QT_END_NAMESPACE
 namespace ViewModels {
     class CustomersViewModel;
     class ProductsViewModel;
+    class OrdersViewModel;
 }
 
 namespace Views {
@@ -25,6 +26,7 @@ private:
     Ui::MainWindow* ui;
     ViewModels::CustomersViewModel* customersViewModel;
     ViewModels::ProductsViewModel* productsViewModel;
+    ViewModels::OrdersViewModel* ordersViewModel;
 
 };
 

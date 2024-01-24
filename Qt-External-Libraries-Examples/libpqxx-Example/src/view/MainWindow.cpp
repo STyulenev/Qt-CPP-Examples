@@ -3,6 +3,7 @@
 
 #include "CustomersViewModel.h"
 #include "ProductsViewModel.h"
+#include "OrdersViewModel.h"
 
 namespace Views {
 
@@ -14,12 +15,15 @@ MainWindow::MainWindow(QWidget* parent) :
 
     customersViewModel = new ViewModels::CustomersViewModel(this);
     productsViewModel = new ViewModels::ProductsViewModel(this);
+    ordersViewModel = new ViewModels::OrdersViewModel(this);
 
     ui->customersTableView->setModel(customersViewModel);
     ui->productsTableView->setModel(productsViewModel);
+    ui->ordersTableView->setModel(ordersViewModel);
 
     ui->customersTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->productsTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->ordersTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 MainWindow::~MainWindow()
