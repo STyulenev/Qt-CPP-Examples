@@ -47,3 +47,18 @@ void ProductDAO::selectProducts(QList<Entities::Product>& products)
         qDebug() << "error: " << error.what();
     }
 }
+
+void ProductDAO::insertProduct(const Entities::Product& product)
+{
+    pqxx::work tx (*connection);
+
+    const QString query = QString("INSERT INTO Products VALUES (default, '%1', '%2', '%3', %4, %5);")
+                              .arg(product.getType())
+                              .arg(product.getName())
+                              .arg(product.getManufacturer())
+                              .arg(product.getCount())
+                              .arg(product.getPrice());
+
+    tx.exec(query.toStdString());
+    tx.commit();
+}

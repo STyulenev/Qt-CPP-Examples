@@ -2,7 +2,6 @@
 
 #include <QDebug>
 
-
 CustomerDAO::CustomerDAO()
 {
     try {
@@ -44,4 +43,18 @@ void CustomerDAO::selectCustomers(QList<Entities::Customer>& customers)
     } catch (std::exception const& error) {
         qDebug() << "error: " << error.what();
     }
+}
+
+void CustomerDAO::insertCustomer(const Entities::Customer& customer)
+{
+    pqxx::work tx (*connection);
+
+    const QString query = QString("INSERT INTO Customers VALUES (default, '%1', '%2', '%3', %4);")
+                              .arg(customer.getFirstName())
+                              .arg(customer.getLastName())
+                              .arg(customer.getEmail())
+                              .arg(customer.getAge());
+
+    tx.exec(query.toStdString());
+    tx.commit();
 }
