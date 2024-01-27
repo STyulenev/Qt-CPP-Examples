@@ -15,7 +15,7 @@ public:
     auto selectOrders(QList<Entities::Order>& orders) -> void;
 
 private:
-    pqxx::connection* connection;
+    std::shared_ptr<pqxx::connection> connection;
 
 };
 

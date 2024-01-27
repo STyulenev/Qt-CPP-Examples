@@ -1,18 +1,13 @@
 #include "OrderDAO.h"
 
+#include "ConnectionPool.h"
 #include <pqxx/pqxx>
 #include <QDebug>
 
 OrderDAO::OrderDAO()
 {
     try {
-        connection = new pqxx::connection {
-            "host='localhost' "
-            "port='5432' "
-            "dbname='test_db' "
-            "user='postgres' "
-            "password='tyulenev' "
-        };
+        connection = ConnectionPool::getPool()->getConnection();
 
         qDebug() << "Connected to" << connection->dbname();
     } catch (const std::exception& error) {
@@ -22,7 +17,7 @@ OrderDAO::OrderDAO()
 
 OrderDAO::~OrderDAO()
 {
-    delete connection;
+    ConnectionPool::getPool()->freeConnection(connection);
 }
 
 void OrderDAO::selectOrders(QList<Entities::Order>& orders)

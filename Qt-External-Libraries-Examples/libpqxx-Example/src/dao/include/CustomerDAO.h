@@ -33,7 +33,7 @@ public:
     auto deleteCustomer(const int id) -> void;
 
 private:
-    pqxx::connection* connection;
+    std::shared_ptr<pqxx::connection> connection;
 
 };
 

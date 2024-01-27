@@ -1,18 +1,13 @@
 #include "CustomerDAO.h"
 
+#include "ConnectionPool.h"
 #include <pqxx/pqxx>
 #include <QDebug>
 
 CustomerDAO::CustomerDAO()
 {
     try {
-        connection = new pqxx::connection {
-            "host='localhost' "
-            "port='5432' "
-            "dbname='test_db' "
-            "user='postgres' "
-            "password='tyulenev' "
-        };
+        connection = ConnectionPool::getPool()->getConnection();
 
         qDebug() << "Connected to" << connection->dbname();
     } catch (const std::exception& error) {
@@ -22,7 +17,7 @@ CustomerDAO::CustomerDAO()
 
 CustomerDAO::~CustomerDAO()
 {
-    delete connection;
+    ConnectionPool::getPool()->freeConnection(connection);
 }
 
 void CustomerDAO::selectCustomers(QList<Entities::Customer>& customers)

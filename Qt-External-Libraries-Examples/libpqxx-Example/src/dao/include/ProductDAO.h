@@ -34,7 +34,7 @@ public:
     auto deleteProduct(const int id) -> void;
 
 private:
-    pqxx::connection* connection;
+    std::shared_ptr<pqxx::connection> connection;
 
 };
 

@@ -1,18 +1,13 @@
 #include "ProductDAO.h"
 
+#include "ConnectionPool.h"
 #include <pqxx/pqxx>
 #include <QDebug>
 
 ProductDAO::ProductDAO()
 {
     try {
-        connection = new pqxx::connection {
-            "host='localhost' "
-            "port='5432' "
-            "dbname='test_db' "
-            "user='postgres' "
-            "password='tyulenev' "
-        };
+        connection = ConnectionPool::getPool()->getConnection();
 
         qDebug() << "Connected to" << connection->dbname();
     } catch (const std::exception& error) {
@@ -22,7 +17,7 @@ ProductDAO::ProductDAO()
 
 ProductDAO::~ProductDAO()
 {
-    delete connection;
+    ConnectionPool::getPool()->freeConnection(connection);
 }
 
 void ProductDAO::selectProducts(QList<Entities::Product>& products)
