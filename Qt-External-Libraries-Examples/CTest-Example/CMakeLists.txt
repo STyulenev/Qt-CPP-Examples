@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 project(CTest-Example
     VERSION 0.1
     DESCRIPTION "Project with sample CTest"
+    HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )
 
