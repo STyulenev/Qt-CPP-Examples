@@ -26,6 +26,8 @@ public:
      */
     auto insertProduct(const Entities::Product& product) -> void;
 
+    auto updateProduct(const Entities::Product& product) -> void;
+
 private:
     pqxx::connection* connection;
 

@@ -25,6 +25,8 @@ public:
      */
     auto insertCustomer(const Entities::Customer& customer) -> void;
 
+    auto updateCustomer(const Entities::Customer& customer) -> void;
+
 private:
     pqxx::connection* connection;
 

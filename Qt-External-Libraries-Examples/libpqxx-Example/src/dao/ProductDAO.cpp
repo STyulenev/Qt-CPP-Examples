@@ -48,7 +48,7 @@ void ProductDAO::selectProducts(QList<Entities::Product>& products)
     }
 }
 
-void ProductDAO::insertProduct(const Entities::Product& product)
+auto ProductDAO::insertProduct(const Entities::Product& product) -> void
 {
     pqxx::work tx (*connection);
 
@@ -58,6 +58,23 @@ void ProductDAO::insertProduct(const Entities::Product& product)
                               .arg(product.getManufacturer())
                               .arg(product.getCount())
                               .arg(product.getPrice());
+
+    tx.exec(query.toStdString());
+    tx.commit();
+}
+
+auto ProductDAO::updateProduct(const Entities::Product& product) -> void
+{
+    pqxx::work tx (*connection);
+
+    const QString query = QString("UPDATE Products SET product_type = '%1', product_name = '%2', "
+                                  "manufacturer = '%3', product_count = %4, price = %5 WHERE id = %6;")
+                              .arg(product.getType())
+                              .arg(product.getName())
+                              .arg(product.getManufacturer())
+                              .arg(product.getCount())
+                              .arg(product.getPrice())
+                              .arg(product.getId());
 
     tx.exec(query.toStdString());
     tx.commit();

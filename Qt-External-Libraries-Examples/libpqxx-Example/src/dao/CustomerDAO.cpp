@@ -58,3 +58,18 @@ void CustomerDAO::insertCustomer(const Entities::Customer& customer)
     tx.exec(query.toStdString());
     tx.commit();
 }
+
+void CustomerDAO::updateCustomer(const Entities::Customer &customer)
+{
+    pqxx::work tx (*connection);
+
+    const QString query = QString("UPDATE Customers SET first_name = '%1', last_name = '%2', e_mail = '%3', age = %4 WHERE id = %5;")
+                              .arg(customer.getFirstName())
+                              .arg(customer.getLastName())
+                              .arg(customer.getEmail())
+                              .arg(customer.getAge())
+                              .arg(customer.getId());
+
+    tx.exec(query.toStdString());
+    tx.commit();
+}
