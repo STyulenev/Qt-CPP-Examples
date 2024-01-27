@@ -1,7 +1,10 @@
 #pragma once
 
 #include "Customer.h"
-#include <pqxx/pqxx>
+
+namespace pqxx {
+    class connection;
+}
 
 class CustomerDAO
 {
@@ -26,6 +29,8 @@ public:
     auto insertCustomer(const Entities::Customer& customer) -> void;
 
     auto updateCustomer(const Entities::Customer& customer) -> void;
+
+    auto deleteCustomer(const int id) -> void;
 
 private:
     pqxx::connection* connection;

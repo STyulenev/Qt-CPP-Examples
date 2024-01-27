@@ -1,7 +1,10 @@
 #pragma once
 
 #include "Order.h"
-#include <pqxx/pqxx>
+
+namespace pqxx {
+    class connection;
+}
 
 class OrderDAO
 {

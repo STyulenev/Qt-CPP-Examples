@@ -1,7 +1,10 @@
 #pragma once
 
 #include "Product.h"
-#include <pqxx/pqxx>
+
+namespace pqxx {
+    class connection;
+}
 
 class ProductDAO
 {
@@ -27,6 +30,8 @@ public:
     auto insertProduct(const Entities::Product& product) -> void;
 
     auto updateProduct(const Entities::Product& product) -> void;
+
+    auto deleteProduct(const int id) -> void;
 
 private:
     pqxx::connection* connection;

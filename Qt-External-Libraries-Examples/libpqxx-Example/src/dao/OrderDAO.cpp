@@ -1,5 +1,6 @@
 #include "OrderDAO.h"
 
+#include <pqxx/pqxx>
 #include <QDebug>
 
 OrderDAO::OrderDAO()
@@ -14,7 +15,7 @@ OrderDAO::OrderDAO()
         };
 
         qDebug() << "Connected to" << connection->dbname();
-    } catch (std::exception const& error) {
+    } catch (const std::exception& error) {
         qDebug() << "error: " << error.what();
     }
 }
@@ -71,7 +72,7 @@ void OrderDAO::selectOrders(QList<Entities::Order>& orders)
 
             orders << std::move(order);
         }
-    } catch (std::exception const& error) {
+    } catch (const std::exception& error) {
         qDebug() << "error: " << error.what();
     }
 }

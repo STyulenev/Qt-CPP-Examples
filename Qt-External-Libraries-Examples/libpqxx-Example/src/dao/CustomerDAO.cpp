@@ -1,5 +1,6 @@
 #include "CustomerDAO.h"
 
+#include <pqxx/pqxx>
 #include <QDebug>
 
 CustomerDAO::CustomerDAO()
@@ -14,7 +15,7 @@ CustomerDAO::CustomerDAO()
         };
 
         qDebug() << "Connected to" << connection->dbname();
-    } catch (std::exception const& error) {
+    } catch (const std::exception& error) {
         qDebug() << "error: " << error.what();
     }
 }
@@ -40,36 +41,58 @@ void CustomerDAO::selectCustomers(QList<Entities::Customer>& customers)
 
             customers << std::move(customer);
         }
-    } catch (std::exception const& error) {
+    } catch (const std::exception& error) {
         qDebug() << "error: " << error.what();
     }
 }
 
-void CustomerDAO::insertCustomer(const Entities::Customer& customer)
+auto CustomerDAO::insertCustomer(const Entities::Customer& customer) -> void
 {
-    pqxx::work tx (*connection);
+    try {
+        pqxx::work tx (*connection);
 
-    const QString query = QString("INSERT INTO Customers VALUES (default, '%1', '%2', '%3', %4);")
-                              .arg(customer.getFirstName())
-                              .arg(customer.getLastName())
-                              .arg(customer.getEmail())
-                              .arg(customer.getAge());
+        const QString query = QString("INSERT INTO Customers VALUES (default, '%1', '%2', '%3', %4);")
+                                  .arg(customer.getFirstName())
+                                  .arg(customer.getLastName())
+                                  .arg(customer.getEmail())
+                                  .arg(customer.getAge());
 
-    tx.exec(query.toStdString());
-    tx.commit();
+        tx.exec(query.toStdString());
+        tx.commit();
+    } catch (const std::exception& error) {
+        qDebug() << "error: " << error.what();
+    }
 }
 
-void CustomerDAO::updateCustomer(const Entities::Customer &customer)
+auto CustomerDAO::updateCustomer(const Entities::Customer& customer) -> void
 {
-    pqxx::work tx (*connection);
+    try {
+        pqxx::work tx (*connection);
 
-    const QString query = QString("UPDATE Customers SET first_name = '%1', last_name = '%2', e_mail = '%3', age = %4 WHERE id = %5;")
-                              .arg(customer.getFirstName())
-                              .arg(customer.getLastName())
-                              .arg(customer.getEmail())
-                              .arg(customer.getAge())
-                              .arg(customer.getId());
+        const QString query = QString("UPDATE Customers SET first_name = '%1', last_name = '%2', e_mail = '%3', age = %4 WHERE id = %5;")
+                                  .arg(customer.getFirstName())
+                                  .arg(customer.getLastName())
+                                  .arg(customer.getEmail())
+                                  .arg(customer.getAge())
+                                  .arg(customer.getId());
 
-    tx.exec(query.toStdString());
-    tx.commit();
+        tx.exec(query.toStdString());
+        tx.commit();
+    } catch (const std::exception& error) {
+        qDebug() << "error: " << error.what();
+    }
+}
+
+auto CustomerDAO::deleteCustomer(const int id) -> void
+{
+    try {
+        pqxx::work tx (*connection);
+
+        const QString query = QString("DELETE FROM Customers WHERE id = %1;").arg(id);
+
+        tx.exec(query.toStdString());
+        tx.commit();
+    } catch (const std::exception& error) {
+        qDebug() << "error: " << error.what();
+    }
 }

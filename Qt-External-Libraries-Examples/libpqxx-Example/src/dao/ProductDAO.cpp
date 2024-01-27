@@ -1,7 +1,7 @@
 #include "ProductDAO.h"
 
+#include <pqxx/pqxx>
 #include <QDebug>
-
 
 ProductDAO::ProductDAO()
 {
@@ -15,7 +15,7 @@ ProductDAO::ProductDAO()
         };
 
         qDebug() << "Connected to" << connection->dbname();
-    } catch (std::exception const& error) {
+    } catch (const std::exception& error) {
         qDebug() << "error: " << error.what();
     }
 }
@@ -43,39 +43,61 @@ void ProductDAO::selectProducts(QList<Entities::Product>& products)
 
             products << std::move(product);
         }
-    } catch (std::exception const& error) {
+    } catch (const std::exception& error) {
         qDebug() << "error: " << error.what();
     }
 }
 
 auto ProductDAO::insertProduct(const Entities::Product& product) -> void
 {
-    pqxx::work tx (*connection);
+    try {
+        pqxx::work tx (*connection);
 
-    const QString query = QString("INSERT INTO Products VALUES (default, '%1', '%2', '%3', %4, %5);")
-                              .arg(product.getType())
-                              .arg(product.getName())
-                              .arg(product.getManufacturer())
-                              .arg(product.getCount())
-                              .arg(product.getPrice());
+        const QString query = QString("INSERT INTO Products VALUES (default, '%1', '%2', '%3', %4, %5);")
+                                  .arg(product.getType())
+                                  .arg(product.getName())
+                                  .arg(product.getManufacturer())
+                                  .arg(product.getCount())
+                                  .arg(product.getPrice());
 
-    tx.exec(query.toStdString());
-    tx.commit();
+        tx.exec(query.toStdString());
+        tx.commit();
+    } catch (const std::exception& error) {
+        qDebug() << "error: " << error.what();
+    }
 }
 
 auto ProductDAO::updateProduct(const Entities::Product& product) -> void
 {
-    pqxx::work tx (*connection);
+    try {
+        pqxx::work tx (*connection);
 
-    const QString query = QString("UPDATE Products SET product_type = '%1', product_name = '%2', "
-                                  "manufacturer = '%3', product_count = %4, price = %5 WHERE id = %6;")
-                              .arg(product.getType())
-                              .arg(product.getName())
-                              .arg(product.getManufacturer())
-                              .arg(product.getCount())
-                              .arg(product.getPrice())
-                              .arg(product.getId());
+        const QString query = QString("UPDATE Products SET product_type = '%1', product_name = '%2', "
+                                      "manufacturer = '%3', product_count = %4, price = %5 WHERE id = %6;")
+                                  .arg(product.getType())
+                                  .arg(product.getName())
+                                  .arg(product.getManufacturer())
+                                  .arg(product.getCount())
+                                  .arg(product.getPrice())
+                                  .arg(product.getId());
 
-    tx.exec(query.toStdString());
-    tx.commit();
+        tx.exec(query.toStdString());
+        tx.commit();
+    } catch (const std::exception& error) {
+        qDebug() << "error: " << error.what();
+    }
+}
+
+auto ProductDAO::deleteProduct(const int id) -> void
+{
+    try {
+        pqxx::work tx (*connection);
+
+        const QString query = QString("DELETE FROM Products WHERE id = %1;").arg(id);
+
+        tx.exec(query.toStdString());
+        tx.commit();
+    } catch (const std::exception& error) {
+        qDebug() << "error: " << error.what();
+    }
 }
