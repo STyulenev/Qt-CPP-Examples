@@ -2,7 +2,8 @@
 
 ## Описание
 
-Пример использования системы контроля версий git для добавления подмодулей в cmake сборку:
+Пример использования системы контроля версий git в проекте.
+Пример добавления подмодулей в cmake сборку:
  - git submodule;
  - FetchContent.
 
@@ -10,6 +11,9 @@
  - toml (git submodule);
  - GoogleTest (git submodule);
  - Boost (FetchContent).
+
+Пример получения данных о коммите - git_watcher.cmake
+[Ссылка на исходники git_watcher.cmake](https://github.com/andrew-hardin/cmake-git-version-tracking/tree/master "git_watcher.cmake")
 
 Команды для создания подмодулей:
 ```bash
