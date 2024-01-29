@@ -3,7 +3,7 @@ QT += quick
 CONFIG += c++20
 #CONFIG += debug / release
 
-TARGET = QML-Widgets-Example
+TARGET = QML-Components-Example
 
 CONFIG(debug, debug | release) {
     message("debug mode")
@@ -20,6 +20,8 @@ CONFIG(debug, debug | release) {
     DESTDIR     = $$OUT_PWD/release/bin # результирующий файл
     RCC_DIR     = $$OUT_PWD/release/rcc # промежуточные файлы ресурсов
 }
+
+include(src/Source.pri)
 
 QML_IMPORT_PATH += $$PWD/qml
 
