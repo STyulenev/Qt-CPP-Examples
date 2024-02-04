@@ -1,7 +1,8 @@
 #include <QCoreApplication>
+
 #include "NetworkManager.h"
 
-int main(int argc, char *argv[])
+auto main(int argc, char* argv[]) -> int
 {
     QCoreApplication app(argc, argv);
 
