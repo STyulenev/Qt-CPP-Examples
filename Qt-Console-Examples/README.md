@@ -16,6 +16,10 @@
 
 Пример использования JSON в Qt
 
+## QNetworkAccessManager-Example
+
+Пример использования QNetworkAccessManager на примере сетевых HTTP get и post запросов.
+
 ## QTcpSocket-Example
 
 Пример использования QTcpSocket и QTcpServer (клиент и сервер).
