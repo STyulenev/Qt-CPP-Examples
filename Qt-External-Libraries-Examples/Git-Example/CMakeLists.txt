@@ -29,6 +29,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Boost)
 
 set(PROJECT_SOURCES
+    git.h
     main.cpp
 )
 
@@ -43,7 +44,7 @@ else()
     )
 endif()
 
-# Заголовочные файлы
+ Заголовочные файлы
 target_include_directories(${PROJECT_NAME} PRIVATE
     extern/toml11
     extern/googletest
@@ -58,3 +59,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     Boost::container
     # ...
 )
+
+# setup information for git version handling
+set(PRE_CONFIGURE_FILE "git.h.in")
+set(POST_CONFIGURE_FILE "git.h")
+
+include(${CMAKE_SOURCE_DIR}/cmake/git_watcher.cmake)

@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QDebug>
 
+#include "git.h"
 #include <toml.hpp>
 #include <boost/container/vector.hpp>
 
@@ -27,6 +28,11 @@ auto main(int argc, char* argv[]) -> int
     foreach (const int element, vector) {
         qDebug() << element;
     }
+
+    /*
+     * Информация о последнем коммите
+     */
+    qDebug() << GIT_AUTHOR_NAME << GIT_AUTHOR_EMAIL << GIT_HEAD_SHA1;
 
     return app.exec();
 }

@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 project(MySQL-Example
     VERSION 0.1
     DESCRIPTION "Project with sample MySQL"
+    HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )
 
@@ -25,13 +26,22 @@ set(PROJECT_SOURCES
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(MySQL-Example
+    qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
+        ${PROJECT_SOURCES}
+    )
+else()
+    add_executable(${PROJECT_NAME}
         ${PROJECT_SOURCES}
     )
 endif()
 
-target_link_libraries(MySQL-Example PRIVATE
+target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     View-lib
+)
+
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
