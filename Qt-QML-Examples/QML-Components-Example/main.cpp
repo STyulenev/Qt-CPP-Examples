@@ -1,16 +1,19 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+#include "DateTime.h"
+
 auto main(int argc, char* argv[]) -> int
 {
     QGuiApplication app(argc, argv);
+
+    qmlRegisterType<DateTime>("CustomNonVisualType", 1, 0, "DateTime");
 
     QQmlApplicationEngine engine;
     engine.addImportPath("qrc:/qml");
 
     const QUrl url("qrc:/main.qml");
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-                     &app, [url](QObject* obj, const QUrl& objUrl) {
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, &app, [url](QObject* obj, const QUrl& objUrl) {
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
