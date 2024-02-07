@@ -1,22 +1,22 @@
 # Qt-External-Libraries-Examples
 
-## Boost-Example
+## Boost
 
 Примеры использования различных модулей библиотеки Boost
 
-## Conan-Example
+## Conan
 
 Пример использования пакетного менеджера Conan (на примере библиотеки boost 1.81.0).
 
-## CPack-Example
+## CPack
 
 Пример автоматизированной сборки deb пакета с инструментом упаковки CPack
 
-## CppUTest-Example
+## CppUTest
 
 Пример использования библиотеки тестирования CppUTest.
 
-## CTest-Example
+## CTest
 
 Пример использования CTest для тестирование программы
 
@@ -28,11 +28,11 @@
 
 Пример использования Docker для GUI приложения Qt (VcXsrv + WSL2 для перенаправления окна)
 
-## Doxygen-Example
+## Doxygen
 
 Пример использования Doxygen для автоматической генерации документации при сборке.
 
-## Git-Example
+## Git
 
 Пример использования системы контроля версий git для добавления подмодулей в cmake сборку.
 
@@ -43,6 +43,10 @@
 ## Google Test
 
 Пример использования библиотеки тестирования Google Test
+
+## include-what-you-use
+
+Пример использования утилиты include-what-you-use для поиска неиспользуемых заголовочных файлов.
 
 ## libpqxx-Example
 
