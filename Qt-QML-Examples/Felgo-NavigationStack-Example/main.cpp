@@ -9,6 +9,8 @@ int main(int argc, char* argv[])
     FelgoApplication felgo;
     QQmlApplicationEngine engine;
 
+    engine.addImportPath("qml/Pages");
+
     felgo.initialize(&engine);
     felgo.setLicenseKey(PRODUCT_LICENSE_KEY);
     felgo.setMainQmlFileName(QStringLiteral("qml/Main.qml"));

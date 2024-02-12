@@ -1,0 +1,4 @@
+module Pages
+
+FirstPage 1.0 FirstPage.qml
+SecondPage 1.0 SecondPage.qml

@@ -1,14 +1,14 @@
 import Felgo
 import QtQuick
 
+import Pages 1.0 as Pages
+
 App {
     id: app
 
-    property int count: 0
-
     // main page
     NavigationStack {
-        initialPage: FirstPage { }
+        initialPage: Pages.FirstPage { }
     }
 }
 

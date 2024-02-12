@@ -56,6 +56,11 @@ qt_add_qml_module(${PROJECT_NAME}
 #    RESOURCES ${AssetsFiles}
     NO_RESOURCE_TARGET_PATH
 )
+
+list(APPEND QML_DIRS "${CMAKE_SOURCE_DIR}/qml")
+list(REMOVE_DUPLICATES QML_DIRS)
+set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "QML import paths")
+
 target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
