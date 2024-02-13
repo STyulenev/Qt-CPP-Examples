@@ -5,7 +5,8 @@
 Пример использования AppListView в Felgo/QML на основе различных моделей:
 - На основе ListModel (qml);
 - На основе array (js);
-- На основе SortFilterProxyModel (felgo).
+- На основе SortFilterProxyModel (felgo);
+- На основе JsonListModel (felgo).
 
 ## Сборка проекта
 

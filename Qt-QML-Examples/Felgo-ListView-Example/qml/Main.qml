@@ -64,20 +64,32 @@ App {
         }
     ]
 
+    // Felgo JsonListModel
+    JsonListModel {
+        id: jsonListModel
+        source: jsListModel
+        fields: ["name", "group", "color"]
+    }
+
     AppListView {
         id: appListView
 
-        model: sortFilterProxyModel // or qmlListModel or jsListModel
+        model: jsonListModel // sortFilterProxyModel or qmlListModel or jsListModel
         emptyText.text: "No items available"
 
         delegate: Rectangle {
             width: parent.width
             height: 50
-            color: model.color // model.color for qmlListView or sortFilterProxyModel, modelData["color"] for jsListModel
+
+            // model.color for qmlListView / sortFilterProxyModel / JsonListModel
+            // modelData["color"] for jsListModel
+            color: model.color
 
             AppText {
                 anchors.centerIn: parent
-                text: model.name // model.name for qmlListView or sortFilterProxyModel, modelData["name"] for jsListModel
+                // model.name for qmlListView / sortFilterProxyModel / JsonListModel
+                // modelData["name"] for jsListModel
+                text: model.name
             }
         }
     }
