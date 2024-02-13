@@ -24,6 +24,28 @@ App {
         }
     }
 
+    // Felgo SortFilterProxyModel
+    SortFilterProxyModel {
+        id: sortFilterProxyModel
+        sourceModel: qmlListModel
+
+        // configure sorters
+        sorters: [
+            LocaleAwareSorter {
+                id: nameSorter
+                roleName: "name"
+            }
+        ]
+
+        filters: [
+            ValueFilter {
+                roleName: "group"
+                value: "fruit"
+            }
+        ]
+    }
+
+    // JavaScript json array
     property var jsListModel: [
         {
             name: "Banana",
@@ -45,17 +67,17 @@ App {
     AppListView {
         id: appListView
 
-        model: qmlListModel // jsListModel
+        model: sortFilterProxyModel // or qmlListModel or jsListModel
         emptyText.text: "No items available"
 
         delegate: Rectangle {
             width: parent.width
             height: 50
-            color: model.color // model.color for qmlListView, modelData["color"] for jsListModel
+            color: model.color // model.color for qmlListView or sortFilterProxyModel, modelData["color"] for jsListModel
 
             AppText {
                 anchors.centerIn: parent
-                text: model.name // model.name for qmlListView, modelData["name"] for jsListModel
+                text: model.name // model.name for qmlListView or sortFilterProxyModel, modelData["name"] for jsListModel
             }
         }
     }
