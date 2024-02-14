@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(QJson-Example
+project(QJsonDocument-Example
     VERSION 0.1
-    DESCRIPTION "An example of working with QJson"
+    DESCRIPTION "An example of working with QJsonDocument"
+    HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )
 

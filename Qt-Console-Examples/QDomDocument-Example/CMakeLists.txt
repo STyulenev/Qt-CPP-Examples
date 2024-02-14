@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(XML-Example
+project(QDomDocument-Example
     VERSION 0.1
-    DESCRIPTION "Project with sample Qt XML (QDomDocument)"
+    DESCRIPTION "Project with sample QDomDocument (XML)"
     HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )

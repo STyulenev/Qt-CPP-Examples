@@ -1,11 +1,12 @@
 QT -= gui
+QT += xml
 
 CONFIG += c++20
 CONFIG += console
 CONFIG -= app_bundle
 #CONFIG += debug / release
 
-TARGET = XML-Example
+TARGET = QDomDocument-Example
 
 CONFIG(debug, debug | release) {
     message("debug mode")

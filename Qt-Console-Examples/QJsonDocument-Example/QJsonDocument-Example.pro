@@ -5,7 +5,7 @@ CONFIG += console
 CONFIG -= app_bundle
 #CONFIG += debug / release
 
-TARGET = QJson-Example
+TARGET = QJsonDocument-Example
 
 CONFIG(debug, debug | release) {
     message("debug mode")
