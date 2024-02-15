@@ -24,12 +24,5 @@ CONFIG(debug, debug | release) {
 
 include(src/Source.pri)
 
-HEADERS += \
-        ListOfPeolpe.h
-
 SOURCES += \
-        main.cpp \
-        ListOfPeolpe.cpp
-
-RESOURCES += \
-        resource.qrc
+        main.cpp

@@ -21,7 +21,20 @@ public:
 
     auto addPerson(const QString& name, const QString& email, const int age) -> void;
 
-    auto getXmlAsString() -> QString;
+    /*!
+     * \brief getXmlAsString
+     * \details
+     * <!DOCTYPE peoplelist>
+     * <data>
+     * <description text="This is an example of a list of people in an XML file"/>
+     * <people>
+     *     <person age="18" email="david.marston@google.com" name="David"/>
+     *     // ...
+     * </people>
+     * </data>
+     * \return
+     */
+    auto createXml() -> QString;
 
 private:
     QString m_description;

@@ -1,13 +1,17 @@
 #include "ListOfPeolpe.h"
 
+#include <QDebug>
+#include <QXmlStreamReader>
+
 ListOfPeolpe::ListOfPeolpe(QObject* parent) :
     QObject(parent)
 {
     m_description = "This is an example of a list of people in an XML file";
 
     people = {
-                 {"David", "david.marston@google.com", 18}
-             };
+        {"David", "david.marston@google.com", 18}
+        // ...
+    };
 }
 
 auto ListOfPeolpe::setDescription(const QString& description) -> void
@@ -30,7 +34,7 @@ auto ListOfPeolpe::addPerson(const QString& name, const QString& email, const in
     people.append(std::move(person));
 }
 
-auto ListOfPeolpe::getXmlAsString() -> QString
+auto ListOfPeolpe::createXml() -> QString
 {
     QDomDocument doc("peoplelist");
     QDomElement  mainElement = doc.createElement("data");
@@ -41,7 +45,7 @@ auto ListOfPeolpe::getXmlAsString() -> QString
         QDomAttr descriptionAttr = doc.createAttribute("text");
         descriptionAttr.setValue(m_description);
         descriptionElement.setAttributeNode(descriptionAttr);
-        doc.appendChild(descriptionElement);
+        mainElement.appendChild(descriptionElement);
     }
 
     {
@@ -66,7 +70,7 @@ auto ListOfPeolpe::getXmlAsString() -> QString
             listElement.appendChild(personElement);
         }
 
-        doc.appendChild(listElement);
+        mainElement.appendChild(listElement);
     }
 
     return doc.toString();
