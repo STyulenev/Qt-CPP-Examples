@@ -7,9 +7,6 @@ project(QJsonDocument-Example
     LANGUAGES CXX
 )
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
@@ -21,13 +18,28 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
 add_subdirectory(src)
 
-add_executable(${PROJECT_NAME}
+set(PROJECT_SOURCES
     main.cpp
-
     resource.qrc
 )
+
+if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+  qt_add_executable(${PROJECT_NAME}
+    MANUAL_FINALIZATION
+    ${PROJECT_SOURCES}
+  )
+else()
+  add_executable(${PROJECT_NAME}
+    ${PROJECT_SOURCES}
+  )
+endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Core
     Json-lib
+)
+
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
