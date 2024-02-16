@@ -17,9 +17,12 @@ if(NOT EXISTS "doctest.h")
                     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests)
 endif()
 
+file(GLOB tests-src "./*.cpp")
+
 add_executable(${PROJECT_NAME}
     doctest.h
-    text_example.cpp
+
+    ${tests-src}
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -27,8 +30,7 @@ target_link_libraries(${PROJECT_NAME}
     Logic-lib
 )
 
-include(GNUInstallDirs)
-install(TARGETS ${PROJECT_NAME}
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
