@@ -4,6 +4,10 @@
 
 Пример использования статической и динамической библиотеки с несколькими проектами.
 
+## QDomDocument-Example
+
+Пример использования XML в Qt.
+
 ## QFileSystemWatcher-Example
 
 Пример использования QFileSystemWatcher для мониторинга файлов и директорий.
@@ -12,7 +16,7 @@
 
 Пример использования HTTP сервера с добавлением, удалением и получением списка пользователей.
 
-## QJson-Example
+## QJsonDocument-Example
 
 Пример использования JSON в Qt
 
@@ -23,6 +27,10 @@
 ## QTcpSocket-Example
 
 Пример использования QTcpSocket и QTcpServer (клиент и сервер).
+
+## QThread-Example
+
+Пример использования QThread в Qt на примере выноса класса в другой поток и получения данных из него.
 
 ## QtUiPlugin-Example
 

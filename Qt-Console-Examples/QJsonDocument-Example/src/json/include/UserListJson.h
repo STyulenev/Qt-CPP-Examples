@@ -24,6 +24,7 @@ private:
 
 public:
     UserListJson();
+    UserListJson(const UserListJson& userListJson); // copy constructor
     UserListJson(QJsonArray&& users);
 
     ~UserListJson();
@@ -56,10 +57,10 @@ public:
 
     auto at(const int id) const -> QJsonObject;
 
-    auto operator+(const UserListJson& twoList) -> UserListJson;
+    auto operator+(const UserListJson& twoList) -> UserListJson&;
     auto operator==(const UserListJson& twoList) const -> bool;
     auto operator!=(const UserListJson& twoList) const -> bool;
-    auto operator=(const UserListJson& twoList) -> UserListJson;
+    auto operator=(const UserListJson& twoList) -> UserListJson&;
 };
 
 } // namespace JsonModel

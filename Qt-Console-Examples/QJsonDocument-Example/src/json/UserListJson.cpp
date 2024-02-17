@@ -18,6 +18,11 @@ UserListJson::UserListJson()
     // ...
 }
 
+UserListJson::UserListJson(const UserListJson& userListJson)
+{
+    this->users = userListJson.users;
+}
+
 UserListJson::UserListJson(QJsonArray&& users)
 {
     this->users = std::move(users);
@@ -149,7 +154,7 @@ auto UserListJson::at(const int id) const  -> QJsonObject
     return users.at(id).toObject();
 }
 
-auto UserListJson::operator+(const UserListJson& twoList) -> UserListJson
+auto UserListJson::operator+(const UserListJson& twoList) -> UserListJson&
 {
     for (int i = 0; i < twoList.length(); ++i) {
         this->users.append(twoList.at(i));
@@ -176,7 +181,7 @@ auto UserListJson::operator!=(const UserListJson& twoList) const -> bool
     }
 }
 
-auto UserListJson::operator=(const UserListJson& twoList) -> UserListJson
+auto UserListJson::operator=(const UserListJson& twoList) -> UserListJson&
 {
     this->clearArray();
 
