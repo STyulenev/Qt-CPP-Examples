@@ -1,5 +1,13 @@
 # Qt-QML-Examples
 
+## Felgo-ListView-Example
+
+Пример использования AppListView в Felgo/QML на основе различных моделей.
+
+## Felgo-NavigationStack-Example
+
+Пример использования NavigationStack в Felgo/QML.
+
 ## QML-ChartView-Example
 
 Пример использования ChartView в QML на основе модели.

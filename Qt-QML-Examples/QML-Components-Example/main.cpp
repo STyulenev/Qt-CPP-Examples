@@ -1,12 +1,14 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+#include "Circle.h"
 #include "DateTime.h"
 
 auto main(int argc, char* argv[]) -> int
 {
     QGuiApplication app(argc, argv);
 
+    qmlRegisterType<Circle>("CustomVisualType", 1, 0, "Circle");
     qmlRegisterType<DateTime>("CustomNonVisualType", 1, 0, "DateTime");
 
     QQmlApplicationEngine engine;

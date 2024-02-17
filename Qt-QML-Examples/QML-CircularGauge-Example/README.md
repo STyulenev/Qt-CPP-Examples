@@ -4,7 +4,8 @@
 
 Пример использования CircularGauge в QML:
 - Стандартный из библиотеки QtQuick.Extras;
-- Пользовательский на основе Canvas.
+- Пользовательский на основе Canvas (QML).
+- Пользовательский на основе QQuickPaintedItem (C++).
 
 ![alt text](doc/QML-CircularGauge-Example.png)
 
@@ -46,4 +47,4 @@ make
 | QMake      | 3.1                  |
 | GCC        | 8.3.0                |
 
-Тестировалось на ОС Debian 10 Buster
+Тестировалось на ОС Debian 10 Buster (на ОС Windows 11 22H2 + Qt 6.5.2 без примера QtQuick.Extras)

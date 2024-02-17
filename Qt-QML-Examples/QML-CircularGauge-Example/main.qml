@@ -4,12 +4,15 @@ import QtQuick.Window 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 
-import QtQuick.Extras 1.4 as Extras
+import QtQuick.Extras 1.4 as Extras // Only Qt 5.5 - 5.15
 import Components 1.0 as Components
+import CppComponents 1.0 as CppComponents
 
 ApplicationWindow {
+    id: application
+
     visible: true
-    width: 800
+    width: 900
     height: 500
     title: qsTr("QML-CircularGauge-Example")
 
@@ -37,12 +40,31 @@ ApplicationWindow {
         }
 
         Components.CircularGauge {
-            id: customGaude
+            id: customQmlGaude
 
             Layout.alignment: Qt.AlignCenter
 
             size: 300
             maximumValue: 100
+            value: 0
+        }
+
+        CppComponents.CircularGauge {
+            id: customCppGaude
+
+            Layout.alignment: Qt.AlignCenter
+
+            width: 300
+            height: 300
+
+            font {
+                bold: true
+                family: "Arial"
+                pixelSize: 12
+            }
+
+            min: 0
+            max: 100
             value: 0
         }
     }
@@ -65,8 +87,9 @@ ApplicationWindow {
         value: 0
 
         onValueChanged: {
-            standartGaude.value = value;
-            customGaude.value = value;
+            standartGaude.value  = value;
+            customQmlGaude.value = value;
+            customCppGaude.value = value;
         }
     }
 }
