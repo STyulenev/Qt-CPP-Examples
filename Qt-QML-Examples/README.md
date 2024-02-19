@@ -8,6 +8,10 @@
 
 Пример использования NavigationStack в Felgo/QML.
 
+## Plasma-Components-Example
+
+Пример использования QML-компонентов в KDE Plasma.
+
 ## QML-ChartView-Example
 
 Пример использования ChartView в QML на основе модели.
