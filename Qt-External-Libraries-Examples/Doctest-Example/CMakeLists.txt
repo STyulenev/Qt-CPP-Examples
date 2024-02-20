@@ -7,6 +7,8 @@ project(Doctest-Example
     LANGUAGES CXX
 )
 
+option(TEST_OPTION "test opiton" ON)
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD 20)
@@ -16,7 +18,12 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 
 add_subdirectory(src)
-add_subdirectory(tests)
+
+if (NOT TEST_OPTION)
+    message(STATUS "Tests disabled")
+else()
+    add_subdirectory(tests)
+endif()
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(${PROJECT_NAME}
