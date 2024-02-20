@@ -2,6 +2,7 @@
 #include <QDebug>
 
 #include "git.h"
+#include "version.h"
 #include <toml.hpp>
 #include <boost/container/vector.hpp>
 
@@ -33,6 +34,11 @@ auto main(int argc, char* argv[]) -> int
      * Информация о последнем коммите
      */
     qDebug() << GIT_AUTHOR_NAME << GIT_AUTHOR_EMAIL << GIT_HEAD_SHA1;
+
+    /*
+     * Информация о версии
+     */
+    qDebug() << QString("Ver. %0").arg(PROJECT_VERSION);
 
     return app.exec();
 }

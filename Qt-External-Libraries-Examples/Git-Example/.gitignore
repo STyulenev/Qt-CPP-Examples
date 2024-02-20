@@ -1,3 +1,4 @@
 *.user
 *.autosave
-*git.h
+git.h
+version.h
