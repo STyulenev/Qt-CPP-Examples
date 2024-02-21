@@ -1,4 +1,4 @@
-module Widgets
+module Components
 
 LabelAndComboBox  1.0 LabelAndComboBox.qml
 LabelAndTextField 1.0 LabelAndTextField.qml
