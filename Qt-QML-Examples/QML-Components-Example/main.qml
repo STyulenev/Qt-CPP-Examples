@@ -9,6 +9,8 @@ import Components 1.0 as ComponentsLibrary
 import CustomVisualType 1.0 as CustomVisualType
 import CustomNonVisualType 1.0 as CustomNonVisualType
 
+import CPPEnums 1.0 as CPPEnums
+
 ApplicationWindow {
     id: mainWindow
 
@@ -49,7 +51,8 @@ ApplicationWindow {
     }*/
 
     // CustomVisualType.Circle example + Enums example
-    property int circleColor: CommonData.Enums.Colors.GREY
+    //property int circleColor: CommonData.Enums.Colors.GREY // QML/js Enum
+    property int circleColor: CPPEnums.ColorEnum.GREY // C++ Enum
 
     CustomVisualType.Circle {
         id: circle
@@ -59,12 +62,19 @@ ApplicationWindow {
         width: 200
         height: 200
 
-        color: switch (mainWindow.circleColor) {
+        /*color: switch (mainWindow.circleColor) {
                case CommonData.Enums.Colors.GREY: return "grey";
                case CommonData.Enums.Colors.GREEN: return "green";
                case CommonData.Enums.Colors.YELLOW: return "yellow";
                default: return "transparent";
-               }
+               }*/
+
+        color: switch (mainWindow.circleColor) {
+                       case CPPEnums.ColorEnum.GREY: return "grey";
+                       case CPPEnums.ColorEnum.GREEN: return "green";
+                       case CPPEnums.ColorEnum.YELLOW: return "yellow";
+                       default: return "transparent";
+                       }
 
         onColorChanged: {
             console.log("circle color = " + circle.color)

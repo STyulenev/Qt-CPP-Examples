@@ -3,6 +3,7 @@
 
 #include "Circle.h"
 #include "DateTime.h"
+#include "Enums.h"
 
 auto main(int argc, char* argv[]) -> int
 {
@@ -10,6 +11,14 @@ auto main(int argc, char* argv[]) -> int
 
     qmlRegisterType<Circle>("CustomVisualType", 1, 0, "Circle");
     qmlRegisterType<DateTime>("CustomNonVisualType", 1, 0, "DateTime");
+
+    qmlRegisterUncreatableMetaObject(
+        ExampleEnums::staticMetaObject,
+        "CPPEnums",
+        1, 0,
+        "ColorEnum",
+        "Error: only enums"
+    );
 
     QQmlApplicationEngine engine;
     engine.addImportPath("qrc:/qml");
