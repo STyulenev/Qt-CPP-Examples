@@ -1,20 +1,16 @@
-import QtQml 2.15
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
-import QtQuick.Window 2.15
 
 import Forms 1.0 as Forms
 
 Forms.BaseForm {
     id: formSplashScreen
-
-    signal clickedService
-    signal clickedOther
-
     screenName: "SplashScreen"
-
     backButtonVisible: false
+
+    signal clickedService()
+    signal clickedOther()
 
     content: Row {
         id: buttonRow

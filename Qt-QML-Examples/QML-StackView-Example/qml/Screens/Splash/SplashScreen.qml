@@ -26,11 +26,11 @@ SplashScreen_Form {
 
     onClickedService: {
         console.log("OneScreen load");
-        push(componentOneScreen)
+        next(componentOneScreen)
     }
 
     onClickedOther: {
         console.log("ThreeScreen load");
-        push(componentThreeScreen)
+        next(componentThreeScreen)
     }
 }

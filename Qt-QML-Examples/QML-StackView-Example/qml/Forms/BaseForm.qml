@@ -7,15 +7,14 @@ Item {
 
     property string screenName: "Screen"
 
-    signal exit
+    signal exit()
     signal next(Component screen)
     signal replace(Component screen)
     signal backTo(string name)
 
+    signal backButtonClicked()
+
     property alias content: bodyItem.children
-
-    signal backButtonClicked
-
     property alias backButtonText: backButton.text
     property alias backButtonVisible: backButton.visible
 

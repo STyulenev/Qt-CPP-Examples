@@ -8,7 +8,7 @@ Loader {
     property string objectName: loader.item && loader.item.objectName ? loader.item.objectName : ""
     property alias screen: loader.sourceComponent
 
-    signal exit
+    signal exit()
     signal next(Component screen)
     signal replace(Component screen)
     signal backTo(string name)
