@@ -56,6 +56,10 @@
 
 Пример использования RadioButton в QML на основе модели из C++ слоя.
 
+## QML-Repeater-Example
+
+Пример использования Repeater в QML.
+
 ## QML-StackView-Example
 
 Пример использования StackView в QML.
