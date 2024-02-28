@@ -1,7 +1,5 @@
-import QtQuick
-import QtQml 2.15
+import QtQuick 2.15
 import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
 import Common 1.0 as CommonData
@@ -37,7 +35,6 @@ ApplicationWindow {
         objectName: "BaseStackView"
 
         anchors.fill: parent
-        initialItem:  Qt.resolvedUrl("qrc:/qml/Screens/Splash/SplashScreen.qml")
 
         Component.onCompleted: contentFrame.push("qrc:/qml/Screens/Splash/SplashScreen.qml")
 
@@ -59,11 +56,11 @@ ApplicationWindow {
                 contentFrame.pop()
             }
 
-            function onNext() {
+            function onNext(screen) {
                 contentFrame.push(screen)
             }
 
-            function onReplace() {
+            function onReplace(screen) {
                 contentFrame.replace(contentFrame.currentItem, screen)
             }
 

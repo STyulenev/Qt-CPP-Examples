@@ -4,10 +4,12 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.3
 
 import Common 1.0 as CommonData
-import Widgets 1.0 as WidgetsLibrary
+import Components 1.0 as ComponentsLibrary
 
 import CustomVisualType 1.0 as CustomVisualType
 import CustomNonVisualType 1.0 as CustomNonVisualType
+
+import CPPEnums 1.0 as CPPEnums
 
 ApplicationWindow {
     id: mainWindow
@@ -17,8 +19,8 @@ ApplicationWindow {
     height: CommonData.Consts.screenHeight
     title: qsTr("QML-Components-Example")
 
-    // WidgetsLibrary.LabelAndTextField example
-    /*WidgetsLibrary.LabelAndTextField {
+    // ComponentsLibrary.LabelAndTextField example
+    /*ComponentsLibrary.LabelAndTextField {
         anchors.centerIn: parent
         labelText: "some text"
 
@@ -29,8 +31,8 @@ ApplicationWindow {
         height: 40
     }*/
 
-    // WidgetsLibrary.LabelAndComboBox example
-    /*WidgetsLibrary.LabelAndComboBox {
+    // ComponentsLibrary.LabelAndComboBox example
+    /*ComponentsLibrary.LabelAndComboBox {
         anchors.centerIn: parent
         labelPosition: Qt.AlignLeft
         labelText: "some text"
@@ -48,7 +50,10 @@ ApplicationWindow {
         z: 1
     }*/
 
-    // CustomVisualType.Circle example
+    // CustomVisualType.Circle example + Enums example
+    //property int circleColor: CommonData.Enums.Colors.GREY // QML/js Enum
+    property int circleColor: CPPEnums.ColorEnum.GREY // C++ Enum
+
     CustomVisualType.Circle {
         id: circle
 
@@ -57,6 +62,22 @@ ApplicationWindow {
         width: 200
         height: 200
 
-        color: "green"
+        /*color: switch (mainWindow.circleColor) {
+               case CommonData.Enums.Colors.GREY: return "grey";
+               case CommonData.Enums.Colors.GREEN: return "green";
+               case CommonData.Enums.Colors.YELLOW: return "yellow";
+               default: return "transparent";
+               }*/
+
+        color: switch (mainWindow.circleColor) {
+                       case CPPEnums.ColorEnum.GREY: return "grey";
+                       case CPPEnums.ColorEnum.GREEN: return "green";
+                       case CPPEnums.ColorEnum.YELLOW: return "yellow";
+                       default: return "transparent";
+                       }
+
+        onColorChanged: {
+            console.log("circle color = " + circle.color)
+        }
     }
 }

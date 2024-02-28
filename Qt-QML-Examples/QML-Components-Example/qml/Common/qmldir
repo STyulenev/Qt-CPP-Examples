@@ -1,3 +1,4 @@
 module Common
 
 singleton Consts 1.0 Consts.qml
+singleton Enums 1.0 Enums.qml

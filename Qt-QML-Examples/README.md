@@ -8,6 +8,10 @@
 
 Пример использования NavigationStack в Felgo/QML.
 
+## Plasma-Components-Example
+
+Пример использования QML-компонентов в KDE Plasma.
+
 ## QML-ChartView-Example
 
 Пример использования ChartView в QML на основе модели.
@@ -51,6 +55,10 @@
 ## QML-RadioButtonGroup-Example
 
 Пример использования RadioButton в QML на основе модели из C++ слоя.
+
+## QML-Repeater-Example
+
+Пример использования Repeater в QML.
 
 ## QML-StackView-Example
 

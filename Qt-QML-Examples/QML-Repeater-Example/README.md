@@ -1,10 +1,11 @@
-# QML-TableView-Delegates-Example
+# QML-Repeater-Example
 
 ## Описание
 
-Пример использования делегатов TableView в QML на основе модели.
+Пример использования Repeater в QML:
+- SignalLevel - пример создания компонента для уровня сигнала.
 
-![alt text](doc/QML-TableView-Delegates-Example.png)
+![alt text](doc/QML-Repeater-Example.png)
 
 ## Сборка проекта
 

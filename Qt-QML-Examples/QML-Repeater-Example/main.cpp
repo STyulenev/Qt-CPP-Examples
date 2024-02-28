@@ -1,29 +1,18 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "Circle.h"
-#include "DateTime.h"
-#include "Enums.h"
-
 auto main(int argc, char* argv[]) -> int
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<Circle>("CustomVisualType", 1, 0, "Circle");
-    qmlRegisterType<DateTime>("CustomNonVisualType", 1, 0, "DateTime");
-
-    qmlRegisterUncreatableMetaObject(
-        ExampleEnums::staticMetaObject,
-        "CPPEnums",
-        1, 0,
-        "ColorEnum",
-        "Error: only enums"
-    );
-
     QQmlApplicationEngine engine;
-    engine.addImportPath("qrc:/qml");
 
-    const QUrl url("qrc:/main.qml");
+    engine.addImportPath(":/qml");
+    const QUrl url(QStringLiteral("qrc:/main.qml"));
+
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, &app, [url](QObject* obj, const QUrl& objUrl) {
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);

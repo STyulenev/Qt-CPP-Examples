@@ -3,12 +3,13 @@
         <file>main.qml</file>
         <file>qml/Common/qmldir</file>
         <file>qml/Common/Consts.qml</file>
-        <file>qml/Widgets/qmldir</file>
-        <file>qml/Widgets/LabelAndTextField.qml</file>
-        <file>qml/Widgets/LabelAndTextField_Form.ui.qml</file>
-        <file>qml/Widgets/LabelTemplate.qml</file>
-        <file>qml/Widgets/LabelTemplate_Form.ui.qml</file>
-        <file>qml/Widgets/LabelAndComboBox.qml</file>
-        <file>qml/Widgets/LabelAndComboBox_Form.ui.qml</file>
+        <file>qml/Components/LabelAndComboBox.qml</file>
+        <file>qml/Components/LabelAndComboBox_Form.ui.qml</file>
+        <file>qml/Components/LabelAndTextField.qml</file>
+        <file>qml/Components/LabelAndTextField_Form.ui.qml</file>
+        <file>qml/Components/LabelTemplate.qml</file>
+        <file>qml/Components/LabelTemplate_Form.ui.qml</file>
+        <file>qml/Components/qmldir</file>
+        <file>qml/Common/Enums.qml</file>
     </qresource>
 </RCC>

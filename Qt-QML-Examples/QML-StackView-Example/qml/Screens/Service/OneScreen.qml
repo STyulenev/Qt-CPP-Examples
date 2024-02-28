@@ -18,7 +18,7 @@ OneScreen_Form {
 
     onClickedTwoScreen: {
         console.log("Open TwoScreen");
-        push(componentTwoScreen);
+        next(componentTwoScreen);
     }
 
     onBackButtonClicked: {

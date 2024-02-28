@@ -40,6 +40,7 @@ auto Circle::mousePressEvent(QMouseEvent* event) -> void
 {
     if (event->button() == Qt::LeftButton) {
         m_color = (m_color == Qt::blue) ? Qt::red : Qt::blue;
+        emit colorChanged();
         update();
     }
 }
