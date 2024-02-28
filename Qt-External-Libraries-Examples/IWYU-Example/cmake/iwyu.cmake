@@ -1,0 +1,7 @@
+find_program(iwyu_path NAMES include-what-you-use iwyu)
+if(NOT iwyu_path)
+    message("Could not find the program include-what-you-use")
+elseif(iwyu_path)
+    message("There is the include-what-you-use program")
+    set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_INCLUDE_WHAT_YOU_USE ${iwyu_path})
+endif()

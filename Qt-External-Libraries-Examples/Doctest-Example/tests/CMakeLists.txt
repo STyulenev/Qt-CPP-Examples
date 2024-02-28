@@ -14,14 +14,13 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 
 if(NOT EXISTS "doctest.h")
     execute_process(COMMAND curl https://raw.githubusercontent.com/onqtam/doctest/master/doctest/doctest.h -o doctest.h args
-                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests)
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests)
 endif()
 
 file(GLOB tests-src "./*.cpp")
 
 add_executable(${PROJECT_NAME}
     doctest.h
-
     ${tests-src}
 )
 
@@ -33,4 +32,11 @@ target_link_libraries(${PROJECT_NAME}
 set_target_properties(${PROJECT_NAME}
     PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+)
+
+add_custom_target(Runtime-Test-Bin
+    POST_BUILD
+    COMMAND ${PROJECT_NAME}
+    COMMENT "Run tests after building all targets"
+    #VERBATIM
 )

@@ -1,14 +1,13 @@
 cmake_minimum_required(VERSION 3.5)
 
 project(Git-Example
-    VERSION 0.1
+    VERSION 0.1.0
     DESCRIPTION "Project with examples of interaction between git and cmake"
     HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )
 
 set(CMAKE_AUTOMOC ON)
-
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -30,6 +29,7 @@ FetchContent_MakeAvailable(Boost)
 
 set(PROJECT_SOURCES
     git.h
+    version.h
     main.cpp
 )
 
@@ -44,7 +44,7 @@ else()
     )
 endif()
 
- Заголовочные файлы
+# Заголовочные файлы
 target_include_directories(${PROJECT_NAME} PRIVATE
     extern/toml11
     extern/googletest
@@ -60,8 +60,14 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     # ...
 )
 
-# setup information for git version handling
+# Установить информацию о git
 set(PRE_CONFIGURE_FILE "git.h.in")
 set(POST_CONFIGURE_FILE "git.h")
 
 include(${CMAKE_SOURCE_DIR}/cmake/git_watcher.cmake)
+
+# Установить информацию о проекте из CMake (версия/название)
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/version.h.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/version.h
+)
