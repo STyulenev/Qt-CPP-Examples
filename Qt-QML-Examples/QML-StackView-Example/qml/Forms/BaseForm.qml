@@ -11,6 +11,7 @@ Item {
     signal next(Component screen)
     signal replace(Component screen)
     signal backTo(string name)
+    signal update()
 
     signal backButtonClicked()
 

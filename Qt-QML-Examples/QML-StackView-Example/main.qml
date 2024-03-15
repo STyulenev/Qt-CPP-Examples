@@ -46,22 +46,22 @@ ApplicationWindow {
         replaceExit: null
 
         onCurrentItemChanged: {
-            contentFrame.currentItem.forceActiveFocus()
+            contentFrame.currentItem.forceActiveFocus();
         }
 
         Connections {
             target: contentFrame.currentItem
 
             function onExit() {
-                contentFrame.pop()
+                contentFrame.pop();
             }
 
             function onNext(screen) {
-                contentFrame.push(screen)
+                contentFrame.push(screen);
             }
 
             function onReplace(screen) {
-                contentFrame.replace(contentFrame.currentItem, screen)
+                contentFrame.replace(contentFrame.currentItem, screen);
             }
 
             function onBackTo(name) {
