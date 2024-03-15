@@ -91,3 +91,7 @@
 ## SQLite-Example (libsqlite3)
 
 Пример использования библиотеки libsqlite3 для взаимодействия с базами данных SQLite.
+
+## Vcpkg-Example
+
+Пример использования пакетного менеджера Vcpkg в Qt.
