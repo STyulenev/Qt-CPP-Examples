@@ -1,0 +1,34 @@
+QT_INSTALL_HEADERS = C:/Qt/6.5.2/mingw_64/include
+
+project     = QDoc-Example
+description = QDoc-Example Reference Documentation
+
+sourcedirs += ../
+headerdirs += ../
+#imagedirs  += images
+
+depends += \
+    qtcore 
+
+
+includepaths += \
+    C:/Qt/6.5.2/mingw_64/include \
+    C:/Qt/6.5.2/mingw_64/include/QtCore
+
+# Типы файлов
+headers.fileextensions  = "*.h *.hpp"
+sources.fileextensions  = "*.cpp *.qml *.qdoc"
+
+# Результат в папку doc/html
+outputdir = ./html
+# Формат HTML
+outputformats = HTML
+
+# Путь до файла со стилями
+HTML.stylesheets = style.css
+# Подключение файла со стилями
+HTML.headerstyles = "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/style.css\"/>\n"
+# Заголовок страницы с документацией
+HTML.postheader = "<p class=\"header\"><small>[Пример документации с QDoc]</small></p><hr/>"
+# Нижняя подпись страницы с документацией
+HTML.footer = "<hr/><p class=\"footer\"><small>[Пример документации с QDoc]</small></p>"
