@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
+#include <QDebug>
 #include <QFileDialog>
 #include <QGraphicsItem>
 #include <QGraphicsVideoItem>
@@ -12,9 +13,9 @@ namespace Views {
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    m_mediaPlayer(new QMediaPlayer(this)),
+    m_scene(new QGraphicsScene(this)),
     m_videoItem(new QGraphicsVideoItem()),
-    m_scene(new QGraphicsScene(this))
+    m_mediaPlayer(new QMediaPlayer(this))
 {
     ui->setupUi(this);
 
@@ -59,6 +60,9 @@ auto MainWindow::on_openFileAction_triggered() -> void
         m_mediaPlayer->play();
 
         connect(m_mediaPlayer, &QMediaPlayer::errorOccurred, this, [this](QMediaPlayer::Error error, const QString& errorText) -> void {
+            Q_UNUSED(error)
+
+            qDebug() << errorText;
             m_scene->addItem(m_textItem);
         });
     } else {
