@@ -1,7 +1,10 @@
 #pragma once
 
 #include <QObject>
-#include <QTimer>
+
+class QTimer;
+
+namespace Controllers {
 
 class Worker : public QObject
 {
@@ -23,3 +26,5 @@ private:
     QTimer* timer;
 
 };
+
+} // namespace Controllers

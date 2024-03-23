@@ -2,12 +2,13 @@
 
 #include <QThread>
 
+namespace Controllers {
+
 Controller::Controller(QObject* parent) :
     QObject(parent)
 {
     controllerThread = new QThread();
     worker = new Worker();
-
     worker->moveToThread(controllerThread);
     controllerThread->start();
 }
@@ -29,3 +30,5 @@ auto Controller::getWorker() const -> Worker*
 {
     return worker;
 }
+
+} // namespace Controllers

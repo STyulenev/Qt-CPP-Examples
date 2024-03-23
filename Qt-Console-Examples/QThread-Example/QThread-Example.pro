@@ -5,6 +5,7 @@ CONFIG += console
 CONFIG -= app_bundle
 #CONFIG += debug / release
 
+TEMPLATE = app
 TARGET = QThread-Example
 
 CONFIG(debug, debug | release) {
