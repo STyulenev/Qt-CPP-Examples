@@ -11,5 +11,6 @@
         <file>qml/Components/LabelTemplate_Form.ui.qml</file>
         <file>qml/Components/qmldir</file>
         <file>qml/Common/Enums.qml</file>
+        <file>qml/Components/SimpleProgressBar.qml</file>
     </qresource>
 </RCC>

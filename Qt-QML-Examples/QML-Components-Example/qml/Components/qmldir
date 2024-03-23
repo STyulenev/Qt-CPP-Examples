@@ -2,3 +2,4 @@ module Components
 
 LabelAndComboBox  1.0 LabelAndComboBox.qml
 LabelAndTextField 1.0 LabelAndTextField.qml
+SimpleProgressBar 1.0 SimpleProgressBar.qml

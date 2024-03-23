@@ -8,7 +8,9 @@ ThreeScreen_Form {
 
     Component {
         id: componentFourScreen
+
         Screens.ScreenLoader {
+            onExit: formThreeScreen.update();
             screenName: "FourScreen"
             screen: FourScreen {}
         }
@@ -22,5 +24,9 @@ ThreeScreen_Form {
     onBackButtonClicked: {
         console.log("Back");
         exit();
+    }
+
+    onUpdate: {
+        console.log("ThreeScreen update()");
     }
 }

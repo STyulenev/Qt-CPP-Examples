@@ -52,7 +52,7 @@ ApplicationWindow {
 
     // CustomVisualType.Circle example + Enums example
     //property int circleColor: CommonData.Enums.Colors.GREY // QML/js Enum
-    property int circleColor: CPPEnums.ColorEnum.GREY // C++ Enum
+    /*property int circleColor: CPPEnums.ColorEnum.GREY // C++ Enum
 
     CustomVisualType.Circle {
         id: circle
@@ -62,12 +62,12 @@ ApplicationWindow {
         width: 200
         height: 200
 
-        /*color: switch (mainWindow.circleColor) {
-               case CommonData.Enums.Colors.GREY: return "grey";
-               case CommonData.Enums.Colors.GREEN: return "green";
-               case CommonData.Enums.Colors.YELLOW: return "yellow";
-               default: return "transparent";
-               }*/
+        //color: switch (mainWindow.circleColor) {
+        //       case CommonData.Enums.Colors.GREY: return "grey";
+        //       case CommonData.Enums.Colors.GREEN: return "green";
+        //       case CommonData.Enums.Colors.YELLOW: return "yellow";
+        //       default: return "transparent";
+        //       }
 
         color: switch (mainWindow.circleColor) {
                        case CPPEnums.ColorEnum.GREY: return "grey";
@@ -78,6 +78,21 @@ ApplicationWindow {
 
         onColorChanged: {
             console.log("circle color = " + circle.color)
+        }
+    }*/
+
+    // ComponentsLibrary.SimpleProgressBar example
+    ComponentsLibrary.SimpleProgressBar {
+        id: simpleProgressBar
+
+        anchors.centerIn: parent
+        width: 400
+        height: 40
+
+        value: 50
+
+        onValueChanged: {
+            console.log("value = " + simpleProgressBar.value)
         }
     }
 }
