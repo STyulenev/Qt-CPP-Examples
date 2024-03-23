@@ -4,13 +4,15 @@
 
 class QThread;
 
+namespace Controllers {
+
 class Controller : public QObject
 {
     Q_OBJECT
 
 public:
     explicit Controller(QObject* parent = nullptr);
-    virtual ~Controller();
+    ~Controller();
 
     auto getWorker() const -> Worker*;
 
@@ -19,3 +21,5 @@ private:
     Worker* worker;
 
 };
+
+} // namespace Controllers

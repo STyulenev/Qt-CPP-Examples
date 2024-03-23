@@ -1,6 +1,9 @@
 #include "Worker.h"
 
 #include <QThread>
+#include <QTimer>
+
+namespace Controllers {
 
 Worker::Worker(QObject* parent) :
     QObject(parent)
@@ -10,7 +13,6 @@ Worker::Worker(QObject* parent) :
 
     connect(timer, &QTimer::timeout, this, &Worker::run);
     connect(this, &Worker::start, this, [this]() -> void {
-
         timer->start();
     });
 
@@ -21,14 +23,14 @@ Worker::Worker(QObject* parent) :
 
 Worker::~Worker()
 {
-    delete timer;
+
 }
 
 auto Worker::run() -> void
 {
     static int count = 1;
-
     emit data(count);
-
     count++;
 }
+
+} // namespace Controllers
