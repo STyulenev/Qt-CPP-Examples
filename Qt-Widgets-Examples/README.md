@@ -8,6 +8,10 @@
 
 Пример использование QDialog для создания пользовательских диалогов.
 
+## QGraphicsView-QMediaPlayer-Example
+
+Пример использование QMediaPlayer для отображения видео в QGraphicsView.
+
 ## QHeaderView-Example
 
 Пример использования пользовательского заголовка QHeaderView в QTableView.
