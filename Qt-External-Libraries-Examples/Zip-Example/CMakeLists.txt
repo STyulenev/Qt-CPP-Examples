@@ -45,12 +45,12 @@ set_target_properties(${PROJECT_NAME}
 )
 
 include(cmake/ZipSettings.cmake)
+set(ARCHIVE_NAME "my_zip")
 
 if(WIN32)
-    set(ARCHIVE_NAME "my_zip")
     archive_files_with_7zip(${ARCHIVE_NAME} ${PROJECT_SOURCES})
 elseif(APPLE)
-    # ...
+    message(FATAL_ERROR "zip functions was not found")
 elseif(UNIX)
-    # ...
+    archive_files_with_tar_gz(${ARCHIVE_NAME} ${PROJECT_SOURCES})
 endif()
