@@ -32,6 +32,10 @@
 
 Пример использования QNetworkAccessManager на примере сетевых HTTP get и post запросов.
 
+## QProcess-Example
+
+Пример использования QProcess для взайимодействия с консолью.
+
 ## QTcpSocket-Example
 
 Пример использования QTcpSocket и QTcpServer (клиент и сервер).
