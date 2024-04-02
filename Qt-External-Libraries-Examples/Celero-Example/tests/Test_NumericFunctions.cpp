@@ -13,8 +13,7 @@ CELERO_MAIN
 class Test_NumericFunctions : public celero::TestFixture
 {
 public:
-    Test_NumericFunctions()
-    {
+    Test_NumericFunctions() {
 
     }
 
@@ -30,8 +29,7 @@ public:
         return className.sub() == (first - two);
     }
 
-    inline bool testDiv(const int first, int const two)
-    {
+    inline bool testDiv(const int first, int const two) {
         Logic::Numeric className(first, two);
 
         try {
@@ -41,15 +39,13 @@ public:
         }
     }
 
-    inline bool testCopyQVector()
-    {
+    inline bool testCopyQVector() {
         Logic::testCopyQVector();
 
         return true;
     }
 
-    inline bool testAssigmentQVector()
-    {
+    inline bool testAssigmentQVector() {
         Logic::testAssigmentQVector();
 
         return true;

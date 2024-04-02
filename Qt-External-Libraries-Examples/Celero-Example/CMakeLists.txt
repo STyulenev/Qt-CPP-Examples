@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 
 project(Celero-Example
     VERSION 0.1
-    DESCRIPTION "Test project with an example of using the testing library Celero"
+    DESCRIPTION "Test project with an example of using the testing and benchmarking library Celero"
     HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )
