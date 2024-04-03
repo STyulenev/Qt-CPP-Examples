@@ -63,6 +63,8 @@ auto MainWindow::on_printOnlyMaleButton_clicked() -> void
 
 auto MainWindow::on_printAdultsButton_clicked() -> void
 {
+    ui->textEdit->clear();
+
     auto values = rxcpp::observable<>::iterate(m_people).filter([](const Models::TestModel& person) -> bool {
         return person.getAge() >= 18;
     });
