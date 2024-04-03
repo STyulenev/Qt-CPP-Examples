@@ -24,6 +24,7 @@ private slots:
     auto on_printAllButton_clicked() -> void;
     auto on_printOnlyMaleButton_clicked() -> void;
     auto on_printAdultsButton_clicked() -> void;
+    auto on_printMaleAndFemaleCountButton_clicked() -> void;
 
 private:
     Ui::MainWindow* ui;

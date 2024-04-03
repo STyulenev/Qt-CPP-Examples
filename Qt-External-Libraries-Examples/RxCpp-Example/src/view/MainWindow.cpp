@@ -20,7 +20,8 @@ MainWindow::MainWindow(QWidget* parent) :
         { "Karl", Models::TestModel::Sex::MALE,   20 },
         { "Anna", Models::TestModel::Sex::FEMALE, 30 },
         { "John", Models::TestModel::Sex::MALE,   54 },
-        { "Kent", Models::TestModel::Sex::MALE,   17 }
+        { "Kent", Models::TestModel::Sex::MALE,   17 },
+        { "Kent", Models::TestModel::Sex::MALE,   52 }
     };
 }
 
@@ -39,7 +40,7 @@ auto MainWindow::on_printAllButton_clicked() -> void
         [this](const Models::TestModel& person) -> void {
             ui->textEdit->append(person.getName());
         },
-        [this]() -> void {
+        []() -> void {
             qDebug() << "on_printAllButton_clicked()";
         });
 }
@@ -56,7 +57,7 @@ auto MainWindow::on_printOnlyMaleButton_clicked() -> void
         [this](const Models::TestModel& person) -> void {
             ui->textEdit->append(person.getName());
         },
-        [this]() -> void {
+        []() -> void {
             qDebug() << "on_printOnlyMaleButton_clicked()";
         });
 }
@@ -90,6 +91,41 @@ auto MainWindow::on_printAdultsButton_clicked() -> void
         []() -> void {
             qDebug() << "Observer thread => " << std::hash<std::thread::id>{}(std::this_thread::get_id());
         });
+}
+
+auto MainWindow::on_printMaleAndFemaleCountButton_clicked() -> void
+{
+    ui->textEdit->clear();
+
+    rxcpp::subjects::subject<Models::TestModel> groupedPeople;
+
+    auto values = groupedPeople.get_observable().group_by(
+        [](const Models::TestModel& e) {
+            return e.getSex();
+        },
+        [](const Models::TestModel& e) {
+            return e.getAge();
+        });
+
+    auto result = values.map([] (rxcpp::grouped_observable<Models::TestModel::Sex, int> group) {
+                            return group
+                                .count()
+                                .combine_latest(
+                                    [=](int count) {
+                                        return std::make_tuple(group.get_key(), count);
+                                    });
+                        })
+                      .merge();
+
+    result.subscribe(rxcpp::util::apply_to(
+        [this](Models::TestModel::Sex sex, int count) {
+            ui->textEdit->append(QString("%1 : %2").arg((sex == Models::TestModel::Sex::MALE ? "male" : "female")).arg(count));
+        }),
+        []() -> void {
+            qDebug() << "on_printMaleAndFemaleCountButton_clicked()";
+        });
+
+    rxcpp::observable<>::iterate(m_people).subscribe(groupedPeople.get_subscriber());
 }
 
 } // namespace Views

@@ -6,19 +6,31 @@
 
 [Ссылка на исходники RxCpp](https://github.com/ReactiveX/RxCpp "RxCpp")
 
+![alt text](doc/RxCpp-Example.png)
+
 ## Сборка
+
+1. Скачать и установить RxCpp.
+2. Указать пути в src/view/CMakeLists.txt или src/Source.pri.
+3. Собрать проект.
 
 ### CMake:
 
-1. Скачать и установить RxCpp.
-2. Указать пути в src/view/CMakeLists.txt.
-3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
 ```bash
 cmake ..
 make
 ```
 > Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
+
+### QMake:
+
+```bash
+qmake ..
+make
+```
+> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
 
 ## Версии
 
