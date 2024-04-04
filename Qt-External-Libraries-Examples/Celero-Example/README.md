@@ -10,15 +10,26 @@
 
 ## Сборка
 
-### CMake:
+1. Необходимо скачать и собрать библиотеку Celero.
+2. Прописать пути к заголовочным файлам и файлам .ddl/.so в tests/СMakeLists.txt (для CMake) или tests/Tests.pri (для QMake).
+3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
-Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+### CMake:
 
 ```bash
 cmake ..
 make
 ```
 > Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
+
+### QMake:
+
+```bash
+qmake ..
+make
+```
+> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
+> Для приложения - "qmake .. CONFIG+=applicationConfig", для тестов - "qmake .. CONFIG+=testConfig"
 
 ## Версии
 
