@@ -1,5 +1,9 @@
 # Qt-Widgets-Examples
 
+## QClipboard-Example
+
+Пример использование буфера обмена QClipboard на примере QTextEdit + QStack для множественного сохранения.
+
 ## QComboBox-Delegate-Example
 
 Пример использование модели и делегата для QComboBox.
