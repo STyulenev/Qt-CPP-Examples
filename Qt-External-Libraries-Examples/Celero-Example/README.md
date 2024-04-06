@@ -1,16 +1,18 @@
-# Doctest-Example
+# Celero-Example
 
 ## Описание
 
-Пример использования однофайлового модуля тестирования Doctest.
+Пример использования библитеки тестирования и измерения производительности кода Celero.
 
-[Ссылка на исходники Doctest](https://github.com/doctest/doctest "Doctest")
+[Ссылка на исходники Celero](https://github.com/DigitalInBlue/Celero "Celero")
 
-![alt text](doc/Doctest-Example.png)
+![alt text](doc/Celero-Example.png)
 
 ## Сборка
 
-Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+1. Необходимо скачать и собрать библиотеку Celero.
+2. Прописать пути к заголовочным файлам и файлам .ddl/.so в tests/СMakeLists.txt (для CMake) или tests/Tests.pri (для QMake).
+3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
 ### CMake:
 
@@ -29,8 +31,6 @@ make
 > Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
 > Для приложения - "qmake .. CONFIG+=applicationConfig", для тестов - "qmake .. CONFIG+=testConfig"
 
-> Файл doctest.h будет автоматически загружен с github.
-
 ## Версии
 
 Версии сред, языков и утилит, которые использовались на момент написания проекта.
@@ -41,8 +41,7 @@ make
 | Qt Creator | 11.0.2               |
 | Qt         | 6.5.2                |
 | CMake      | 3.24.2               |
-| QMake      | 6.5.2.0              |
 | MinGW      | 11.2 64 bit          |
-| Doctest    | 2.4.11               |
+| Celero     | 2.8.5                |
 
 Тестировалось на ОС Windows 11 22H2

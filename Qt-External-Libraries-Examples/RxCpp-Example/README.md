@@ -1,18 +1,22 @@
-# Doctest-Example
+# RxCpp-Example
 
 ## Описание
 
-Пример использования однофайлового модуля тестирования Doctest.
+Пример использования библитеки реактивных расширений RxCpp для стандартной библиотеки STL.
 
-[Ссылка на исходники Doctest](https://github.com/doctest/doctest "Doctest")
+[Ссылка на исходники RxCpp](https://github.com/ReactiveX/RxCpp "RxCpp")
 
-![alt text](doc/Doctest-Example.png)
+![alt text](doc/RxCpp-Example.png)
 
 ## Сборка
 
-Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+1. Скачать и установить RxCpp.
+2. Указать пути в src/view/CMakeLists.txt или src/Source.pri.
+3. Собрать проект.
 
 ### CMake:
+
+Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
 ```bash
 cmake ..
@@ -27,9 +31,6 @@ qmake ..
 make
 ```
 > Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
-> Для приложения - "qmake .. CONFIG+=applicationConfig", для тестов - "qmake .. CONFIG+=testConfig"
-
-> Файл doctest.h будет автоматически загружен с github.
 
 ## Версии
 
@@ -41,8 +42,6 @@ make
 | Qt Creator | 11.0.2               |
 | Qt         | 6.5.2                |
 | CMake      | 3.24.2               |
-| QMake      | 6.5.2.0              |
 | MinGW      | 11.2 64 bit          |
-| Doctest    | 2.4.11               |
 
 Тестировалось на ОС Windows 11 22H2
