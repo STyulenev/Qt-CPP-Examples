@@ -20,6 +20,14 @@
 
 Пример использования пользовательского заголовка QHeaderView в QTableView.
 
+## QLineEdit-QCompleter-Example
+
+Пример использования пользовательского заголовка QCompleter (с моделью) в QLineEdit.
+
+## QLineEdit-QValidator-Example
+
+Пример использования QValidator в QLineEdit.
+
 ## QListView-Example
 
 Пример использования виджета QListView-Example со сложной моделью, а также с делегатом и без него.
