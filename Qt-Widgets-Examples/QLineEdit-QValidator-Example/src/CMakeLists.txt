@@ -6,4 +6,5 @@ project(Source
     LANGUAGES CXX
 )
 
+add_subdirectory(validator)
 add_subdirectory(view)
