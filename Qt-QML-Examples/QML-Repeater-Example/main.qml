@@ -7,18 +7,33 @@ import Components 1.0 as Components
 Window {
     id: app
 
-    width: 640
-    height: 480
+    width: 480
+    height: 320
     visible: true
     title: qsTr("QML-Repeater-Example")
 
-    Components.SignalLevel {
-        id: signalLevel
+    Row {
+        anchors.centerIn: parent
+        spacing: 20
 
-        height: 200
-        width: 200
+        Components.SignalLevel {
+            id: signalLevel
 
-        count: 5
-        currentValue: 2
+            height: 100
+            width: 100
+
+            count: 5
+            currentValue: 2
+        }
+
+        Components.Battery {
+            id: battery
+
+            height: 100
+            width: 60
+
+            count: 4
+            charge: 50 // %
+        }
     }
 }

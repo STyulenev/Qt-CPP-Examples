@@ -1,8 +1,12 @@
 QT += quick
 
 CONFIG += c++20
+#CONFIG += debug / release
 
 TARGET = QML-Repeater-Example
+TEMPLATE = app
+
+DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG(debug, debug | release) {
     message("debug mode")

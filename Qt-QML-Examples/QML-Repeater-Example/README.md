@@ -4,6 +4,7 @@
 
 Пример использования Repeater в QML:
 - SignalLevel - пример создания компонента для уровня сигнала.
+- Battery - пример создания компонента для уровня заряда батареи.
 
 ![alt text](doc/QML-Repeater-Example.png)
 
