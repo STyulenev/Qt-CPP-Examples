@@ -6,10 +6,9 @@ project(Network-lib
     LANGUAGES CXX
 )
 
+set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-set(CMAKE_AUTOMOC ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
@@ -23,7 +22,6 @@ if(WIN32)
 
     if(cpr_FOUND)
         message("CURL was found ${cpr_LIBRARIES} ${cpr_LIBRARY}")
-        include_directories(${cpr_INCLUDE_DIR})
     elseif()
         message(FATAL_ERROR "CURL not found")
     endif()
@@ -33,16 +31,18 @@ file(GLOB network-src "include/*.h" "*.cpp")
 
 add_library(${PROJECT_NAME} STATIC ${network-src})
 
-target_include_directories(${PROJECT_NAME} PUBLIC include "C:/3rdparty/libcpr/build/install/include")
+target_include_directories(${PROJECT_NAME} PUBLIC
+    include
+    "C:/3rdparty/libcpr/build/install/include"
+)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Core
+
     "C:/3rdparty/libcpr/build/install/bin/libcurl.dll"
     "C:/3rdparty/libcpr/build/install/bin/libcpr.dll"
     "C:/3rdparty/libcpr/build/install/bin/libzlib.dll"
 )
-
-
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES
