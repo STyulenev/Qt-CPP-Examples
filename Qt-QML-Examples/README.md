@@ -100,6 +100,10 @@
 
 Пример использования TreeView в QML на основе модели.
 
+## QML-Video-Example
+
+Пример использования Video в QML.
+
 ## QML-Window-Example
 
 Пример использования окон и диалогов в QML.
