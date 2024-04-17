@@ -4,6 +4,8 @@
 
 Пример использования Video в QML.
 
+![alt text](doc/QML-Video-Example.png)
+
 ## Сборка проекта
 
 Проект может быть собран из QtCreator или из папки build коммандами:
