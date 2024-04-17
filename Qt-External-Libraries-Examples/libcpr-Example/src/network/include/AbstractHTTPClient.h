@@ -7,17 +7,20 @@ namespace Network {
 class AbstractHTTPClient : public QObject
 {
     Q_OBJECT
+
 public:
     AbstractHTTPClient(QObject* parent = 0) : QObject(parent) {}
-    ~AbstractHTTPClient() = default;
+    virtual ~AbstractHTTPClient() = default;
 
     virtual auto getServerCurrentTime() -> void = 0;
-    virtual auto getServerUserList() -> QString = 0;
-    virtual auto postServerSendNewUser() -> QString = 0;
-    virtual auto deleteServerFirstUser() -> QString = 0;
+    virtual auto getServerUserList() -> void = 0;
+    virtual auto postServerSendNewUser() -> void = 0;
+    virtual auto deleteServerFirstUser() -> void = 0;
 
 signals:
     auto serverCurrentTime(QString answer) -> void;
+    auto serverUserList(QString answer) -> void;
+    auto error(QString error) -> void;
 
 };
 

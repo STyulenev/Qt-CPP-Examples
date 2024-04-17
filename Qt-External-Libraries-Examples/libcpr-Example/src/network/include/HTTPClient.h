@@ -11,9 +11,9 @@ public:
     ~HTTPClient();
 
     auto getServerCurrentTime() -> void override;
-    auto getServerUserList() -> QString override;
-    auto postServerSendNewUser() -> QString override;
-    auto deleteServerFirstUser() -> QString override;
+    auto getServerUserList() -> void override;
+    auto postServerSendNewUser() -> void override;
+    auto deleteServerFirstUser() -> void override;
 
 };
 

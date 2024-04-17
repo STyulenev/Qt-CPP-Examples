@@ -3,7 +3,6 @@
 
 #include "HTTPClient.h"
 
-#include <QPromise>
 #include <QDebug>
 #include <QtConcurrent/QtConcurrent>
 
@@ -17,11 +16,24 @@ MainWindow::MainWindow(QWidget* parent) :
 
     httpClient = new Network::HTTPClient();
 
-    connect(httpClient, &Network::AbstractHTTPClient::serverCurrentTime, this, [this] (QString a) -> void {
+    connect(httpClient, &Network::AbstractHTTPClient::serverCurrentTime, this, [this] (QString answer) -> void {
             qDebug() << "Answer" << QThread::currentThreadId();
             ui->textEdit->clear();
-            ui->textEdit->append(a);
+            ui->textEdit->append(answer);
         });
+
+
+    connect(httpClient, &Network::AbstractHTTPClient::serverUserList, this, [this] (QString answer) -> void {
+        qDebug() << "Answer" << QThread::currentThreadId();
+        ui->textEdit->clear();
+        ui->textEdit->append(answer);
+    });
+
+    connect(httpClient, &Network::AbstractHTTPClient::error, this, [this] (QString error) -> void {
+        qDebug() << "Error" << QThread::currentThreadId();
+        ui->textEdit->clear();
+        ui->textEdit->append(error);
+    });
 }
 
 MainWindow::~MainWindow()
@@ -36,17 +48,17 @@ auto MainWindow::on_pushButton_clicked() -> void
 
 auto MainWindow::on_pushButton_2_clicked() -> void
 {
-
+    auto future = QtConcurrent::run(&Network::AbstractHTTPClient::postServerSendNewUser, httpClient);
 }
 
 auto MainWindow::on_pushButton_3_clicked() -> void
 {
-
+    auto future = QtConcurrent::run(&Network::AbstractHTTPClient::getServerUserList, httpClient);
 }
 
 auto MainWindow::on_pushButton_4_clicked() -> void
 {
-
+    auto future = QtConcurrent::run(&Network::AbstractHTTPClient::deleteServerFirstUser, httpClient);
 }
 
 } // namespace Views

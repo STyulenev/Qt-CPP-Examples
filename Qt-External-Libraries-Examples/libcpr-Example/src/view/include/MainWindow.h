@@ -1,8 +1,9 @@
 #pragma once
 
 #include <QMainWindow>
+
 #include "AbstractHTTPClient.h"
-#include "HTTPClient.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
