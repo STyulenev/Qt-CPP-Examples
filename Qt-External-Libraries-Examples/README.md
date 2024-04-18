@@ -1,6 +1,6 @@
 # Qt-External-Libraries-Examples
 
-## Boost
+## Boost-Example
 
 Примеры использования различных модулей библиотеки Boost.
 
@@ -8,27 +8,27 @@
 
 Пример использования библитеки тестирования и измерения производительности кода Celero.
 
-## Conan
+## Conan-Example
 
 Пример использования пакетного менеджера Conan (на примере библиотеки boost 1.81.0).
 
-## CPack
+## CPack-Example
 
 Пример автоматизированной сборки deb пакета с инструментом упаковки CPack.
 
-## CppUTest
+## CppUTest-Example
 
 Пример использования библиотеки тестирования CppUTest.
 
-## CTest
+## CTest-Example
 
 Пример использования CTest для тестирование программы.
 
-## CURL
+## CURL-Example
 
 Пример использования библиотеки libcurl для создание http клиента.
 
-## Docker
+## Docker-Example
 
 Пример использования Docker для GUI приложения Qt (VcXsrv + WSL2 для перенаправления окна).
 
@@ -36,55 +36,59 @@
 
 Пример использования однофайлового модуля тестирования Doctest.
 
-## Doxygen
+## Doxygen-Example
 
 Пример использования Doxygen для автоматической генерации документации при сборке.
 
-## Git
+## Git-Example
 
 Пример использования системы контроля версий git для добавления подмодулей в cmake сборку.
 
-## Google Protocol Buffer
+## GoogleProtoBuf-Example (Google Protocol Buffer)
 
 Пример использования протокола сериализации структурированных данных Google Protocol Buffer.
 
-## Google Test
+## GoogleTest-Example
 
 Пример использования библиотеки тестирования Google Test.
 
-## include-what-you-use
+## IWUI-Example (include-what-you-use)
 
 Пример использования утилиты include-what-you-use для поиска неиспользуемых заголовочных файлов.
+
+## libcpr-Example
+
+Пример использования библиотеки libcpr для создание http клиента (get/post/delete запросы).
 
 ## libpqxx-Example
 
 Пример использования библиотеки libpqxx для взаимодействия с базами данных PostgreSQL.
 
-## Lime Report
+## LimeReport-Example
 
 Пример использования библиотеки генерации отчётов Lime Report.
 
-## MySql (libmysql)
+## MySql-Example (libmysql)
 
 Пример использования библиотеки libmysql для взаимодействия с базами данных MySQL.
 
-## OpenMP
+## OpenMP-Example
 
 Пример использования библиотеки распараллеливания программ OpenMP.
 
-## POCO
+## POCO-Example
 
 Пример использования библиотеки сетевых мультиплатформенных приложений POCO.
 
-## PostgreSQL (libpq)
+## PostgreSQL-Example (libpq)
 
 Пример использования библиотеки libpq для взаимодействия с базами данных PostgreSQL.
 
-## QXlsx
+## QXlsx-Example
 
 Пример использования библиотеки QXlsx для взаимодействия с таблицами Microsoft Excel.
 
-## QxORM
+## QxORM-Example
 
 Пример использования ORM библиотеки для Qt.
 

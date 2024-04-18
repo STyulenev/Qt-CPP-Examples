@@ -6,9 +6,11 @@
 
 [Ссылка на исходники SOCI](https://github.com/SOCI/soci "SOCI")
 
+![alt text](doc/SOCI-Example.png)
+
 ## Сборка проекта
 
-1. Скачать и установить PostgreSQL.
+1. Необходимо скачать и собрать библиотеку PostgreSQL.
 2. Сгенерировать базу данных (или doc/create_database.sql):
 
 ``` sql
@@ -60,7 +62,8 @@ INSERT INTO Orders VALUES (default, 2, 3, 1, '2022-01-04', '10:41:54');
 INSERT INTO Orders VALUES (default, 3, 5, 1, '2022-01-12', '16:09:12');
 ```
 3. Скачать и собрать библиотеку SOCI.
-4. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+4. Прописать пути к заголовочным файлам и файлам .ddl/.so в src/СMakeLists.txt (для CMake) или src/Source.pri (для QMake).
+5. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
 
 ### CMake:
 
@@ -69,6 +72,14 @@ cmake ..
 make
 ```
 > Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
+
+### QMake:
+
+```bash
+qmake ..
+make
+```
+> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
 
 ## Версии
 
@@ -94,4 +105,4 @@ make
  - Отсутствуют пути в переменных среды к PostgreSQL.
  - Кирилица в пути утстановки PostgreSQL.
  - Косые черты в стиле Windows (\), необходимы в стиле Unix (/).
- - CMake не видит версию PostgreSQL (set(PostgreSQL_ADDITIONAL_VERSIONS "16")).
+ - CMake не видит версию PostgreSQL (следует добавить - set(PostgreSQL_ADDITIONAL_VERSIONS "16")).
