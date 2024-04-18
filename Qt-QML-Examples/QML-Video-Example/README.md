@@ -1,12 +1,10 @@
-# QML-Repeater-Example
+# QML-Video-Example
 
 ## Описание
 
-Пример использования Repeater в QML:
-- SignalLevel - пример создания компонента для уровня сигнала.
-- Battery - пример создания компонента для уровня заряда батареи.
+Пример использования Video в QML.
 
-![alt text](doc/QML-Repeater-Example.png)
+![alt text](doc/QML-Video-Example.png)
 
 ## Сборка проекта
 

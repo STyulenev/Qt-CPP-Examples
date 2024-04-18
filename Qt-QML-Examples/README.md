@@ -12,6 +12,10 @@
 
 Пример использования QML-компонентов в KDE Plasma.
 
+## QML-Animation-Example
+
+Пример использования анимации в пользовательских компонентах QML.
+
 ## QML-ChartView-Example
 
 Пример использования ChartView в QML на основе модели.
@@ -95,6 +99,10 @@
 ## QML-TreeView-Example
 
 Пример использования TreeView в QML на основе модели.
+
+## QML-Video-Example
+
+Пример использования Video в QML.
 
 ## QML-Window-Example
 

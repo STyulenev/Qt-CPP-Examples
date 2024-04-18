@@ -3,7 +3,7 @@ QT += quick
 CONFIG += c++20
 #CONFIG += debug / release
 
-TARGET = QML-Repeater-Example
+TARGET = QML-Animation-Example
 TEMPLATE = app
 
 DEFINES += QT_DEPRECATED_WARNINGS
@@ -28,6 +28,6 @@ QML_IMPORT_PATH += $$PWD/qml
 
 SOURCES += \
         main.cpp
-
+		
 RESOURCES += \
         resource.qrc
