@@ -1,11 +1,14 @@
 QT -= gui
-QT += httpserver
+QT += core
 
 CONFIG += c++20 console
 CONFIG -= app_bundle
 #CONFIG += debug / release
 
 TARGET = QHttpServer-Example
+TEMPLATE = app
+
+DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG(debug, release) { # debug|release
     message("debug mode")
@@ -21,10 +24,7 @@ CONFIG(debug, release) { # debug|release
     DESTDIR     = $$OUT_PWD/release/bin # результирующий файл
 }
 
+include(src/Source.pri)
+
 SOURCES += \
-        UserList.cpp \
         main.cpp
-
-HEADERS += \
-		UserList.h
-

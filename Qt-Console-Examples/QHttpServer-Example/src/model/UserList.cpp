@@ -1,5 +1,7 @@
 #include "userlist.h"
 
+namespace Models {
+
 UserList::UserList()
 {
 
@@ -33,3 +35,5 @@ auto UserList::deleteUserForId(int id) -> bool
 
     return false;
 }
+
+} // namespace Models

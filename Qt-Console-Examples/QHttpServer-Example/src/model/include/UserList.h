@@ -3,10 +3,13 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+namespace Models {
+
 class UserList
 {
 public:
     UserList();
+    ~UserList() = default;
 
     auto addUser(QJsonObject& newUser) -> void;
 
@@ -18,5 +21,7 @@ public:
 
 private:
     QJsonArray users;
+
 };
 
+} // namespace Models
