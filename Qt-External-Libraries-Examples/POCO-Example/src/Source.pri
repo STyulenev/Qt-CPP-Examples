@@ -1,15 +1,16 @@
 INCLUDEPATH += \
-        $$PWD \
-        $$PWD/include/ \
-        $$PWD/handlers/include/
+        $$PWD/ \
+        $$PWD/server/ \
+        $$PWD/server/include/ \
+        $$PWD/server/handlers/include/
 
 HEADERS += \
-        $$files($$PWD/include/*.h) \
-        $$files($$PWD/handlers/include/*.h)
+        $$files($$PWD/server/include/*.h) \
+        $$files($$PWD/server/handlers/include/*.h)
 
 SOURCES += \
-        $$files($$PWD/*.cpp) \
-        $$files($$PWD/handlers/*.cpp)
+        $$files($$PWD/server/*.cpp) \
+        $$files($$PWD/server/handlers/*.cpp)
 
 win32-msvc* { # Only MSVC compiler
     ## Windows common build here

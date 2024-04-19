@@ -7,16 +7,41 @@ project(POCO-Example
     LANGUAGES CXX
 )
 
+# Comment out unnecessary
+set(QT_CREATOR_SKIP_CONAN_SETUP TRUE)
+set(QT_CREATOR_SKIP_VCPKG_SETUP TRUE)
+#set(QT_CREATOR_SKIP_PACKAGE_MANAGER_SETUP TRUE)
+
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(src)
 
-add_executable(${PROJECT_NAME}
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
+
+set(PROJECT_SOURCES
     main.cpp
 )
 
+if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    qt_add_executable(${PROJECT_NAME}
+        MANUAL_FINALIZATION
+        ${PROJECT_SOURCES}
+    )
+else()
+    add_executable(${PROJECT_NAME}
+        ${PROJECT_SOURCES}
+    )
+endif()
+
 target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt${QT_VERSION_MAJOR}::Core
     POCO-Example-server
+)
+
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
