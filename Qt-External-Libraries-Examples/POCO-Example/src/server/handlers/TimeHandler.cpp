@@ -1,11 +1,16 @@
-#include "include/MyHandler.h"
+#include "TimeHandler.h"
 
 #include <QDebug>
+#include <QTime>
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QJsonDocument>
 
-auto MyHandler::handleRequest(Poco::Net::HTTPServerRequest& req, Poco::Net::HTTPServerResponse& resp) -> void
+#include <Poco/URI.h>
+
+namespace Handlers {
+
+auto TimeHandler::handleRequest(Poco::Net::HTTPServerRequest& req, Poco::Net::HTTPServerResponse& resp) -> void
 {
     Poco::URI uri(req.getURI());
     std::string method = req.getMethod();
@@ -16,14 +21,12 @@ auto MyHandler::handleRequest(Poco::Net::HTTPServerRequest& req, Poco::Net::HTTP
     //Poco::Net::HTMLForm form(req,req.stream());
 
     if (!method.compare("GET")) {
-        qDebug() << "GET=====================";
-
         resp.setStatus(Poco::Net::HTTPResponse::HTTP_OK);
         resp.setContentType("application/json");
         std::ostream& out = resp.send();
 
         QJsonObject json;
-        json["name"] = "name";
+        json["time"] = QTime::currentTime().toString("hh:mm:ss");
 
         QJsonDocument doc(json);
         QString strJson(doc.toJson(QJsonDocument::Compact));
@@ -31,7 +34,7 @@ auto MyHandler::handleRequest(Poco::Net::HTTPServerRequest& req, Poco::Net::HTTP
         out << strJson.toStdString().c_str();
         out.flush();
 
-        return;
+        //return;
 
     } else {
         qDebug() << "?????";
@@ -45,3 +48,5 @@ auto MyHandler::handleRequest(Poco::Net::HTTPServerRequest& req, Poco::Net::HTTP
         out.flush();
     }
 }
+
+} //namespace Handlers

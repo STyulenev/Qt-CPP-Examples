@@ -1,11 +1,6 @@
 #pragma once
 
-//#include <Poco/Mutex.h>
-#include <QDebug>
-
-#include <Poco/Net/HTTPServer.h>
-#include <Poco/ScopedLock.h>
-#include <Poco/Util/ServerApplication.h>
+#include "Poco/Util/ServerApplication.h"
 
 /*!
  * \brief The Server class

@@ -1,6 +1,9 @@
 #include "Server.h"
 
+#include "Poco/Net/HTTPServer.h"
 #include "RequestHandlerFactory.h"
+
+#include <QDebug>
 
 auto Server::main([[maybe_unused]] const std::vector<std::string>& args) -> int
 {

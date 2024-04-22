@@ -1,6 +1,6 @@
 #include <QCoreApplication>
 
-#include <Server.h>
+#include "Server.h"
 
 auto main(int argc, char** argv) -> int
 {

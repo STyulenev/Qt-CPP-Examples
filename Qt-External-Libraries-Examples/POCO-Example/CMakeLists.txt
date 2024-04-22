@@ -7,10 +7,10 @@ project(POCO-Example
     LANGUAGES CXX
 )
 
-# Comment out unnecessary
-set(QT_CREATOR_SKIP_CONAN_SETUP TRUE)
-set(QT_CREATOR_SKIP_VCPKG_SETUP TRUE)
-#set(QT_CREATOR_SKIP_PACKAGE_MANAGER_SETUP TRUE)
+# Отключение пакетных менеджеров
+set(QT_CREATOR_SKIP_CONAN_SETUP TRUE)           # Conan
+set(QT_CREATOR_SKIP_VCPKG_SETUP TRUE)           # Vcpkg
+set(QT_CREATOR_SKIP_PACKAGE_MANAGER_SETUP TRUE) # FetchContent
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD 20)
