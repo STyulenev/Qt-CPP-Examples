@@ -10,19 +10,19 @@
 
 namespace Handlers {
 
-auto ErrorHandler::handleRequest(Poco::Net::HTTPServerRequest& req, Poco::Net::HTTPServerResponse& resp) -> void
+auto ErrorHandler::handleRequest(Poco::Net::HTTPServerRequest& request, Poco::Net::HTTPServerResponse& responce) -> void
 {
-    Poco::URI uri(req.getURI());
-    std::string method = req.getMethod();
+    Poco::URI uri(request.getURI());
+    const std::string method = request.getMethod();
 
-    qDebug() << "URI: " << uri.toString().c_str() << "Method: " << req.getMethod().c_str();
+    qDebug() << "URI: " << uri.toString().c_str() << "Method: " << method.c_str();
 
     //Poco::StringTokenizer tokenizer(uri.getPath(), "/", Poco::StringTokenizer::TOK_TRIM);
     //Poco::Net::HTMLForm form(req,req.stream());
 
-    resp.setStatus(Poco::Net::HTTPResponse::HTTP_OK);
-    resp.setContentType("application/json");
-    std::ostream& out = resp.send();
+    responce.setStatus(Poco::Net::HTTPResponse::HTTP_OK);
+    responce.setContentType("application/json");
+    std::ostream& out = responce.send();
 
     QJsonObject json;
     json["type"] = "Error";

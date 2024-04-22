@@ -6,7 +6,7 @@
 
 namespace Handlers {
 
-class ErrorHandler : public Poco::Net::HTTPRequestHandler
+class UsersHandler : public Poco::Net::HTTPRequestHandler
 {
 
 public:

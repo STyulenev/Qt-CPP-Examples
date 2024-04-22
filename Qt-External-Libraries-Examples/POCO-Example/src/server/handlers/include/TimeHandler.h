@@ -10,7 +10,7 @@ class TimeHandler : public Poco::Net::HTTPRequestHandler
 {
 
 public:
-    auto handleRequest(Poco::Net::HTTPServerRequest& req, Poco::Net::HTTPServerResponse& resp) -> void;
+    auto handleRequest(Poco::Net::HTTPServerRequest& request, Poco::Net::HTTPServerResponse& responce) -> void;
 
 };
 
