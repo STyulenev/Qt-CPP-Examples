@@ -6,6 +6,14 @@
 
 [Ссылка на исходники POCO](https://github.com/pocoproject/poco "POCO")
 
+Для тестирования можно использовать http-клиенты:
+ - Qt-Console-Examples/QNetworkAccessManager-Example;
+ - Qt-External-Libraries-Examples/CURL-Example;
+ - Qt-External-Libraries-Examples/libcpr-Example;
+ - Postman.
+
+Или любой другой.
+
 ## Сборка проекта
 
 1. Необходимо скачать и собрать библиотеку POCO.

@@ -4,8 +4,8 @@
 
 auto main(int argc, char** argv) -> int
 {
-    QCoreApplication app(argc, argv);
+    // QCoreApplication app(argc, argv);
     Server server;
 
-    return server.run(argc, argv) && app.exec();
+    return server.run(argc, argv); // app.exec();
 }

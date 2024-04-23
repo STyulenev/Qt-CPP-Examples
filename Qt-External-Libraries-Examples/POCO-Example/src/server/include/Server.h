@@ -2,9 +2,6 @@
 
 #include "Poco/Util/ServerApplication.h"
 
-/*!
- * \brief The Server class
- */
 class Server : public Poco::Util::ServerApplication
 {
 protected:

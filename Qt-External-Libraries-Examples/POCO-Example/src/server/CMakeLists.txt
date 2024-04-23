@@ -56,6 +56,8 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
     Poco::Util
     Poco::XML
     Poco::JSON
+
+    Model-lib
 )
 
 set_target_properties(${PROJECT_NAME}

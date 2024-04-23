@@ -4,8 +4,10 @@ CONFIG += c++20 console
 CONFIG -= app_bundle
 #CONFIG += debug / release
 
-TEMPLATE = app
 TARGET = POCO-Example
+TEMPLATE = app
+
+DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG(debug, debug | release) {
     message("debug mode")
