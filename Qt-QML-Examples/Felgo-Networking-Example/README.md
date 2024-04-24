@@ -3,8 +3,11 @@
 ## Описание
 
 Примеры создания HTTP запросов в Felgo/QML/С++ на основе:
- - Стандартного Felgo.HttpRequest;
+ - Стандартного Felgo.HttpRequest (Felgo/QML);
+ - Пользовательский CustomHttpClient (C++);
  - ... 
+
+![alt text](doc/Felgo-Networking-Example.png)
 
 ## Сборка проекта
 

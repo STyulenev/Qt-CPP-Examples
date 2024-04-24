@@ -37,6 +37,8 @@ file(GLOB_RECURSE QmlFiles RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} qml/*.qml qml/*.
 file(GLOB_RECURSE AssetsFiles RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} assets/* qml/*)
 list(REMOVE_ITEM AssetsFiles ${QmlFiles})
 
+add_subdirectory(src)
+
 qt_add_executable(${PROJECT_NAME}
     main.cpp
     ${QmlFiles}
@@ -63,4 +65,6 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONF
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Felgo
+
+    Controller-lib
 )
