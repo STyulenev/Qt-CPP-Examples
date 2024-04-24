@@ -4,10 +4,15 @@
 
 Примеры создания HTTP запросов в Felgo/QML/С++ на основе:
  - Стандартного Felgo.HttpRequest (Felgo/QML);
- - Пользовательский CustomHttpClient (C++);
+ - Пользовательский CustomHttpClient (C++/QNetworkAccessManager);
  - ... 
 
 ![alt text](doc/Felgo-Networking-Example.png)
+
+Для тестирования можно использовать http-серверы:
+ - Qt-Console-Examples/QHttpServer-Example;
+ - Qt-External-Libraries-Examples/POCO-Example;
+ - ...
 
 ## Сборка проекта
 

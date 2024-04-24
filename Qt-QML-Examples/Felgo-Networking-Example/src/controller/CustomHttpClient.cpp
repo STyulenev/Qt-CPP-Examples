@@ -1,13 +1,17 @@
 #include "CustomHttpClient.h"
 
-//#include <QDebug>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QUrlQuery>
+
+#include <QEventLoop>
 
 namespace Controllers {
 
 CustomHttpClient::CustomHttpClient(QObject* parent) :
-    QObject(parent)
+    AbstractHttpClient(parent)
 {
-
+    m_networkManager = new QNetworkAccessManager(this);
 }
 
 CustomHttpClient::~CustomHttpClient()
@@ -15,17 +19,38 @@ CustomHttpClient::~CustomHttpClient()
 
 }
 
-CustomHttpClient* CustomHttpClient::get(const QString& request)
+QByteArray CustomHttpClient::getReply(QNetworkReply* reply)
+{
+    QEventLoop loop;
+    connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
+    loop.exec();
+
+    if (reply->isFinished()) {
+        QByteArray data = reply->readAll();
+        m_result = data;
+
+        if (reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() != 200)
+            m_result = QString("Error: %1").arg(reply->errorString());
+
+        return data;
+    } else {
+        throw ("error");
+    }
+}
+
+AbstractHttpClient* CustomHttpClient::get(const QString& request)
 {
     // some http get-request process ...
 
-    m_result = "{ status: \"OK\" }";
-    m_request = request;
+    // for example, QNetworkAccessManager
+    QNetworkRequest networkRequest(request);
+    QNetworkReply* reply = m_networkManager->get(networkRequest);
+    getReply(reply);
 
     return this;
 }
 
-CustomHttpClient* CustomHttpClient::post(const QString& request)
+AbstractHttpClient* CustomHttpClient::post(const QString& request)
 {
     // some http post-request process ...
 
@@ -35,7 +60,7 @@ CustomHttpClient* CustomHttpClient::post(const QString& request)
     return this;
 }
 
-CustomHttpClient* CustomHttpClient::del(const QString& request)
+AbstractHttpClient* CustomHttpClient::del(const QString& request)
 {
     // some http post-request process ...
 
@@ -45,7 +70,7 @@ CustomHttpClient* CustomHttpClient::del(const QString& request)
     return this;
 }
 
-CustomHttpClient* CustomHttpClient::then(QJSValue callback)
+AbstractHttpClient* CustomHttpClient::then(const QJSValue& callback)
 {
     QJSValueList list;
     list.append(m_request);
@@ -56,7 +81,7 @@ CustomHttpClient* CustomHttpClient::then(QJSValue callback)
     return this;
 }
 
-CustomHttpClient* CustomHttpClient::clean(QJSValue callback)
+AbstractHttpClient* CustomHttpClient::clean(const QJSValue& callback)
 {
     m_result.clear();
     m_request.clear();
