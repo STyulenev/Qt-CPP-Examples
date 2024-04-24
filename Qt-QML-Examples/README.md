@@ -8,6 +8,10 @@
 
 Пример использования NavigationStack в Felgo/QML.
 
+## Felgo-Networking-Example
+
+Примеры создания HTTP запросов в Felgo/QML/С++.
+
 ## Plasma-Components-Example
 
 Пример использования QML-компонентов в KDE Plasma.
