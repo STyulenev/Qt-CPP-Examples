@@ -1,13 +1,9 @@
 INCLUDEPATH += \
-        $$PWD \
-        $$PWD/include/
-
-HEADERS += \
-        $$files($$PWD/include/*.h)
+        $$PWD
 
 SOURCES += \
         $$files($$PWD/*.cpp)
-		
+
 win32 {
     ## Windows common build here
 

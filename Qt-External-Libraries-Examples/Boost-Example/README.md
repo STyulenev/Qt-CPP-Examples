@@ -15,7 +15,7 @@
 ## Установка Boost для Windows
 
 1. Скачать дистрибутив с официального сайта.
-2. Распаковать в любую директорию, условно (в примерах - C:\3rdparty\)
+2. Распаковать в любую директорию, условно (в примерах - C:\3rdparty\boost)
 3. Выполнить bootstrap.sh, для создания b2.
 4. Выполнить b2.exe.
 
@@ -29,9 +29,15 @@
 .\b2 toolset=msvc link=shared
 ```
 
-> Можно выбрать тип сборки variant=debug или variant=release
+> При необходимости можно выбрать тип сборки: variant=debug или variant=release
+> При необходимости можно добавить путь для установки, например: --prefix=C:\3rdparty\boost_1_85_0\boost-install install
 
-## Установка Boost для Linux (Ubuntu 20.04.0 LTS
+Пример:
+```bash
+.\b2 toolset=gcc link=shared variant=release --prefix=C:\3rdparty\boost_1_85_0\boost-install install
+```
+
+## Установка Boost для Linux (Ubuntu 20.04.0 LTS)
 
 Выполнить команду:
 ```bash

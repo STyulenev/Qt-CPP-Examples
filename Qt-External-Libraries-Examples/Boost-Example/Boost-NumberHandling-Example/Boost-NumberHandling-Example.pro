@@ -8,6 +8,8 @@ CONFIG -= app_bundle
 TEMPLATE = app
 TARGET = Boost-NumberHandling-Example
 
+DEFINES += QT_DEPRECATED_WARNINGS
+
 CONFIG(debug, debug | release) {
     message("debug mode")
 
