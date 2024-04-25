@@ -44,6 +44,8 @@ Felgo.App {
             onClicked: {
                 textOutput.clear();
 
+
+
                 // Felgo Http client
                 /*Felgo.HttpRequest
                 .get("http://127.0.0.1:8000/time")
@@ -55,8 +57,10 @@ Felgo.App {
                     textOutput.text = ("Felgo.HttpRequest error: %1").arg(error.code);
                 });*/
 
-                // Custom Http client
-                customHttpClient.get("http://127.0.0.1:8000/time")
+
+
+                // Custom Http client (AbstractHttpClient/CustomHttpClient)
+                /*customHttpClient.get("http://127.0.0.1:8000/time")
                 .then(function(request, result) {
                     textOutput.text += ("request: %1, result %2").arg(request).arg(result);
                 })
@@ -65,7 +69,22 @@ Felgo.App {
                 })
                 .clean(function() {
                     textOutput.text += ("\nclean");
-                })
+                })*/
+
+
+
+                // QML Http client - XMLHttpRequest (QNetworkRequest and QNetworkReply)
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.HEADERS_RECEIVED) {
+                        print('HEADERS_RECEIVED');
+                    } else if(xhr.readyState === XMLHttpRequest.DONE) {
+                        var object = JSON.parse(xhr.responseText.toString());
+                        textOutput.text += JSON.stringify(object, null, 2);
+                    }
+                }
+                xhr.open("GET", "http://127.0.0.1:8000/time");
+                xhr.send();
             }
         }
 
@@ -78,6 +97,8 @@ Felgo.App {
             onClicked: {
                 textOutput.clear();
 
+
+
                 // Felgo Http client
                 /*Felgo.HttpRequest
                 .get("http://127.0.0.1:8000/users")
@@ -89,8 +110,10 @@ Felgo.App {
                     textOutput.text = ("Felgo.HttpRequest error: %1").arg(error.code);
                 });*/
 
-                // Custom Http client
-                customHttpClient.get("http://127.0.0.1:8000/users")
+
+
+                // Custom Http client (AbstractHttpClient/CustomHttpClient)
+                /*customHttpClient.get("http://127.0.0.1:8000/users")
                 .then(function(request, result) {
                     textOutput.text += ("request: %1, result %2").arg(request).arg(result);
                 })
@@ -99,7 +122,22 @@ Felgo.App {
                 })
                 .clean(function() {
                     textOutput.text += ("\nclean");
-                })
+                })*/
+
+
+
+                // QML Http client - XMLHttpRequest (QNetworkRequest and QNetworkReply)
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.HEADERS_RECEIVED) {
+                        print('HEADERS_RECEIVED');
+                    } else if(xhr.readyState === XMLHttpRequest.DONE) {
+                        var object = JSON.parse(xhr.responseText.toString());
+                        textOutput.text += JSON.stringify(object, null, 2);
+                    }
+                }
+                xhr.open("GET", "http://127.0.0.1:8000/users");
+                xhr.send();
             }
         }
 
@@ -121,6 +159,8 @@ Felgo.App {
                     }
                 };
 
+
+
                 // Felgo Http client
                 /*Felgo.HttpRequest
                 .post("http://127.0.0.1:8000/users?name=John&sex=male&age=19", someData.toString())
@@ -132,8 +172,10 @@ Felgo.App {
                     textOutput.text = ("Felgo.HttpRequest error: %1").arg(error.code);
                 });*/
 
-                // Custom Http client
-                customHttpClient.post("http...")
+
+
+                // Custom Http client (AbstractHttpClient/CustomHttpClient)
+                /*customHttpClient.post("http...")
                 .then(function(request, result) {
                     textOutput.text += ("request: %1, result %2").arg(request).arg(result);
                 })
@@ -142,7 +184,22 @@ Felgo.App {
                 })
                 .clean(function() {
                     textOutput.text += ("\nclean");
-                })
+                })*/
+
+
+
+                // QML Http client - XMLHttpRequest (QNetworkRequest and QNetworkReply)
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.HEADERS_RECEIVED) {
+                        print('HEADERS_RECEIVED');
+                    } else if(xhr.readyState === XMLHttpRequest.DONE) {
+                        var object = JSON.parse(xhr.responseText.toString());
+                        textOutput.text += JSON.stringify(object, null, 2);
+                    }
+                }
+                xhr.open("POST", "http://127.0.0.1:8000/users?name=John&sex=male&age=19");
+                xhr.send();
             }
         }
 
@@ -155,6 +212,8 @@ Felgo.App {
             onClicked: {
                 textOutput.clear();
 
+
+
                 // Felgo Http client
                 /*Felgo.HttpRequest
                 .del("http://127.0.0.1:8000/users/0")
@@ -166,8 +225,10 @@ Felgo.App {
                     textOutput.text = ("Felgo.HttpRequest error: %1").arg(error.code);
                 });*/
 
-                // Custom Http client
-                customHttpClient.del("http...")
+
+
+                // Custom Http client  (AbstractHttpClient/CustomHttpClient)
+                /*customHttpClient.del("http...")
                 .then(function(request, result) {
                     textOutput.text += ("request: %1, result %2").arg(request).arg(result);
                 })
@@ -176,7 +237,22 @@ Felgo.App {
                 })
                 .clean(function() {
                     textOutput.text += ("\nclean");
-                })
+                })*/
+
+
+
+                // QML Http client - XMLHttpRequest (QNetworkRequest and QNetworkReply)
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.HEADERS_RECEIVED) {
+                        print('HEADERS_RECEIVED');
+                    } else if(xhr.readyState === XMLHttpRequest.DONE) {
+                        var object = JSON.parse(xhr.responseText.toString());
+                        textOutput.text += JSON.stringify(object, null, 2);
+                    }
+                }
+                xhr.open("DELETE", "http://127.0.0.1:8000/users/0");
+                xhr.send();
             }
         }
     }
