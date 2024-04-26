@@ -1,15 +1,18 @@
 #include "Server.h"
 
+#include "Poco/Net/HTTPServer.h"
 #include "RequestHandlerFactory.h"
+
+#include <QDebug>
 
 auto Server::main([[maybe_unused]] const std::vector<std::string>& args) -> int
 {
-    Poco::Net::HTTPServerParams* pParams = new Poco::Net::HTTPServerParams;
+    Poco::Net::HTTPServerParams* serverParams = new Poco::Net::HTTPServerParams;
 
-    pParams->setMaxQueued(100);
-    pParams->setMaxThreads(16);
+    serverParams->setMaxQueued(100);
+    serverParams->setMaxThreads(16);
 
-    Poco::Net::HTTPServer server(new RequestHandlerFactory, Poco::Net::ServerSocket(8000), pParams);
+    Poco::Net::HTTPServer server(new RequestHandlerFactory, Poco::Net::ServerSocket(8000), serverParams);
 
     server.start();
     qDebug() << "Server started";

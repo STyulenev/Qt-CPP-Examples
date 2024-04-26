@@ -1,8 +1,11 @@
-#include <Server.h>
+#include <QCoreApplication>
+
+#include "Server.h"
 
 auto main(int argc, char** argv) -> int
 {
-    Server app;
+    // QCoreApplication app(argc, argv);
+    Server server;
 
-    return app.run(argc, argv);
+    return server.run(argc, argv); // app.exec();
 }

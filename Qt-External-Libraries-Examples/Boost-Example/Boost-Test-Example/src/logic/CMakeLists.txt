@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.5)
 project(Logic-lib
     VERSION 0.1
     DESCRIPTION "Static library for logic"
-    LANGUAGES CXX)
+    LANGUAGES CXX
+)
 
 set(CMAKE_AUTOMOC ON)
 

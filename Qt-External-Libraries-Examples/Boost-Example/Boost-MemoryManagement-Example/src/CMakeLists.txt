@@ -28,7 +28,7 @@ set(BOOST_EXISTS ON)
 
 if(BOOST_EXISTS) # If the boost library is on the local computer
     if(WIN32)
-        set(BOOST_ROOT "C:/3rdparty/boost_1_81_0") # Path to Boost
+        set(BOOST_ROOT "C:/3rdparty/boost_1_85_0") # Path to Boost
 
         # compiler check
         if (MSVC)
@@ -40,7 +40,7 @@ if(BOOST_EXISTS) # If the boost library is on the local computer
         endif (MSVC)
     endif(WIN32)
 
-    find_package(Boost 1.81 REQUIRED COMPONENTS ${BOOST_COMPONENTS} REQUIRED)
+    find_package(Boost 1.85 REQUIRED COMPONENTS ${BOOST_COMPONENTS} REQUIRED)
 
     if(Boost_FOUND)
         target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIR})
@@ -62,7 +62,7 @@ elseif()
     FetchContent_Declare(
         Boost
         GIT_REPOSITORY https://github.com/boostorg/boost.git
-        GIT_TAG boost-1.81.0
+        GIT_TAG boost-1.85.0
         )
     FetchContent_MakeAvailable(Boost)
 

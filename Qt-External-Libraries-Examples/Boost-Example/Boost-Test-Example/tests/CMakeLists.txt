@@ -12,10 +12,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_definitions(-DBOOST_ALL_DYN_LINK=1 -DBOOST_ALL_NO_LIB=1)
 
 if(WIN32)
-    set(BOOST_ROOT "C:/3rdparty/boost_1_81_0") # Path to Boost
-endif ()
+    set(BOOST_ROOT "C:/3rdparty/boost_1_85_0") # Path to Boost
+endif()
 
-find_package(Boost 1.81 REQUIRED COMPONENTS ${BOOST_COMPONENTS} REQUIRED)
+find_package(Boost 1.85 REQUIRED COMPONENTS ${BOOST_COMPONENTS} REQUIRED)
 
 if(Boost_FOUND)
     include_directories(include ${Boost_INCLUDE_DIRS})

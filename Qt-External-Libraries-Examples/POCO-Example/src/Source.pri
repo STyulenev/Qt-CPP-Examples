@@ -1,24 +1,39 @@
 INCLUDEPATH += \
-        $$PWD \
-        $$PWD/include/ \
-        $$PWD/handlers/include/
+        $$PWD/ \
+        $$PWD/model/ \
+        $$PWD/model/include/ \
+        $$PWD/server/ \
+        $$PWD/server/include/ \
+        $$PWD/server/handlers/include/
 
 HEADERS += \
-        $$files($$PWD/include/*.h) \
-        $$files($$PWD/handlers/include/*.h)
+        $$files($$PWD/model/include/*.h) \
+        $$files($$PWD/server/include/*.h) \
+        $$files($$PWD/server/handlers/include/*.h)
 
 SOURCES += \
-        $$files($$PWD/*.cpp) \
-        $$files($$PWD/handlers/*.cpp)
+        $$files($$PWD/model/*.cpp) \
+        $$files($$PWD/server/*.cpp) \
+        $$files($$PWD/server/handlers/*.cpp)
 
-win32-msvc* { # Only MSVC compiler
+win32 {
     ## Windows common build here
-    INCLUDEPATH += C:/.../poco-master/Foundation/include
-    INCLUDEPATH += C:/.../poco-master/JSON/include
-    INCLUDEPATH += C:/.../poco-master/Net/include
-    INCLUDEPATH += C:/.../poco-master/XML/include
-    INCLUDEPATH += C:/.../poco-master/Util/include
 
-    LIBS += -Wl,-rpath,C:/.../lib -LC:/.../lib # POCO libs folder
-    LIBS += -lPocoFoundationd -lPocoNetd -lPocoUtild -lPocoXMLd -lPocoJSONd
+    gcc {
+        INCLUDEPATH += C:/3rdparty/poco-install/include # Poco include folder
+
+        LIBS += -Wl,-rpath,C:/3rdparty/poco-install/bin -LC:/3rdparty/poco-install/bin # POCO libs folder
+        LIBS += -lPocoFoundation -lPocoNet -lPocoUtil -lPocoXML -lPocoJSON
+    } else::clang {
+        message("Error")
+    } else::mcvs {
+        message("Error")
+    } else {
+        message("Error")
+    }
+
+} else::linux {
+    message("Error. There are no settings for Linux OS")
+} else {
+    message("Error. There are no settings for current OS")
 }
