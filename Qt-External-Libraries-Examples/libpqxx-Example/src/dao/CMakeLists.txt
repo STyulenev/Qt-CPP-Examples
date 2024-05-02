@@ -13,19 +13,23 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
-add_subdirectory("C:/3rdparty/libpqxx-master" libpqxx-build)
+add_subdirectory("C:/3rdparty/libpqxx-master" libpqxx-build) # для подключения как подпроект
 
 file(GLOB view-src "include/*.h" "*.cpp")
 
 add_library(${PROJECT_NAME} STATIC ${view-src})
 
+target_include_directories(${PROJECT_NAME} PUBLIC
+    include
+)
+
 target_link_libraries(${PROJECT_NAME} PUBLIC 
     Qt${QT_VERSION_MAJOR}::Core
     Entity-lib
+
+    # для подключения как подпроект
     pqxx
 )
-
-target_include_directories(${PROJECT_NAME} PUBLIC include)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES
