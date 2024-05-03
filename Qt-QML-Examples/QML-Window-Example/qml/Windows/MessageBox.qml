@@ -11,14 +11,15 @@ Window {
     property int mb_CANCEL: 0x01 << 3
 
     property string title: ""
+    property string description: ""
     property int btnType: 0x01
     property int retValue: 0x01
 
     modality: Qt.ApplicationModal
     flags: Qt.FramelessWindowHint | Qt.Window
 
-    width: 313
-    height: 150
+    width: 350
+    height: 180
     color: "transparent"
 
     Component.onCompleted: {
@@ -60,12 +61,13 @@ Window {
                     leftMargin: 10
                 }
 
-                text: qsTr("hint")
+                text: root.title
                 color: "white"
             }
 
             Button {
                 id: closeButton
+                z: 2
 
                 anchors {
                     right: parent.right
@@ -73,9 +75,9 @@ Window {
                     verticalCenter: parent.verticalCenter
                 }
 
-                width: 30
-                height: 30
-                text: "x"
+                width: 50
+                height: 40
+                text: "X"
 
                 onClicked: {
                     root.checkd(mb_CANCEL);
@@ -160,7 +162,7 @@ Window {
                     verticalAlignment: Text.AlignVCenter
                     wrapMode: Text.WordWrap
                     color: "white"
-                    text: qsTr(title)
+                    text: qsTr(description)
                 }
             }
 
@@ -198,8 +200,8 @@ Window {
     function add_one(type, text) {
         var obj = newButtonComponent.createObject(buttonsLayout, {
                                                       "Layout.alignment" : Qt.AlignHCenter,
-                                                      "Layout.preferredWidth" : 60,
-                                                      "Layout.preferredHeight" : 30,
+                                                      "Layout.preferredWidth" : 100,
+                                                      "Layout.preferredHeight" : 40,
                                                       "text" : text });
         obj.type = type;
     }
@@ -214,7 +216,7 @@ Window {
         }
 
         if ((type & root.mb_CANCEL) === root.mb_CANCEL) {
-            add_one(root.mb_CANCEL,"cancel");
+            add_one(root.mb_CANCEL, "cancel");
         }
     }
 }

@@ -12,6 +12,8 @@
 - FontDialog (standart dialog);
 - Popup (standart popup).
 
+![alt text](doc/QML-Window-Example.gif)
+
 ## Сборка проекта
 
 Проект может быть собран из QtCreator или из папки build коммандами:
