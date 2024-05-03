@@ -2,6 +2,8 @@
 
 #include <QTranslator>
 
+namespace ViewModels {
+
 class TranslateViewModel : public QObject
 {
     Q_OBJECT
@@ -20,3 +22,5 @@ private:
     QString m_currLang;
 
 };
+
+} // namespace ViewModels

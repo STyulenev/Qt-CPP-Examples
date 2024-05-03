@@ -1,7 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include <QObject>
 #include <QDebug>
 
 #include "TranslateViewModel.h"
@@ -13,7 +12,7 @@ int main(int argc, char* argv[])
 #endif
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<TranslateViewModel>("ViewModels", 1, 0, "TranslateViewModel");
+    qmlRegisterType<ViewModels::TranslateViewModel>("ViewModels", 1, 0, "TranslateViewModel");
 
     qDebug() << QCoreApplication::tr("Hello");
 
