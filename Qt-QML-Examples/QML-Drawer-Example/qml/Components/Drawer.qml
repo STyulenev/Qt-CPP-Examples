@@ -80,7 +80,6 @@ Item {
                 break;
             default:
                 console.log("error")
-                break;
             }
         }
 
@@ -94,7 +93,6 @@ Item {
                 break;
             default:
                 console.log("error")
-                break;
             }
         }
     }

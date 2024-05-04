@@ -6,6 +6,8 @@
 - Standart Drawer;
 - Custom Drawer.
 
+![alt text](doc/QML-Drawer-Example.gif)
+
 ## Сборка проекта
 
 Проект может быть собран из QtCreator или из папки build коммандами:
