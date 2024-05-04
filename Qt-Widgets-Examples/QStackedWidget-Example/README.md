@@ -4,6 +4,8 @@
 
 Пример использования виджета QStackedWidget с отдельным классом-навигатором.
 
+![alt text](doc/QStackedWidget-Example.gif)
+
 ## Сборка проекта
 
 Проект может быть собран из QtCreator или из папки build коммандами:

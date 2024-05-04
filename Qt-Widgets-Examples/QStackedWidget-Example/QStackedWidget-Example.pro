@@ -3,8 +3,8 @@ QT += core gui widgets
 CONFIG += c++20
 #CONFIG += debug / release
 
-TEMPLATE = app
 TARGET = QStackedWidget-Example
+TEMPLATE = app
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
