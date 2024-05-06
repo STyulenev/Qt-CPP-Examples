@@ -12,7 +12,7 @@
 - Пример стандартного QInputDialog;
 - Пример стандартного QPrintDialog.
 
-![alt text](doc/QDialog-Example.png)
+![alt text](doc/QDialog-Example.gif)
 
 ## Сборка проекта
 
