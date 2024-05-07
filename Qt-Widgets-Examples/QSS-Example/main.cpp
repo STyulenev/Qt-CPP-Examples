@@ -5,7 +5,7 @@
 #include <QStyleFactory>
 #include <QFontDatabase>
 
-auto main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) -> int
+auto main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) -> int
 {
     QApplication app(argc, argv);
 

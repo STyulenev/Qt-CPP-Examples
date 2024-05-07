@@ -21,7 +21,7 @@
  - QDateEdit;
  - QCalendarWidget.
 
-![alt text](doc/QSS-Example.png)
+![alt text](doc/QSS-Example.gif)
 
 ## Сборка проекта
 
@@ -51,9 +51,10 @@ make
 | Название   | Версия               |
 | -----------|----------------------|
 | C++        | 20                   |
-| Qt         | 6.4.0                |
-| CMake      | 3.5                  |
-| QMake      | 6.0.1 (6.0.0)        |
-| MinGW      | 9.0.0 64 bit         |
+| Qt Creator | 11.0.2               |
+| Qt         | 6.5.2                |
+| CMake      | 3.24.2               |
+| QMake      | 6.5.2.0              |
+| MinGW      | 11.2 64 bit          |
 
-Тестировалось на ОС Windows 10 (сборка 19044.2604)
+Тестировалось на ОС Windows 11 22H2
