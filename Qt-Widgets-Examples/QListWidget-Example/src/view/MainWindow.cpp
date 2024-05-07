@@ -1,8 +1,9 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
-namespace View {
+#include "CustomWidget.h"
 
+namespace View {
 
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
@@ -37,8 +38,8 @@ MainWindow::~MainWindow()
 
 auto MainWindow::addItemInListWidget(QString&& image, QString&& title, QString&& description) -> void
 {
-    QListWidgetItem* item = new QListWidgetItem();
-    CustomWidget* widget = new CustomWidget(this);
+    QListWidgetItem* item = new QListWidgetItem(ui->listWidget);
+    CustomWidget* widget = new CustomWidget(ui->listWidget);
 
     widget->setImage(std::move(image));
     widget->setTitle(std::move(title));
