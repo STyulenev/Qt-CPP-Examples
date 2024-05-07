@@ -2,12 +2,15 @@
 
 #include <QMainWindow>
 
-#include <ListViewModel.h>
-#include "ListDelegate.h"
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+namespace ViewModels {
+    class ListViewModel;
+}
+
+namespace Views {
 
 class MainWindow : public QMainWindow
 {
@@ -19,5 +22,8 @@ public:
 
 private:
     Ui::MainWindow* ui;
-    std::shared_ptr<ViewModels::ListViewModel> listViewModel;
+    ViewModels::ListViewModel* listViewModel;
+
 };
+
+} // namespace Views
