@@ -4,6 +4,8 @@
 
 Пример использования QTranslator в QML. TranslationUtils используется для автоматического добавления qm файлов в файл ресурсов.
 
+![alt text](doc/QML-Translator-Example.gif)
+
 ## Сборка проекта
 
 1. Файлы перевода были созданы командами:
@@ -22,6 +24,15 @@ cmake ..
 make
 ```
 > Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
+
+### QMake:
+
+```bash
+qmake ..
+make
+```
+> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
+> Перевод может не работать, если запускать приложение из QtCreator
 
 ## Версии
 

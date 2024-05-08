@@ -4,8 +4,8 @@ import QtQuick.Controls 2.15
 Item {
     id: formSomeScreen
 
-    signal menuButton1Clicked
-    signal menuButton2Clicked
+    signal menuButton1Clicked()
+    signal menuButton2Clicked()
 
     readonly property int headerSize: 50
 

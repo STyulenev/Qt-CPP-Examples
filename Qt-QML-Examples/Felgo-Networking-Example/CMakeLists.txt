@@ -8,13 +8,14 @@ project(Felgo-Networking-Example
 )
 
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Felgo REQUIRED)
 
 # Project identifier and version
 # More information: https://felgo.com/doc/felgo-publishing/#project-configuration
-set(PRODUCT_IDENTIFIER "com.examples.FelgoNavigationStackExample")
+set(PRODUCT_IDENTIFIER "com.examples.FelgoNetworkingExample")
 set(PRODUCT_VERSION_NAME "1.0.0")
 set(PRODUCT_VERSION_CODE 1)
 

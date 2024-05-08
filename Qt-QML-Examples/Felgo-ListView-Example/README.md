@@ -8,6 +8,8 @@
 - На основе SortFilterProxyModel (felgo);
 - На основе JsonListModel (felgo).
 
+![alt text](doc/Felgo-ListView-Example.png)
+
 ## Сборка проекта
 
 Проект необходимо собирать с помощью Felgo IDE.

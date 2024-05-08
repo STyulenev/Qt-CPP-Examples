@@ -2,8 +2,10 @@ QT += quick
 
 CONFIG += c++20
 #CONFIG += debug / release
+CONFIG += lrelease
+CONFIG += embed_translations
 
-TARGET = QML-Style-Example
+TARGET = QML-Translator-Example
 TEMPLATE = app
 
 DEFINES += QT_DEPRECATED_WARNINGS
@@ -24,9 +26,13 @@ CONFIG(debug, debug | release) {
     RCC_DIR     = $$OUT_PWD/release/rcc # промежуточные файлы ресурсов
 }
 
-QML_IMPORT_PATH += \
-        $$PWD/qml \
-        $$PWD/qml/CustomStyle
+QML_IMPORT_PATH += $$PWD/qml
+QM_FILES_RESOURCE_PREFIX = /
+
+include(src/Source.pri)
+
+TRANSLATIONS +=  \
+        $$files($$PWD/res/languages/*.ts)
 
 SOURCES += \
         main.cpp

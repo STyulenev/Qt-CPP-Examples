@@ -13,7 +13,8 @@ SomeScreen_Form {
         id: componentMessageBox
         Screens.WindowLoader {
             component: MyWindows.MessageBox {
-                title: "Are you sure?"
+                title: qsTr("Title")
+                description: qsTr("Are you sure?")
                 btnType: mb_YES | mb_NO | mb_CANCEL;
 
                 Component.onDestruction: {
@@ -115,7 +116,8 @@ SomeScreen_Form {
             var dlg = Qt.createComponent("qrc:/qml/Windows/MessageBox.qml", Component.Asynchronous).createObject(formSomeScreen);
 
             dlg.btnType = dlg.mb_YES | dlg.mb_NO | dlg.mb_CANCEL;
-            dlg.title = "Are you sure?"
+            dlg.title = "Title";
+            dlg.description = "Are you sure?";
             dlg.closing.connect(function (){
                 if (dlg.retValue === dlg.mb_YES) {
                     console.log("yes");

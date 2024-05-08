@@ -17,7 +17,7 @@ ApplicationWindow {
     minimumWidth: width*/
 
     visibility: "Windowed" // "FullScreen"
-    title: "QML-ListView-Example"
+    title: "QML-Style-Example"
 
     color:"lightgray"
 

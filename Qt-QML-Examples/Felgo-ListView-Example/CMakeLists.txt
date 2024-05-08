@@ -2,17 +2,20 @@ cmake_minimum_required(VERSION 3.16)
 
 project(Felgo-ListView-Example
     VERSION 0.1
+    DESCRIPTION "Project with examples of Felgo/js/QML lists in ListView/AppListView"
+    HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )
 
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Felgo REQUIRED)
 
 # Project identifier and version
 # More information: https://felgo.com/doc/felgo-publishing/#project-configuration
-set(PRODUCT_IDENTIFIER "com.examples.FelgoNavigationStackExample")
+set(PRODUCT_IDENTIFIER "com.examples.FelgoListViewExample")
 set(PRODUCT_VERSION_NAME "1.0.0")
 set(PRODUCT_VERSION_CODE 1)
 

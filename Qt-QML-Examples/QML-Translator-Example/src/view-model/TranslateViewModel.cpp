@@ -9,6 +9,8 @@
 #include <QQmlEngine>
 #include <QQmlContext>
 
+namespace ViewModels {
+
 TranslateViewModel::TranslateViewModel(QObject* parent) :
     QObject(parent)
 {
@@ -53,3 +55,5 @@ void TranslateViewModel::switchTranslator()
         qDebug() << "Failed to load " << QString(":/test_%1.qm").arg(m_currLang);
     }
 }
+
+} // namespace ViewModels
