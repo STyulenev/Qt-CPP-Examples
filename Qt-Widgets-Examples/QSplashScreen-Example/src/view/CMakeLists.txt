@@ -3,11 +3,11 @@ cmake_minimum_required(VERSION 3.5)
 project(View-lib
     VERSION 0.1
     DESCRIPTION "Static library for View (forms)"
-    LANGUAGES CXX)
+    LANGUAGES CXX
+)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC_SEARCH_PATHS ui)
@@ -20,9 +20,13 @@ file(GLOB view-src "include/*.h" "*.cpp" "ui/*.ui")
 add_library(${PROJECT_NAME} STATIC ${view-src})
 add_library(UI::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
-target_link_libraries(${PROJECT_NAME} PUBLIC Qt${QT_VERSION_MAJOR}::Widgets)
+target_include_directories(${PROJECT_NAME} PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(${PROJECT_NAME} PUBLIC
+    Qt${QT_VERSION_MAJOR}::Widgets
+)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES

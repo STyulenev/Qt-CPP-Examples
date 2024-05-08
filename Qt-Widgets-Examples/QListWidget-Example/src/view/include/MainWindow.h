@@ -2,8 +2,6 @@
 
 #include <QMainWindow>
 
-#include "CustomWidget.h"
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -19,9 +17,11 @@ public:
     ~MainWindow();
 
 private:
+    auto addItemInListWidget(QString&& image, QString&& title, QString&& description) -> void;
+
+private:
     Ui::MainWindow* ui;
 
-    auto addItemInListWidget(QString&& image, QString&& title, QString&& description) -> void;
 };
 
 } // namespace View

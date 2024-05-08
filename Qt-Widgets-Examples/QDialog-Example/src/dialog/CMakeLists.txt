@@ -24,11 +24,13 @@ if(COMMAND target_precompile_headers)
    target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/DialogData.h)
 endif()
 
+target_include_directories(${PROJECT_NAME} PUBLIC
+    include
+)
+
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Widgets
 )
-
-target_include_directories(${PROJECT_NAME} PUBLIC include)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES

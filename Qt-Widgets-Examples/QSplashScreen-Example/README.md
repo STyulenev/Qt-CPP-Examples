@@ -4,6 +4,8 @@
 
 Пример использование QSplashScreen.
 
+![alt text](doc/QSplashScreen-Example.gif)
+
 ## Сборка проекта
 
 Проект может быть собран из QtCreator или из папки build коммандами:

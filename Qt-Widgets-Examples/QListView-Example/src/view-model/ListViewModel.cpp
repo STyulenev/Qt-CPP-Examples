@@ -1,4 +1,6 @@
 #include <ListViewModel.h>
+
+#include <QDebug>
 #include <QImage>
 
 namespace ViewModels {
@@ -59,6 +61,5 @@ auto ListViewModel::flags([[maybe_unused]] const QModelIndex& index) const -> Qt
 {
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
-
 
 } // namespace ViewModels

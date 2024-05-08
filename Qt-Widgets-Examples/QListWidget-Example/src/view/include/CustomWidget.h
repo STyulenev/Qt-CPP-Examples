@@ -22,6 +22,7 @@ public:
 
 private:
     Ui::CustomWidget* ui;
+
 };
 
 } // namespace View

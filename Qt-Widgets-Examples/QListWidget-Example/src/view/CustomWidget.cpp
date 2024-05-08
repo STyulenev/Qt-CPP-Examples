@@ -1,6 +1,9 @@
 #include "CustomWidget.h"
 #include "ui_CustomWidget.h"
 
+#include <QDebug>
+#include <QPixmap>
+
 namespace View {
 
 CustomWidget::CustomWidget(QWidget* parent) :
@@ -27,8 +30,13 @@ CustomWidget::~CustomWidget()
 
 auto CustomWidget::setImage(const QString&& icon) -> void
 {
-    QPixmap outPixmap(icon);
-    ui->image->setPixmap(outPixmap.scaled(128, 128));
+    QPixmap outPixmap = QPixmap(icon);
+
+    if (outPixmap.isNull()) {
+        qDebug() << "Error";
+    } else {
+        ui->image->setPixmap(outPixmap.scaled(128, 128));
+    }
 }
 
 auto CustomWidget::setTitle(const QString&& title) -> void
