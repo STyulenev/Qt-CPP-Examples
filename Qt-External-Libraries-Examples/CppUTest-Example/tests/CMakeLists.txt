@@ -13,21 +13,23 @@ file(GLOB test-src "./*.cpp")
 add_executable(${PROJECT_NAME} ${test-src})
 
 set(CPPUTEST_LINK "static") # Типы подключения: static / conan / fetch / ... (другой)
+#set(CPPUTEST_LINK "static" CACHE STRING "where will the CppUTest library be linked from?")
+#set_property(CACHE CPPUTEST_LINK PROPERTY STRINGS other static conan fetch)
 
-if(CPPUTEST_LINK STREQUAL "static")
+if("${CPPUTEST_LINK}" STREQUAL "static")
     # git clone https://github.com/cpputest/cpputest.git
     # cd cpputest-master/build
     # cmake ..
     # make
     message("static link")
 
-    include_directories("C:/3rdparty/cpputest-master/include")
+    target_include_directories(${PROJECT_NAME} PRIVATE "C:/3rdparty/cpputest-master/include")
     target_link_libraries(${PROJECT_NAME} PRIVATE
         Logic-lib
         "C:/3rdparty/cpputest-master/build/src/CppUTest/libCppUTest.a"
         # ...
     )
-elseif(CPPUTEST_LINK STREQUAL "conan")
+elseif("${CPPUTEST_LINK}" STREQUAL "conan")
     # conan install . --output-folder=build --build=missing
     message("conan link")
 
@@ -36,7 +38,7 @@ elseif(CPPUTEST_LINK STREQUAL "conan")
         Logic-lib
         ${CppUTest_LIBRARIES}
     )
-elseif(CPPUTEST_LINK STREQUAL "fetch")
+elseif("${CPPUTEST_LINK}" STREQUAL "fetch")
     # need remove conanfile.txt
     message("fetch link")
 

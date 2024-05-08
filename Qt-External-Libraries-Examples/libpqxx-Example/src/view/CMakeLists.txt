@@ -19,12 +19,14 @@ file(GLOB view-src "include/*.h" "*.cpp" "ui/*.ui")
 
 add_library(${PROJECT_NAME} STATIC ${view-src})
 
+target_include_directories(${PROJECT_NAME} PUBLIC
+    include
+)
+
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Widgets
     View-model-lib
 )
-
-target_include_directories(${PROJECT_NAME} PUBLIC include)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES

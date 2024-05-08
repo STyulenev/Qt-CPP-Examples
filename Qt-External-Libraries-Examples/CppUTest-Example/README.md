@@ -19,6 +19,15 @@ make
 ```
 > Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
 
+### QMake:
+
+```bash
+qmake ..
+make
+```
+> Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
+> Для приложения - "qmake .. CONFIG+=applicationConfig", для тестов - "qmake .. CONFIG+=testConfig"
+
 ## Версии
 
 Версии сред, языков и утилит, которые использовались на момент написания проекта.
