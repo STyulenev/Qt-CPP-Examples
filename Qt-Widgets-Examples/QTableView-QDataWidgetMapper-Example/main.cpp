@@ -4,10 +4,10 @@
 
 auto main(int argc, char* argv[]) -> int
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
 
     View::MainWindow w;
     w.show();
 
-    return a.exec();
+    return app.exec();
 }

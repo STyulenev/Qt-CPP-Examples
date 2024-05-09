@@ -22,7 +22,7 @@ EditForm::~EditForm()
 
 auto EditForm::setModel(QAbstractTableModel* model) -> void
 {
-    mapper = std::make_shared<QDataWidgetMapper>();
+    mapper = new QDataWidgetMapper(this);
 
     mapper->setOrientation(Qt::Horizontal);
     mapper->setModel(model);
@@ -35,9 +35,9 @@ auto EditForm::setModel(QAbstractTableModel* model) -> void
     mapper->addMapping(ui->textPlainTextEdit, 4);
     mapper->addMapping(ui->statusCheckBox,    5);
 
-    connect(ui->previousButton, &QPushButton::clicked, mapper.get(), &QDataWidgetMapper::toPrevious);
-    connect(ui->nextButton, &QPushButton::clicked, mapper.get(), &QDataWidgetMapper::toNext);
-    connect(mapper.get(), &QDataWidgetMapper::currentIndexChanged, this, &EditForm::updateButtons);
+    connect(ui->previousButton, &QPushButton::clicked, mapper, &QDataWidgetMapper::toPrevious);
+    connect(ui->nextButton, &QPushButton::clicked, mapper, &QDataWidgetMapper::toNext);
+    connect(mapper, &QDataWidgetMapper::currentIndexChanged, this, &EditForm::updateButtons);
 }
 
 auto EditForm::editCurrentRow(int row) -> void

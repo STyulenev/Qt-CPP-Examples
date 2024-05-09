@@ -14,19 +14,19 @@ class EditForm : public QWidget
 {
     Q_OBJECT
 
-private:
-    Ui::EditForm* ui;
-    std::shared_ptr<QDataWidgetMapper> mapper;
-
 public:
     explicit EditForm(QWidget* parent = nullptr);
-    virtual ~EditForm();
+    ~EditForm();
 
     auto setModel(QAbstractTableModel* model) -> void;
-    auto editCurrentRow(int row) -> void;
+    auto editCurrentRow(const int row) -> void;
 
 private slots:
-    auto updateButtons(int row) -> void;
+    auto updateButtons(const int row) -> void;
+
+private:
+    Ui::EditForm* ui;
+    QDataWidgetMapper* mapper;
 
 };
 

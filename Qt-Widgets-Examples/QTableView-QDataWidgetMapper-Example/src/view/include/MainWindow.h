@@ -3,24 +3,21 @@
 #include <QMainWindow>
 #include <QMenu>
 
-#include "TableViewModel.h"
-#include "EditForm.h"
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+namespace ViewModels {
+    class TableViewModel;
+}
+
 namespace View {
+
+class EditForm;
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
-private:
-    Ui::MainWindow* ui;
-
-    std::shared_ptr<ViewModels::TableViewModel> viewModel;
-    std::shared_ptr<EditForm> editForm;
 
 public:
     explicit MainWindow(QWidget* parent = nullptr);
@@ -28,6 +25,12 @@ public:
 
 private slots:
     auto on_tableView_customContextMenuRequested(const QPoint& pos) -> void;
+
+private:
+    Ui::MainWindow* ui;
+
+    ViewModels::TableViewModel* viewModel;
+    EditForm* editForm;
 
 };
 
