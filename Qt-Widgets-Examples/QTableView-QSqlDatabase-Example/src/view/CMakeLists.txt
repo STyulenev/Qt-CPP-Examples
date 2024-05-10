@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.5)
 project(View-lib
     VERSION 0.1
     DESCRIPTION "Static library for View (forms)"
-    LANGUAGES CXX)
+    LANGUAGES CXX
+)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -18,7 +19,9 @@ file(GLOB view-src "include/*.h" "*.cpp" "ui/*.ui")
 
 add_library(${PROJECT_NAME} STATIC ${view-src})
 
-target_include_directories(${PROJECT_NAME} PUBLIC include)
+target_include_directories(${PROJECT_NAME} PUBLIC
+    include
+)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Widgets

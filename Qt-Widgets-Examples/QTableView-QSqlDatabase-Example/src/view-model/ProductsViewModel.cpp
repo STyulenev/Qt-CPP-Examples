@@ -1,5 +1,9 @@
 ﻿#include "ProductsViewModel.h"
 
+namespace Consts {
+    const int COLUMN_COUNT = 6;
+}
+
 namespace ViewModels {
 
 ProductsViewModel::ProductsViewModel(QObject* parent) :
@@ -19,7 +23,7 @@ ProductsViewModel::~ProductsViewModel()
 
 auto ProductsViewModel::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
-    return COLUMN_COUNT;
+    return Consts::COLUMN_COUNT;
 }
 
 auto ProductsViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
@@ -29,10 +33,14 @@ auto ProductsViewModel::rowCount([[maybe_unused]] const QModelIndex& index) cons
 
 auto ProductsViewModel::data(const QModelIndex& index, int role) const -> QVariant
 {
-    if (role == Qt::TextAlignmentRole )
-        return Qt::AlignCenter;
+    if (!index.isValid()) {
+        return QVariant();
+    }
 
-    if (role == Qt::DisplayRole) {
+    switch (role) {
+    case Qt::TextAlignmentRole:
+        return Qt::AlignCenter;
+    case Qt::DisplayRole:
         switch (index.column()) {
         case 0: return products.at(index.row()).getId();
         case 1: return products.at(index.row()).getType();
@@ -42,6 +50,8 @@ auto ProductsViewModel::data(const QModelIndex& index, int role) const -> QVaria
         case 5: return products.at(index.row()).getPrice();
         [[unlikely]] default: assert(!"Should not get here");
         }
+    default:
+        break;
     }
 
     return QVariant();

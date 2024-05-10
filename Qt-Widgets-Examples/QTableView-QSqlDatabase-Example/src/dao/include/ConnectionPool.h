@@ -7,6 +7,8 @@
 #include <QSqlQuery>
 #include <QSqlDriver>
 
+namespace DAO {
+
 class ConnectionPool
 {
 private:
@@ -24,3 +26,5 @@ public:
     auto freeConnection(std::shared_ptr<QSqlDatabase> connection) -> void;
 
 };
+
+} // namespace DAO

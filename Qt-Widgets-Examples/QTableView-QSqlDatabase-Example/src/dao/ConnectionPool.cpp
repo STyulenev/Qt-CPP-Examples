@@ -5,6 +5,8 @@
 #include <QMutexLocker>
 #include <QWaitCondition>
 
+namespace DAO {
+
 QMutex mutex;
 QWaitCondition condition;
 QQueue<std::shared_ptr<QSqlDatabase>> connectionPool;
@@ -56,3 +58,5 @@ auto ConnectionPool::freeConnection(std::shared_ptr<QSqlDatabase> connection) ->
     connectionPool.enqueue(connection);
     condition.notify_one();
 }
+
+} // namespace DAO
