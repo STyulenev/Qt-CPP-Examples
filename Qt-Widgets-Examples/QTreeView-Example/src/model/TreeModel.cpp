@@ -1,6 +1,6 @@
 #include "TreeModel.h"
 
-namespace Model {
+namespace Models {
 
 TreeModel::TreeModel()
 {
@@ -78,4 +78,4 @@ auto TreeModel::recordById(const QVector<TreeModel>& model, const int id) -> con
     throw std::out_of_range("QVector<TreeModel> model is out of range");
 }
 
-} // namespace Model
+} // namespace Models

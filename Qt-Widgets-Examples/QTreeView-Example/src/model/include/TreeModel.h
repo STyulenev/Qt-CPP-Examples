@@ -2,7 +2,7 @@
 
 #include <QVector>
 
-namespace Model {
+namespace Models {
 
 class TreeModel
 {
@@ -28,6 +28,7 @@ public:
 
     static auto childIds(const QVector<TreeModel>& model, const int parentId) noexcept -> QVector<int>;
     static auto recordById(const QVector<TreeModel>& model, const int id) -> const TreeModel&;
+
 };
 
-} // namespace Model
+} // namespace Models
