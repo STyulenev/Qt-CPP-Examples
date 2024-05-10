@@ -1,14 +1,14 @@
-#include "HeaderViewTableModel.h"
+#include "CustomHeaderView.h"
 
-namespace ViewModels {
+namespace Views {
 
-HeaderViewTableModel::HeaderViewTableModel(Qt::Orientation orientation, QWidget* parent) :
+CustomHeaderView::CustomHeaderView(Qt::Orientation orientation, QWidget* parent) :
     QHeaderView(orientation, parent)
 {
 
 }
 
-auto HeaderViewTableModel::paintSection(QPainter* painter, const QRect& rect, int logicalIndex) const -> void
+auto CustomHeaderView::paintSection(QPainter* painter, const QRect& rect, int logicalIndex) const -> void
 {
     painter->save();
     QHeaderView::paintSection(painter, rect, logicalIndex);
@@ -17,7 +17,8 @@ auto HeaderViewTableModel::paintSection(QPainter* painter, const QRect& rect, in
     if (logicalIndex == 3) {
         QStyleOptionButton option;
         option.rect = rect;
-        option.rect.setX(rect.x() - rect.width() + 20);
+        option.rect.setX(rect.x() - rect.width()  + 20);
+
 
         option.state = QStyle::State_Enabled | QStyle::State_Active;
 
@@ -25,13 +26,14 @@ auto HeaderViewTableModel::paintSection(QPainter* painter, const QRect& rect, in
             option.state |= QStyle::State_On;
         else
             option.state |= QStyle::State_Off;
+
         option.state |= QStyle::State_Off;
 
         style()->drawPrimitive(QStyle::PE_IndicatorCheckBox, &option, painter);
     }
 }
 
-auto HeaderViewTableModel::mousePressEvent(QMouseEvent* event) -> void
+auto CustomHeaderView::mousePressEvent(QMouseEvent* event) -> void
 {
     int section = logicalIndexAt(event->pos());
 
@@ -44,4 +46,4 @@ auto HeaderViewTableModel::mousePressEvent(QMouseEvent* event) -> void
     this->update();
 }
 
-} // namespace ViewModels
+} // namespace Views

@@ -2,12 +2,18 @@
 
 #include <QMainWindow>
 
-#include <TableViewModel.h>
-#include <HeaderViewTableModel.h>
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+namespace ViewModels {
+    class TableViewModel;
+}
+
+
+namespace Views {
+
+class CustomHeaderView;
 
 class MainWindow : public QMainWindow
 {
@@ -19,7 +25,9 @@ public:
 
 private:
     Ui::MainWindow* ui;
-    std::shared_ptr<ViewModels::TableViewModel>       viewModel;
-    std::shared_ptr<ViewModels::HeaderViewTableModel> header;
+    ViewModels::TableViewModel* viewModel;
+    Views::CustomHeaderView* header;
 
 };
+
+} // namespace Views

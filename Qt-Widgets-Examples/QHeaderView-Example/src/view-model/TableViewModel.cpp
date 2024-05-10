@@ -40,10 +40,14 @@ auto TableViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const -
 
 auto TableViewModel::data(const QModelIndex& index, int role) const -> QVariant
 {
-    if (role == Qt::TextAlignmentRole )
-        return Qt::AlignCenter;
+    if (!index.isValid()) {
+        return QVariant();
+    }
 
-    if (role == Qt::DisplayRole) {
+    switch (role) {
+    case Qt::TextAlignmentRole:
+        return Qt::AlignCenter;
+    case Qt::DisplayRole:
         switch (index.column()) {
         case 0: return model.at(index.row()).id;
         case 1: return model.at(index.row()).name;
@@ -51,6 +55,8 @@ auto TableViewModel::data(const QModelIndex& index, int role) const -> QVariant
         case 3: return model.at(index.row()).status;
         [[unlikely]] default: assert(!"Should not get here");
         }
+    default:
+        break;
     }
 
     return QVariant();
