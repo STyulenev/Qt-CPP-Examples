@@ -18,11 +18,13 @@ file(GLOB validator-src "include/*.h" "*.cpp")
 add_library(${PROJECT_NAME} STATIC ${validator-src})
 add_library(UI::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
+target_include_directories(${PROJECT_NAME} PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Gui
 )
-
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES

@@ -8,6 +8,7 @@ namespace Controllers {
 class ClipboardController : public QObject
 {
     Q_OBJECT
+
 public:
     explicit ClipboardController(QObject* parent = nullptr);
     ~ClipboardController();

@@ -17,7 +17,9 @@ file(GLOB widget-src "include/*.h" "*.cpp")
 
 add_library(${PROJECT_NAME} STATIC ${widget-src})
 
-target_include_directories(${PROJECT_NAME} PUBLIC include)
+target_include_directories(${PROJECT_NAME} PUBLIC
+    include
+)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Widgets

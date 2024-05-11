@@ -17,9 +17,13 @@ file(GLOB controller-src "include/*.h" "*.cpp")
 
 add_library(${PROJECT_NAME} STATIC ${controller-src})
 
-target_include_directories(${PROJECT_NAME} PUBLIC include)
+target_include_directories(${PROJECT_NAME} PUBLIC
+    include
+)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(${PROJECT_NAME} PUBLIC
+    Qt${QT_VERSION_MAJOR}::Core
+)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES
