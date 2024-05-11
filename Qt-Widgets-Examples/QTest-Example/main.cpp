@@ -1,19 +1,24 @@
 #include "MainWindow.h"
 
 #include <QApplication>
-#include <QTest>
 
+#ifdef USE_TEST_OPTION
+// Tests
+#include <QTest>
 #include <Test_MainWindow.h>
+#endif
 
 auto main(int argc, char* argv[]) -> int
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
 
+#ifdef USE_TEST_OPTION
     //assert(QTest::qExec(new Test_MainWindow, argc, argv) == 0);
-    QTest::qExec(new Test_MainWindow, argc, argv);
+    QTest::qExec(new Tests::Test_MainWindow, argc, argv);
+#endif
 
-    MainWindow w;
+    Views::MainWindow w;
     w.show();
 
-    return a.exec();
+    return app.exec();
 }

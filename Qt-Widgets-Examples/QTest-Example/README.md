@@ -6,6 +6,13 @@
 
 ![alt text](doc/QTest-Example.png)
 
+Тесты запускаются перед открытием главного окна приложения. Так же можно вынести тесты в отдельный исполняемый файл, как в:
+- Qt-External-Libraries-Examples/Boost-Example/Boost-Test-Example;
+- Qt-External-Libraries-Examples/Celero-Example;
+- Qt-External-Libraries-Examples/CppUTest-Example;
+- Qt-External-Libraries-Examples/Doctest-Example;
+- Qt-External-Libraries-Examples/GoogleTest-Example;
+
 ## Сборка проекта
 
 Проект может быть собран из QtCreator или из папки build коммандами:

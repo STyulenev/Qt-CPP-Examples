@@ -1,15 +1,17 @@
 #pragma once
 
-#include <MainWindow.h>
+#include "MainWindow.h"
 
 #include <QTest>
+
+namespace Tests {
 
 class Test_MainWindow : public QObject
 {
     Q_OBJECT
 
 private:
-    MainWindow window;
+    Views::MainWindow window;
 
 public:
     explicit Test_MainWindow(QObject* parent = 0);
@@ -27,3 +29,5 @@ private slots:
     auto test_bench4() -> void;
 
 };
+
+} // namespace Tests
