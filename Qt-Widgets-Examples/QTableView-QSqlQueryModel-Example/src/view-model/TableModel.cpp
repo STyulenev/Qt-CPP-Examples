@@ -2,7 +2,8 @@
 
 namespace ViewModels {
 
-TableModel::TableModel(QString tableName) :
+TableModel::TableModel(QString tableName, QObject* parent) :
+    QSqlQueryModel(parent),
     tableName(tableName)
 {
     db = QSqlDatabase::addDatabase("QPSQL");
@@ -10,7 +11,7 @@ TableModel::TableModel(QString tableName) :
     db.setDatabaseName("localtest");
     db.setUserName("postgres");
     db.setHostName("localhost");
-    db.setPassword("password");
+    db.setPassword("tyulenev");
 
     db.open();
     setQuery(QString("SELECT * FROM %1").arg(tableName));

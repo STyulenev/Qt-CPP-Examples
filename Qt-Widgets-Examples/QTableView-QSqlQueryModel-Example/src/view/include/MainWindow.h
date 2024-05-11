@@ -1,13 +1,16 @@
 #pragma once
 
 #include <QMainWindow>
-#include <QWidget>
-
-#include <TableModel.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+namespace ViewModels {
+    class TableModel;
+}
+
+namespace Views {
 
 class MainWindow : public QMainWindow
 {
@@ -15,12 +18,15 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget* parent = nullptr);
-    virtual ~MainWindow();
+    ~MainWindow();
 
 private slots:
-    void on_tableView_customContextMenuRequested(const QPoint& pos);
+    auto on_tableView_customContextMenuRequested(const QPoint& pos) -> void;
 
 private:
     Ui::MainWindow* ui;
-    std::shared_ptr<ViewModels::TableModel> tableModel;
+    ViewModels::TableModel* tableModel;
+
 };
+
+} // namespace Views
