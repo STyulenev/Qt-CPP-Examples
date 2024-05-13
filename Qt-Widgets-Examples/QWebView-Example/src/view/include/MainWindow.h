@@ -2,11 +2,11 @@
 
 #include <QMainWindow>
 
-#include <memory>
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+namespace Views {
 
 class MainWindow : public QMainWindow
 {
@@ -24,3 +24,4 @@ private:
 
 };
 
+} // namespace Views
