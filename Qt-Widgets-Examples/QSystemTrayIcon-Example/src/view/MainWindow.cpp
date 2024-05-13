@@ -1,6 +1,13 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
+#include <QAction>
+#include <QApplication>
+#include <QCloseEvent>
+#include <QMenu>
+
+namespace Views {
+
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -55,3 +62,5 @@ auto MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason) -> void
         break;
     }
 }
+
+} // namespace Views
