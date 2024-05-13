@@ -65,6 +65,7 @@ MainWindow::MainWindow(QWidget* parent) :
         ui->tableView_2->setItemDelegateForColumn(3, new StyledDelegates::StyledPieChartDelegate());
 
         ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+        ui->tableView_2->verticalHeader()->setMinimumSectionSize(70);
     }
 
     { // Custom delegates for tableView viewModelCustom;
@@ -76,7 +77,7 @@ MainWindow::MainWindow(QWidget* parent) :
         ui->tableView_3->setItemDelegateForColumn(1, new CustomDelegates::CustomFileEditorDelegate());
         ui->tableView_3->setItemDelegateForColumn(2, new CustomDelegates::CustomColorEditorDelegate());
 
-        ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+        ui->tableView_3->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
 }
 
