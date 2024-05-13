@@ -1,4 +1,4 @@
-﻿#include <TableViewModel.h>
+﻿#include "TableViewModel.h"
 
 namespace Models {
 
@@ -34,6 +34,10 @@ auto TableViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const -
 
 auto TableViewModel::data(const QModelIndex& index, int role) const -> QVariant
 {
+    if (!index.isValid()) {
+        return QVariant();
+    }
+
     if (index.column() == 0) {
         switch (role) {
         case Qt::DisplayRole:

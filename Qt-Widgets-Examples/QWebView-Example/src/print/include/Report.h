@@ -6,24 +6,13 @@ class QWebView;
 
 namespace Print {
 
-
-
 class ReportView final : public QDialog
 {
     Q_OBJECT
 
-private:
-    QWebView* webView;
-
-    QString title;
-    QString from;
-    QString to;
-    QString mainText;
-    QPixmap logo;
-
 public:
     explicit ReportView(QWidget* parent = nullptr);
-    virtual ~ReportView() = default;
+    ~ReportView() = default;
 
     void setTitle(const QString& value);
     void setFrom(const QString& value);
@@ -46,6 +35,15 @@ public slots:
     QString getLogo() const;
     QString getMainText() const;
     QString getDateTime() const;
+
+private:
+    QWebView* webView;
+
+    QString title;
+    QString from;
+    QString to;
+    QString mainText;
+    QPixmap logo;
 
 };
 

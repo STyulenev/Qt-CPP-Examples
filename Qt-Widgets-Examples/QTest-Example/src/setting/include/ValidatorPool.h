@@ -9,9 +9,8 @@ class ValidatorPool
 private:
     static ValidatorPool* self;
 
-protected:
-    explicit ValidatorPool();
-    virtual ~ValidatorPool();
+    ValidatorPool();
+    ~ValidatorPool();
 
 public:
     ValidatorPool(const ValidatorPool& other) = delete;

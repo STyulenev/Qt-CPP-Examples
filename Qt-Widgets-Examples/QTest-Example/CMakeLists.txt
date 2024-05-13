@@ -7,31 +7,49 @@ project(QTest-Example
     LANGUAGES CXX
 )
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
+option(TEST_OPTION "test opiton" ON)
 
-set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
 add_subdirectory(src)
-add_subdirectory(test)
+
+if (NOT TEST_OPTION)
+    message(STATUS "Tests disabled")
+else()
+    add_subdirectory(test)
+    add_definitions(-DUSE_TEST_OPTION)
+endif()
+
+set(PROJECT_SOURCES
+    main.cpp
+)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(${PROJECT_NAME}
         MANUAL_FINALIZATION
-        main.cpp
+        ${PROJECT_SOURCES}
+    )
+else()
+    add_executable(${PROJECT_NAME}
+       ${PROJECT_SOURCES}
     )
 endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE
-    Test-Lib
-)
+if (NOT TEST_OPTION)
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+        Qt${QT_VERSION_MAJOR}::Core
+    )
+else()
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+        Qt${QT_VERSION_MAJOR}::Core
+        Test-Lib
+    )
+endif()
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES

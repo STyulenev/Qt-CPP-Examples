@@ -42,7 +42,6 @@ auto CustomTextEdit::keyPressEvent(QKeyEvent* event) -> void
             }
             break;
         case Qt::Key_V:
-
             // ...
             break;
         default:

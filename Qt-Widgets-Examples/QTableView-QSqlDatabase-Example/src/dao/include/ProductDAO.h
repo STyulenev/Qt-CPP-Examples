@@ -18,14 +18,11 @@ private:
 
 public:
     explicit ProductDAO(QObject* parent = nullptr);
-    virtual ~ProductDAO();
+    ~ProductDAO();
 
     auto selectProducts(QList<Entities::Product>& products) -> void;
-
     auto insertProduct(const Entities::Product& product) -> void;
-
     auto deleteProduct(const int id) -> void;
-
     auto updateProduct(const Entities::Product& product) -> void;
 
 signals:

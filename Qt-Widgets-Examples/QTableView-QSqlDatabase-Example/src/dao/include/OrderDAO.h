@@ -18,7 +18,7 @@ private:
 
 public:
     explicit OrderDAO(QObject* parent = nullptr);
-    virtual ~OrderDAO();
+    ~OrderDAO();
 
     auto selectOrders(QList<Entities::Order>& orders) -> void;
 

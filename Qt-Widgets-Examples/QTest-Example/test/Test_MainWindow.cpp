@@ -3,6 +3,8 @@
 #include <QLineEdit>
 #include <QPushButton>
 
+namespace Tests {
+
 Test_MainWindow::Test_MainWindow(QObject* parent) :
     QObject(parent)
 {
@@ -140,3 +142,5 @@ auto Test_MainWindow::test_bench4() -> void
         std::vector<QString> vector2 = vector;
     }
 }
+
+} // namespace Tests

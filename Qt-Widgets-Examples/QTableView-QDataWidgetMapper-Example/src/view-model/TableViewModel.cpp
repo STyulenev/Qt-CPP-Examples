@@ -51,7 +51,13 @@ auto  TableViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const 
 
 auto TableViewModel::data(const QModelIndex& index, int role) const -> QVariant
 {
-    if (role == Qt::DisplayRole || role == Qt::EditRole) {
+    if (!index.isValid()) {
+        return QVariant();
+    }
+
+    switch (role) {
+    case Qt::DisplayRole: [[fallthrough]];
+    case Qt::EditRole:
         switch (index.column()) {
         case 0: return model.at(index.row()).id;
         case 1: return model.at(index.row()).firstName;
@@ -59,15 +65,12 @@ auto TableViewModel::data(const QModelIndex& index, int role) const -> QVariant
         case 3: return model.at(index.row()).title;
         case 4: return model.at(index.row()).text;
         case 5: return model.at(index.row()).status;
-            [[unlikely]] default: assert(!"Should not get here");
+        [[unlikely]] default: assert(!"Should not get here");
         }
-    }
-
-    if (role == Qt::TextAlignmentRole) {
-        if (index.column() == 4)
-            return Qt::AlignLeft;
-        else
-            return Qt::AlignCenter;
+    case Qt::TextAlignmentRole:
+        return (index.column() == 4) ? Qt::AlignLeft : Qt::AlignCenter;
+    default:
+        break;
     }
 
     return QVariant();
@@ -89,7 +92,7 @@ auto TableViewModel::headerData(int section, Qt::Orientation orientation, int ro
             case 3: return "Title";
             case 4: return "Text";
             case 5: return "Status";
-                [[unlikely]] default: assert(!"Should not get here");
+            [[unlikely]] default: assert(!"Should not get here");
             }
         } else [[likely]] {
             return section + 1;
@@ -101,6 +104,10 @@ auto TableViewModel::headerData(int section, Qt::Orientation orientation, int ro
 
 auto TableViewModel::setData(const QModelIndex& index, const QVariant& value, int role) -> bool
 {
+    if (!index.isValid()) {
+        return false;
+    }
+
     if (role == Qt::EditRole) {
         switch (index.column()) {
         case 0:
@@ -123,7 +130,7 @@ auto TableViewModel::setData(const QModelIndex& index, const QVariant& value, in
             break;
         }
 
-        emit QAbstractTableModel::dataChanged(index,index);
+        emit QAbstractTableModel::dataChanged(index, index);
     }
 
     return true;
@@ -151,7 +158,7 @@ auto TableViewModel::removeRows(int position, int rows, [[maybe_unused]] const Q
     QAbstractTableModel::beginRemoveRows(QModelIndex(), position, position + rows - 1);
 
     try {
-        auto iterator = this->model.begin() + position;
+        QList<TestModel>::const_iterator iterator = this->model.cbegin() + position;
 
         if (iterator > model.end() || iterator + rows > model.end())
             throw std::out_of_range("current iterator is out of range");

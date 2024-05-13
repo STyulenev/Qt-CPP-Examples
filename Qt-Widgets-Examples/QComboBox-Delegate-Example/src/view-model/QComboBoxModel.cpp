@@ -24,6 +24,10 @@ auto QComboBoxModel::rowCount([[maybe_unused]] const QModelIndex& index) const -
 
 auto QComboBoxModel::data(const QModelIndex& index, int role) const -> QVariant
 {
+    if (!index.isValid()) {
+        return QVariant();
+    }
+
     switch (role) {
     case Qt::DisplayRole:
         return model.at(index.row()).name;

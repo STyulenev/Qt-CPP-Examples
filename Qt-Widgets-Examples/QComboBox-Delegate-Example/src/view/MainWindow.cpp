@@ -1,12 +1,20 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
-#include <QDialogButtonBox>
-#include <QLabel>
-#include <QMessageBox>
-#include <QLineEdit>
-#include <QPushButton>
+#include "TableViewModel.h"
+#include "QComboBoxDelegate.h"
+#include "QComboBoxModel.h"
+
 #include <QComboBox>
+#include <QDataWidgetMapper>
+#include <QDialogButtonBox>
+#include <QGridLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QMessageBox>
+#include <QPushButton>
+
+namespace Views {
 
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
@@ -14,14 +22,14 @@ MainWindow::MainWindow(QWidget* parent) :
 {
     ui->setupUi(this);
 
-    model      = std::make_shared<Models::QComboBoxModel>();
-    tableModel = std::make_shared<Models::TableViewModel>();
+    model      = new Models::QComboBoxModel(this);
+    tableModel = new Models::TableViewModel(this);
 
-    ui->tableView->setModel(tableModel.get());
+    ui->tableView->setModel(tableModel);
 
-    mapper = std::make_shared<QDataWidgetMapper>();
+    mapper = new QDataWidgetMapper(this);
     mapper->setOrientation(Qt::Horizontal);
-    mapper->setModel(tableModel.get());
+    mapper->setModel(tableModel);
     mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
 }
 
@@ -32,37 +40,37 @@ MainWindow::~MainWindow()
 
 auto MainWindow::on_tableView_doubleClicked(const QModelIndex& index) -> void
 {
-    std::shared_ptr<QDialog>     dialog        = std::make_shared<QDialog>();
-    std::shared_ptr<QGridLayout> grid          = std::make_shared<QGridLayout>(dialog.get());
-    std::shared_ptr<QLabel>      idLabel       = std::make_shared<QLabel>("id:", dialog.get());
-    std::shared_ptr<QLabel>      modelLabel    = std::make_shared<QLabel>("model:", dialog.get());
-    std::shared_ptr<QLineEdit>   idLineEdit    = std::make_shared<QLineEdit>(dialog.get());
-    std::shared_ptr<QComboBox>   modelComboBox = std::make_shared<QComboBox>(dialog.get());
+    std::shared_ptr<QDialog> dialog = std::make_shared<QDialog>();
+    QGridLayout* grid          = new QGridLayout(dialog.get());
+    QLabel*      idLabel       = new QLabel("id:", dialog.get());
+    QLabel*      modelLabel    = new QLabel("model:", dialog.get());
+    QLineEdit*   idLineEdit    = new QLineEdit(dialog.get());
+    QComboBox*   modelComboBox = new QComboBox(dialog.get());
 
     dialog->setWindowTitle("Dialog");
     idLineEdit->setText(index.data(Qt::DisplayRole).toString());
 
-    modelComboBox->setModel(model.get());
+    modelComboBox->setModel(model);
     modelComboBox->setCurrentText(index.data(Qt::DisplayRole).toString());
     modelComboBox->setItemDelegate(new Delegates::QComboBoxDelegate(dialog.get()));
 
-    std::shared_ptr<QDialogButtonBox> buttonBox = std::make_shared<QDialogButtonBox>(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, dialog.get());
     buttonBox->button(QDialogButtonBox::Ok)->setText("Save");
     buttonBox->button(QDialogButtonBox::Cancel)->setText("Cancel");
 
-    connect(buttonBox.get(), &QDialogButtonBox::accepted, dialog.get(), &QDialog::accept);
-    connect(buttonBox.get(), &QDialogButtonBox::rejected, dialog.get(), &QDialog::reject);
+    connect(buttonBox, &QDialogButtonBox::accepted, dialog.get(), &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, dialog.get(), &QDialog::reject);
 
-    grid->addWidget(idLabel.get(),       0, 0);
-    grid->addWidget(idLineEdit.get(),    0, 1);
-    grid->addWidget(modelLabel.get(),    1, 0);
-    grid->addWidget(modelComboBox.get(), 1, 1);
-    grid->addWidget(buttonBox.get(),     2, 1);
+    grid->addWidget(idLabel,       0, 0);
+    grid->addWidget(idLineEdit,    0, 1);
+    grid->addWidget(modelLabel,    1, 0);
+    grid->addWidget(modelComboBox, 1, 1);
+    grid->addWidget(buttonBox,     2, 1);
 
-    dialog->setLayout(grid.get());
+    dialog->setLayout(grid);
 
-    mapper->addMapping(idLineEdit.get(),    0);
-    mapper->addMapping(modelComboBox.get(), 1);
+    mapper->addMapping(idLineEdit,    0);
+    mapper->addMapping(modelComboBox, 1);
     mapper->setCurrentIndex(index.row());
 
     if (dialog->exec() == QDialog::Accepted) {
@@ -75,3 +83,5 @@ auto MainWindow::on_tableView_doubleClicked(const QModelIndex& index) -> void
         tableModel->setData(index1, QVariant::fromValue(data),  Qt::EditRole);
     }
 }
+
+} // namespace Views

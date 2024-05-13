@@ -18,14 +18,11 @@ private:
 
 public:
     explicit CustomerDAO(QObject* parent = nullptr);
-    virtual ~CustomerDAO();
+    ~CustomerDAO();
 
     auto selectCustomers(QList<Entities::Customer>& customers) -> void;
-
     auto insertCustomer(const Entities::Customer& customer) -> void;
-
     auto deleteCustomer(const int id) -> void;
-
     auto updateCustomer(const Entities::Customer& customer) -> void;
 
 };

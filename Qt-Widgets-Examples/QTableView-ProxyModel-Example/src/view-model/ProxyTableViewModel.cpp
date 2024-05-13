@@ -2,9 +2,6 @@
 
 namespace ProxyModels {
 
-static int count;
-static int sumAge;
-
 ProxyTableViewModel::ProxyTableViewModel(QObject* parent) :
     QSortFilterProxyModel(parent),
     m_minId(0),
@@ -101,6 +98,27 @@ auto ProxyTableViewModel::filterAcceptsRow(int source_row, const QModelIndex& so
 auto ProxyTableViewModel::headerData(int section, Qt::Orientation orientation, int role) const -> QVariant
 {
     return sourceModel()->headerData(section, orientation, role);
+}
+
+auto ProxyTableViewModel::lessThan(const QModelIndex& sourceLeft, const QModelIndex& sourceRight) const -> bool
+{
+    // Простейший пример переопределения метода сравнения QSortFilterProxyModel::lessThan
+    const QVariant dataLeft = sourceLeft.data();
+    const QVariant dataRight = sourceRight.data();
+
+    switch (sourceLeft.column()) {
+    case 0:
+        return dataLeft.toInt() < dataRight.toInt();
+    case 1:
+        return dataLeft.toString() < dataRight.toString();
+    case 2:
+        return dataLeft.toInt() < dataRight.toInt();
+    case 3:
+        return dataLeft.toBool() < dataRight.toBool();
+    [[unlikely]] default: assert(!"Should not get here");
+    }
+
+    return QSortFilterProxyModel::lessThan(sourceLeft, sourceRight);
 }
 
 } // namespace ProxyTableViewModels

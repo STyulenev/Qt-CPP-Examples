@@ -2,16 +2,12 @@ cmake_minimum_required(VERSION 3.5)
 
 project(QTableView-QSqlQueryModel-Example
     VERSION 0.1
-    DESCRIPTION "Project with sample qsqlquery model for QTableView"
+    DESCRIPTION "Project with sample QSqlQueryModel for QTableView"
+    HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -29,9 +25,14 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
+else()
+    add_executable(${PROJECT_NAME}
+        ${PROJECT_SOURCES}
+    )
 endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt${QT_VERSION_MAJOR}::Core
     View-lib
 )
 

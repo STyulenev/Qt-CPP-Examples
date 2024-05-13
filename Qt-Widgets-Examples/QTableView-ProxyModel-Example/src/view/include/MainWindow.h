@@ -20,17 +20,17 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-private:
-    Ui::MainWindow* ui;
-    ViewModels::TableViewModel*       viewModel;
-    ProxyModels::ProxyTableViewModel* proxyModel;
-
 public:
     explicit MainWindow(QWidget* parent = nullptr);
     virtual ~MainWindow();
 
 private slots:
     auto on_tableView_customContextMenuRequested(const QPoint& pos) -> void;
+
+private:
+    Ui::MainWindow* ui;
+    ViewModels::TableViewModel*       viewModel;
+    ProxyModels::ProxyTableViewModel* proxyModel;
 
 };
 

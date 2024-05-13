@@ -18,7 +18,9 @@ file(GLOB view-models-src "include/*.h" "./*.cpp")
 add_library(${PROJECT_NAME} STATIC ${view-models-src})
 add_library(VM::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
-target_include_directories(${PROJECT_NAME} PUBLIC include)
+target_include_directories(${PROJECT_NAME} PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Core

@@ -3,6 +3,8 @@
 
 #include "ValidatorPool.h"
 
+namespace Views {
+
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -23,3 +25,5 @@ auto MainWindow::on_pushButton_clicked() -> void
 {
     status = (ui->nameLineEdit->text() == "Name" && ui->ipAddressLineEdit->text() == "0.0.0.0");
 }
+
+} // namespace Views

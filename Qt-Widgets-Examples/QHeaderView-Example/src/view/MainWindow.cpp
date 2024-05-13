@@ -1,17 +1,22 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
+#include "TableViewModel.h"
+#include "CustomHeaderView.h"
+
+namespace Views {
+
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    viewModel = std::make_shared<ViewModels::TableViewModel>();
-    ui->tableView->setModel(viewModel.get());
+    viewModel = new ViewModels::TableViewModel(this);
+    ui->tableView->setModel(viewModel);
 
-    header = std::make_shared<ViewModels::HeaderViewTableModel>(Qt::Horizontal, ui->tableView);
-    ui->tableView->setHorizontalHeader(header.get());
+    header = new Views::CustomHeaderView(Qt::Horizontal, ui->tableView);
+    ui->tableView->setHorizontalHeader(header);
 
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
@@ -20,3 +25,5 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+} // namespace Views

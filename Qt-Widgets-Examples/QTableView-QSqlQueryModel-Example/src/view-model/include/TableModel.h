@@ -24,14 +24,15 @@ namespace ViewModels {
  */
 class TableModel : public QSqlQueryModel
 {
+
 public:
     TableModel() = delete;
-    TableModel(QString tableName);
-    virtual ~TableModel();
+    TableModel(QString tableName, QObject* parent = 0);
+    ~TableModel();
 
-    virtual auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
-    virtual auto setData(const QModelIndex& index, const QVariant& value,int role) -> bool override;
-    virtual auto data(const QModelIndex& index, int role = Qt::DisplayRole) const -> QVariant override;
+    auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
+    auto setData(const QModelIndex& index, const QVariant& value,int role) -> bool override;
+    auto data(const QModelIndex& index, int role = Qt::DisplayRole) const -> QVariant override;
 
     auto addColumn(const QString columnName, const QString columnType) -> void;
     auto deleteColumn(const QString columnName) -> void;

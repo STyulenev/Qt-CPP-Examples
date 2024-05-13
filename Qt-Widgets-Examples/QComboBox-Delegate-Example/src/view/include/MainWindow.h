@@ -1,23 +1,26 @@
 #pragma once
 
 #include <QMainWindow>
-#include <QDataWidgetMapper>
-
-#include <TableViewModel.h>
-
-#include "QComboBoxModel.h"
-#include "QComboBoxDelegate.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+namespace Models {
+    class TableViewModel;
+    class QComboBoxModel;
+}
+
+class QDataWidgetMapper;
+
+namespace Views {
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget* parent = nullptr);
+    explicit MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
 private slots:
@@ -26,7 +29,10 @@ private slots:
 private:
     Ui::MainWindow* ui;
 
-    std::shared_ptr<Models::QComboBoxModel> model;
-    std::shared_ptr<Models::TableViewModel> tableModel;
-    std::shared_ptr<QDataWidgetMapper>      mapper;
+    Models::QComboBoxModel* model;
+    Models::TableViewModel* tableModel;
+    QDataWidgetMapper*      mapper;
+
 };
+
+} // namespace Views

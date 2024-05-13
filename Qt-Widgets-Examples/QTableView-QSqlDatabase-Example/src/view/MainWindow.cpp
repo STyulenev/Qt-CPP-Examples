@@ -1,9 +1,9 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
-#include <CustomersViewModel.h>
-#include <ProductsViewModel.h>
-#include <OrdersViewModel.h>
+#include "CustomersViewModel.h"
+#include "ProductsViewModel.h"
+#include "OrdersViewModel.h"
 
 namespace Views {
 
@@ -14,8 +14,8 @@ MainWindow::MainWindow(QWidget* parent) :
     ui->setupUi(this);
 
     customersViewModel = new ViewModels::CustomersViewModel(this);
-    productsViewModel = new ViewModels::ProductsViewModel(this);
-    ordersViewModel = new ViewModels::OrdersViewModel(this);
+    productsViewModel  = new ViewModels::ProductsViewModel(this);
+    ordersViewModel    = new ViewModels::OrdersViewModel(this);
 
     ui->customersTableView->setModel(customersViewModel);
     ui->productsTableView->setModel(productsViewModel);

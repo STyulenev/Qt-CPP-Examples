@@ -4,7 +4,7 @@
 
 #include "TreeModel.h"
 
-namespace ViewModel {
+namespace ViewModels {
 
 class TreeViewModel : public QAbstractItemModel
 {
@@ -12,20 +12,21 @@ class TreeViewModel : public QAbstractItemModel
 
 public:
     explicit TreeViewModel(QObject* parent = 0);
-    virtual ~TreeViewModel();
+    ~TreeViewModel();
 
-    virtual auto index(int row, int column, const QModelIndex& parent = QModelIndex()) const -> QModelIndex override;
-    virtual auto parent(const QModelIndex& child) const -> QModelIndex override;
-    virtual auto rowCount(const QModelIndex& parent = QModelIndex()) const -> int override;
-    virtual auto columnCount(const QModelIndex& parent = QModelIndex()) const -> int override;
-    virtual auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
-    virtual auto data(const QModelIndex& index, int role = Qt::DisplayRole) const -> QVariant override;
-    virtual auto headerData(int section, Qt::Orientation orientation, int role) const -> QVariant override;
+    auto index(int row, int column, const QModelIndex& parent = QModelIndex()) const -> QModelIndex override;
+    auto parent(const QModelIndex& child) const -> QModelIndex override;
+    auto rowCount(const QModelIndex& parent = QModelIndex()) const -> int override;
+    auto columnCount(const QModelIndex& parent = QModelIndex()) const -> int override;
+    auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
+    auto data(const QModelIndex& index, int role = Qt::DisplayRole) const -> QVariant override;
+    auto headerData(int section, Qt::Orientation orientation, int role) const -> QVariant override;
 
 private:
     auto indexById(const int id) const -> QModelIndex;
 
-    QVector<Model::TreeModel> model;
+private:
+    QVector<Models::TreeModel> model;
 
 };
 

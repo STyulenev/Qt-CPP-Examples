@@ -2,22 +2,28 @@
 
 #include <QMainWindow>
 
-#include <TreeViewModel.h>
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+namespace ViewModels {
+    class TreeViewModel;
+}
+
+namespace Views {
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget* parent = nullptr);
+    explicit MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
 private:
     Ui::MainWindow* ui;
+    ViewModels::TreeViewModel* model;
 
-    std::shared_ptr<ViewModel::TreeViewModel> model;
 };
+
+} // namespace Views

@@ -1,5 +1,9 @@
 ﻿#include "CustomersViewModel.h"
 
+namespace Consts {
+    const int COLUMN_COUNT = 5;
+}
+
 namespace ViewModels {
 
 CustomersViewModel::CustomersViewModel(QObject* parent) :
@@ -15,7 +19,7 @@ CustomersViewModel::~CustomersViewModel()
 
 auto CustomersViewModel::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
-    return COLUMN_COUNT;
+    return Consts::COLUMN_COUNT;
 }
 
 auto CustomersViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
@@ -25,18 +29,24 @@ auto CustomersViewModel::rowCount([[maybe_unused]] const QModelIndex& index) con
 
 auto CustomersViewModel::data(const QModelIndex& index, int role) const -> QVariant
 {
-    if (role == Qt::TextAlignmentRole )
-        return Qt::AlignCenter;
+    if (!index.isValid()) {
+        return QVariant();
+    }
 
-    if (role == Qt::DisplayRole) {
+    switch (role) {
+    case Qt::TextAlignmentRole:
+        return Qt::AlignCenter;
+    case Qt::DisplayRole:
         switch (index.column()) {
         case 0: return customers.at(index.row()).getId();
         case 1: return customers.at(index.row()).getFirstName();
         case 2: return customers.at(index.row()).getLastName();
         case 3: return customers.at(index.row()).getEmail();
         case 4: return customers.at(index.row()).getAge();
-        default: assert(!"Should not get here");
+        [[unlikely]] default: assert(!"Should not get here");
         }
+    default:
+        break;
     }
 
     return QVariant();

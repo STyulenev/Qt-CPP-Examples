@@ -21,12 +21,14 @@ file(GLOB view-src "include/*.h" "*.cpp" "ui/*.ui")
 add_library(${PROJECT_NAME} STATIC ${view-src})
 add_library(UI::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
+target_include_directories(${PROJECT_NAME} PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Widgets
     VM::View-model-lib
 )
-
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES

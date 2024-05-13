@@ -1,5 +1,9 @@
 ﻿#include "OrdersViewModel.h"
 
+namespace Consts {
+    const int COLUMN_COUNT = 11;
+}
+
 namespace ViewModels {
 
 OrdersViewModel::OrdersViewModel(QObject* parent) :
@@ -15,7 +19,7 @@ OrdersViewModel::~OrdersViewModel()
 
 auto OrdersViewModel::columnCount([[maybe_unused]] const QModelIndex& index) const -> int
 {
-    return COLUMN_COUNT;
+    return Consts::COLUMN_COUNT;
 }
 
 auto OrdersViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const -> int
@@ -25,10 +29,14 @@ auto OrdersViewModel::rowCount([[maybe_unused]] const QModelIndex& index) const 
 
 auto OrdersViewModel::data(const QModelIndex& index, int role) const -> QVariant
 {
-    if (role == Qt::TextAlignmentRole )
-        return Qt::AlignCenter;
+    if (!index.isValid()) {
+        return QVariant();
+    }
 
-    if (role == Qt::DisplayRole) {
+    switch (role) {
+    case Qt::TextAlignmentRole:
+        return Qt::AlignCenter;
+    case Qt::DisplayRole:
         switch (index.column()) {
         case 0: return orders.at(index.row()).getId();
         case 1: return orders.at(index.row()).getCustomer().getFirstName();
@@ -41,8 +49,10 @@ auto OrdersViewModel::data(const QModelIndex& index, int role) const -> QVariant
         case 8: return (orders.at(index.row()).getQuantity() * orders.at(index.row()).getProduct().getPrice());
         case 9: return orders.at(index.row()).getDate();
         case 10: return orders.at(index.row()).getTime();
-        default: assert(!"Should not get here");
+        [[unlikely]] default: assert(!"Should not get here");
         }
+    default:
+        break;
     }
 
     return QVariant();
