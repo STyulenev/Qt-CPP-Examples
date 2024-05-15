@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>qml/Components/qmldir</file>
         <file>qml/Components/SwitchButton.qml</file>
+        <file>qml/Components/SquareSwitchButton.qml</file>
     </qresource>
 </RCC>

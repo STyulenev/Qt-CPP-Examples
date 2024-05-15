@@ -12,11 +12,25 @@ ApplicationWindow {
     visible: true
     title: qsTr("QML-Animation-Example")
 
-    Components.SwitchButton {
-        id: switchButton
+    Row {
+        id: layout
+
         anchors.centerIn: parent
 
-        width: 200
-        height: 50
+        spacing: 20
+
+        Components.SwitchButton {
+            id: switchButton
+
+            width: 200
+            height: 50
+        }
+
+        Components.SquareSwitchButton {
+            id: squareSwitchButton
+
+            width: 100
+            height: 100
+        }
     }
 }
