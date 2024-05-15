@@ -47,7 +47,7 @@ Felgo.App {
 
 
                 // Felgo Http client
-                /*Felgo.HttpRequest
+                Felgo.HttpRequest
                 .get("http://127.0.0.1:8000/time")
                 .timeout(5000)
                 .then(function(result) {
@@ -55,7 +55,30 @@ Felgo.App {
                 })
                 .catch(function(error) {
                     textOutput.text = ("Felgo.HttpRequest error: %1").arg(error.code);
+                });
+
+
+
+                // Felgo Http client + Promise
+                /*var promise = Felgo.Promise.create(function(resolve, reject) {
+                    Felgo.HttpRequest
+                    .get("http://127.0.0.1:8000/time")
+                    .timeout(5000)
+                    .end(function (error, result) {
+                        if (result.ok) {
+                            resolve(result.body)
+                        } else {
+                            reject(error.message)
+                        }
+                    });
+                });
+
+                promise.then(function(value) {
+                    textOutput.text = JSON.stringify(value, null, 4);
+                }).catch(function(reason) {
+                    textOutput.text = ("Felgo.HttpRequest + Promise error: %1").arg(reason);
                 });*/
+
 
 
 
@@ -74,7 +97,7 @@ Felgo.App {
 
 
                 // QML Http client - XMLHttpRequest (QNetworkRequest and QNetworkReply)
-                var xhr = new XMLHttpRequest();
+                /*var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState === XMLHttpRequest.HEADERS_RECEIVED) {
                         print('HEADERS_RECEIVED');
@@ -84,7 +107,7 @@ Felgo.App {
                     }
                 }
                 xhr.open("GET", "http://127.0.0.1:8000/time");
-                xhr.send();
+                xhr.send();*/
             }
         }
 
@@ -100,7 +123,7 @@ Felgo.App {
 
 
                 // Felgo Http client
-                /*Felgo.HttpRequest
+                Felgo.HttpRequest
                 .get("http://127.0.0.1:8000/users")
                 .timeout(5000)
                 .then(function(result) {
@@ -108,6 +131,28 @@ Felgo.App {
                 })
                 .catch(function(error) {
                     textOutput.text = ("Felgo.HttpRequest error: %1").arg(error.code);
+                });
+
+
+
+                // Felgo Http client + Promise
+                /*var promise = Felgo.Promise.create(function(resolve, reject) {
+                    Felgo.HttpRequest
+                    .get("http://127.0.0.1:8000/users")
+                    .timeout(5000)
+                    .end(function (error, result) {
+                        if (result.ok) {
+                            resolve(result.body)
+                        } else {
+                            reject(error.message)
+                        }
+                    });
+                });
+
+                promise.then(function(value) {
+                    textOutput.text = JSON.stringify(value, null, 4);
+                }).catch(function(error) {
+                    textOutput.text = ("Felgo.HttpRequest + Promise error: %1").arg(error);
                 });*/
 
 
@@ -127,7 +172,7 @@ Felgo.App {
 
 
                 // QML Http client - XMLHttpRequest (QNetworkRequest and QNetworkReply)
-                var xhr = new XMLHttpRequest();
+                /*var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState === XMLHttpRequest.HEADERS_RECEIVED) {
                         print('HEADERS_RECEIVED');
@@ -137,7 +182,7 @@ Felgo.App {
                     }
                 }
                 xhr.open("GET", "http://127.0.0.1:8000/users");
-                xhr.send();
+                xhr.send();*/
             }
         }
 
@@ -162,7 +207,7 @@ Felgo.App {
 
 
                 // Felgo Http client
-                /*Felgo.HttpRequest
+                Felgo.HttpRequest
                 .post("http://127.0.0.1:8000/users?name=John&sex=male&age=19", someData.toString())
                 .timeout(5000)
                 .then(function(result) {
@@ -170,6 +215,28 @@ Felgo.App {
                 })
                 .catch(function(error) {
                     textOutput.text = ("Felgo.HttpRequest error: %1").arg(error.code);
+                });
+
+
+
+                // Felgo Http client + Promise
+                /*var promise = Felgo.Promise.create(function(resolve, reject) {
+                    Felgo.HttpRequest
+                    .post("http://127.0.0.1:8000/users?name=John&sex=male&age=19", someData.toString())
+                    .timeout(5000)
+                    .end(function (error, result) {
+                        if (result.ok) {
+                            resolve(result.body)
+                        } else {
+                            reject(error.message)
+                        }
+                    });
+                });
+
+                promise.then(function(value) {
+                    textOutput.text = JSON.stringify(value, null, 4);
+                }).catch(function(error) {
+                    textOutput.text = ("Felgo.HttpRequest + Promise error: %1").arg(error);
                 });*/
 
 
@@ -189,7 +256,7 @@ Felgo.App {
 
 
                 // QML Http client - XMLHttpRequest (QNetworkRequest and QNetworkReply)
-                var xhr = new XMLHttpRequest();
+                /*var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState === XMLHttpRequest.HEADERS_RECEIVED) {
                         print('HEADERS_RECEIVED');
@@ -199,7 +266,7 @@ Felgo.App {
                     }
                 }
                 xhr.open("POST", "http://127.0.0.1:8000/users?name=John&sex=male&age=19");
-                xhr.send();
+                xhr.send();*/
             }
         }
 
@@ -215,7 +282,7 @@ Felgo.App {
 
 
                 // Felgo Http client
-                /*Felgo.HttpRequest
+                Felgo.HttpRequest
                 .del("http://127.0.0.1:8000/users/0")
                 .timeout(5000)
                 .then(function(result) {
@@ -223,6 +290,28 @@ Felgo.App {
                 })
                 .catch(function(error) {
                     textOutput.text = ("Felgo.HttpRequest error: %1").arg(error.code);
+                });
+
+
+
+                // Felgo Http client + Promise
+                /*var promise = Felgo.Promise.create(function(resolve, reject) {
+                    Felgo.HttpRequest
+                    .del("http://127.0.0.1:8000/users/0")
+                    .timeout(5000)
+                    .end(function (error, result) {
+                        if (result.ok) {
+                            resolve(result.body)
+                        } else {
+                            reject(error.message)
+                        }
+                    });
+                });
+
+                promise.then(function(value) {
+                    textOutput.text = JSON.stringify(value, null, 4);
+                }).catch(function(error) {
+                    textOutput.text = ("Felgo.HttpRequest + Promise error: %1").arg(error);
                 });*/
 
 
@@ -242,7 +331,7 @@ Felgo.App {
 
 
                 // QML Http client - XMLHttpRequest (QNetworkRequest and QNetworkReply)
-                var xhr = new XMLHttpRequest();
+                /*var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState === XMLHttpRequest.HEADERS_RECEIVED) {
                         print('HEADERS_RECEIVED');
@@ -252,7 +341,7 @@ Felgo.App {
                     }
                 }
                 xhr.open("DELETE", "http://127.0.0.1:8000/users/0");
-                xhr.send();
+                xhr.send();*/
             }
         }
     }
