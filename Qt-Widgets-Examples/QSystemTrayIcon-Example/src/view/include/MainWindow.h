@@ -1,20 +1,22 @@
 #pragma once
 
 #include <QMainWindow>
-#include <QCloseEvent>
 #include <QSystemTrayIcon>
-#include <QAction>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+class QCloseEvent;
+
+namespace Views {
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget* parent = nullptr);
+    explicit MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
 protected:
@@ -26,4 +28,7 @@ private slots:
 private:
     Ui::MainWindow* ui;
     QSystemTrayIcon* systemTray;
+
 };
+
+} // namespace Views

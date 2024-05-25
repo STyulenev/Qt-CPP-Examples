@@ -12,7 +12,7 @@ StyledPieChartDelegate::StyledPieChartDelegate(QObject* parent) :
 
 auto StyledPieChartDelegate::sizeHint([[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QSize
 {
-    return QSize(64, 64);
+    return QSize(70, 100);
 }
 
 auto StyledPieChartDelegate::createEditor([[maybe_unused]] QWidget* parent, [[maybe_unused]] const QStyleOptionViewItem& option, [[maybe_unused]] const QModelIndex& index) const -> QWidget*
@@ -32,9 +32,9 @@ auto StyledPieChartDelegate::paint(QPainter* painter, const QStyleOptionViewItem
     double sum = first + second + third + fourth;
 
     QRectF size = rect.toRectF();
-    const int diametr = 64; //rect.height() * 0.8;
+    const int diametr = 64; // rect.height() * 0.8;
     const int centerX = rect.x() + rect.width()  / 2; // rect.width()
-    const int centerY = rect.y() + rect.height() / 2; //rect.height()
+    const int centerY = rect.y() + rect.height() / 2; // rect.height()
 
     { // обводка
         size.setX(centerX - rect.width() / 4 - (diametr / 2) - 1);
@@ -54,13 +54,13 @@ auto StyledPieChartDelegate::paint(QPainter* painter, const QStyleOptionViewItem
 
         //painter->setPen(Qt::NoPen);
         painter->setBrush(Qt::red);
-        painter->drawPie(size, 0, 360 * 16 * first/sum);
+        painter->drawPie(size, 0, 360 * 16 * (first / sum));
         painter->setBrush(Qt::blue);
-        painter->drawPie(size, 360 * 16 * first/sum, 360 * 16 * second/sum);
+        painter->drawPie(size, 360 * 16 * (first / sum), 360 * 16 * (second / sum));
         painter->setBrush(Qt::yellow);
-        painter->drawPie(size, 360 * 16 - 360 * 16 * third/sum - 360 * 16 * fourth/sum, 360 * 16 * third/sum);
+        painter->drawPie(size, 360 * 16 - 360 * 16 * (third / sum) - 360 * 16 * (fourth / sum), 360 * 16 * (third / sum));
         painter->setBrush(Qt::green);
-        painter->drawPie(size, 360 * 16 - 360 * 16 * fourth/sum, 360 * 16 * fourth/sum);
+        painter->drawPie(size, 360 * 16 - 360 * 16 * (fourth / sum), 360 * 16 * (fourth / sum));
     }
 
     { // Рисование легенды
@@ -73,7 +73,6 @@ auto StyledPieChartDelegate::paint(QPainter* painter, const QStyleOptionViewItem
         painter->drawText(rect.x() + 3 * rect.width() / 4, rect.y() + 8, 50, 10, Qt::AlignCenter, " - text");
         painter->fillRect(rect.x() + 3 * rect.width() / 4, rect.y() + 30, 10, 10, Qt::green);
         painter->drawText(rect.x() + 3 * rect.width() / 4, rect.y() + 28, 50, 10, Qt::AlignCenter, " - text");
-
     }
 
     //painter->restore();

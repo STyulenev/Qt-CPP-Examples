@@ -10,12 +10,11 @@ class ImageDelegate : public QStyledItemDelegate
 
 public:
     explicit ImageDelegate(QObject* parent = nullptr);
-    virtual ~ImageDelegate() = default;
+    ~ImageDelegate() = default;
 
-protected:
-    virtual auto createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget* override;
-    virtual auto paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void override;
-    virtual auto sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const -> QSize override;
+    auto createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const -> QWidget* override;
+    auto paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const -> void override;
+    auto sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const -> QSize override;
 
 };
 
