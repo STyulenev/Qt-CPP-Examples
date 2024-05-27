@@ -13,15 +13,15 @@ Window {
     visible: true
     title: qsTr("QML-Repeater-Example")
 
-    /*Row {
+    Row {
         anchors.centerIn: parent
         spacing: 20
 
         Components.SignalLevel {
             id: signalLevel
 
-            height: 100
-            width: 100
+            height: 200
+            width: 200
 
             count: 5
             currentValue: 2
@@ -30,18 +30,25 @@ Window {
         Components.Battery {
             id: battery
 
-            height: 100
-            width: 60
+            height: 200
+            width: 120
 
             count: 4
             charge: 50 // %
         }
-    }*/
 
-    Components.SimpleTable {
+        Components.SoundLevel {
+            id: sound
+
+            size: 200
+
+            count: 5
+            value: 2
+        }
+    }
+
+    /*Components.SimpleTable {
         id: simpleTable
-
-        anchors.centerIn: parent
 
         model: Models.SimpleTableModel {
             column: 3
@@ -50,5 +57,5 @@ Window {
 
         height: 200
         width: 300
-    }
+    }*/
 }
