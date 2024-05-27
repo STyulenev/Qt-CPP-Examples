@@ -3,6 +3,7 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 
 import Components 1.0 as Components
+import Models 1.0 as Models
 
 Window {
     id: app
@@ -41,6 +42,11 @@ Window {
         id: simpleTable
 
         anchors.centerIn: parent
+
+        model: Models.SimpleTableModel {
+            column: 3
+            myArray: [0, 1, 2, 7, 8, 9]
+        }
 
         height: 200
         width: 300
