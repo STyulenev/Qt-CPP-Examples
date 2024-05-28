@@ -53,8 +53,8 @@ cd build
 
 ## Тестирование
 
-- [ ] Windows
+- [x] Windows (11 22H2)
 - [x] Linux (Ubuntu 20.04.1)
 - [ ] Mac
 
-> Для Windows необходимо доустановить dbus
+> Для Windows необходимо доустановить dbus или будет ошибка - QEventDispatcherWin32::wakeUp: Failed to post a message (Недопустимый дескриптор окна.).

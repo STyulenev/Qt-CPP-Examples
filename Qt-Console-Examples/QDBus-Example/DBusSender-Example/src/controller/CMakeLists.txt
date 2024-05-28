@@ -16,11 +16,16 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core DBus REQUIRED)
 file(GLOB controller-src "include/*.h" "./*.cpp")
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    message(FATAL_ERROR "need setting for qt6")
+    set(dbus-src)
 
-    # ...
+    qt6_add_dbus_adaptor(dbus-src
+        org.example.message.xml
+        qobject.h
+        QObject
+        message_adaptor
+    )
 
-    qt_add_library(${PROJECT_NAME} STATIC ${controller-src})
+    qt_add_library(${PROJECT_NAME} STATIC ${dbus-src} ${controller-src})
 else()
     set(dbus-src)
 

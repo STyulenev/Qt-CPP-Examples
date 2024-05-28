@@ -19,7 +19,7 @@ int main() {
         message = cin.readLine();
 
         if (message == "quit") {
-            return 0;
+            break;
         } else {
             emit sender->sendMessage(senderName, message);
             qDebug().noquote() << "Message" << message << "has sent";
