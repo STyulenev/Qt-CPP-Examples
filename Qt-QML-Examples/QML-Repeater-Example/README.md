@@ -6,8 +6,11 @@
 - SignalLevel - пример создания компонента для уровня сигнала.
 - Battery - пример создания компонента для уровня заряда батареи.
 - SimpleTable + SimpleTableModel - пример создания простой таблицы на основе пользовательской табличной модели.
+- SoundLevel - пример создания компонента для уровня громкости.
 
-![alt text](doc/QML-Repeater-Example.png)
+![alt text](doc/QML-Repeater-Example-1.png)
+
+![alt text](doc/QML-Repeater-Example-2.png)
 
 ## Сборка проекта
 

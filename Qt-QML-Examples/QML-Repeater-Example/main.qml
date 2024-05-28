@@ -13,7 +13,7 @@ Window {
     visible: true
     title: qsTr("QML-Repeater-Example")
 
-    Row {
+    /*Row {
         anchors.centerIn: parent
         spacing: 20
 
@@ -45,10 +45,12 @@ Window {
             count: 5
             value: 2
         }
-    }
+    }*/
 
-    /*Components.SimpleTable {
+    Components.SimpleTable {
         id: simpleTable
+
+        anchors.centerIn: parent
 
         model: Models.SimpleTableModel {
             column: 3
@@ -57,5 +59,5 @@ Window {
 
         height: 200
         width: 300
-    }*/
+    }
 }

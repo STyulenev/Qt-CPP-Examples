@@ -1,6 +1,6 @@
 import QtQuick 2.15
 
-Item {
+QtObject {
     id: root
 
     property int column: 0
