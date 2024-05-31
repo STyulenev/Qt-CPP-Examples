@@ -2,6 +2,8 @@
 
 #include <QTimer>
 
+namespace Components {
+
 DateTime::DateTime(QObject *parent)
     : QObject{parent}
 {
@@ -36,3 +38,5 @@ auto DateTime::timeOut() -> void
 
     emit dateTimeChanged();
 }
+
+} // namespase Components

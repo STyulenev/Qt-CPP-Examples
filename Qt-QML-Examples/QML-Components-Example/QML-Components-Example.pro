@@ -1,9 +1,12 @@
-QT += quick
+QT += quick concurrent
 
 CONFIG += c++20
 #CONFIG += debug / release
 
 TARGET = QML-Components-Example
+TEMPLATE = app
+
+DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG(debug, debug | release) {
     message("debug mode")

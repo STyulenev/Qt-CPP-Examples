@@ -7,3 +7,4 @@ project(Source
 )
 
 add_subdirectory(qml-components)
+add_subdirectory(qml-controllers)

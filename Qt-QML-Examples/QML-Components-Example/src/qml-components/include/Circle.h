@@ -6,6 +6,8 @@
 
 class QMouseEvent;
 
+namespace Components {
+
 class Circle : public QQuickPaintedItem
 {
     Q_OBJECT
@@ -30,3 +32,5 @@ private:
     QColor m_color;
 
 };
+
+} // namespase Components

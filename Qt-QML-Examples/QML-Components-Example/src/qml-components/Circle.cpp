@@ -4,6 +4,8 @@
 #include <QPen>
 #include <QMouseEvent>
 
+namespace Components {
+
 Circle::Circle(QQuickItem* parent) :
     QQuickPaintedItem(parent),
     m_color(Qt::blue)
@@ -44,3 +46,5 @@ auto Circle::mousePressEvent(QMouseEvent* event) -> void
         update();
     }
 }
+
+} // namespase Components

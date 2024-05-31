@@ -5,6 +5,8 @@
 
 class QTimer;
 
+namespace Components {
+
 class DateTime : public QObject
 {
     Q_OBJECT
@@ -31,3 +33,5 @@ private:
     QTimer* m_timer;
 
 };
+
+} // namespase Components
