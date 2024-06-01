@@ -5,12 +5,14 @@
 #include "DateTime.h"
 #include "Enums.h"
 
+#include "AssyncController.h"
+
 auto main(int argc, char* argv[]) -> int
 {
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<Circle>("CustomVisualType", 1, 0, "Circle");
-    qmlRegisterType<DateTime>("CustomNonVisualType", 1, 0, "DateTime");
+    qmlRegisterType<Components::Circle>("CustomVisualType", 1, 0, "Circle");
+    qmlRegisterType<Components::DateTime>("CustomNonVisualType", 1, 0, "DateTime");
 
     qmlRegisterUncreatableMetaObject(
         ExampleEnums::staticMetaObject,
@@ -19,6 +21,8 @@ auto main(int argc, char* argv[]) -> int
         "ColorEnum",
         "Error: only enums"
     );
+
+    qmlRegisterType<Controllers::AssyncController>("Controllers", 1, 0, "AssyncController");
 
     QQmlApplicationEngine engine;
     engine.addImportPath("qrc:/qml");

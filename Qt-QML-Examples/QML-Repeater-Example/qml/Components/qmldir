@@ -3,3 +3,4 @@ module Components
 Battery 1.0 Battery.qml
 SignalLevel 1.0 SignalLevel.qml
 SimpleTable 1.0 SimpleTable.qml
+SoundLevel 1.0 SoundLevel.qml

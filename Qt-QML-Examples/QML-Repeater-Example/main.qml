@@ -3,6 +3,7 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 
 import Components 1.0 as Components
+import Models 1.0 as Models
 
 Window {
     id: app
@@ -19,8 +20,8 @@ Window {
         Components.SignalLevel {
             id: signalLevel
 
-            height: 100
-            width: 100
+            height: 200
+            width: 200
 
             count: 5
             currentValue: 2
@@ -29,11 +30,20 @@ Window {
         Components.Battery {
             id: battery
 
-            height: 100
-            width: 60
+            height: 200
+            width: 120
 
             count: 4
             charge: 50 // %
+        }
+
+        Components.SoundLevel {
+            id: sound
+
+            size: 200
+
+            count: 5
+            value: 2
         }
     }*/
 
@@ -41,6 +51,11 @@ Window {
         id: simpleTable
 
         anchors.centerIn: parent
+
+        model: Models.SimpleTableModel {
+            column: 3
+            myArray: [0, 1, 2, 7, 8, 9]
+        }
 
         height: 200
         width: 300

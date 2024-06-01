@@ -9,6 +9,8 @@ import Components 1.0 as ComponentsLibrary
 import CustomVisualType 1.0 as CustomVisualType
 import CustomNonVisualType 1.0 as CustomNonVisualType
 
+import Controllers 1.0 as Controllers
+
 import CPPEnums 1.0 as CPPEnums
 
 ApplicationWindow {
@@ -82,7 +84,7 @@ ApplicationWindow {
     }*/
 
     // ComponentsLibrary.SimpleProgressBar example
-    ComponentsLibrary.SimpleProgressBar {
+    /*ComponentsLibrary.SimpleProgressBar {
         id: simpleProgressBar
 
         anchors.centerIn: parent
@@ -93,6 +95,29 @@ ApplicationWindow {
 
         onValueChanged: {
             console.log("value = " + simpleProgressBar.value)
+        }
+    }*/
+
+    Button {
+        id: button
+
+        anchors.centerIn: parent
+
+        width: 200
+        height: 80
+
+        text: "AssyncButton"
+
+        property QtObject assync: Controllers.AssyncController { }
+
+        onClicked: {
+            button.assync
+            .run(function() {
+                console.log("first assync functions ...")
+            })
+            .run(function() {
+                console.log("second assync functions ...")
+            });
         }
     }
 }
