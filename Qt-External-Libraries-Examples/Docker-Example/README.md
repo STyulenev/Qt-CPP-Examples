@@ -13,8 +13,8 @@
 5. Выполнить комманды:
 
 ```
-docker build -t docker-cpp-sample .
-docker run docker-cpp-sample
+docker build . -t docker-example -f .\deploy\Dockerfile
+docker run docker-example
 ```
 
 ## Версии
