@@ -4,17 +4,24 @@
 
 Пример использования Docker для GUI приложения Qt.
 
+![alt text](doc/Docker-Example.png)
+
 ## Сборка проекта для Windows
 
 1. Установить Docker.
 2. Установить WSL2.
 3. Установить и запустить VcXsrv Windows X Server.
-4. В Dockerfile указать ip DISPLAY (для перенаправления).
-5. Выполнить комманды:
+4. Для перенаправления GUI, необходимо указать ip в переменную IP_ADDRESS.
+5. Команды для создание образа и запуска контейнера:
 
-```
-docker build . -t docker-example -f .\deploy\Dockerfile
+```bash
+docker build  -t docker-example -f .\deploy\Dockerfile --build-arg IP_ADDRESS='your ip addres' .
 docker run docker-example
+```
+
+Если необходимо запустить контейнер и работать в нём через командную строку (следует убрать ENTRYPOINT и пересоздать образ):
+```bash
+docker run -it docker-example sh
 ```
 
 ## Версии
@@ -24,14 +31,18 @@ docker run docker-example
 | Название   | Версия               |
 | -----------|----------------------|
 | C++        | 20                   |
-| Qt         | 6.4.0                |
-| CMake      | 3.5                  |
-| MinGW      | 9.0.0 64 bit         |
+| Qt Creator | 11.0.2               |
+| Qt         | 6.5.2                |
+| CMake      | 3.24.2               |
+| QMake      | 6.5.2.0              |
+| MinGW      | 11.2 64 bit          |
 | VcXsrv     | 1.17.0.0-3           |
-| Docker     | 0.10.17              |
+| Docker     | 26.1.1               |
+
+Тестировалось на ОС Windows 11 22H2
 
 ## Тестирование
 
-- [x] Windows (10, сборка 19044.2604)
-- [ ] Linux
+- [x] Windows (11, сборка 22H2) без Docker
+- [x] Linux (Ubuntu 18.04) в Docker
 - [ ] Mac
