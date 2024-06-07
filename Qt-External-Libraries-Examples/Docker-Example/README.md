@@ -12,14 +12,20 @@
 2. Установить WSL2.
 3. Установить и запустить VcXsrv Windows X Server.
 4. Для перенаправления GUI, необходимо указать ip в переменную IP_ADDRESS.
-5. Команды для создание образа и запуска контейнера:
-
+5. Создать образ.
+5.1 С помощью CMake:
 ```bash
-docker build  -t docker-example -f .\deploy\Dockerfile --build-arg IP_ADDRESS='your ip addres' .
+docker build  -t docker-example -f .\deploy\Dockerfile-Ubuntu-CMake --build-arg IP_ADDRESS='your ip addres' .
+```
+5.2 С помощью QMake:
+```bash
+docker build  -t docker-example -f .\deploy\Dockerfile-Ubuntu-QMake --build-arg IP_ADDRESS='your ip addres' .
+```
+6. Запуск контейнера:
+```bash
 docker run docker-example
 ```
-
-Если необходимо запустить контейнер и работать в нём через командную строку (следует убрать ENTRYPOINT и пересоздать образ):
+6.1 Если необходимо запустить контейнер и работать в нём через командную строку (следует убрать ENTRYPOINT и пересоздать образ):
 ```bash
 docker run -it docker-example sh
 ```
