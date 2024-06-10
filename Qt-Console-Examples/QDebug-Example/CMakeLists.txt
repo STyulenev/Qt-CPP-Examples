@@ -30,6 +30,7 @@ endif()
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Core
     Model-lib
+    Setting-lib
 )
 
 set_target_properties(${PROJECT_NAME}
