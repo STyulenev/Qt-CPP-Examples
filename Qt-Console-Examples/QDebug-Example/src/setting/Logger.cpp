@@ -24,7 +24,6 @@ Logger* Logger::instance()
 {
     if (!self) {
         self = new Logger();
-
     }
 
     return self;
@@ -79,7 +78,7 @@ void Logger::myMessageOutput(QtMsgType type, const QMessageLogContext& context, 
 #ifdef QT_DEBUG
     QTextStream(stdout) << logMessage;
 #else
-    printToLogFile(logMessage);
+    self->printToLogFile(logMessage);
 #endif
 }
 
