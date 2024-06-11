@@ -1,7 +1,7 @@
 #include "Logger.h"
 
-#include <QDebug>
 #include <QCoreApplication>
+#include <QDebug>
 #include <QString>
 #include <QTime>
 
@@ -12,7 +12,8 @@ Logger* Logger::self = 0;
 Logger::Logger(QObject* parent) :
     QObject(parent)
 {
-
+    // Если требуется очищать файл
+    //clearLogFile();
 }
 
 Logger::~Logger()
@@ -31,24 +32,24 @@ Logger* Logger::instance()
 
 void Logger::clearLogFile()
 {
-    FILE* pFile = fopen(qPrintable(m_logFileName), "w+");
+    FILE* logFile = fopen(qPrintable(m_logFileName), "w+");
 
-    if (!pFile) {
-        fclose(pFile);
+    if (!logFile) {
+        fclose(logFile);
     }
 }
 
-void Logger::printToLogFile(const QString &text)
+void Logger::printToLogFile(const QString& messageText)
 {
-    FILE* pFile = fopen(qPrintable(m_logFileName), "a+");
+    FILE* logFile = fopen(qPrintable(m_logFileName), "a+");
 
-    if (!pFile) {
+    if (!logFile) {
         printf("Log %s file not writable\n", qPrintable(m_logFileName));
         return;
     }
 
-    fprintf(pFile, "%s", qPrintable(text));
-    fclose(pFile);
+    fprintf(logFile, "%s", qPrintable(messageText));
+    fclose(logFile);
 }
 
 void Logger::myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QString& messageText)
@@ -58,19 +59,19 @@ void Logger::myMessageOutput(QtMsgType type, const QMessageLogContext& context, 
     QString logMessage;
 
     switch (type) {
-    case QtDebugMsg:
+    case QtMsgType::QtDebugMsg:
         logMessage = QString("[%1] [DEBUG] %2\n").arg(QTime::currentTime().toString("hh:mm:ss")).arg(messageText);
         break;
-    case QtWarningMsg:
+    case QtMsgType::QtWarningMsg:
         logMessage = QString("[%1] [WARNING] %2\n").arg(QTime::currentTime().toString("hh:mm:ss")).arg(messageText);
         break;
-    case QtCriticalMsg:
+    case QtMsgType::QtCriticalMsg:
         logMessage = QString("[%1] [CRITICAL] %2\n").arg(QTime::currentTime().toString("hh:mm:ss")).arg(messageText);
         break;
-    case QtFatalMsg:
+    case QtMsgType::QtFatalMsg:
         logMessage = QString("[%1] [FATAL ERROR] %2\n").arg(QTime::currentTime().toString("hh:mm:ss")).arg(messageText);
         break;
-    case QtInfoMsg:
+    case QtMsgType::QtInfoMsg:
         logMessage = QString("[%1] [NFORMATION] %2\n").arg(QTime::currentTime().toString("hh:mm:ss")).arg(messageText);
         break;
     }
@@ -80,13 +81,14 @@ void Logger::myMessageOutput(QtMsgType type, const QMessageLogContext& context, 
 #else
     self->printToLogFile(logMessage);
 #endif
+
+    if (type == QtMsgType::QtFatalMsg)
+        exit(-1);
 }
 
 void Logger::setDebugMessageHandler()
 {
     m_logFileName = qApp->applicationDirPath() + "/log.txt";
-
-    clearLogFile();
 
     qInstallMessageHandler(myMessageOutput);
 }

@@ -4,7 +4,7 @@
 
 namespace Settings {
 
-class Logger : public QObject
+class Logger final : public QObject
 {
     Q_OBJECT
 
@@ -25,8 +25,8 @@ public:
 
     void setDebugMessageHandler();
 
-protected:
-    void printToLogFile(const QString& text);
+private:
+    void printToLogFile(const QString& messageText);
     void clearLogFile();
 
     QString m_logFileName;
