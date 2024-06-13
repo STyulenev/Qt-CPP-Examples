@@ -10,7 +10,7 @@
 
 1. Необходимо собрать библиотеку LimeReport.
 2. Прописать пути к заголовочным файлам, файлам .ddl/.so и protoc в src/protobuf/CMakeLists.txt (для CMake) или src/protobuf/Protobuf.pri (для QMake).
-3. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+3. Собрать проект (cборку можно производить из QtCreator или из папки build командами):
 
 ### CMake:
 

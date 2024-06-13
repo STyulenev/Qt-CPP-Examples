@@ -35,7 +35,7 @@ INSERT INTO "test.people" (first_name, last_name, age) VALUES ('Tom', 'Smith', 3
 INSERT INTO "test.people" (first_name, last_name, age) VALUES ('Ken', 'Dyrun', 23);
 ```
 
-4. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+4. Собрать проект (cборку можно производить из QtCreator или из папки build командами):
 
 ### CMake:
 

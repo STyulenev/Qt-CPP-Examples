@@ -29,7 +29,7 @@ git submodule add https://github.com/google/googletest.git extern/googletest
 git submodule update
 ```
 
-Сборку можно производить из QtCreator или из папки build коммандами:
+Сборку можно производить из QtCreator или из папки build командами:
 
 ### CMake:
 
