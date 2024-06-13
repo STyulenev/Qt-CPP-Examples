@@ -16,7 +16,7 @@
 sudo apt-get install qttools5-dev
 ```
 
-Сборку можно производить из QtCreator или из папки build коммандами:
+Сборку можно производить из QtCreator или из папки build командами:
 
 ### CMake:
 

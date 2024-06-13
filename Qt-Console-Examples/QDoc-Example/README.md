@@ -22,7 +22,7 @@ C:\Qt\6.5.2\mingw_64\bin\qdoc.exe config.qdocconf
 
 ## Сборка проекта
 
-Проект может быть собран из QtCreator или из папки build коммандами:
+Проект может быть собран из QtCreator или из папки build командами:
 
 ### CMake:
 
