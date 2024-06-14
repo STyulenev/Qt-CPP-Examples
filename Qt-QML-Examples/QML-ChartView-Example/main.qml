@@ -1,11 +1,13 @@
 import QtQuick 2.15
 import QtQml 2.15
 import QtQuick.Controls 1.4
-import QtCharts 2.15
 import QtQuick.Layouts 1.15
-
-// Import C ++ class
+import QtCharts 2.15 as QtCharts
+// Import C++ class
 import ViewModels 0.1 as ViewModels
+
+// Import QML module
+import Components 1.0 as Components
 
 ApplicationWindow {
     id: appWindow
@@ -22,7 +24,7 @@ ApplicationWindow {
 
             property QtObject currentView: ViewModels.LinearGraphicsView { }
 
-            ChartView {
+            QtCharts.ChartView {
                 id: standartGraphicChartView
 
                 anchors.centerIn: parent
@@ -38,22 +40,22 @@ ApplicationWindow {
                     leftMargin: 10
                 }
 
-                LineSeries {
+                QtCharts.LineSeries {
                     name: currentView.firstGraphicName
                     color: "red"
 
-                    VXYModelMapper {
+                    QtCharts.VXYModelMapper {
                         model: currentView.firstGraphic
                         xColumn: 0
                         yColumn: 1
                     }
                 }
 
-                LineSeries {
+                QtCharts.LineSeries {
                     name: currentView.secondGraphicName
                     color: "blue"
 
-                    VXYModelMapper {
+                    QtCharts.VXYModelMapper {
                         model: currentView.secondGraphic
                         xColumn: 0
                         yColumn: 1
@@ -64,36 +66,69 @@ ApplicationWindow {
         Tab {
             title: "Example piechart"
 
-            ChartView {
-                id: standartPieChartView
-
-                title: "Standart PieChartView"
+            RowLayout {
                 anchors.fill: parent
-                legend.alignment: Qt.AlignBottom
-                antialiasing: true
 
-                property var othersSlice
+                QtCharts.ChartView {
+                    id: standartPieChartView
 
-                PieSeries {
-                    id: pieSeries
+                    title: "Standart PieChartView"
 
-                    PieSlice {
-                        label: "Element 1"
-                        value: 22.0
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+
+                    legend.alignment: Qt.AlignBottom
+                    antialiasing: true
+
+                    property var othersSlice
+
+                    QtCharts.PieSeries {
+                        id: pieSeries
+
+                        QtCharts.PieSlice {
+                            label: "Element 1"
+                            value: 22.0
+                        }
+                        QtCharts.PieSlice {
+                            label: "Element 2"
+                            value: 15.0
+                        }
+                        QtCharts.PieSlice {
+                            label: "Element 3"
+                            value: 9.0
+                        }
                     }
-                    PieSlice {
-                        label: "Element 2"
-                        value: 15.0
-                    }
-                    PieSlice {
-                        label: "Element 3"
-                        value: 9.0
+
+                    Component.onCompleted: {
+                        othersSlice = pieSeries.append("Element 4", 52.0);
+                        pieSeries.find("Element 3").exploded = true;
                     }
                 }
 
-                Component.onCompleted: {
-                    othersSlice = pieSeries.append("Element 4", 52.0);
-                    pieSeries.find("Element 3").exploded = true;
+                Components.CustomPieChart {
+                    id: customPieChartView
+
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+
+                    model: [
+                            {
+                                value: 0.2,
+                                color: "lightgreen"
+                            },
+                            {
+                                value: 0.3,
+                                color: "lightgrey"
+                            },
+                            {
+                                value: 0.4,
+                                color: "lightblue"
+                            },
+                            {
+                                value: 0.1,
+                                color: "orange"
+                            }
+                        ]
                 }
             }
         }
