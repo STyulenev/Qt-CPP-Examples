@@ -1,0 +1,11 @@
+FROM a12e/docker-qt:6.4-linux as build
+
+ADD . /app/source
+
+WORKDIR /app/build
+
+RUN qmake CONFIG+=release ../source && make
+	
+ENTRYPOINT ["./release/bin/QHttpServer-Example"]
+
+EXPOSE 8000
