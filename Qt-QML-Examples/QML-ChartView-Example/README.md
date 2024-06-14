@@ -2,7 +2,9 @@
 
 ## Описание
 
-Пример использования ChartView в QML на основе модели.
+Примеры использования ChartView в QML:
+- График ChartView на основе модели;
+- Диаграмма ChartView.
 
 ![alt text](doc/QML-ChartView-Example.png)
 

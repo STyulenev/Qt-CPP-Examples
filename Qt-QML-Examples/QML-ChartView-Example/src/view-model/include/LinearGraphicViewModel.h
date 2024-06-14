@@ -15,12 +15,12 @@ public:
     LinearGraphicViewModel(QObject* parent = 0) = delete;
     explicit LinearGraphicViewModel(const QVector<std::pair<double, double>>& data, QObject* parent = 0);
 
-    virtual ~LinearGraphicViewModel() = default;
+    ~LinearGraphicViewModel() = default;
 
-    virtual auto columnCount(const QModelIndex& parent) const -> int override;
-    virtual auto rowCount(const QModelIndex& parent) const -> int override;
-    virtual auto data(const QModelIndex& index, int role) const -> QVariant override;
-    virtual auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
+    auto columnCount(const QModelIndex& parent) const -> int override;
+    auto rowCount(const QModelIndex& parent) const -> int override;
+    auto data(const QModelIndex& index, int role) const -> QVariant override;
+    auto flags(const QModelIndex& index) const -> Qt::ItemFlags override;
 
 };
 

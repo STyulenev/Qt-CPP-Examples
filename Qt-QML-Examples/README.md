@@ -22,7 +22,7 @@
 
 ## QML-ChartView-Example
 
-Пример использования ChartView в QML на основе модели.
+Примеры использования ChartView в QML.
 
 ## QML-CircularGauge-Example
 
