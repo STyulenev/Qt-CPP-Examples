@@ -80,7 +80,7 @@ INSERT INTO Orders VALUES (default, 2, 3, 1, '2022-01-04', '10:41:54');
 INSERT INTO Orders VALUES (default, 3, 5, 1, '2022-01-12', '16:09:12');
 ```
 
-4. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+4. Собрать проект (cборку можно производить из QtCreator или из папки build командами):
 
 ### CMake:
 

@@ -23,7 +23,7 @@ conan install . --output-folder=build --build=missing
 
 > Если библиотек нет на локальной машине, Conan скачает их из conan-center и соберёт
 
-4. Собрать проект (cборку можно производить из QtCreator или из папки build коммандами):
+4. Собрать проект (cборку можно производить из QtCreator или из папки build командами):
 
 ```bash
 cmake ..
