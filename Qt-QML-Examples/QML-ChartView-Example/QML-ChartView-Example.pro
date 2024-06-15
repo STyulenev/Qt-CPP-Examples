@@ -3,6 +3,9 @@ QT += quick charts
 CONFIG += c++20
 
 TARGET = QML-ChartView-Example
+TEMPLATE = app
+
+DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG(debug, debug | release) {
     message("debug mode")
@@ -21,6 +24,8 @@ CONFIG(debug, debug | release) {
 }
 
 include(src/Source.pri)
+
+QML_IMPORT_PATH += $$PWD/qml
 
 SOURCES += \
         main.cpp

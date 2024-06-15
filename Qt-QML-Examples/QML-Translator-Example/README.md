@@ -15,7 +15,7 @@ lupdate * -ts languages/test_en_EN.ts
 lupdate * -ts languages/test_ru_RU.ts
 ```
 
-2. Собрать проект. Проект может быть собран из QtCreator или из папки build коммандами:
+2. Собрать проект. Проект может быть собран из QtCreator или из папки build командами:
 
 ### CMake:
 

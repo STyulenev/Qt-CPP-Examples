@@ -1,7 +1,6 @@
 #pragma once
 
-#include <QAbstractTableModel> // or class QAbstractTableModel;
-#include <QObject>
+#include <QAbstractTableModel>
 
 namespace ViewModels {
 
@@ -23,7 +22,7 @@ private:
 
 public:
     explicit LinearGraphicsView(QObject* parent = nullptr);
-    virtual ~LinearGraphicsView() = default;
+    ~LinearGraphicsView() = default;
 
     auto getFirstGraphic() const -> QAbstractTableModel*;
     auto getSecondGraphic() const -> QAbstractTableModel*;

@@ -2,13 +2,16 @@
 
 ## Описание
 
-Пример использования ChartView в QML на основе модели.
+Примеры использования ChartView в QML:
+- График ChartView на основе модели;
+- Круговая диаграмма ChartView;
+- Пользовательская круговая диаграмма CustomPieView (на основе Canvas).
 
 ![alt text](doc/QML-ChartView-Example.png)
 
 ## Сборка проекта
 
-Проект может быть собран из QtCreator или из папки build коммандами:
+Проект может быть собран из QtCreator или из папки build командами:
 
 ### CMake:
 

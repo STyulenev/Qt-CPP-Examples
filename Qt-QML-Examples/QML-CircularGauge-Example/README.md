@@ -17,7 +17,7 @@ sudo apt-get install libqt5x11extras5 libqt5x11extras5-dev
 ```
 > Библиотека QtQuick.Extras есть только с Qt 5.5 до Qt 5.15.
 
-2. Проект может быть собран из QtCreator или из папки build коммандами:
+2. Проект может быть собран из QtCreator или из папки build командами:
 
 ### CMake:
 
