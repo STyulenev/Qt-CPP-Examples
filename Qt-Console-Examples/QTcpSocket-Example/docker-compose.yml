@@ -8,9 +8,10 @@ services:
       - 4242:4242
 
   client:
-    build: QTcpClient-Example/
-    #environment:
-    #  - IP_ADDRESS='192.168.239.192'
+    build:
+      context: QTcpClient-Example/
+      args:
+        - IP_ADDRESS=${IP_ADDRESS}
     command: ./QTcpClient-Example
     network_mode: host
     depends_on:

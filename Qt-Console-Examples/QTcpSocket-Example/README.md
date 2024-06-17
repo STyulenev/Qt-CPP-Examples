@@ -4,6 +4,7 @@
 
 Пример использования QTcpSocket и QTcpServer (клиент и сервер).
 
+Пример работы с Docker-compose:
 ![alt text](doc/QTcpSocket-Example.png)
 
 ## Сборка проекта
@@ -29,9 +30,9 @@ make
 
 ## Сборка с помощью Docker-compose
 
-Собрать:
+Собрать (заменить your_ip_address на свой ip):
 ```bash
-docker-compose build
+docker-compose build --build-arg IP_ADDRESS='your_ip_address'
 ```
 
 Запустить:
@@ -39,7 +40,7 @@ docker-compose build
 docker-compose up
 ```
 
-> Дополнительно потребуется VcXsrv Windows X Server и правильный ip в QTcpClient/Dockerfile
+> Дополнительно потребуется VcXsrv Windows X Server для проброса экрана (см. Qt-CPP-Examples/Qt-External-Libraries-Examples/Docker-Example/README.md)
 
 ## Версии
 

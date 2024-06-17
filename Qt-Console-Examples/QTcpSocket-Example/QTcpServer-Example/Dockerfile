@@ -5,7 +5,3 @@ WORKDIR /app/build
 ADD . /app/source
 
 RUN cmake ../source && cmake --build .
-	
-#CMD ./bin/QTcpServer-Example
-
-#EXPOSE 8000
