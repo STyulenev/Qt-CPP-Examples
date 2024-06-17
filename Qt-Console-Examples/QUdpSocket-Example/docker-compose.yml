@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  server:
+    build: QUdpServer-Example/
+    command: ./QUdpServer-Example
+    ports:
+      - 5000:5000
+
+  client:
+    build:
+      context: QUdpClient-Example/
+      args:
+        - IP_ADDRESS=${IP_ADDRESS}
+    command: ./QUdpClient-Example
+    network_mode: host
+    depends_on:
+      - server
