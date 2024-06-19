@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>qml/Components/DishListViewData.qml</file>
         <file>qml/Components/ListViewData.qml</file>
         <file>qml/Components/qmldir</file>
         <file>res/images/hamburger.png</file>
