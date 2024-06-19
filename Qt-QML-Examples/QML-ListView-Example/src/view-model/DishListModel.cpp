@@ -20,7 +20,7 @@ DishListModel::~DishListModel()
 
 }
 
-QQmlListProperty<Models::DishModel> DishListModel::data()
+auto DishListModel::data() -> QQmlListProperty<Models::DishModel>
 {
     return QQmlListProperty<Models::DishModel>(
         this,
@@ -32,7 +32,7 @@ QQmlListProperty<Models::DishModel> DishListModel::data()
     );
 }
 
-void DishListModel::add()
+auto DishListModel::add() -> void
 {
     Models::DishModel* dishModel = new Models::DishModel(this);
     dishModel->setProperty("name", "...");
@@ -44,25 +44,25 @@ void DishListModel::add()
     emit dataChanged();
 }
 
-void DishListModel::appendData(QQmlListProperty<Models::DishModel>* list, Models::DishModel* value)
+auto DishListModel::appendData(QQmlListProperty<Models::DishModel>* list, Models::DishModel* value) -> void
 {
     QList<Models::DishModel*>* data = static_cast<QList<Models::DishModel*>*>(list->data);
     data->append(value);
 }
 
-qsizetype DishListModel::countData(QQmlListProperty<Models::DishModel>* list)
+auto DishListModel::countData(QQmlListProperty<Models::DishModel>* list) -> qsizetype
 {
     QList<Models::DishModel*>* data = static_cast<QList<Models::DishModel*>*>(list->data);
     return data->size();
 }
 
-Models::DishModel* DishListModel::atData(QQmlListProperty<Models::DishModel>* list, qsizetype index)
+auto DishListModel::atData(QQmlListProperty<Models::DishModel>* list, qsizetype index) -> Models::DishModel*
 {
     QList<Models::DishModel*>* data = static_cast<QList<Models::DishModel*>*>(list->data);
     return data->at(index);
 }
 
-void DishListModel::clearData(QQmlListProperty<Models::DishModel>* list)
+auto DishListModel::clearData(QQmlListProperty<Models::DishModel>* list) -> void
 {
     QList<Models::DishModel*>* data = static_cast<QList<Models::DishModel*>*>(list->data);
     qDeleteAll(data->begin(), data->end());

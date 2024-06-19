@@ -13,50 +13,62 @@ DishModel::~DishModel()
 
 }
 
-QString DishModel::name() const
+auto DishModel::getName() const -> const QString&
 {
     return m_name;
 }
 
-QString DishModel::iconUrl() const
+auto DishModel::getIconUrl() const -> const QString&
 {
     return m_iconUrl;
 }
 
-QString DishModel::description() const
+auto DishModel::getDescription() const -> const QString&
 {
     return m_description;
 }
 
-bool DishModel::status() const
+auto DishModel::getStatus() const -> bool
 {
     return m_status;
 }
 
-void DishModel::setName(const QString &newName)
+auto DishModel::setName(const QString& name) -> void
 {
-    m_name = newName;
+    if (m_name == name)
+        return;
+
+    m_name = name;
 
     emit nameChanged();
 }
 
-void DishModel::setIconUrl(const QString &newIconUrl)
+auto DishModel::setIconUrl(const QString& iconUrl) -> void
 {
-    m_iconUrl = newIconUrl;
+    if (m_iconUrl == iconUrl)
+        return;
+
+    m_iconUrl = iconUrl;
 
     emit iconUrlChanged();
 }
 
-void DishModel::setDescription(const QString &newDescription)
+auto DishModel::setDescription(const QString& description) -> void
 {
-    m_description = newDescription;
+    if (m_description == description)
+        return;
+
+    m_description = description;
 
     emit descriptionChanged();
 }
 
-void DishModel::setStatus(bool newStatus)
+auto DishModel::setStatus(bool status) -> void
 {
-    m_status = newStatus;
+    if (m_status == status)
+        return;
+
+    m_status = status;
 
     emit statusChanged();
 }
