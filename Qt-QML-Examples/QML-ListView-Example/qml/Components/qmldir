@@ -1,4 +1,5 @@
 module Components
 
 CustomObject 1.0 CustomObject.qml
+DishListViewData 1.0 DishListViewData.qml
 ListViewData 1.0 ListViewData.qml

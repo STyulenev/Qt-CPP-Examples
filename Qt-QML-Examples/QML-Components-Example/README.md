@@ -5,7 +5,6 @@
 Примеры использования дополнительных пользовательских компонентов в QML/C++.
 
 QML компоненты:
-
 - Label + TextField (с различным расположением label - снизу, сверху, слева или справа);
 - Label + ComboBox (с различным расположением label - снизу, сверху, слева или справа);
 
@@ -33,6 +32,19 @@ qmake ..
 make
 ```
 > Для debug - "qmake .. CONFIG+=debug", для release - "qmake .. CONFIG+=release"
+
+## Сборка с  Docker
+Собрать (заменить your_ip_address на свой ip):
+```bash
+docker build -t qml-example --build-arg IP_ADDRESS='your ip addres' .
+```
+
+Запуск контейнера:
+```bash
+docker run qml-example
+```
+
+> Дополнительно потребуется VcXsrv Windows X Server для проброса экрана (см. Qt-CPP-Examples/Qt-External-Libraries-Examples/Docker-Example/README.md)
 
 ## Версии
 

@@ -3,12 +3,17 @@
 
 #include "ListModel.h"
 
+#include "DishModel.h"
+#include "DishListModel.h"
+
 auto main(int argc, char* argv[]) -> int
 {
     QGuiApplication app(argc, argv);
 
     // Register C ++ type to QML
-    qmlRegisterType<ViewModels::ListModel>("ListModels", 0, 1, "ListModel");
+    qmlRegisterType<ViewModels::ListModel>("ListModels",     0, 1, "ListModel");
+    qmlRegisterType<Models::DishModel>("ListModels",         0, 1, "DishModel");
+    qmlRegisterType<ViewModels::DishListModel>("ListModels", 0, 1, "DishListModel");
 
     QQmlApplicationEngine engine;
     engine.addImportPath("qrc:/qml");
