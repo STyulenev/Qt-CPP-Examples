@@ -21,6 +21,7 @@ int main() {
             break;
         } else {
             sender->example(text);
+            //sender->example2(text);
         }
     }
 

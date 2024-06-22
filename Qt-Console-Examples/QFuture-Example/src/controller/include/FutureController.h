@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QObject>
+#include <QtConcurrent>
 
 namespace Controller {
 
@@ -13,6 +14,7 @@ public:
     ~FutureController();
 
     void example(const QString& text);
+    void example2(const QString& text);
 
 };
 
