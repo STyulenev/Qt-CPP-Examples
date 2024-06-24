@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>qml/Components/qmldir</file>
         <file>qml/Components/ScrollingContainer.qml</file>
+        <file>qml/Components/DraggableRectangle.qml</file>
     </qresource>
 </RCC>

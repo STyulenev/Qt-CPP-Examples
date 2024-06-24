@@ -1,6 +1,7 @@
 import QtQml 2.15
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.6
 
 import Components 1.0 as Components
 
@@ -12,44 +13,87 @@ ApplicationWindow {
     visible: true
     title: qsTr("QML-DragDrop-Example")
 
-    Components.ScrollingContainer {
-        id: container
+    TabBar {
+        id: tabBar
 
-        anchors.centerIn: parent
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+        }
 
-        width: 200
-        height: 200
+        TabButton {
+            text: qsTr("ScrollingContainer")
+        }
 
-        rightBorder: 400
+        TabButton {
+            text: qsTr("DraggableRectangle")
+        }
+    }
 
-        content: Repeater {
-            model: [
-                {
-                    color: "lightblue",
-                    text: "1 =>"
-                },
-                {
-                    color: "grey",
-                    text: "<= 2 =>"
-                },
-                {
-                    color: "lightgrey",
-                    text: "<= 3"
-                }
-            ]
+    StackLayout {
+        id: stackLayout
 
-            delegate: Rectangle {
+        anchors {
+            top: tabBar.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        currentIndex: tabBar.currentIndex
+
+        Item {
+            Components.ScrollingContainer {
+                id: container
+
+                anchors.centerIn: parent
+
                 width: 200
-                height: container.height
+                height: 200
 
-                color: modelData.color
+                rightBorder: 400
 
-                Label {
-                    anchors.centerIn: parent
-                    font.pixelSize: 28
-                    color: "black"
-                    text: modelData.text
+                content: Repeater {
+                    model: [
+                        {
+                            color: "lightblue",
+                            text: "1 =>"
+                        },
+                        {
+                            color: "grey",
+                            text: "<= 2 =>"
+                        },
+                        {
+                            color: "lightgrey",
+                            text: "<= 3"
+                        }
+                    ]
+
+                    delegate: Rectangle {
+                        width: 200
+                        height: container.height
+
+                        color: modelData.color
+
+                        Label {
+                            anchors.centerIn: parent
+                            font.pixelSize: 28
+                            color: "black"
+                            text: modelData.text
+                        }
+                    }
                 }
+            }
+        }
+
+        Item {
+            Components.DraggableRectangle {
+                x: 10
+                y: 10
+
+                width: 100
+                height: 100
             }
         }
     }
