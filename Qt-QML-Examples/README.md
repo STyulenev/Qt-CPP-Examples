@@ -54,7 +54,7 @@
 
 ## QML-Map-Example
 
-Пример использования Map в QML.
+Пример использования карты Map в QML.
 
 ## QML-Menu-Example
 
