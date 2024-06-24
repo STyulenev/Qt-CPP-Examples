@@ -1,5 +1,0 @@
-C:/Work/Qt-CPP-Examples/Qt-QML-Examples/QML-DragDrop-Example/build/Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/QML-DragDrop-Example.dir
-C:/Work/Qt-CPP-Examples/Qt-QML-Examples/QML-DragDrop-Example/build/Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
-C:/Work/Qt-CPP-Examples/Qt-QML-Examples/QML-DragDrop-Example/build/Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
-C:/Work/Qt-CPP-Examples/Qt-QML-Examples/QML-DragDrop-Example/build/Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/QML-DragDrop-Example_autogen_timestamp_deps.dir
-C:/Work/Qt-CPP-Examples/Qt-QML-Examples/QML-DragDrop-Example/build/Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/QML-DragDrop-Example_autogen.dir
