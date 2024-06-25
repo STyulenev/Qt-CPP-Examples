@@ -1,8 +1,9 @@
-import QtQuick 2.15
-import QtQml 2.15
-import QtQuick.Controls 1.4
-import QtQuick.Layouts 1.15
-import QtCharts 2.15 as QtCharts
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+
+import QtCharts as QtCharts
+
 // Import C++ class
 import ViewModels 0.1 as ViewModels
 
@@ -16,11 +17,42 @@ ApplicationWindow {
     visible: true
     title: "QML-ChartView-Example"
 
-    TabView {
-        anchors.fill: parent
+    TabBar {
+        id: tabBar
 
-        Tab {
-            title: "Example graph"
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+        }
+
+        TabButton {
+            text: qsTr("Example graph")
+        }
+
+        TabButton {
+            text: qsTr("Example piechart")
+        }
+
+        TabButton {
+            text: qsTr("Example bar")
+        }
+    }
+
+    StackLayout {
+        id: stackLayout
+
+        anchors {
+            top: tabBar.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        currentIndex: tabBar.currentIndex
+
+        Item {
+            id: page1
 
             property QtObject currentView: ViewModels.LinearGraphicsView { }
 
@@ -41,30 +73,31 @@ ApplicationWindow {
                 }
 
                 QtCharts.LineSeries {
-                    name: currentView.firstGraphicName
+                    name: page1.currentView.firstGraphicName
                     color: "red"
 
                     QtCharts.VXYModelMapper {
-                        model: currentView.firstGraphic
+                        model: page1.currentView.firstGraphic
                         xColumn: 0
                         yColumn: 1
                     }
                 }
 
                 QtCharts.LineSeries {
-                    name: currentView.secondGraphicName
+                    name: page1.currentView.secondGraphicName
                     color: "blue"
 
                     QtCharts.VXYModelMapper {
-                        model: currentView.secondGraphic
+                        model: page1.currentView.secondGraphic
                         xColumn: 0
                         yColumn: 1
                     }
                 }
             }
         }
-        Tab {
-            title: "Example piechart"
+
+        Item {
+            id: page2
 
             RowLayout {
                 anchors.fill: parent
@@ -112,23 +145,62 @@ ApplicationWindow {
                     Layout.fillWidth: true
 
                     model: [
-                            {
-                                value: 0.2,
-                                color: "lightgreen"
-                            },
-                            {
-                                value: 0.3,
-                                color: "lightgrey"
-                            },
-                            {
-                                value: 0.4,
-                                color: "lightblue"
-                            },
-                            {
-                                value: 0.1,
-                                color: "orange"
-                            }
-                        ]
+                        {
+                            value: 0.2,
+                            color: "lightgreen"
+                        },
+                        {
+                            value: 0.3,
+                            color: "lightgrey"
+                        },
+                        {
+                            value: 0.4,
+                            color: "lightblue"
+                        },
+                        {
+                            value: 0.1,
+                            color: "orange"
+                        }
+                    ]
+                }
+            }
+        }
+
+        Item {
+            id: page3
+
+            QtCharts.ChartView {
+                id: standartBarSeries
+
+                anchors.fill: parent
+
+                title: "Standart Bar series"
+                legend.alignment: Qt.AlignBottom
+                antialiasing: true
+
+                QtCharts.BarSeries {
+                    id: mySeries
+
+                    axisX: QtCharts.BarCategoryAxis {
+                        categories: ["#1", "#2", "#3", "#4", "#5", "#6" ]
+                    }
+
+                    QtCharts.BarSet {
+                        label: "First"
+                        values: [1, 7, 3, 2, 8, 1]
+                    }
+                    QtCharts.BarSet {
+                        label: "Second"
+                        values: [7, 2, 5, 2, 6, 8]
+                    }
+                    QtCharts.BarSet {
+                        label: "Third"
+                        values: [3, 5, 7, 8, 1, 5]
+                    }
+                    QtCharts.BarSet {
+                        label: "Fourth"
+                        values: [2, 6, 3, 5, 9, 7]
+                    }
                 }
             }
         }

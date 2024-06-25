@@ -5,7 +5,8 @@
 Примеры использования ChartView в QML:
 - График ChartView на основе модели;
 - Круговая диаграмма ChartView;
-- Пользовательская круговая диаграмма CustomPieView (на основе Canvas).
+- Пользовательская круговая диаграмма CustomPieView (на основе Canvas);
+- Бар диаграмма ChartView.
 
 ![alt text](doc/QML-ChartView-Example.png)
 
