@@ -1,0 +1,4 @@
+module Components
+
+DraggableRectangle 1.0 DraggableRectangle.qml
+ScrollingContainer 1.0 ScrollingContainer.qml

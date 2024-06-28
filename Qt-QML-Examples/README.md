@@ -36,6 +36,10 @@
 
 Пример использования дополнительных составных и часто используемых пользовательских виджетов в QML.
 
+## QML-DragDrop-Example
+
+Примеры Drag и Drop в QML:
+
 ## QML-Drawer-Example
 
 Пример использования Drawer в QML.
@@ -54,7 +58,7 @@
 
 ## QML-Map-Example
 
-Пример использования Map в QML.
+Пример использования карты Map в QML.
 
 ## QML-Menu-Example
 
