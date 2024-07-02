@@ -84,6 +84,10 @@
 
 Пример тестирования ui формы и других функций в Qt.
 
+## QTextEdit-QSyntaxHighlighter-Example
+
+Пример использование QSyntaxHighlighter для форматирования/подсветки текста в QTextEdit.
+
 ## QTreeView-Example
 
 Пример использования QTreeView на примере данных из вектора.
