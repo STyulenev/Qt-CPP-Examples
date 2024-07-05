@@ -52,6 +52,10 @@
 
 Пример использования виджета QStackedWidget с отдельным классом-навигатором.
 
+## QStateMachine-Example
+
+Пример использование смены состояний QStateMachine главного окна приложения.
+
 ## QSystemTrayIcon-Example
 
 Пример использование QSystemTrayIcon для сворачивания приложения в системный трей.
@@ -79,6 +83,10 @@
 ## QTest-Example
 
 Пример тестирования ui формы и других функций в Qt.
+
+## QTextEdit-QSyntaxHighlighter-Example
+
+Пример использование QSyntaxHighlighter для форматирования/подсветки текста в QTextEdit.
 
 ## QTreeView-Example
 
