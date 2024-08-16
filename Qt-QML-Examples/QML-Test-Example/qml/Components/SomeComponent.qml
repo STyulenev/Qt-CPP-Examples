@@ -19,8 +19,11 @@ Rectangle {
 
     Label {
         id: label
+
         objectName: "label"
+
         anchors.centerIn: parent
+
         font.pixelSize: 24
         color: "black"
         text: root.value;
@@ -28,7 +31,9 @@ Rectangle {
 
     MouseArea {
         id: mouseArea
+
         objectName: "mouseArea"
+
         anchors.fill: parent
 
         onClicked: {
@@ -36,4 +41,3 @@ Rectangle {
         }
     }
 }
-
