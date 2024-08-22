@@ -1,7 +1,7 @@
 import QtQuick 2.15
 import QtTest 1.1
 
-import "../qml/Components" 1.0 as Components
+import Components 1.0 as Components
 
 TestCase {
     id: root
