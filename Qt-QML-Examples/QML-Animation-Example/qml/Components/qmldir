@@ -1,4 +1,5 @@
 module Components
 
+HidingContainer    1.0 HidingContainer.qml
 SquareSwitchButton 1.0 SquareSwitchButton.qml
-SwitchButton 1.0 SwitchButton.qml
+SwitchButton       1.0 SwitchButton.qml

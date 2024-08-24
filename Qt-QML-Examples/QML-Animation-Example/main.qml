@@ -12,7 +12,7 @@ ApplicationWindow {
     visible: true
     title: qsTr("QML-Animation-Example")
 
-    Row {
+    /*Row {
         id: layout
 
         anchors.centerIn: parent
@@ -32,5 +32,22 @@ ApplicationWindow {
             width: 100
             height: 100
         }
+    }*/
+
+    Components.HidingContainer {
+        id: hidingContainer
+
+        anchors.centerIn: parent
+
+        width: 200
+        height: 200
+
+        container: Label {
+            anchors.centerIn: parent
+
+            text: qsTr("text")
+        }
+
+
     }
 }
