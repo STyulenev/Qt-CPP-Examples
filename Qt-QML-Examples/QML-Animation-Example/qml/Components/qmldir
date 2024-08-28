@@ -1,5 +1,6 @@
 module Components
 
-HidingContainer    1.0 HidingContainer.qml
-SquareSwitchButton 1.0 SquareSwitchButton.qml
-SwitchButton       1.0 SwitchButton.qml
+AdvertisingContainer 1.0 AdvertisingContainer.qml
+HidingContainer      1.0 HidingContainer.qml
+SquareSwitchButton   1.0 SquareSwitchButton.qml
+SwitchButton         1.0 SwitchButton.qml

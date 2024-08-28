@@ -2,8 +2,9 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>qml/Components/qmldir</file>
+        <file>qml/Components/AdvertisingContainer.qml</file>
         <file>qml/Components/HidingContainer.qml</file>
-        <file>qml/Components/SwitchButton.qml</file>
         <file>qml/Components/SquareSwitchButton.qml</file>
+        <file>qml/Components/SwitchButton.qml</file>
     </qresource>
 </RCC>
