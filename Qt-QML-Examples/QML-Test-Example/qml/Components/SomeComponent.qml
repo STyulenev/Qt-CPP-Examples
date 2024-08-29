@@ -4,6 +4,8 @@ import QtQuick.Controls 2.4
 Rectangle {
     id: root
 
+    objectName: "SomeComponent"
+
     color: "#d3d3d3"
     width: 200
     height: 200
