@@ -8,6 +8,10 @@
 - Popup (custom menu as Popup);
 - MenuBar (standart MenuBar).
 
+![alt text](doc/QML-Menu-Example-1.png)
+
+![alt text](doc/QML-Menu-Example-2.png)
+
 ## Сборка проекта
 
 Проект может быть собран из QtCreator или из папки build командами:
