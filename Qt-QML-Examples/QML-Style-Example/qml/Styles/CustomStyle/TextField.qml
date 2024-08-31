@@ -1,6 +1,6 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Templates 2.6 as Template
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Templates 2.15 as Template
 
 import Common 1.0 as Common
 
@@ -48,6 +48,7 @@ Template.TextField {
 
     cursorDelegate: Rectangle {
         id: cursor
+
         visible: textField.cursorVisible
         color: Common.Colors.textFieldTealCursorColor
         width: textField.cursorRectangle.width * Common.Consts.yCoord
@@ -75,6 +76,7 @@ Template.TextField {
 
     PlaceholderText {
         id: placeholderText
+
         x: textField.leftPadding
         y: textField.topPadding
         width: textField.width - (textField.leftPadding + textField.rightPadding)

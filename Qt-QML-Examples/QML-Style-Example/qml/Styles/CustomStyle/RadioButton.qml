@@ -1,11 +1,12 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Templates 2.6 as Template
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Templates 2.15 as Template
 
 import Common 1.0 as Common
 
 Template.RadioButton {
     id: radioButton
+
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
                             implicitContentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(
@@ -17,6 +18,7 @@ Template.RadioButton {
 
     indicator: Rectangle {
         id: box
+
         implicitWidth: 20 * Common.Consts.xCoord
         implicitHeight: implicitWidth
         radius: width / 2
@@ -31,6 +33,7 @@ Template.RadioButton {
 
         Canvas {
             id: dot
+
             width: box.height
             height: box.height
 
@@ -51,6 +54,7 @@ Template.RadioButton {
 
     contentItem: Text {
         id: text
+
         text: radioButton.text
         leftPadding: radioButton.indicator && !radioButton.mirrored ? radioButton.indicator.width + radioButton.spacing : 0
         rightPadding: radioButton.indicator && radioButton.mirrored ? radioButton.indicator.width + radioButton.spacing : 0

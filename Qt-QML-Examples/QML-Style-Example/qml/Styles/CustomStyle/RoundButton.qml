@@ -1,6 +1,6 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Templates 2.6 as Template
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Templates 2.15 as Template
 
 import Common 1.0 as Common
 
@@ -30,6 +30,7 @@ Template.RoundButton {
 
     contentItem: IconLabel {
         id: icon
+
         spacing: roundButton.spacing
         mirrored: roundButton.mirrored
         display: roundButton.display
@@ -41,6 +42,7 @@ Template.RoundButton {
 
     background: Rectangle {
         id: background
+
         anchors.fill: parent
         radius: parent.radius
         color: roundButton.pressed ? roundButton.palette.highlight : roundButton.palette.button

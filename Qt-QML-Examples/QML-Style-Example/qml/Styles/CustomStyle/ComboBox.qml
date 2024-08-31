@@ -1,6 +1,6 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Templates 2.6 as Template
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Templates 2.15 as Template
 
 import Common 1.0 as Common
 
@@ -38,6 +38,7 @@ Template.ComboBox {
 
     indicator: Canvas {
         id: canvas
+
         x: comboBox.width - width - 5 * Common.Consts.xCoord
         y: comboBox.topPadding + (comboBox.availableHeight - height) / 2
         width: comboBox.height * (comboBox.hovered ? 0.65 : 0.6)
@@ -103,6 +104,7 @@ Template.ComboBox {
 
     popup: Template.Popup {
         id: popup
+
         y: comboBox.height - 1
         implicitHeight: contentItem.implicitHeight
         width: comboBox.width

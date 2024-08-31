@@ -1,6 +1,6 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Templates 2.6 as Template
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Templates 2.15 as Template
 
 import Common 1.0 as Common
 
@@ -18,10 +18,12 @@ Template.ScrollBar {
 
     Button {
         id: btnDecrease
+
         anchors.left: parent.left
 
         Image {
             id: imgDecrease
+
             anchors.fill: parent
             anchors.margins: parent.width * 0.3
             source: "qrc:/res/white_arrow.svg"
@@ -69,6 +71,7 @@ Template.ScrollBar {
 
     contentItem: Rectangle {
         id: slider
+
         radius: 4 * Common.Consts.radialSize
         color: Common.Colors.currentTheme.mainThemeColor
 
@@ -97,10 +100,12 @@ Template.ScrollBar {
 
     Button {
         id: btnIncrease
+
         anchors.right: parent.right
 
         Image {
             id: imgIncrease
+
             anchors.fill: parent
             anchors.margins: parent.width * 0.3
             source: "qrc:/res/white_arrow.svg"

@@ -1,11 +1,12 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Templates 2.6 as Template
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Templates 2.15 as Template
 
 import Common 1.0 as Common
 
 Template.ProgressBar {
     id: progressBar
+
     to: 100.0
     from: 0.0
     padding: 2 * Common.Consts.xCoord
@@ -39,6 +40,7 @@ Template.ProgressBar {
 
         Text {
             id: text
+
             z: 2
             text: qsTr("Loading %1 %").arg(progressBar.value)
             color: Common.Colors.mainBackgroundColor

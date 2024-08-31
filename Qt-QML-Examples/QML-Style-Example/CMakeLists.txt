@@ -12,8 +12,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Qml Quick REQUIRED) #QuickControls2
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Qml Quick REQUIRED) #QuickControls2
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Qml Quick REQUIRED) # QuickControls2
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Qml Quick REQUIRED) # QuickControls2
 
 set(PROJECT_SOURCES
     main.cpp

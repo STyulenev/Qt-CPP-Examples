@@ -1,6 +1,6 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Templates 2.6 as Template
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Templates 2.15 as Template
 
 import Common 1.0 as Common
 
@@ -19,6 +19,7 @@ Template.CheckBox {
 
     indicator: Rectangle {
         id: box
+
         implicitWidth: 18 * Common.Consts.xCoord
         implicitHeight: implicitWidth
         x: text ? (checkBox.mirrored ? checkBox.width - width - checkBox.rightPadding : checkBox.leftPadding) : checkBox.leftPadding
@@ -43,6 +44,7 @@ Template.CheckBox {
 
     contentItem: Text {
         id: text
+
         text: checkBox.text
         color: Common.Colors.textColor
         leftPadding: checkBox.indicator && !checkBox.mirrored ? checkBox.indicator.width + checkBox.spacing : 0

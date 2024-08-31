@@ -1,6 +1,6 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Templates 2.6 as Template
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Templates 2.15 as Template
 
 import Common 1.0 as Common
 
@@ -15,6 +15,7 @@ Template.ScrollIndicator {
 
     contentItem: Rectangle {
         id: slider
+
         radius: 4 * Common.Consts.radialSize
         color: Common.Colors.activeControlColor
         visible: scrollIndicator.size < 1.0
