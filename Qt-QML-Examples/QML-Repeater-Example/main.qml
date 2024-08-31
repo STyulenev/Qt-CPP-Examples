@@ -30,8 +30,10 @@ Window {
         Components.Battery {
             id: battery
 
-            height: 200
-            width: 120
+            orientation: Qt.Vertical // Qt.Horizontal
+
+            height: battery.orientation === Qt.Vertical ? 200 : 120
+            width: battery.orientation === Qt.Vertical ? 120 : 200
 
             count: 4
             charge: 50 // %
