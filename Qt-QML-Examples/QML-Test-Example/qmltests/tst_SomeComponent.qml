@@ -22,28 +22,36 @@ TestCase {
         testComponent = createTemporaryObject(componentSomeComponent, root);
     }
 
+    function test_checkComponent() {
+        if (testComponent) {
+            compare(testComponent.objectName, "SomeComponent", "Checking the objectName property");
+        } else {
+            fail("testComponent not created");
+        }
+    }
+
     function test_click() {
-        compare(testComponent.value, 0)
+        compare(testComponent.value, 0, "Checking the value")
         testComponent.clicked();
-        compare(testComponent.value, 1)
+        compare(testComponent.value, 1, "Checking the change of the value")
     }
 
     function test_color() {
-        compare(testComponent.color, "#d3d3d3")
+        compare(testComponent.color, "#d3d3d3", "Checking the base color")
         testComponent.color = "#008000";
-        compare(testComponent.color, "#008000")
+        compare(testComponent.color, "#008000", "Checking the change of the main color")
     }
 
     function test_size() {
-        compare(testComponent.width, 250)
-        compare(testComponent.height, 250)
+        compare(testComponent.width, 250, "Checking width")
+        compare(testComponent.height, 250, "Checking height")
     }
 
     function test_label() {
         var label = testComponent.children.find(({ objectName }) => objectName === "label");
 
-        compare(label.font.pixelSize, 24);
+        compare(label.font.pixelSize, 24, "Checking font.pixelSize");
         label.font.pixelSize = 44;
-        compare(label.font.pixelSize, 44);
+        compare(label.font.pixelSize, 44, "Checking the change of the font.pixelSize");
     }
 }

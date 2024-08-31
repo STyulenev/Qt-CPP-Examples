@@ -20,7 +20,7 @@ ApplicationWindow {
                 text: qsTr("New")
 
                 onTriggered: {
-                    console.log("New")
+                    console.log("New");
                 }
             }
 
@@ -28,7 +28,7 @@ ApplicationWindow {
                 text: qsTr("Open")
 
                 onTriggered: {
-                    console.log("Open")
+                    console.log("Open");
                 }
             }
 
@@ -36,7 +36,7 @@ ApplicationWindow {
                 text: qsTr("Save")
 
                 onTriggered: {
-                    console.log("Save")
+                    console.log("Save");
                 }
             }
 
@@ -46,7 +46,7 @@ ApplicationWindow {
                 text: qsTr("Quit")
 
                 onTriggered: {
-                    console.log("Quit")
+                    console.log("Quit");
                 }
             }
         }
@@ -60,7 +60,7 @@ ApplicationWindow {
                 text: qsTr("About")
 
                 onTriggered: {
-                    console.log("About")
+                    console.log("About");
                 }
             }
         }
@@ -86,7 +86,7 @@ ApplicationWindow {
 
                 function onClicked(mouse) {
                     if (mouse.button === Qt.RightButton)
-                        firstContextMenu.popup()
+                        firstContextMenu.popup();
                 }
 
                 function onPressAndHold(mouse) {
@@ -106,6 +106,7 @@ ApplicationWindow {
 
         MenuItem {
             text: "Cut"
+
             onTriggered: {
                 console.log("Cut")
             }
@@ -113,15 +114,16 @@ ApplicationWindow {
 
         MenuItem {
             text: "Copy"
+
             onTriggered: {
-                console.log("Copy")
+                console.log("Copy");
             }
         }
 
         MenuItem {
             text: "Paste"
             onTriggered: {
-                console.log("Paste")
+                console.log("Paste");
             }
         }
     }
@@ -141,8 +143,8 @@ ApplicationWindow {
                 width: 100
                 height: 20
                 onClicked: {
-                    console.log("Quit")
-                    secondContextMenu.close()
+                    console.log("Quit");
+                    secondContextMenu.close();
                 }
             }
 
@@ -151,8 +153,8 @@ ApplicationWindow {
                 width: 100
                 height: 20
                 onClicked: {
-                    console.log("Restart")
-                    secondContextMenu.close()
+                    console.log("Restart");
+                    secondContextMenu.close();
                 }
             }
         }

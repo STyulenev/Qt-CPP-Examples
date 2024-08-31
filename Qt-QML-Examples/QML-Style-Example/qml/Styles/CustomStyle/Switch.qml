@@ -1,11 +1,12 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Templates 2.6 as Template
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Templates 2.15 as Template
 
 import Common 1.0 as Common
 
 Template.Switch {
     id: control
+
     spacing: 6 * Common.Consts.xCoord
 
     indicator: Rectangle {
@@ -25,6 +26,7 @@ Template.Switch {
 
         Rectangle {
             id: pill
+
             x: control.checked ? parent.width - width : indicatorRectangle.border.width
             y: indicatorRectangle.border.width / 2
             width: parent.height - indicatorRectangle.border.width

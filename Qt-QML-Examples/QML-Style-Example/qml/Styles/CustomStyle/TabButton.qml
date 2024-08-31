@@ -1,6 +1,6 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Templates 2.6 as Template
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Templates 2.15 as Template
 
 import Common 1.0 as Common
 
@@ -34,6 +34,7 @@ Template.TabButton {
 
     background: Rectangle {
         id: rec
+
         anchors.fill: parent
         radius: 2 * Common.Consts.radialSize
         anchors.margins: 5 * Common.Consts.radialSize

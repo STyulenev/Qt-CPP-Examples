@@ -88,6 +88,10 @@
 
 Пример использования SwipeView в QML.
 
+## QML-SystemTrayIcon-Example
+
+Пример использования SystemTrayIcon в QML.
+
 ## QML-TableView-Delegates-Example
 
 Пример использования делегатов TableView в QML на основе модели.

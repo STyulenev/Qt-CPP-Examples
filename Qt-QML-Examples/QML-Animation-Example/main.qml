@@ -34,20 +34,34 @@ ApplicationWindow {
         }
     }*/
 
-    Components.HidingContainer {
-        id: hidingContainer
+
+    Row {
+        id: layout2
 
         anchors.centerIn: parent
 
-        width: 200
-        height: 200
+        spacing: 20
 
-        container: Label {
-            anchors.centerIn: parent
+        Components.HidingContainer {
+            id: hidingContainer
 
-            text: qsTr("text")
+            width: 200
+            height: 200
+
+            container: Label {
+                anchors.centerIn: parent
+
+                text: qsTr("text")
+            }
         }
 
+        Components.AdvertisingContainer {
+            id: advertisingContainer
 
+            height: 250
+            width: 250
+
+            title: qsTr("Title")
+        }
     }
 }

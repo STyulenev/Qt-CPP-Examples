@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>res/icons-tray.png</file>
+    </qresource>
+</RCC>

@@ -9,10 +9,6 @@ Item {
 
     property alias container: container.children
 
-    onStateChanged: {
-        console.log(root.state)
-    }
-
     RowLayout {
         id: topPanel
 
@@ -42,7 +38,6 @@ Item {
         }
 
         ToolSeparator {
-            //Layout.preferredHeight: 4
             Layout.fillWidth: true
 
             orientation: Qt.Horizontal

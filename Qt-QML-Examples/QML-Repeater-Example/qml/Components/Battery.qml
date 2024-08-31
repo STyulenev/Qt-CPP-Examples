@@ -1,9 +1,11 @@
-import QtQuick 2.4
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 
 Rectangle {
     id: root
+
+    required property int orientation
 
     border {
         id: borderRoot
@@ -60,20 +62,100 @@ Rectangle {
         anchors.margins: column.margins
         spacing: 5
         z: 2
+    }
 
-        Repeater {
-            model: root.count
-            delegate: Rectangle {
-                radius: root.radius / 2
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                }
+    Row {
+        id: row
 
-                width: column.width * (index + 1)
-                height: (column.height - column.spacing * (root.count) + borderRoot.width) / root.count
-                color: root.getColorForIndex(index)
-            }
+        property int margins: borderRoot.width * 2
+
+        anchors.fill: parent
+        anchors.margins: row.margins
+        spacing: 5
+        z: 2
+    }
+
+    Repeater {
+        id: repeater
+
+        model: root.count
+        delegate: Rectangle {
+            radius: root.radius / 2
+
+            width: root.orientation === Qt.Horizontal ?
+                       (parent.width - parent.spacing * (root.count) + borderRoot.width) / root.count : parent.width
+            height: root.orientation === Qt.Horizontal ?
+                        parent.height : (parent.height - parent.spacing * (root.count) + borderRoot.width) / root.count
+            color: root.getColorForIndex(index)
         }
     }
+
+    states: [
+        State {
+            name: "Horizontal"
+            when: root.orientation === Qt.Horizontal
+
+            ParentChange {
+                target: repeater
+
+                parent: row
+            }
+
+            AnchorChanges {
+                target: repeater
+
+                anchors {
+                    left: row.left
+                    right: row.right
+                    top: row.top
+                    bottom: row.bottom
+                }
+            }
+
+            PropertyChanges {
+                target: row
+
+                visible: true
+            }
+
+            PropertyChanges {
+                target: column
+
+                visible: false
+            }
+        },
+        State {
+            name: "Vertical"
+            when: root.orientation === Qt.Vertical
+
+            ParentChange {
+                target: repeater
+
+                parent: column
+            }
+
+            AnchorChanges {
+                target: repeater
+
+                anchors {
+                    left: column.left
+                    right: column.right
+                    top: column.top
+                    bottom: column.bottom
+                }
+            }
+
+            PropertyChanges {
+                target: row
+
+                visible: false
+            }
+
+            PropertyChanges {
+                target: column
+
+                visible: true
+            }
+        }
+    ]
 }
