@@ -119,3 +119,7 @@
 ## QML-Video-Example
 
 Пример использования Video в QML.
+
+## QML-Window-Example
+
+Пример использования окон в QML.
