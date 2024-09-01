@@ -1,16 +1,11 @@
-#####################################################
-#
-# Модуль с окнами
-#
-#####################################################
-
 module Windows
 
 internal AbstractWindow AbstractWindow.qml
 
 WindowLoader 1.0 WindowLoader.qml
 
-SomeWindow 1.0 SomeWindow.qml
+NotificationWindow 1.0 NotificationWindow.qml
+SomeWindow         1.0 SomeWindow.qml
 # ...
 
 designersupported

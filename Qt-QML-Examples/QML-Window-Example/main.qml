@@ -11,7 +11,7 @@ ApplicationWindow {
     width: 500
     height: 500
 
-    title: qsTr("")
+    title: qsTr("QML-Window-Example")
 
     Component {
         id: windowSomeWindow
@@ -31,18 +31,40 @@ ApplicationWindow {
         }
     }
 
-    Row {
+    Windows.NotificationWindow {
+        id: notificationWindow
+
+        // ...
+    }
+
+    Column {
+        id: body
+
         anchors.centerIn: parent
+
+        spacing: 20
 
         Button {
             id: openWindowButton
 
-            width: 100
+            width: 200
             height: 50
             text: qsTr("Open window")
 
             onClicked: {
                 windowSomeWindow.createObject(applicationWindow);
+            }
+        }
+
+        Button {
+            id: notificationWindowButton
+
+            width: 200
+            height: 50
+            text: qsTr("Create notification")
+
+            onClicked: {
+                notificationWindow.setNotification("Notification");
             }
         }
     }
