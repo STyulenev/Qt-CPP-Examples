@@ -3,7 +3,7 @@ QT += quick
 CONFIG += c++20
 #CONFIG += debug / release
 
-TARGET = QML-Window-Example
+TARGET = QML-Dialog-Example
 
 CONFIG(debug, debug | release) {
     message("debug mode")

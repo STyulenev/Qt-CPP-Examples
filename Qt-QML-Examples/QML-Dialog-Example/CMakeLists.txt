@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(QML-Window-Example
+project(QML-Dialog-Example
     VERSION 0.1
-    DESCRIPTION "Project with sample QML-Window"
+    DESCRIPTION "Project with sample QML-Dialog"
     HOMEPAGE_URL "https://github.com/STyulenev/Qt-CPP-Examples"
     LANGUAGES CXX
 )

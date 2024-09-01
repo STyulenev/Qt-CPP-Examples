@@ -10,7 +10,7 @@ ApplicationWindow {
     width: 640
     height: 480
     visible: true
-    title: qsTr("QML-Window-Example")
+    title: qsTr("QML-Dialog-Example")
 
     Screens.SomeScreen {
         anchors.fill: parent
