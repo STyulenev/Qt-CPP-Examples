@@ -1,4 +1,5 @@
 module Components
 
-BlurButton 1.0 BlurButton.qml
-GlowButton 1.0 GlowButton.qml
+BlurButton        1.0 BlurButton.qml
+ColorOverlayImage 1.0 ColorOverlayImage.qml
+GlowButton        1.0 GlowButton.qml

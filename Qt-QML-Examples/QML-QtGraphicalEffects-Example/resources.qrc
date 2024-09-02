@@ -3,6 +3,7 @@
         <file>main.qml</file>
         <file>qml/Components/qmldir</file>
         <file>qml/Components/BlurButton.qml</file>
+        <file>qml/Components/ColorOverlayImage.qml</file>
         <file>qml/Components/GlowButton.qml</file>
         <file>res/warning-icon.svg</file>
     </qresource>

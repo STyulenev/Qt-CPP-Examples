@@ -28,7 +28,7 @@ ApplicationWindow {
         }
     }*/
 
-    Components.GlowButton {
+    /*Components.GlowButton {
         id: glowButton
 
         anchors.centerIn: parent
@@ -41,5 +41,18 @@ ApplicationWindow {
         onClicked: {
             console.log("Glow button clicked");
         }
+    }*/
+
+    Components.ColorOverlayImage {
+        id: colorOverlayImage
+
+        anchors.centerIn: parent
+
+        width: 100
+        height: 100
+
+        source: "qrc:/res/warning-icon.svg"
+
+        overlayColor: "blue"
     }
 }
