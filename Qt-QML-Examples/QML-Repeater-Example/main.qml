@@ -49,7 +49,7 @@ Window {
         }
     }*/
 
-    Components.SimpleTable {
+    /*Components.SimpleTable {
         id: simpleTable
 
         anchors.centerIn: parent
@@ -61,5 +61,29 @@ Window {
 
         height: 200
         width: 300
+    }*/
+
+    Components.Carousel {
+        id: carousel
+
+        anchors.centerIn: parent
+
+        height: 300
+        width: 300
+
+        model: [
+            {
+                "color": "lightgreen",
+                "text": "first"
+            },
+            {
+                "color": "lightblue",
+                "text": "second"
+            },
+            {
+                "color": "lightgrey",
+                "text": "third"
+            }
+        ]
     }
 }
