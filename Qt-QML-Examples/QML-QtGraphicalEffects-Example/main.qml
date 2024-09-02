@@ -13,7 +13,7 @@ ApplicationWindow {
     height: 480
     title: qsTr("QML-QtGraphicalEffects-Example")
 
-    Components.BlurButton {
+    /*Components.BlurButton {
         id: blurButton
 
         anchors.centerIn: parent
@@ -25,6 +25,21 @@ ApplicationWindow {
 
         onClicked: {
             console.log("Blur button clicked");
+        }
+    }*/
+
+    Components.GlowButton {
+        id: glowButton
+
+        anchors.centerIn: parent
+
+        width: 150
+        height: 80
+
+        isGlow: true
+
+        onClicked: {
+            console.log("Glow button clicked");
         }
     }
 }
