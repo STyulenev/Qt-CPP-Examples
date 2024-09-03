@@ -1,4 +1,5 @@
 module Components
 
 DraggableRectangle 1.0 DraggableRectangle.qml
+OpenSlider         1.0 OpenSlider.qml
 ScrollingContainer 1.0 ScrollingContainer.qml
