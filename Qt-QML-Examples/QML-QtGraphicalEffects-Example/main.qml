@@ -13,7 +13,7 @@ ApplicationWindow {
     height: 480
     title: qsTr("QML-QtGraphicalEffects-Example")
 
-    /*Components.BlurButton {
+    /*Components.FastBlurButton {
         id: blurButton
 
         anchors.centerIn: parent
@@ -24,7 +24,7 @@ ApplicationWindow {
         isBlur: true
 
         onClicked: {
-            console.log("Blur button clicked");
+            console.log("FastBlur button clicked");
         }
     }*/
 
@@ -43,7 +43,7 @@ ApplicationWindow {
         }
     }*/
 
-    Components.ColorOverlayImage {
+    /*Components.ColorOverlayImage {
         id: colorOverlayImage
 
         anchors.centerIn: parent
@@ -54,5 +54,20 @@ ApplicationWindow {
         source: "qrc:/res/warning-icon.svg"
 
         overlayColor: "blue"
+    }*/
+
+    Components.DirectionalBlurButton {
+        id: directionalBlurButton
+
+        anchors.centerIn: parent
+
+        width: 160
+        height: 80
+
+        isBlur: true
+
+        onClicked: {
+            console.log("DirectionalBlur button clicked");
+        }
     }
 }

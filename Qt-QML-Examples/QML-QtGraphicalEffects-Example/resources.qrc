@@ -2,9 +2,10 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>qml/Components/qmldir</file>
-        <file>qml/Components/BlurButton.qml</file>
+        <file>qml/Components/FastBlurButton.qml</file>
         <file>qml/Components/ColorOverlayImage.qml</file>
         <file>qml/Components/GlowButton.qml</file>
         <file>res/warning-icon.svg</file>
+        <file>qml/Components/DirectionalBlurButton.qml</file>
     </qresource>
 </RCC>
