@@ -35,7 +35,7 @@ ApplicationWindow {
     }*/
 
 
-    Row {
+    /*Row {
         id: layout2
 
         anchors.centerIn: parent
@@ -63,5 +63,13 @@ ApplicationWindow {
 
             title: qsTr("Title")
         }
+    }*/
+
+    Components.CircularLoader {
+        id: circularLoader
+
+        anchors.centerIn: parent
+
+        size: 300
     }
 }

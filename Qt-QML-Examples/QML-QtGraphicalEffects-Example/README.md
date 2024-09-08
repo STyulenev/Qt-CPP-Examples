@@ -1,13 +1,8 @@
-# QML-Window-Example
+# QML-QtGraphicalEffects-Example
 
 ## Описание
 
-Пример использования окон в QML:
-
-- Пример открытия второго окна с возвратом данных (Window);
-- Пример окна уведомлений в углу экрана (ApplicationWindow).
-
-![alt text](doc/QML-Window-Example.png)
+Пример использования QtGraphicalEffects в QML.
 
 ## Сборка проекта
 

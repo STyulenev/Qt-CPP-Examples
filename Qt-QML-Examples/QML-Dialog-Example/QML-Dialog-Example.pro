@@ -3,10 +3,7 @@ QT += quick
 CONFIG += c++20
 #CONFIG += debug / release
 
-TARGET = QML-Window-Example
-TEMPLATE = app
-
-DEFINES += QT_DEPRECATED_WARNINGS
+TARGET = QML-Dialog-Example
 
 CONFIG(debug, debug | release) {
     message("debug mode")

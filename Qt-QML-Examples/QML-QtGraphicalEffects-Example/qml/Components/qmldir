@@ -1,0 +1,6 @@
+module Components
+
+ColorOverlayImage     1.0 ColorOverlayImage.qml
+DirectionalBlurButton 1.0 DirectionalBlurButton.qml
+FastBlurButton        1.0 FastBlurButton.qml
+GlowButton            1.0 GlowButton.qml

@@ -6,5 +6,6 @@
         <file>qml/Components/HidingContainer.qml</file>
         <file>qml/Components/SquareSwitchButton.qml</file>
         <file>qml/Components/SwitchButton.qml</file>
+        <file>qml/Components/CircularLoader.qml</file>
     </qresource>
 </RCC>

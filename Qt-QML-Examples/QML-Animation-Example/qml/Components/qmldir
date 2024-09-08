@@ -1,6 +1,7 @@
 module Components
 
 AdvertisingContainer 1.0 AdvertisingContainer.qml
+CircularLoader       1.0 CircularLoader.qml
 HidingContainer      1.0 HidingContainer.qml
 SquareSwitchButton   1.0 SquareSwitchButton.qml
 SwitchButton         1.0 SwitchButton.qml

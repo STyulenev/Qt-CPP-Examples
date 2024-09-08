@@ -29,6 +29,10 @@ ApplicationWindow {
         TabButton {
             text: qsTr("DraggableRectangle")
         }
+
+        TabButton {
+            text: qsTr("OpenSlider")
+        }
     }
 
     StackLayout {
@@ -89,11 +93,28 @@ ApplicationWindow {
 
         Item {
             Components.DraggableRectangle {
+                id: draggableRectangle
+
                 x: 10
                 y: 10
 
                 width: 100
                 height: 100
+            }
+        }
+
+        Item {
+            Components.OpenSlider {
+                id: openSlider
+
+                anchors.centerIn: parent
+
+                width: 400
+                height: 80
+
+                onOpen: {
+                    console.log("OK")
+                }
             }
         }
     }

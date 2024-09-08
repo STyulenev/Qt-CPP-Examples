@@ -1,3 +1,11 @@
 module Windows
 
-MessageBox 1.0 MessageBox.qml
+internal AbstractWindow AbstractWindow.qml
+
+WindowLoader 1.0 WindowLoader.qml
+
+NotificationWindow 1.0 NotificationWindow.qml
+SomeWindow         1.0 SomeWindow.qml
+# ...
+
+designersupported

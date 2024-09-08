@@ -4,6 +4,7 @@
         <file>qml/Components/qmldir</file>
         <file>qml/Components/SignalLevel.qml</file>
         <file>qml/Components/Battery.qml</file>
+        <file>qml/Components/Carousel.qml</file>
         <file>qml/Components/SimpleTable.qml</file>
         <file>qml/Components/SoundLevel.qml</file>
         <file>qml/Models/qmldir</file>

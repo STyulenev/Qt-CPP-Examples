@@ -3,8 +3,9 @@
 ## Описание
 
 Примеры Drag и Drop в QML:
-- ScrollingContainer - пример контейнера с прокручивающимся контентом;
-- DraggableRectangle - пример перемещения Rectangle.
+- DraggableRectangle - пример простого перемещаемого Rectangle по родительскому компоненту;
+- OpenSlider - пример компонента-ключа (на основе перемещаемого Rectangle с возвратом);
+- ScrollingContainer - пример контейнера с прокручивающимся контентом.
 
 ## Сборка проекта
 

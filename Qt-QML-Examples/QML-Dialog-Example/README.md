@@ -1,13 +1,18 @@
-# QML-Window-Example
+# QML-Dialog-Example
 
 ## Описание
 
-Пример использования окон в QML:
+Пример использования диалоговых окон в QML:
 
-- Пример открытия второго окна с возвратом данных (Window);
-- Пример окна уведомлений в углу экрана (ApplicationWindow).
+- MessageBox (на основе custom window с загрузкой компонента и удалением);
+- FileDialog (standart dialog);
+- MessageDialog (standart dialog);
+- ColorDialog (standart dialog);
+- FolderDialog (standart dialog);
+- FontDialog (standart dialog);
+- Popup (standart popup).
 
-![alt text](doc/QML-Window-Example.png)
+![alt text](doc/QML-Dialog-Example.gif)
 
 ## Сборка проекта
 
