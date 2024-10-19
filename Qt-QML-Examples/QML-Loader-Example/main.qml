@@ -1,12 +1,15 @@
 import QtQuick
 import QtQuick.Window
 
+import Components 1.0 as Components
+
 Window {
     width: 640
     height: 480
     visible: true
     title: qsTr("QML-Loader-Example")
 
+    // Пример для Binding
     QtObject {
         id: internal
 
@@ -37,12 +40,13 @@ Window {
         }
 
         onLoaded: {
+            // Connections и Binding через Qt методы
             internal.itemColor = Qt.binding(function() { return myLoader.item.color });
-
             myLoader.item.message.connect(function (msg) { console.log(msg) });
         }
     }
 
+    // Connections и Binding как отдельные компоненты
     /*Connections {
         target: myLoader.item
         function onMessage(msg) { console.log(msg) }
@@ -55,46 +59,20 @@ Window {
     Component {
         id: newComponent1
 
-        Rectangle {
-            id: myItem
-
-            signal message(string msg)
-
-
-
-            anchors.fill: parent
-
-            color: "blue"
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    myItem.message("clicked 1!")
-                    myItem.color = Qt.rgba(Math.random(), Math.random(), Math.random(), 1)
-                }
-            }
-        }
+        Components.Component1 { }
     }
 
     Component {
         id: newComponent2
 
-        Rectangle {
-            id: myItem
-
-            signal message(string msg)
-
-            anchors.fill: parent
-
-            color: "red"
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    myItem.message("clicked 2!")
-                    myItem.color = Qt.rgba(Math.random(), Math.random(), Math.random(), 1)
-                }
-            }
-        }
+        Components.Component2 { }
     }
+
+    /*Component {
+        id: newComponent3
+
+        Rectangle {
+            ...
+        }
+    }*/
 }
