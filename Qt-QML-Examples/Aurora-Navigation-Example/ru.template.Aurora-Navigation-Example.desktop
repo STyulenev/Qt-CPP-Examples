@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=ru.template.Aurora-Navigation-Example
+Exec=/usr/bin/ru.template.Aurora-Navigation-Example
+Name=Example nvg
+Name[ru]=Пример нвг
+
+[X-Application]
+Permissions=
+OrganizationName=ru.template
+ApplicationName=Aurora-Navigation-Example
+ExecDBus=/usr/bin/ru.template.Aurora-Navigation-Example

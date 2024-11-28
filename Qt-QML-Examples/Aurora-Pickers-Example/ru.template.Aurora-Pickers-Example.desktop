@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=ru.template.Aurora-Pickers-Example
+Exec=/usr/bin/ru.template.Aurora-Pickers-Example
+Name=Template dlg
+Name[ru]=Пример длг
+
+[X-Application]
+Permissions=Documents;Downloads;Music;Pictures;PublicDir;RemovableMedia;Videos
+OrganizationName=ru.template
+ApplicationName=Aurora-Pickers-Example
+ExecDBus=/usr/bin/ru.template.Aurora-Pickers-Example

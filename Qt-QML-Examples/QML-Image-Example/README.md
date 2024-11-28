@@ -4,7 +4,8 @@
 
 Пример использования передачи изображения из C++ слоя в QML:
  - QQuickImageProvider;
- - QQuickPaintedItem.
+ - QQuickPaintedItem;
+ - QString base64 data.
 
 ## Сборка проекта
 

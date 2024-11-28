@@ -1,5 +1,13 @@
 # Qt-QML-Examples
 
+## Aurora-Navigation-Example
+
+Пример использования стандартной навигации в Aurora/QML.
+
+## Aurora-Pickers-Example
+
+Пример использования пикеров и диалогов в Aurora/QML.
+
 ## Felgo-ListView-Example
 
 Пример использования AppListView в Felgo/QML на основе различных моделей.

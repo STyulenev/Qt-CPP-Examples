@@ -3,6 +3,7 @@
 
 #include "ImageBox.h"
 #include "ImageProvider.h"
+#include "SomeModel.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +11,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<ImageBox>("MyWidgets", 1, 0, "ImageBox");
     //qmlRegisterType<ColorImageProvider>("ColorImageProvider", 1, 0, "ColorImageProvider");
+    qmlRegisterType<SomeModel>("MyWidgets", 1, 0, "SomeModel");
 
     QQmlApplicationEngine engine;
 
