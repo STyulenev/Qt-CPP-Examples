@@ -2,7 +2,7 @@
 
 ## Описание
 
-Пример использования навигации в Aurora/QML на основе различных моделей.
+Пример использования стандартной навигации в Aurora/QML (from Silica).
 
 ## Сборка проекта
 
@@ -19,7 +19,7 @@ sfdk build-init
 sfdk build-shell cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Debug ../Aurora-Navigation-Example/
 sfdk build-shell cmake --build . -j6
 ```
-### CMake:
+### QMake:
 
 ```bash
 mkdir build && cd build
@@ -31,17 +31,19 @@ sfdk build-shell qmake -DCMAKE_BUILD_TYPE=Debug ../Aurora-Navigation-Example/
 sfdk build-shell make
 ```
 
+Также необходимо в настройках подключить IDE к устройству с AuroraOS для тестирования.
+
 ## Версии
 
 Версии сред, языков и утилит, которые использовались на момент написания проекта.
 
 | Название   | Версия               |
 | -----------|----------------------|
-| C++        | 17                   |
-| CMake      | 3.13                 |
+| C++        | 11                   |
+| CMake      | 3.5                  |
 | QMake      | 3.1                  |
 | Qt         | 5.6.3                |
 | Aurora     | 5.1.0.100            |
-| MinGW      | 11.2 64 bit          |
+| GCC        | 7.1                  |
 
 Тестировалось на планшете T1100 (ARM) + Ubuntu 22.04
