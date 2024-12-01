@@ -16,7 +16,7 @@ mkdir build && cd build
 alias sfdk=/path to Aurora IDE/bin/sfdk
 sfdk config target=AuroraOS-5.1.0.100-base-armv7hl
 sfdk build-init
-sfdk build-shell cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Debug ../Aurora-Navigation-Example/
+sfdk build-shell cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Debug ../Aurora-Pickers-Example/
 sfdk build-shell cmake --build . -j6
 ```
 ### QMake:
@@ -27,7 +27,7 @@ mkdir build && cd build
 alias sfdk=/path to Aurora IDE/bin/sfdk
 sfdk config target=AuroraOS-5.1.0.100-base-armv7hl
 sfdk build-init
-sfdk build-shell qmake -DCMAKE_BUILD_TYPE=Debug ../Aurora-Navigation-Example/
+sfdk build-shell qmake -DCMAKE_BUILD_TYPE=Debug ../Aurora-Pickers-Example/
 sfdk build-shell make
 ```
 
