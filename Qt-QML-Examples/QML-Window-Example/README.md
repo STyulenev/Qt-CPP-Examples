@@ -5,6 +5,7 @@
 Пример использования окон в QML:
 
 - Пример открытия второго окна с возвратом данных (Window);
+- Пример пользовательского окна с AppBar, resize и background (CustomWindow);
 - Пример окна уведомлений в углу экрана (ApplicationWindow).
 
 ![alt text](doc/QML-Window-Example.png)

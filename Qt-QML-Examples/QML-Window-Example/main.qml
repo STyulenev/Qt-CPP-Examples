@@ -14,7 +14,7 @@ ApplicationWindow {
     title: qsTr("QML-Window-Example")
 
     Component {
-        id: windowSomeWindow
+        id: simpleWindowComponent
 
         Windows.WindowLoader {
             window: Windows.SomeWindow {
@@ -27,6 +27,18 @@ ApplicationWindow {
                 onClosing: {
                     // ...
                 }
+            }
+        }
+    }
+
+    Component {
+        id: customWindowComponent
+
+        Windows.CustomWindow {
+            // ...
+
+            onClosing: {
+                // ...
             }
         }
     }
@@ -45,14 +57,26 @@ ApplicationWindow {
         spacing: 20
 
         Button {
-            id: openWindowButton
+            id: openSimpleWindowButton
 
             width: 200
             height: 50
-            text: qsTr("Open window")
+            text: qsTr("Open simple window")
 
             onClicked: {
-                windowSomeWindow.createObject(applicationWindow);
+                simpleWindowComponent.createObject(applicationWindow);
+            }
+        }
+
+        Button {
+            id: openCustomWindowButton
+
+            width: 200
+            height: 50
+            text: qsTr("Open custom window")
+
+            onClicked: {
+                customWindowComponent.createObject(applicationWindow);
             }
         }
 

@@ -6,5 +6,6 @@
         <file>qml/Windows/AbstractWindow.qml</file>
         <file>qml/Windows/SomeWindow.qml</file>
         <file>qml/Windows/NotificationWindow.qml</file>
+        <file>qml/Windows/CustomWindow.qml</file>
     </qresource>
 </RCC>
