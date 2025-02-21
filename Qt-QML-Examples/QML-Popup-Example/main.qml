@@ -22,7 +22,11 @@ Window {
         }
 
         TabButton {
-            text: qsTr("PopupMenu")
+            text: qsTr("Custom PopupMenu")
+        }
+
+        TabButton {
+            text: qsTr("Simple Popup")
         }
     }
 
@@ -52,9 +56,33 @@ Window {
                 anchors.fill: parent
 
                 onClicked: (mouse) => {
-                    var c = popupMenuComponent.createObject(page1, {});
-                    c.open(mouse.x, mouse.y);
-                }
+                               var c = popupMenuComponent.createObject(page1, {});
+                               c.open(mouse.x, mouse.y);
+                           }
+            }
+        }
+
+        Rectangle {
+            id: page2
+
+            color: "lightblue"
+
+            Text {
+                anchors.centerIn: parent
+                text: qsTr("Click for creating simple Popup")
+            }
+
+            MouseArea {
+                anchors.fill: parent
+
+                onClicked: (mouse) => {
+                               var c = simplePopupComponent.createObject(page2,
+                                                                         {
+                                                                             "x": mouse.x,
+                                                                             "y": mouse.y
+                                                                         });
+                               c.open();
+                           }
             }
         }
     }
@@ -76,6 +104,39 @@ Window {
             }
 
             // ...
+        }
+    }
+
+    Component {
+        id: simplePopupComponent
+
+        Popup {
+            id: popup
+
+            width: 200
+            height: 200
+
+            modal: true
+            focus: true
+            //closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+
+            background: Rectangle {
+                color: "lightpink"
+            }
+
+            Text {
+                anchors.centerIn: parent
+                text: qsTr("Simple Popup")
+            }
+
+            MouseArea {
+                anchors.fill: parent
+
+                onClicked: (mouse) => {
+                               popup.close();
+                               popup.destroy();
+                           }
+            }
         }
     }
 }
