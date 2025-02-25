@@ -63,7 +63,7 @@ Window {
         width: 300
     }*/
 
-    Components.Carousel {
+    /*Components.Carousel {
         id: carousel
 
         anchors.centerIn: parent
@@ -84,6 +84,30 @@ Window {
                 "color": "lightgrey",
                 "text": "third"
             }
+        ]
+    }*/
+
+    Components.ButtonGroup {
+        id: buttonGroup
+
+        anchors.centerIn: parent
+
+        buttons: [
+            {
+                text: "+",
+                action: function() {
+                    console.log("click: + button")
+                }
+                // ...
+            },
+            {
+                text: "-",
+                action: function() {
+                    console.error("click: - button")
+                }
+                // ...
+            }
+            // ...
         ]
     }
 }

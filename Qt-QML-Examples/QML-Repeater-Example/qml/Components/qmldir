@@ -1,6 +1,7 @@
 module Components
 
 Battery     1.0 Battery.qml
+ButtonGroup 1.0 ButtonGroup.qml
 Carousel    1.0 Carousel.qml
 SignalLevel 1.0 SignalLevel.qml
 SimpleTable 1.0 SimpleTable.qml

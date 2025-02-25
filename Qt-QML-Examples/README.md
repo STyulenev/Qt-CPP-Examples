@@ -80,6 +80,16 @@
 
 Пример использования различных меню в QML.
 
+## QML-PathView-Example
+
+## QML-Popup-Example
+
+Примеры использования Popup в QML.
+
+## QML-QtGraphicalEffects-Example
+
+Пример использования QtGraphicalEffects в QML.
+
 ## QML-RadioButtonGroup-Example
 
 Пример использования RadioButton в QML на основе модели из C++ слоя.
