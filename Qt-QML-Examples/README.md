@@ -130,6 +130,10 @@
 
 Пример использования TestCase (QQuickTest) для тестирования qml-компонентов.
 
+## QML-ToolTip-Example
+
+Примеры использования ToolTip в QML
+
 ## QML-Translator-Example
 
 Пример использования QTranslator в QML.
