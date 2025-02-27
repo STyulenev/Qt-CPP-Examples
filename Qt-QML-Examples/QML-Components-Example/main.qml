@@ -13,6 +13,8 @@ import Controllers 1.0 as Controllers
 
 import CPPEnums 1.0 as CPPEnums
 
+import ui.components 1.0 as UI
+
 ApplicationWindow {
     id: mainWindow
 
@@ -98,7 +100,7 @@ ApplicationWindow {
         }
     }*/
 
-    Button {
+    /*Button {
         id: button
 
         anchors.centerIn: parent
@@ -119,5 +121,16 @@ ApplicationWindow {
                 console.log("second assync functions ...")
             });
         }
+    }*/
+
+    UI.SomeComponent {
+        id: someComponent
+
+        anchors.centerIn: parent
+
+        width: 200
+        height: 200
+
+        colorType: UI.ColorTypes.Pink
     }
 }

@@ -14,6 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Quick REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Quick REQUIRED)
 
+add_subdirectory(libs)
 add_subdirectory(src)
 
 set(PROJECT_SOURCES
@@ -40,8 +41,11 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONF
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Quick
+
     Qml-component-lib
     Qml-controller-lib
+
+    UI-lib
 )
 
 set_target_properties(${PROJECT_NAME}
