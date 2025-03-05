@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qml/Components/qmldir</file>
+        <file>qml/Components/MenuItem.qml</file>
+        <file>qml/Components/PopupMenu.qml</file>
+    </qresource>
+</RCC>

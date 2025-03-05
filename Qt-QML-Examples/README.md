@@ -24,6 +24,10 @@
 
 Пример использования QML-компонентов в KDE Plasma.
 
+## QML-Android-Example
+
+Пример создания Android приложения на QML.
+
 ## QML-Animation-Example
 
 Пример использования анимации в пользовательских компонентах QML.
@@ -80,6 +84,16 @@
 
 Пример использования различных меню в QML.
 
+## QML-PathView-Example
+
+## QML-Popup-Example
+
+Примеры использования Popup в QML.
+
+## QML-QtGraphicalEffects-Example
+
+Пример использования QtGraphicalEffects в QML.
+
 ## QML-RadioButtonGroup-Example
 
 Пример использования RadioButton в QML на основе модели из C++ слоя.
@@ -119,6 +133,10 @@
 ## QML-Test-Example
 
 Пример использования TestCase (QQuickTest) для тестирования qml-компонентов.
+
+## QML-ToolTip-Example
+
+Примеры использования ToolTip в QML
 
 ## QML-Translator-Example
 

@@ -2,10 +2,12 @@ module Windows
 
 internal AbstractWindow AbstractWindow.qml
 
-WindowLoader 1.0 WindowLoader.qml
+WindowLoader       1.0 WindowLoader.qml
 
 NotificationWindow 1.0 NotificationWindow.qml
 SomeWindow         1.0 SomeWindow.qml
+
+CustomWindow       1.0 CustomWindow.qml
 # ...
 
 designersupported

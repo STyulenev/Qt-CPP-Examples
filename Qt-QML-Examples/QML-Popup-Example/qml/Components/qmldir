@@ -1,0 +1,4 @@
+module Components
+
+MenuItem  1.0 MenuItem.qml
+PopupMenu 1.0 PopupMenu.qml

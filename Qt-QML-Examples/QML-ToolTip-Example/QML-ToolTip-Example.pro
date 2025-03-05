@@ -1,9 +1,9 @@
-QT += quick concurrent
+QT += quick
 
 CONFIG += c++20
 #CONFIG += debug / release
 
-TARGET = QML-Components-Example
+TARGET = QML-Popup-Example
 TEMPLATE = app
 
 DEFINES += QT_DEPRECATED_WARNINGS
@@ -24,13 +24,10 @@ CONFIG(debug, debug | release) {
     RCC_DIR     = $$OUT_PWD/release/rcc # промежуточные файлы ресурсов
 }
 
-include(libs/Libs.pri)
-include(src/Source.pri)
-
 QML_IMPORT_PATH += $$PWD/qml
 
 SOURCES += \
         main.cpp
-		
+
 RESOURCES += \
         resource.qrc

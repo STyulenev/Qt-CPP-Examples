@@ -1,18 +1,11 @@
-# QML-Repeater-Example
+# QML-ToolTip-Example
 
 ## Описание
 
-Пример использования Repeater в QML:
-- Battery - пример создания компонента для уровня заряда батареи (горизонтальная/вертикальная).
-- ButtonGroup - пример создания группы кнопок с передачей js-массива в Repeater.
-- Carousel - пример carousel-компонента;
-- SignalLevel - пример создания компонента для уровня сигнала.
-- SimpleTable + SimpleTableModel - пример создания простой таблицы на основе пользовательской табличной модели.
-- SoundLevel - пример создания компонента для уровня громкости.
-
-![alt text](doc/QML-Repeater-Example-1.png)
-
-![alt text](doc/QML-Repeater-Example-2.png)
+Примеры использования ToolTip в QML:
+- Простой ToolTip;
+- Кастомизированный ToolTip;
+- ...
 
 ## Сборка проекта
 

@@ -9,5 +9,6 @@
         <file>qml/Components/SoundLevel.qml</file>
         <file>qml/Models/qmldir</file>
         <file>qml/Models/SimpleTableModel.qml</file>
+        <file>qml/Components/ButtonGroup.qml</file>
     </qresource>
 </RCC>

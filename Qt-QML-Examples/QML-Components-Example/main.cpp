@@ -7,9 +7,13 @@
 
 #include "AssyncController.h"
 
+#include "UiLibPlugin.h"
+
 auto main(int argc, char* argv[]) -> int
 {
     QGuiApplication app(argc, argv);
+
+    UiLibPlugin::initializePlugin();
 
     qmlRegisterType<Components::Circle>("CustomVisualType", 1, 0, "Circle");
     qmlRegisterType<Components::DateTime>("CustomNonVisualType", 1, 0, "DateTime");
