@@ -24,6 +24,7 @@ CONFIG(debug, debug | release) {
     RCC_DIR     = $$OUT_PWD/release/rcc # промежуточные файлы ресурсов
 }
 
+include(libs/Libs.pri)
 include(src/Source.pri)
 
 QML_IMPORT_PATH += $$PWD/qml

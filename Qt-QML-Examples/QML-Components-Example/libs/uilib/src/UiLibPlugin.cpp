@@ -7,6 +7,7 @@
 
 void UiLibPlugin::initializePlugin()
 {
+    // for CMake static lib
     Q_INIT_RESOURCE(uilib_resource);
 
     qmlRegisterUncreatableType<ColorTypes>("ui.components", 1, 0, "ColorTypes", "only enum");
