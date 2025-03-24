@@ -1,7 +1,10 @@
 #include "LibraryController.h"
 
 int main() {
+    // Путь к директории с собранными библиотеками
     const QString path = "C:/Work/QLibrary-Example/";
+
+    // Список с названиями библиотек
     const QStringList libList = {
                                  "TestLib-1",
                                  "TestLib-2"

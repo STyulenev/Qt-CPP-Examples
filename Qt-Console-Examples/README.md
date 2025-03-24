@@ -34,7 +34,11 @@
 
 ## QJsonDocument-Example
 
-Пример использования JSON в Qt
+Пример использования JSON в Qt.
+
+## QLibrary-Example
+
+Пример использования QLibrary для загрузки си-подобных библиотек в runtime.
 
 ## QNetworkAccessManager-Example
 

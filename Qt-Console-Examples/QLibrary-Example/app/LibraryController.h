@@ -14,6 +14,23 @@ public:
 
     void launch();
 
+    /*!
+     * \brief Функция вызыва библиотечных функций.
+     * \details R - тип возвращаемого значения. Args - типы данных аргументов функции.
+     * \param libName - название библиотеки
+     * \param funcName - название функции
+     * \param args - аргументы функции
+     * \return значение из функции с типом R
+     *
+     * Пример для функции print без шаблона.
+     * \code
+     * typedef void (*PrintFunction)(const char* const);
+     * PrintFunction print = (PrintFunction) lib->resolve(funcName.toStdString().c_str());
+     * if (print) {
+     *   print("some text...");
+     * }
+     * \endcode
+     */
     template <class R, typename... Args>
     R callFunc(QString libName, QString funcName, Args... args) {
         if (_libMap.contains(libName)) {
@@ -33,6 +50,7 @@ public:
             }
         } else {
             qDebug() << "Error #3";
+
             throw std::bad_function_call();
         }
     }
@@ -41,6 +59,5 @@ private:
     QString _path;
     QStringList _libList;
     QMap<QString, QLibrary*> _libMap;
-
 
 };
