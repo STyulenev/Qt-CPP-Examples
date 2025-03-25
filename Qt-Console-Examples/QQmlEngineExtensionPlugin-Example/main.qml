@@ -16,10 +16,10 @@ ApplicationWindow {
         anchors.centerIn: parent
         spacing: 10
 
-        /*UILib.MyTest {
+        UILib.MyTest {
             width: 100
             height: 100
-        }*/
+        }
 
         UILib.MyRectangle {
             width: 100
