@@ -1,0 +1,5 @@
+module uilib
+
+MyTest 1.0 MyTest.qml
+
+plugin uilibplugin
