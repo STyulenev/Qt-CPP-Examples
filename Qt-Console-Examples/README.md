@@ -48,6 +48,10 @@
 
 Пример использования QProcess для взайимодействия с консолью.
 
+## QQmlEngineExtensionPlugin-Example
+
+Пример использования QQmlEngineExtensionPlugin для создания QML плагинов.
+
 ## QTcpSocket-Example
 
 Пример использования QTcpSocket и QTcpServer (клиент и сервер).
