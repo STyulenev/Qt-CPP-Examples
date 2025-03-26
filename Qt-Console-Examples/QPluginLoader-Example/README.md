@@ -4,6 +4,8 @@
 
 Пример использования QPluginLoader для загрузки QML плагинов в runtime. TestPlugin - пример плагина.
 
+![alt text](doc/QPluginLoader-Example.png)
+
 ## Использование
 
 1. Собрать TestPlugin.

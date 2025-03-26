@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 
+// Если плагин не загружен, то будет ошибка:
+// qrc:/main.qml:4:1: module "ui.components" is not installed
 import ui.components 1.0 as UILib
 
 ApplicationWindow {
