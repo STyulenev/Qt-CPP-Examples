@@ -44,6 +44,10 @@
 
 Пример использования QNetworkAccessManager на примере сетевых HTTP get и post запросов.
 
+## QPluginLoader-Example
+
+Пример использования QPluginLoader для загрузки QML плагинов в runtime.
+
 ## QProcess-Example
 
 Пример использования QProcess для взайимодействия с консолью.
