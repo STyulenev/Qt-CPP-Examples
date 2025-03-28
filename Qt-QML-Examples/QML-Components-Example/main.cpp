@@ -6,6 +6,7 @@
 #include "Enums.h"
 
 #include "AssyncController.h"
+#include "SingletonClass.h"
 
 #include "UiLibPlugin.h"
 
@@ -27,6 +28,7 @@ auto main(int argc, char* argv[]) -> int
     );
 
     qmlRegisterType<Controllers::AssyncController>("Controllers", 1, 0, "AssyncController");
+    qmlRegisterSingletonType<Controllers::SingletonClass>("SingletonClass", 1, 0, "SingletonClass", Controllers::singletonProvider);
 
     QQmlApplicationEngine engine;
     engine.addImportPath("qrc:/qml");

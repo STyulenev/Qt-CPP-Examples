@@ -10,6 +10,7 @@ import CustomVisualType 1.0 as CustomVisualType
 import CustomNonVisualType 1.0 as CustomNonVisualType
 
 import Controllers 1.0 as Controllers
+import SingletonClass 1.0 as Singletons
 
 import CPPEnums 1.0 as CPPEnums
 
@@ -22,6 +23,20 @@ ApplicationWindow {
     width: CommonData.Consts.screenWidth
     height: CommonData.Consts.screenHeight
     title: qsTr("QML-Components-Example")
+
+
+    Component.onCompleted: {
+        var str = Singletons.SingletonClass.getMessage(Singletons.SingletonClass.Info);
+        console.log("qml log: " + str)
+    }
+
+    Connections {
+        target: Singletons.SingletonClass
+
+        function onNewMessage(message) {
+            console.log("qml log: " + message)
+        }
+    }
 
     // ComponentsLibrary.LabelAndTextField example
     /*ComponentsLibrary.LabelAndTextField {

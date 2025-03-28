@@ -1,10 +1,10 @@
-# QML-Loader-Example
+# QML-Audio-Example
 
 ## Описание
 
-Примеры использования Loader в QML:
-- для загрузки компонентов при создании окна;
-- для загрузки не null компонентов.
+Пример использования Audio в QML.
+
+![alt text](doc/QML-Audio-Example.png)
 
 ## Сборка проекта
 

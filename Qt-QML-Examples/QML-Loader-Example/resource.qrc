@@ -4,5 +4,8 @@
         <file>qml/Components/Component1.qml</file>
         <file>qml/Components/Component2.qml</file>
         <file>qml/Components/qmldir</file>
+        <file>qml/Pages/qmldir</file>
+        <file>qml/Pages/Page1.qml</file>
+        <file>qml/Pages/Page2.qml</file>
     </qresource>
 </RCC>
