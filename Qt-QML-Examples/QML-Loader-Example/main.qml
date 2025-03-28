@@ -1,78 +1,53 @@
 import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import QtQuick.Window
 
-import Components 1.0 as Components
+import Pages 1.0 as Pages
 
-Window {
+ApplicationWindow {
     width: 640
     height: 480
     visible: true
     title: qsTr("QML-Loader-Example")
 
-    // Пример для Binding
-    QtObject {
-        id: internal
+    TabBar {
+        id: tabBar
 
-        property color itemColor: "white"
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+        }
 
-        onItemColorChanged: {
-            console.log(itemColor)
+        TabButton {
+            text: qsTr("Example 1")
+        }
+
+        TabButton {
+            text: qsTr("Example 2")
         }
     }
 
-    Loader {
-        id: myLoader
+    StackLayout {
+        id: stackLayout
 
-        anchors.centerIn: parent
-
-        width: 200
-        height: 200
-
-        sourceComponent: {
-            var type = 0; // 0, 1, ...
-
-            switch(type) {
-            case 0: return newComponent1;
-            case 1: return newComponent2;
-            default:
-                return newComponent1;
-            }
+        anchors {
+            top: tabBar.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
         }
 
-        onLoaded: {
-            // Connections и Binding через Qt методы
-            internal.itemColor = Qt.binding(function() { return myLoader.item.color });
-            myLoader.item.message.connect(function (msg) { console.log(msg) });
+        currentIndex: tabBar.currentIndex
+
+        Pages.Page1 {
+            id: page1
+        }
+
+        Pages.Page2 {
+            id: page2
+
         }
     }
-
-    // Connections и Binding как отдельные компоненты
-    /*Connections {
-        target: myLoader.item
-        function onMessage(msg) { console.log(msg) }
-    }
-
-    Binding {
-        internal.itemColor: myLoader.item.color
-    }*/
-
-    Component {
-        id: newComponent1
-
-        Components.Component1 { }
-    }
-
-    Component {
-        id: newComponent2
-
-        Components.Component2 { }
-    }
-
-    /*Component {
-        id: newComponent3
-
-        Rectangle {
-            ...
-        }
-    }*/
 }
