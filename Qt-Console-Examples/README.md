@@ -40,6 +40,10 @@
 
 Пример использования QLibrary для загрузки си-подобных библиотек в runtime.
 
+## QLockFile-Example
+
+Пример использования QLockFile на примере запуска только одного экземпляра приложения.
+
 ## QNetworkAccessManager-Example
 
 Пример использования QNetworkAccessManager на примере сетевых HTTP get и post запросов.
