@@ -104,6 +104,10 @@
 
 Пример использования библиотеки SOCI для взаимодействия с базами данных PostgreSQL.
 
+## SQLCipher-Example (libsqlite3ms)
+
+Пример использования библиотеки libsqlite3ms для взаимодействия с шифрованными базами данных SQLite/SQLCipher.
+
 ## SQLite-Example (libsqlite3)
 
 Пример использования библиотеки libsqlite3 для взаимодействия с базами данных SQLite.
