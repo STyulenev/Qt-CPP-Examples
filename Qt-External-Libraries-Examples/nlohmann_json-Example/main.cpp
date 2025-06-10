@@ -62,5 +62,24 @@ auto main(int argc, char *argv[]) -> int
         }
     }
 
+    // Создание json
+    {
+        json j;
+
+        j["first"]   = 3.141;
+        j["secondt"] = true;
+        j["third"]   = "some data";
+
+        j["data"]["first"]   = 3.142;
+        j["data"]["secondt"] = false;
+
+        for (int index = 0; index < 3; ++index) {
+            j["array"][index] = std::to_string(index);
+        }
+
+        qDebug() << "json = " << j.dump();
+
+    }
+
     return app.exec();
 }
