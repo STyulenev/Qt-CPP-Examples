@@ -1,0 +1,6 @@
+[requires]
+cpp-jwt/1.5
+
+[generators]
+CMakeDeps
+CMakeToolchain
