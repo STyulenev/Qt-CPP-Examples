@@ -1,0 +1,7 @@
+[requires]
+jwt-cpp/0.7.1
+nlohmann_json/3.12.0
+
+[generators]
+CMakeDeps
+CMakeToolchain
