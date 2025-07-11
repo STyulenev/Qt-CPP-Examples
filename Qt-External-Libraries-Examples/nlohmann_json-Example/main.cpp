@@ -78,7 +78,25 @@ auto main(int argc, char *argv[]) -> int
         }
 
         qDebug() << "json = " << j.dump();
+    }
 
+    // Удаление полей
+    {
+        json array = R"([
+            {"id": 1, "name": "Иван"},
+            {"id": 2, "name": "Марья"},
+            {"id": 3, "name": "Сергей"}
+        ])"_json;
+
+        const std::string key_to_remove = "name";
+
+        for (auto it = array.begin(); it != array.end(); ++it) {
+            if ((*it).is_object()) {
+                (*it).erase(key_to_remove);
+            }
+        }
+
+        qDebug() << "json = " << array.dump();
     }
 
     return app.exec();
