@@ -1,0 +1,6 @@
+[requires]
+log4cplus/2.1.2
+
+[generators]
+CMakeDeps
+CMakeToolchain
