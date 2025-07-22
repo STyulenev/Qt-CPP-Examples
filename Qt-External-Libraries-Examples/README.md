@@ -64,6 +64,10 @@
 
 Пример использования утилиты include-what-you-use для поиска неиспользуемых заголовочных файлов.
 
+## jwt-cpp-Example
+
+Пример использования библиотеки jwt-cpp для работы с токенами jwt.
+
 ## libcpr-Example
 
 Пример использования библиотеки libcpr для создание http клиента (get/post/delete запросы).
@@ -75,6 +79,10 @@
 ## LimeReport-Example
 
 Пример использования библиотеки генерации отчётов Lime Report.
+
+## log4cplus-Example
+
+Пример использования библиотеки log4cplus для логирования.
 
 ## MySql-Example (libmysql)
 
