@@ -26,9 +26,9 @@ typedef log4cplus::helpers::SharedObjectPtr<log4cplus::ConsoleAppender> SharedCo
 
 #ifndef LOG_INFO
 #define LOG_INFO(text)\
-do {\
-        LOG4CPLUS_INFO(Settings::_logger, LOG4CPLUS_TEXT(text));\
-} while(false)
+    do {\
+            LOG4CPLUS_INFO(Settings::_logger, LOG4CPLUS_TEXT(text));\
+    } while(false)
 #endif
 
 namespace Settings {

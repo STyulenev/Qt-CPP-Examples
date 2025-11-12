@@ -45,6 +45,7 @@ make
 | Conan         | 2.0.11               |
 | MinGW         | 11.2 64 bit          |
 | log4cplus     | 2.1.2                |
+| libsqlite     | 3.47.0               |
 
 Тестировалось на ОС Windows 11 22H2
 

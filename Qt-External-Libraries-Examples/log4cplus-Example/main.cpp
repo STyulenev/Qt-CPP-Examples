@@ -13,13 +13,14 @@ auto main(int argc, char* argv[]) -> int
     config.configure();
 
     // Установка логирования
-    if (!Settings::Logger::instance()->initialization()) {
+    if (!Settings::Logger::instance()->initialization())
+    {
         return -1;
     }
 
-    LOG_WARN("Warning");
-    LOG_ERROR("Eror");
-    LOG_INFO("Information");
+    LOG_WARN("This is Warning log");
+    LOG_ERROR("This is Erorr log");
+    LOG_INFO("This is Information log");
 
     return app.exec();
 }

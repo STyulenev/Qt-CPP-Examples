@@ -14,6 +14,7 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 
 find_package(log4cplus 2.1.2 REQUIRED)
+find_package(SQLite3 3.47.0 REQUIRED)
 
 file(GLOB settings-src "include/*.h" "./*.cpp")
 
@@ -27,6 +28,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Core
 
     log4cplus::log4cplus
+    SQLite::SQLite3
 )
 
 set_target_properties(${PROJECT_NAME}
