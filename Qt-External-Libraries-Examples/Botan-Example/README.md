@@ -1,10 +1,10 @@
-# log4cplus-Example
+# Botan-Example
 
 ## Описание
 
-Пример использования библиотеки log4cplus для логирования.
+Пример использования библиотеки Botan для создания сертификатов X509.
 
-[Ссылка на библиотеку log4cplus](https://github.com/log4cplus/log4cplus "log4cplus")
+[Ссылка на библиотеку Botan](https://github.com/randombit/botan "Botan")
 
 ## Сборка проекта
 
@@ -44,8 +44,7 @@ make
 | CMake         | 3.24.2               |
 | Conan         | 2.0.11               |
 | MinGW         | 11.2 64 bit          |
-| log4cplus     | 2.1.2                |
-| libsqlite     | 3.47.0               |
+| Botan         | 2.19.5               |
 
 Тестировалось на ОС Windows 11 22H2
 

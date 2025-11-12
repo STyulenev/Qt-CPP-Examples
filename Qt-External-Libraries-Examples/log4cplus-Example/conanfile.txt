@@ -1,5 +1,6 @@
 [requires]
 log4cplus/2.1.2
+sqlite3/3.47.0
 
 [generators]
 CMakeDeps
