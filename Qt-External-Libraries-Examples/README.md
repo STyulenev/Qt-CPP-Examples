@@ -80,6 +80,10 @@
 
 Пример использования библиотеки libpqxx для взаимодействия с базами данных PostgreSQL.
 
+## libxlsxwriter-Example
+
+Пример использования библиотеки libxlsxwriter для создания excel таблиц.
+
 ## LimeReport-Example
 
 Пример использования библиотеки генерации отчётов Lime Report.
