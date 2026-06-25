@@ -1,0 +1,6 @@
+[requires]
+libharu/2.4.6
+
+[generators]
+CMakeDeps
+CMakeToolchain
