@@ -24,19 +24,15 @@ public:
     WebServer();
     ~WebServer();
 
-    bool IsInitialized();
-    bool Initialize();
-    void Start();
-    void Stop();
+    bool isInitialized();
+    bool initialize();
+    bool reInitialize();
 
-    bool ReInitialize();
-
-    REGISTER_WEB_FRIENDS()
+    void start();
+    void stop();
 
 private:
-
     pplx::task<void> open();
-
     pplx::task<void> close();
     
     void handle_get(web::http::http_request _message);
@@ -52,4 +48,4 @@ private:
 
 };
 
-}
+} // namespace app::site

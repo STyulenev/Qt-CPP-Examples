@@ -25,12 +25,12 @@ WebServer::~WebServer()
     }
 }
 
-bool WebServer::IsInitialized()
+bool WebServer::isInitialized()
 {
     return m_bInitialized;
 }
 
-bool WebServer::Initialize()
+bool WebServer::initialize()
 {
     try
     {
@@ -62,10 +62,10 @@ bool WebServer::Initialize()
     return m_bInitialized;
 }
 
-void  WebServer::Start()
+void WebServer::start()
 {
 
-    if (IsInitialized())
+    if (isInitialized())
     {
         open().wait();
         m_WorkFlag = true;
@@ -76,9 +76,9 @@ void  WebServer::Start()
     }
 }
 
-void WebServer::Stop()
+void WebServer::stop()
 {
-    if (IsInitialized() && m_WorkFlag)
+    if (isInitialized() && m_WorkFlag)
     {
         m_WorkFlag = false;
         //нужно завершить все входящие запросы так как они выполняются асинхронно
@@ -95,18 +95,18 @@ void WebServer::Stop()
     }
 }
 
-bool WebServer::ReInitialize()
+bool WebServer::reInitialize()
 {
     try
     {
-        if (IsInitialized())
+        if (isInitialized())
         {
-            Stop();
+            stop();
         }
 
-        if (Initialize())
+        if (initialize())
         {
-            Start();
+            start();
             return true;
         }
         else
@@ -124,7 +124,7 @@ bool WebServer::ReInitialize()
 
 pplx::task<void> WebServer::open()
 {
-    if (!IsInitialized())
+    if (!isInitialized())
     {
         throw std::runtime_error("webserver error");
     }
@@ -134,7 +134,7 @@ pplx::task<void> WebServer::open()
 
 pplx::task<void> WebServer::close()
 {
-    if (!IsInitialized())
+    if (!isInitialized())
     {
         throw std::runtime_error("webserver error");
     }
@@ -155,12 +155,16 @@ void WebServer::handle_get(web::http::http_request _message)
             if (paths.front() == U("test"))
             {
                 paths.erase(paths.begin());
-                handlers::Test test(std::move(paths), _message, *this);
+                handlers::Test test(std::move(paths), _message);
             }
             else
             {
                 throw std::runtime_error("webserver error");
             }
+        }
+        else
+        {
+            throw std::runtime_error("webserver error");
         }
     }
     catch (...)
@@ -190,12 +194,16 @@ void WebServer::handle_post(web::http::http_request _message)
             if (paths.front() == U("test"))
             {
                 paths.erase(paths.begin());
-                handlers::Test test(std::move(paths), _message, *this);
+                handlers::Test test(std::move(paths), _message);
             }
             else
             {
                 throw std::runtime_error("webserver error");
             }
+        }
+        else
+        {
+            throw std::runtime_error("webserver error");
         }
     }
     catch (...)

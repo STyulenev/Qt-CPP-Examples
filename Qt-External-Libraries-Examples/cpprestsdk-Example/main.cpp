@@ -8,14 +8,15 @@ int main(int argc, char *argv[])
 
     app::site::WebServer webServer;
 
-    webServer.Initialize();
+    if (webServer.initialize())
+    {
+        webServer.start();
+    }
 
-    if (!webServer.IsInitialized())
+    if (!webServer.isInitialized())
     {
         return -1;
     }
-
-    webServer.Start();
 
     return a.exec();
 }

@@ -8,7 +8,6 @@
 namespace app::site
 {
     using path_vect = std::vector<utility::string_t>;
-    class WebServer;
 } // namespace app::site
 
 class Reply
@@ -28,9 +27,6 @@ public:
         _message.reply(response);
     }
 
-protected:
-    app::site::WebServer* m_pWebServer{ nullptr };
-
 };
 
 #ifndef CREATE_WEB_HANDLER
@@ -39,7 +35,7 @@ class handler_class_name : public Reply\
 {\
 public:\
     handler_class_name() = delete;\
-    handler_class_name(path_vect&& _path, web::http::http_request& _message,  WebServer& _rWebServer);\
+    handler_class_name(path_vect&& _path, web::http::http_request& _message);\
     void handle_request(web::http::http_request& _message);\
 };
 #endif
@@ -50,31 +46,3 @@ namespace app::site::handlers
     CREATE_WEB_HANDLER(Test_GET)
     CREATE_WEB_HANDLER(Test_POST)
 } // namespace app::site::handlers
-
-namespace app::site
-{
-
-#ifndef REGISTER_WEB_FRIENDS
-#define REGISTER_WEB_FRIENDS()\
-    friend handlers::Test;\
-    friend handlers::Test_GET;\
-    friend handlers::Test_POST;
-    // ...
-#endif
-
-#ifndef CASE_WEB_HANDLER
-#define CASE_WEB_HANDLER(enumerate, type, path, ponter)\
-case  handlers::T##enumerate::type:\
-{\
-    handlers::type( std::move(path_vect(std::next(std::begin(std::forward<path_vect>(path))), std::end(std::forward<path_vect>(path)))), _message, ponter);\
-    return;\
-}
-#endif
-
-#ifndef CALL_WEB_HANDLER
-#define CALL_WEB_HANDLER(type, path, ponter)\
-handlers::type( std::forward<path_vect>(path), _message, ponter);\
-    return;
-#endif
-
-} // namespace app::site

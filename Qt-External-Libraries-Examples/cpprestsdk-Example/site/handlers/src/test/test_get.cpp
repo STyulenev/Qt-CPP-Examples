@@ -1,13 +1,10 @@
 #include "site/handlers/handlers.h"
-#include "site/web_server.h"
 
 namespace app::site::handlers
 {
 
-Test_GET::Test_GET(path_vect&& _path, web::http::http_request& _message, WebServer& _rWebServer)
+Test_GET::Test_GET(path_vect&& _path, web::http::http_request& _message)
 {
-    m_pWebServer = &_rWebServer;
-
     if (!_path.empty())
     {
         throw std::runtime_error("unknown handler");
@@ -27,4 +24,4 @@ void Test_GET::handle_request(web::http::http_request& _message)
     reply(_message, response_header, web::http::status_codes::OK, result);
 }
 
-}
+} // namespace app::site::handlers
