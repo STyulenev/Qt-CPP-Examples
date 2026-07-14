@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qml/Common/Consts.qml</file>
+        <file>qml/Common/qmldir</file>
+        <file>qml/Components/qmldir</file>
+        <file>qml/Components/CustomSplitView.qml</file>
+    </qresource>
+</RCC>
