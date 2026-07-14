@@ -4,6 +4,8 @@
 
 Примеры использования SplitView компонента в QML.
 
+![alt text](doc/QML-SplitView-Example.gif)
+
 QML компоненты:
 - SplitView (пример стандартного компонента);
 - CustomSplitView (пример пользовательского компонента);
