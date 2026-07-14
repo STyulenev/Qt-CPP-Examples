@@ -102,6 +102,10 @@
 
 Пример использования Repeater в QML.
 
+# QML-SplitView-Example
+
+Примеры использования SplitView компонента в QML.
+
 ## QML-StackView-Example
 
 Пример использования StackView в QML.
