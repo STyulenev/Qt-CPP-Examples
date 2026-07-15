@@ -1,0 +1,6 @@
+[requires]
+andreasbuhr-cppcoro/cci.20230629
+
+[generators]
+CMakeDeps
+CMakeToolchain
