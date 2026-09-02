@@ -3,6 +3,8 @@ import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
 
 import Common 1.0 as CommonData
+import Navigation 1.0 as Navigation
+import Screens 1.0 as Screens
 
 ApplicationWindow {
     id: mainWindow
@@ -29,6 +31,24 @@ ApplicationWindow {
             text: contentFrame.currentItem.screenName ? contentFrame.currentItem.screenName : ""
         }
     }
+
+    /*
+    Component {
+        id: myItem
+        Screens.SplashScreen {
+            anchors.fill: parent
+        }
+    }
+
+    Navigation.StackView {
+        id: contentFrame
+
+        anchors.fill: parent
+
+        Component.onCompleted: {
+            contentFrame.push(myItem);
+        }
+    }*/
 
     StackView {
         id: contentFrame

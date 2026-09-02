@@ -21,7 +21,7 @@ Forms.BaseForm {
             target: printButton
 
             function onClicked() {
-                formTwoScreen.clickedPrintLog()
+                formTwoScreen.clickedPrintLog();
             }
         }
     }

@@ -2,7 +2,7 @@ import QtQml 2.15
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 
-Item {
+Rectangle /* for Navigation.StackView, Item - for standart StackView */ {
     id: base
 
     property string screenName: "Screen"
