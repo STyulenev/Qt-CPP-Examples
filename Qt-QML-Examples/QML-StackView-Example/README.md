@@ -3,6 +3,8 @@
 ## Описание
 
 Пример использования StackView в QML.
+- Стандартный StackView;
+- Простой пользовательский StackView.
 
 ![alt text](doc/QML-StackView-Example.gif)
 

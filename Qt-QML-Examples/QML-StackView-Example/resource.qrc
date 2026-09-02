@@ -8,6 +8,9 @@
         <file>qml/Forms/BaseForm.qml</file>
         <file>qml/Forms/qmldir</file>
 
+        <file>qml/Navigation/StackView.qml</file>
+        <file>qml/Navigation/qmldir</file>
+
         <file>qml/Screens/qmldir</file>
         <file>qml/Screens/ScreenLoader.qml</file>
 

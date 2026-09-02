@@ -21,7 +21,7 @@ Forms.BaseForm {
             target: button
 
             function onClicked() {
-                formOneScreen.clickedTwoScreen()
+                formOneScreen.clickedTwoScreen();
             }
         }
     }

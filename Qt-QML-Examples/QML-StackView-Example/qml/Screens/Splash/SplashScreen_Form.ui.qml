@@ -27,7 +27,7 @@ Forms.BaseForm {
                 target: buttonService
 
                 function onClicked() {
-                    formSplashScreen.clickedService()
+                    formSplashScreen.clickedService();
                 }
             }
         }
@@ -42,7 +42,7 @@ Forms.BaseForm {
                 target: buttonOther
 
                 function onClicked() {
-                    formSplashScreen.clickedOther()
+                    formSplashScreen.clickedOther();
                 }
             }
         }
