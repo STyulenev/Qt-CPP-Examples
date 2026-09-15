@@ -28,7 +28,8 @@ void do_session(tcp::socket socket)
         response.set(http::field::server, "Boost.Asio Example");
         response.set(http::field::content_type, "text/html");
 
-        switch (request.method()) {
+        switch (request.method())
+        {
         case http::verb::get:
             response.body() = "{\"status\": \"ok\"}";
             break;

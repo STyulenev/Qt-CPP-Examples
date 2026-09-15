@@ -3,6 +3,7 @@
 ## Примеры
 
 * Boost-Algorithms-Example - Примеры использования алгоритмов из библиотеки Boost
+* Boost-Asio-Example - Примеры сетевого программирования из библиотеки Boost
 * Boost-Containers-Example - Примеры использования контейнеров из библиотеки Boost
 * Boost-DataStructures-Example - Примеры использования структур данных из библиотеки Boost
 * Boost-FunctionalProgramming-Example - Примеры использования функциональных объектов из библиотеки Boost
@@ -43,3 +44,30 @@
 ```bash
 sudo apt-get install libboost-all-dev
 ```
+
+## Установка Boost через conan
+
+Пример conanfile.txt лежит в /Boost-Asio-Example. Или командами:
+1. Необходимо скачать и установить Conan.
+2. Создать профиль:
+
+```bash
+conan profile detect --force
+```
+
+3. Сгенерировать CMake файлы для поиска библиотек в папку build:
+
+```bash
+conan install . --output-folder=build --build=missing
+```
+
+> Если библиотек нет на локальной машине, Conan скачает их из conan-center и соберёт
+
+4. Собрать проект (cборку можно производить из QtCreator или из папки build командами):
+
+```bash
+cmake ..
+make
+```
+> Для debug - "cmake -DCMAKE_BUILD_TYPE=Debug ..", для release - "cmake -DCMAKE_BUILD_TYPE=Release .."
+
