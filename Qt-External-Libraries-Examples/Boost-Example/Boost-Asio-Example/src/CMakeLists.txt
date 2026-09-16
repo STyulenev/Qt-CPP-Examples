@@ -6,9 +6,13 @@ project(Source
     LANGUAGES CXX
 )
 
+# Сложный многопоточный tcp сервер + tcp клиент
+add_subdirectory(tcp-client-complex)
+add_subdirectory(tcp-server-complex)
+
 # Простой tcp сервер + простой tcp клиент
-add_subdirectory(tcp-client-simple)
-add_subdirectory(tcp-server-simple)
+#add_subdirectory(tcp-client-simple)
+#add_subdirectory(tcp-server-simple)
 
 # Сложный многопоточный udp сервер + udp клиент с ожиданием
 #add_subdirectory(udp-client-complex)

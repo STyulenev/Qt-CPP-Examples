@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(tcp-client-simple
+project(tcp-client-complex
     VERSION 0.1
-    DESCRIPTION "An example of creating a simple tcp client using Boost.Asio"
+    DESCRIPTION "An example of creating a complex tcp client using Boost.Asio"
     LANGUAGES CXX
 )
 
@@ -25,6 +25,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 
 if(WIN32)
     target_link_libraries(${PROJECT_NAME} PRIVATE ws2_32)
+    target_link_libraries(${PROJECT_NAME} PRIVATE mswsock)
 endif()
 
 set_target_properties(${PROJECT_NAME}

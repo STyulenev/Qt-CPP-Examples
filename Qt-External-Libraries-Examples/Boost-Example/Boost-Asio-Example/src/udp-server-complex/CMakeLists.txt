@@ -15,9 +15,9 @@ find_package(Boost 1.85 REQUIRED COMPONENTS ${BOOST_COMPONENTS} REQUIRED)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_BINARY_DIR})
 list(APPEND CMAKE_PREFIX_PATH ${CMAKE_CURRENT_BINARY_DIR})
 
-file(GLOB web-server-src "*.h" "*.cpp")
+file(GLOB udp-server-src "*.h" "*.cpp")
 
-add_executable(${PROJECT_NAME} ${web-server-src})
+add_executable(${PROJECT_NAME} ${udp-server-src})
 
 target_link_libraries(${PROJECT_NAME} PUBLIC 
     boost::boost
