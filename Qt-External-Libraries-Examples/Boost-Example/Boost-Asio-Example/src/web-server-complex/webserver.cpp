@@ -4,9 +4,9 @@
 #include <iostream>
 
 WebServer::WebServer(unsigned short port) :
-    io_context_(),
-    acceptor_(io_context_, tcp::endpoint(tcp::v4(), port)),
-    running_(false)
+    _io_context(),
+    _acceptor(_io_context, boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port)),
+    _is_running(false)
 {
     std::cout << "Server configured for port: " << port << "\n";
 }
@@ -18,65 +18,65 @@ WebServer::~WebServer()
 
 void WebServer::start()
 {
-    if (running_)
+    if (_is_running)
     {
         return;
     }
 
-    running_ = true;
+    _is_running = true;
 
     // Поток для io_context
-    io_thread_ = std::thread([this]() {
+    _io_thread = std::thread([this]() {
         // Эмулируем "работу", чтобы run() не завершился сразу
-        auto work_guard = asio::make_work_guard(io_context_);
+        auto work_guard = boost::asio::make_work_guard(_io_context);
 
         // Запускаем асинхронный приём
         start_accept();
 
         // run() будет блокироваться, пока есть работа
-        io_context_.run();
+        _io_context.run();
     });
 }
 
 void WebServer::stop()
 {
-    if (!running_)
+    if (!_is_running)
     {
         return;
     }
 
-    running_ = false;
+    _is_running = false;
 
-    io_context_.stop();
+    _io_context.stop();
 
-    if (io_thread_.joinable())
+    if (_io_thread.joinable())
     {
-        io_thread_.join();
+        _io_thread.join();
     }
 
-    for (auto& t : session_threads_)
+    for (auto& t : _session_threads)
     {
         if (t.joinable()) {
             t.join();
         }
     }
-    session_threads_.clear();
+    _session_threads.clear();
 
     std::cout << "Server stopped\n";
 }
 
 void WebServer::start_accept()
 {
-    acceptor_.async_accept(
-        [this](boost::system::error_code ec, tcp::socket socket) {
+    _acceptor.async_accept(
+        [this](boost::system::error_code ec, boost::asio::ip::tcp::socket socket) {
             if (!ec)
             {
-                session_threads_.emplace_back([socket = std::move(socket)]() mutable {
+                _session_threads.emplace_back([socket = std::move(socket)]() mutable {
                     Handlers(std::move(socket));
                 });
             }
 
-            if (running_)
+            if (_is_running)
             {
                 start_accept();
             }

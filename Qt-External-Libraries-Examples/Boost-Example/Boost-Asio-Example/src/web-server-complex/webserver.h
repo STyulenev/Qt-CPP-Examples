@@ -4,11 +4,6 @@
 #include <atomic>
 #include <thread>
 
-namespace asio = boost::asio;
-namespace beast = boost::beast;
-namespace http = beast::http;
-using tcp = asio::ip::tcp;
-
 class WebServer
 {
 public:
@@ -17,16 +12,18 @@ public:
     ~WebServer();
 
     void start();
-
     void stop();
 
 private:
     void start_accept();
 
-    asio::io_context io_context_;
-    tcp::acceptor acceptor_;
-    std::thread io_thread_;
-    std::atomic<bool> running_;
+private:
+    boost::asio::io_context        _io_context;
+    boost::asio::ip::tcp::acceptor _acceptor;
 
-    std::vector<std::thread> session_threads_;
+    std::thread       _io_thread;
+    std::atomic<bool> _is_running;
+
+    std::vector<std::thread> _session_threads;
+
 };

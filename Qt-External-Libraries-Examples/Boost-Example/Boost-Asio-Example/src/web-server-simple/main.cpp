@@ -1,49 +1,44 @@
 #include <boost/asio.hpp>
 #include <boost/beast.hpp>
+
 #include <iostream>
 #include <thread>
 
-namespace asio  = boost::asio;
-namespace beast = boost::beast;
-namespace http  = beast::http;
-
-using tcp = boost::asio::ip::tcp;
-
 // Обработчик одного HTTP-соединения
-void do_session(tcp::socket socket)
+void do_session(boost::asio::ip::tcp::socket socket)
 {
     try
     {
-        beast::flat_buffer buffer;
-        http::request<http::string_body> request;
+        boost::beast::flat_buffer buffer;
+        boost::beast::http::request<boost::beast::http::string_body> request;
 
         // Читаем HTTP-запрос
-        http::read(socket, buffer, request);
+        boost::beast::http::read(socket, buffer, request);
 
         // Формируем ответ
-        http::response<http::string_body> response{
-            http::status::ok, request.version()
+        boost::beast::http::response<boost::beast::http::string_body> response{
+            boost::beast::http::status::ok, request.version()
         };
 
-        response.set(http::field::server, "Boost.Asio Example");
-        response.set(http::field::content_type, "text/html");
+        response.set(boost::beast::http::field::server, "Boost.Asio Example");
+        response.set(boost::beast::http::field::content_type, "text/html");
 
         switch (request.method())
         {
-        case http::verb::get:
+        case boost::beast::http::verb::get:
             response.body() = "{\"status\": \"ok\"}";
             break;
-        case http::verb::post:
+        case boost::beast::http::verb::post:
             response.body() = "{\"status\": \"ok\"}";
             break;
-        case http::verb::put:
+        case boost::beast::http::verb::put:
             response.body() = "{\"status\": \"ok\"}";
             break;
-        case http::verb::delete_:
+        case boost::beast::http::verb::delete_:
             response.body() = "{\"status\": \"ok\"}";
             break;
         default:
-            response.result(http::status::method_not_allowed);
+            response.result(boost::beast::http::status::method_not_allowed);
             response.body() = "{\"status\": \"error\"}";
             break;
         }
@@ -51,15 +46,15 @@ void do_session(tcp::socket socket)
         response.prepare_payload();
 
         // Отправляем ответ
-        http::write(socket, response);
+        boost::beast::http::write(socket, response);
 
         // Корректно закрываем соединение
-        beast::error_code ec;
-        socket.shutdown(tcp::socket::shutdown_send, ec);
+        boost::beast::error_code ec;
+        socket.shutdown(boost::asio::ip::tcp::socket::shutdown_send, ec);
     }
     catch (const std::exception& error)
     {
-        std::cerr << "Error: " << error.what() << std::endl;
+        std::cerr << "Error: " << error.what() << "\n";
     }
     catch (...)
     {
@@ -71,18 +66,18 @@ int main()
 {
     try
     {
-        const auto address = asio::ip::make_address("0.0.0.0");
-        const auto port = static_cast<unsigned short>(8080);
+        const auto address = boost::asio::ip::make_address("0.0.0.0");
+        const unsigned short port = 8080;
 
-        asio::io_context ioc{1};
-        tcp::acceptor acceptor{ioc, {address, port}};
+        boost::asio::io_context ioc{1};
+        boost::asio::ip::tcp::acceptor acceptor{ioc, {address, port}};
 
         std::cout << "Server running on http://localhost:8080\n";
 
         for (;;)
         {
             // Принимаем входящее соединение
-            tcp::socket socket{ioc};
+            boost::asio::ip::tcp::socket socket{ioc};
             acceptor.accept(socket);
 
             // Обрабатываем соединение в отдельном потоке
@@ -91,7 +86,7 @@ int main()
     }
     catch (const std::exception& error)
     {
-        std::cerr << "Fatal error: " << error.what() << std::endl;
+        std::cerr << "Fatal error: " << error.what() << "\n";
         return 1;
     }
     catch (...)

@@ -1,7 +1,6 @@
-#include <iostream>
 #include <boost/asio.hpp>
 
-using boost::asio::ip::udp;
+#include <iostream>
 
 enum
 {
@@ -15,11 +14,11 @@ int main(int argc, char* argv[])
         boost::asio::io_context io_context;
 
         // Сокет клиента 8081, сервера 8080
-        udp::socket s(io_context, udp::endpoint(udp::v4(), 8081));
+        boost::asio::ip::udp::socket s(io_context, boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), 8081));
 
-        // Заполняем данные для отправки
-        udp::resolver resolver(io_context);
-        udp::endpoint endpoint = *resolver.resolve(udp::v4(), "localhost", "8080").begin();
+        // Заполняем данные для отправки на GET http://localhost:8080
+        boost::asio::ip::udp::resolver resolver(io_context);
+        boost::asio::ip::udp::endpoint endpoint = *resolver.resolve(boost::asio::ip::udp::v4(), "localhost", "8080").begin();
 
         std::cout << "Enter message: ";
         char request[max_length];
@@ -31,7 +30,7 @@ int main(int argc, char* argv[])
 
         // Ждём ответ
         char reply[max_length];
-        udp::endpoint sender_endpoint;
+        boost::asio::ip::udp::endpoint sender_endpoint;
         size_t reply_length = s.receive_from(boost::asio::buffer(reply, max_length), sender_endpoint);
 
         std::cout << "Reply is: ";

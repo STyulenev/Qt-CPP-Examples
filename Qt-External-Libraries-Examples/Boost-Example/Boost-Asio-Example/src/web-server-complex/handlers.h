@@ -3,15 +3,10 @@
 #include <boost/asio.hpp>
 #include <boost/beast.hpp>
 
-namespace asio = boost::asio;
-namespace beast = boost::beast;
-namespace http = beast::http;
-using tcp = asio::ip::tcp;
-
 class Handlers
 {
 public:
-    Handlers(tcp::socket&& socket);
+    Handlers(boost::asio::ip::tcp::socket&& socket);
 
 private:
     void process();
@@ -20,8 +15,8 @@ private:
     void post();
 
 private:
-    tcp::socket                       _socket;
-    http::request<http::string_body>  _request;
-    http::response<http::string_body> _response;
+    boost::asio::ip::tcp::socket                                  _socket;
+    boost::beast::http::request<boost::beast::http::string_body>  _request;
+    boost::beast::http::response<boost::beast::http::string_body> _response;
 
 };

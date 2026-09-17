@@ -26,8 +26,8 @@ project(Source
 #add_subdirectory(web-server-complex)
 
 # Простой web сервер
-#add_subdirectory(web-server-simple)
+add_subdirectory(web-server-simple)
 
 # Простой websocket сервер + простой websocket клиент
-add_subdirectory(websocket-client-simple)
-add_subdirectory(websocket-server-simple) # Ninja может не собрать main.cpp (из-за большого файла), рекомендуется выбрать сборку минимального размера
+#add_subdirectory(websocket-client-simple)
+#add_subdirectory(websocket-server-simple) # Ninja может не собрать main.cpp (из-за большого файла), рекомендуется выбрать сборку минимального размера

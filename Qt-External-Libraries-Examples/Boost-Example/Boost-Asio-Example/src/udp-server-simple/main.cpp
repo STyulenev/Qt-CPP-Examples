@@ -1,7 +1,6 @@
-#include <iostream>
 #include <boost/asio.hpp>
 
-using boost::asio::ip::udp;
+#include <iostream>
 
 enum
 {
@@ -11,12 +10,12 @@ enum
 void server(boost::asio::io_context& io_context, unsigned short port)
 {
     // Создаём простой блокирующий сокет для сервера: localhost:8080
-    udp::socket sock(io_context, udp::endpoint(udp::v4(), port));
+    boost::asio::ip::udp::socket sock(io_context, boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), port));
 
     for (;;)
     {
         char data[max_length];
-        udp::endpoint sender_endpoint;
+        boost::asio::ip::udp::endpoint sender_endpoint;
 
         // Блокирующее получение данных. sender_endpoint заполнится адресом клиента.
         size_t length = sock.receive_from(boost::asio::buffer(data, max_length), sender_endpoint);
