@@ -7,8 +7,8 @@ project(Source
 )
 
 # Сложный многопоточный tcp сервер + tcp клиент
-add_subdirectory(tcp-client-complex)
-add_subdirectory(tcp-server-complex)
+#add_subdirectory(tcp-client-complex)
+#add_subdirectory(tcp-server-complex)
 
 # Простой tcp сервер + простой tcp клиент
 #add_subdirectory(tcp-client-simple)
@@ -27,3 +27,7 @@ add_subdirectory(tcp-server-complex)
 
 # Простой web сервер
 #add_subdirectory(web-server-simple)
+
+# Простой websocket сервер + простой websocket клиент
+add_subdirectory(websocket-client-simple)
+add_subdirectory(websocket-server-simple) # Ninja может не собрать main.cpp (из-за большого файла), рекомендуется выбрать сборку минимального размера
